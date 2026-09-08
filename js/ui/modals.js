@@ -1890,14 +1890,14 @@ window.openAddCatalogModal = function(type) {
     }
 
     window.selectSupportItem = function(subType, itemId) {
-      const level = document.getElementById('catalog-level-select').value;
+      const level = document.getElementById('catalog-level-select')?.value || 'Lv 1';
       if (subType === 'drone') {
         const d = MASTER_DRONES.find(item => item.id === itemId);
         if (d) {
           if (!AppState.reserveDrones) AppState.reserveDrones = [];
           const ex = AppState.reserveDrones.find(x => x.id === itemId);
           if (ex) ex.count = (ex.count || 1) + 1;
-          else AppState.reserveDrones.push({ id: d.id, name: d.name, level, tier: d.tier, role: d.role, desc: d.desc, count: 1 });
+          else AppState.reserveDrones.push({ id: d.id, name: d.name, level: level || 'Lv 12', tier: d.tier, role: d.role, desc: d.desc, count: 1 });
         }
       } else if (subType === 'pilot') {
         const p = MASTER_PILOTS.find(item => item.id === itemId);
@@ -1905,7 +1905,7 @@ window.openAddCatalogModal = function(type) {
           if (!AppState.reservePilots) AppState.reservePilots = [];
           const ex = AppState.reservePilots.find(x => x.id === itemId && x.level === level);
           if (ex) ex.count = (ex.count || 1) + 1;
-          else AppState.reservePilots.push({ id: p.id, name: p.name, bot: p.bot, level, tier: p.tier, skill: p.skill, skills: getDefaultPilotSkills("Brawler"), count: 1 });
+          else AppState.reservePilots.push({ id: p.id, name: p.name, bot: p.bot, level: level || 'Lv 1', tier: p.tier, skill: p.skill, skills: typeof getDefaultPilotSkills === 'function' ? getDefaultPilotSkills("Brawler") : [], count: 1 });
         }
       } else if (subType === 'mothership') {
         const m = MASTER_MOTHERSHIPS.find(item => item.id === itemId);
@@ -1913,18 +1913,20 @@ window.openAddCatalogModal = function(type) {
           if (!AppState.reserveMotherships) AppState.reserveMotherships = [];
           const ex = AppState.reserveMotherships.find(x => x.id === itemId);
           if (ex) ex.count = (ex.count || 1) + 1;
-          else AppState.reserveMotherships.push({ id: m.id, name: m.name, level, tier: m.tier, effect: m.effect, count: 1 });
+          else AppState.reserveMotherships.push({ id: m.id, name: m.name, level: level || 'Lv 60', tier: m.tier, effect: m.effect, count: 1 });
         }
       }
       saveState();
       closeModal('catalog-modal');
+      if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
+      if (typeof renderAll === 'function') renderAll();
     };
 
     window.equipDroneDirect = function(droneId, level, fromInventory) {
       if (!activeEquipTarget) return;
       const md = MASTER_DRONES.find(d => d.id === droneId);
       if (!md) return;
-      const slot = AppState.hangars[activeEquipTarget.hangarKey].slots[activeEquipTarget.slotIndex];
+      const slot = AppState.hangars[activeEquipTarget.hangarKey]?.slots[activeEquipTarget.slotIndex];
       if (!slot) return;
 
       if (slot.drone) {
@@ -1945,10 +1947,13 @@ window.openAddCatalogModal = function(type) {
       slot.drone = { id: md.id, name: md.name, level: level || "Lv 12", tier: md.tier || "T4" };
       saveState();
       closeModal('catalog-modal');
+      closeModal('drone-config-modal');
+      if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
+      if (typeof renderAll === 'function') renderAll();
     };
 
     window.unequipDrone = function(hangarKey, slotIndex) {
-      const slot = AppState.hangars[hangarKey].slots[slotIndex];
+      const slot = AppState.hangars[hangarKey]?.slots[slotIndex];
       if (!slot || !slot.drone) return;
       const d = slot.drone;
       if (!AppState.reserveDrones) AppState.reserveDrones = [];
@@ -1957,16 +1962,21 @@ window.openAddCatalogModal = function(type) {
       else AppState.reserveDrones.push({ id: d.id, name: d.name, level: d.level, tier: d.tier, role: d.role, count: 1 });
       delete slot.drone;
       saveState();
+      if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
+      if (typeof renderAll === 'function') renderAll();
     };
 
     window.selectCatalogItem = function(itemId) {
-      const level = document.getElementById('catalog-level-select').value;
+      const level = document.getElementById('catalog-level-select')?.value || 'Lv 1';
+      if (!AppState.reserveRobots) AppState.reserveRobots = [];
+      if (!AppState.reserveTitans) AppState.reserveTitans = [];
+      if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
+
       if (activeCatalogType === 'robot') {
         const master = MASTER_ROBOTS.find(r => r.id === itemId);
         AppState.reserveRobots.push({ robotId: itemId, level, tier: master ? master.tier : "T4" });
       } else if (activeCatalogType === 'titan') {
         const master = MASTER_TITANS.find(t => t.id === itemId);
-        if (!AppState.reserveTitans) AppState.reserveTitans = [];
         AppState.reserveTitans.push({ titanId: itemId, level, tier: master ? master.tier : "T4" });
       } else if (activeCatalogType === 'titan_slot' && activeEquipTarget) {
         const master = MASTER_TITANS.find(t => t.id === itemId);
@@ -1994,24 +2004,30 @@ window.openAddCatalogModal = function(type) {
       }
       saveState();
       closeModal('catalog-modal');
+      if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
+      if (typeof renderAll === 'function') renderAll();
     };
 
     window.addBotToStorageDirect = function(botId) {
       const master = MASTER_ROBOTS.find(r => r.id === botId);
+      if (!AppState.reserveRobots) AppState.reserveRobots = [];
       AppState.reserveRobots.push({ robotId: botId, level: "Lv 1", tier: master ? master.tier : "T4" });
       saveState();
-      alert(`Added ${master.name} (Lv 1) to your storage!`);
+      if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
+      alert(`Added ${master ? master.name : botId} (Lv 1) to your storage!`);
     };
 
     window.addWeaponToStorageDirect = function(weaponId) {
       const master = MASTER_WEAPONS.find(w => w.id === weaponId);
       if (master) {
         const cat = master.size.toLowerCase();
+        if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
         if (!AppState.reserveWeapons[cat]) AppState.reserveWeapons[cat] = [];
         const existing = AppState.reserveWeapons[cat].find(w => w.id === weaponId && w.level === "Lv 1");
         if (existing) existing.count++;
         else AppState.reserveWeapons[cat].push({ id: weaponId, name: master.name, tier: master.tier, level: "Lv 1", count: 1 });
         saveState();
+        if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
         alert(`Added ${master.name} (${master.size}) to your arsenal!`);
       }
     };
@@ -2028,6 +2044,7 @@ window.openAddCatalogModal = function(type) {
 
         if (current && current.id) {
           const cat = current.size.toLowerCase();
+          if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
           if (!AppState.reserveWeapons[cat]) AppState.reserveWeapons[cat] = [];
           const ex = AppState.reserveWeapons[cat].find(w => w.id === current.id && w.level === current.level);
           if (ex) ex.count++;
@@ -2036,7 +2053,7 @@ window.openAddCatalogModal = function(type) {
 
         if (fromInventory) {
           const cat = master.size.toLowerCase();
-          if (AppState.reserveWeapons[cat]) {
+          if (AppState.reserveWeapons && AppState.reserveWeapons[cat]) {
             const idx = AppState.reserveWeapons[cat].findIndex(w => w.id === weaponId && w.level === level);
             if (idx !== -1) {
               if (AppState.reserveWeapons[cat][idx].count > 1) AppState.reserveWeapons[cat][idx].count--;
@@ -2048,6 +2065,7 @@ window.openAddCatalogModal = function(type) {
         titanSlot.weapons[activeEquipTarget.hardpointIndex] = { id: master.id, name: master.name, size: master.size, level, tier: master.tier };
         saveState();
         closeModal('weapon-picker-modal');
+        if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
         return;
       }
 
@@ -2056,6 +2074,7 @@ window.openAddCatalogModal = function(type) {
 
       if (current && current.id) {
         const cat = current.size.toLowerCase();
+        if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
         if (!AppState.reserveWeapons[cat]) AppState.reserveWeapons[cat] = [];
         const ex = AppState.reserveWeapons[cat].find(w => w.id === current.id && w.level === current.level);
         if (ex) ex.count++;
@@ -2064,7 +2083,7 @@ window.openAddCatalogModal = function(type) {
 
       if (fromInventory) {
         const cat = master.size.toLowerCase();
-        if (AppState.reserveWeapons[cat]) {
+        if (AppState.reserveWeapons && AppState.reserveWeapons[cat]) {
           const idx = AppState.reserveWeapons[cat].findIndex(w => w.id === weaponId && w.level === level);
           if (idx !== -1) {
             if (AppState.reserveWeapons[cat][idx].count > 1) AppState.reserveWeapons[cat][idx].count--;
@@ -2076,30 +2095,38 @@ window.openAddCatalogModal = function(type) {
       slot.weapons[activeEquipTarget.hardpointIndex] = { id: master.id, name: master.name, size: master.size, level, tier: master.tier };
       saveState();
       closeModal('weapon-picker-modal');
+      if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
     };
 
     window.unequipWeapon = function(hangarKey, slotIndex, hardpointIndex) {
-      const slot = AppState.hangars[hangarKey].slots[slotIndex];
+      const slot = AppState.hangars[hangarKey]?.slots[slotIndex];
+      if (!slot || !slot.weapons) return;
       const w = slot.weapons[hardpointIndex];
       if (w && w.id) {
         const cat = w.size.toLowerCase();
+        if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
         if (!AppState.reserveWeapons[cat]) AppState.reserveWeapons[cat] = [];
         const ex = AppState.reserveWeapons[cat].find(item => item.id === w.id && item.level === w.level);
         if (ex) ex.count++;
         else AppState.reserveWeapons[cat].push({ id: w.id, name: w.name, tier: w.tier, level: w.level, count: 1 });
         slot.weapons[hardpointIndex] = null;
         saveState();
+        if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
       }
     };
 
     window.unequipRobot = function(hangarKey, slotIndex) {
-      const slot = AppState.hangars[hangarKey].slots[slotIndex];
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar || !hangar.slots) return;
+      const slot = hangar.slots[slotIndex];
       if (!slot || !slot.robotId) return;
 
       const master = MASTER_ROBOTS.find(r => r.id === slot.robotId);
+      if (!AppState.reserveRobots) AppState.reserveRobots = [];
       AppState.reserveRobots.push({ robotId: slot.robotId, level: slot.level || "Lv 1", tier: master ? master.tier : "T4" });
 
       if (slot.weapons) {
+        if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
         slot.weapons.forEach(w => {
           if (w && w.id) {
             const cat = w.size.toLowerCase();
@@ -2111,8 +2138,18 @@ window.openAddCatalogModal = function(type) {
         });
       }
 
-      AppState.hangars[hangarKey].slots[slotIndex] = { robotId: null, level: "", weapons: [] };
+      if (slot.pilot) {
+        if (!AppState.reservePilots) AppState.reservePilots = [];
+        AppState.reservePilots.push(slot.pilot);
+      }
+      if (slot.drone) {
+        if (!AppState.reserveDrones) AppState.reserveDrones = [];
+        AppState.reserveDrones.push(slot.drone);
+      }
+
+      hangar.slots[slotIndex] = { robotId: null, level: "", weapons: [] };
       saveState();
+      if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
     };
 
     window.unequipTitan = function(hangarKey) {
@@ -2125,6 +2162,7 @@ window.openAddCatalogModal = function(type) {
       AppState.reserveTitans.push({ titanId: tSlot.titanId, level: tSlot.level || "Lv 15", tier: master ? master.tier : "T4" });
 
       if (tSlot.weapons) {
+        if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
         tSlot.weapons.forEach(w => {
           if (w && w.id) {
             const cat = w.size.toLowerCase();
@@ -2138,6 +2176,7 @@ window.openAddCatalogModal = function(type) {
 
       h.titanSlot = { titanId: null, level: "", weapons: [] };
       saveState();
+      if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
     };
 
     window.unequipTitanWeapon = function(hangarKey, hardpointIndex) {
@@ -2146,39 +2185,56 @@ window.openAddCatalogModal = function(type) {
       const w = h.titanSlot.weapons[hardpointIndex];
       if (w && w.id) {
         const cat = w.size.toLowerCase();
+        if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
         if (!AppState.reserveWeapons[cat]) AppState.reserveWeapons[cat] = [];
         const ex = AppState.reserveWeapons[cat].find(item => item.id === w.id && item.level === w.level);
         if (ex) ex.count++;
         else AppState.reserveWeapons[cat].push({ id: w.id, name: w.name, tier: w.tier, level: w.level, count: 1 });
         h.titanSlot.weapons[hardpointIndex] = null;
         saveState();
+        if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
       }
     };
 
     window.deployRobotDirectly = function(storageIndex) {
-      const r = AppState.reserveRobots[storageIndex];
+      const r = AppState.reserveRobots && AppState.reserveRobots[storageIndex];
       if (!r) return;
-      const emptyIdx = AppState.hangars.hangar1.slots.findIndex(s => !s || !s.robotId);
+      const targetHangarKey = (typeof currentActiveHangarKey !== 'undefined' && AppState.hangars[currentActiveHangarKey]) ? currentActiveHangarKey : Object.keys(AppState.hangars)[0];
+      const targetHangar = AppState.hangars[targetHangarKey];
+      if (!targetHangar) return;
+
+      const emptyIdx = (targetHangar.slots || []).findIndex(s => !s || !s.robotId);
       const targetSlot = emptyIdx !== -1 ? emptyIdx : 0;
       const master = MASTER_ROBOTS.find(mb => mb.id === r.robotId);
 
+      // If overwriting an existing bot in that slot, send old bot to storage
+      if (targetHangar.slots[targetSlot] && targetHangar.slots[targetSlot].robotId) {
+        window.unequipRobot(targetHangarKey, targetSlot);
+      }
+
       AppState.reserveRobots.splice(storageIndex, 1);
-      AppState.hangars.hangar1.slots[targetSlot] = {
+      targetHangar.slots[targetSlot] = {
         robotId: r.robotId,
-        level: r.level,
+        level: r.level || "Lv 1",
         weapons: (master ? master.hardpoints : [{ size: "Heavy" }]).map(() => null)
       };
 
       saveState();
-      switchTab('hangar1');
+      if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
+      switchActiveHangar(targetHangarKey);
+      switchTab('hangars');
     };
 
     window.removeRobotFromStorage = function(idx) {
-      AppState.reserveRobots.splice(idx, 1);
-      saveState();
+      if (AppState.reserveRobots) {
+        AppState.reserveRobots.splice(idx, 1);
+        saveState();
+        if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
+      }
     };
 
     window.deleteWeaponStorage = function(cat, weaponId, level) {
+      if (!AppState.reserveWeapons) return;
       const list = AppState.reserveWeapons[cat];
       if (!list) return;
       const idx = list.findIndex(w => w.id === weaponId && w.level === level);
@@ -2186,10 +2242,18 @@ window.openAddCatalogModal = function(type) {
         if (list[idx].count > 1) list[idx].count--;
         else list.splice(idx, 1);
         saveState();
+        if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
       }
     };
 
     window.equipRaptorPreset = function() {
+      if (!AppState.hangars.hangar2) {
+        AppState.hangars.hangar2 = {
+          id: "hangar2",
+          name: "Hangar 2: Specialized Strike Squad",
+          slots: [null, null, null, null, null]
+        };
+      }
       AppState.hangars.hangar2.slots[1] = {
         robotId: "raptor",
         level: "Lv 1",
@@ -2200,8 +2264,10 @@ window.openAddCatalogModal = function(type) {
         ]
       };
       saveState();
-      switchTab('hangar2');
+      switchActiveHangar('hangar2');
+      switchTab('hangars');
     };
+
 
     window.openExportModal = function() {
       const modal = document.getElementById('data-modal');

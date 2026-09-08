@@ -264,12 +264,24 @@ function renderTitanEncyclopedia() {
         </div>
       </div>
       <p class="text-xs text-gray-300 leading-relaxed italic">${t.ability}</p>
+
+      <div class="pt-2 border-t border-[#263040]">
+        <button onclick="addTitanToStorageDirect('${t.id}')" class="w-full py-1.5 text-xs font-bold rounded-lg bg-[#161f2e] hover:bg-amber-500 hover:text-black text-amber-300 border border-[#263040] transition-all">
+          ➕ Add Titan to Storage
+        </button>
+      </div>
     `;
     container.appendChild(card);
   });
 }
 
+window.renderWeaponEncyclopedia = renderWeaponEncyclopedia;
+window.renderTitanWeaponsEncyclopedia = renderTitanWeaponsEncyclopedia;
+window.renderRobotEncyclopedia = renderRobotEncyclopedia;
+window.renderTitanEncyclopedia = renderTitanEncyclopedia;
+
 function renderPersonalStorage() {
+
       // 1. Calculate & Update Badges
       const titanChassisCount = (AppState.reserveTitans || []).length;
       const alphaCount = (AppState.reserveWeapons.alpha || []).reduce((acc, w) => acc + (w.count || 1), 0);
@@ -534,12 +546,14 @@ function renderPersonalStorage() {
         }
       }
     }
+    window.renderPersonalStorage = renderPersonalStorage;
 
-    // --- STORAGE REMOVAL HANDLERS ---
+    // --- STORAGE REMOVAL & ADDITION HANDLERS ---
     window.removeTitanFromStorage = function(idx) {
       if (AppState.reserveTitans) {
         AppState.reserveTitans.splice(idx, 1);
         saveState();
+        renderPersonalStorage();
       }
     };
 
@@ -547,6 +561,7 @@ function renderPersonalStorage() {
       if (AppState.reserveDrones) {
         AppState.reserveDrones.splice(idx, 1);
         saveState();
+        renderPersonalStorage();
       }
     };
 
@@ -554,6 +569,7 @@ function renderPersonalStorage() {
       if (AppState.reservePilots) {
         AppState.reservePilots.splice(idx, 1);
         saveState();
+        renderPersonalStorage();
       }
     };
 
@@ -561,11 +577,22 @@ function renderPersonalStorage() {
       if (AppState.reserveMotherships) {
         AppState.reserveMotherships.splice(idx, 1);
         saveState();
+        renderPersonalStorage();
       }
+    };
+
+    window.addTitanToStorageDirect = function(titanId) {
+      const master = MASTER_TITANS.find(t => t.id === titanId);
+      if (!AppState.reserveTitans) AppState.reserveTitans = [];
+      AppState.reserveTitans.push({ titanId: titanId, level: "Lv 1", tier: master ? master.tier : "T4" });
+      saveState();
+      renderPersonalStorage();
+      alert(`Added Titan ${master ? master.name : titanId} (Lv 1) to your storage!`);
     };
 
     // --- SIBLING VARIANTS INSPECTOR (FOR REGULAR AND TITAN WEAPONS) ---
     window.inspectWeaponVariants = function(weaponId) {
+
       const weapon = MASTER_WEAPONS.find(w => w.id === weaponId);
       if (!weapon) return;
 

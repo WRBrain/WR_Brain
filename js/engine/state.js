@@ -366,5 +366,12 @@ let AppState = (function() {
           window.CommanderAuth.syncHangarToCloud();
         }
       } catch (e) {}
-      renderAll();
+      if (typeof window.renderAll === 'function') {
+        window.renderAll();
+      } else if (typeof renderAll === 'function') {
+        renderAll();
+      }
     }
+    window.saveState = saveState;
+    window.AppState = AppState;
+
