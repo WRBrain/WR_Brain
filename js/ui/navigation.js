@@ -47,12 +47,27 @@ let activeWeaponSizeTab = "ALL";
       });
 
       const target = document.getElementById(`view-${tabId}`);
-      if (target) target.classList.remove('hidden');
+      if (target) {
+        target.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
 
       const btn = document.getElementById(`tab-${tabId}`);
       if (btn) {
         btn.classList.add('bg-amber-500', 'text-black', 'shadow');
         btn.classList.remove('text-gray-400');
+        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+
+      // Sync Mobile Bottom Nav
+      document.querySelectorAll('.mobile-nav-item').forEach(mBtn => {
+        mBtn.classList.remove('active');
+        mBtn.classList.add('text-gray-400');
+      });
+      const mobileBtn = document.getElementById(`mnav-${tabId}`);
+      if (mobileBtn) {
+        mobileBtn.classList.add('active');
+        mobileBtn.classList.remove('text-gray-400');
       }
 
       if (tabId === 'home') renderHome();

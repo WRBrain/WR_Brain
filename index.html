@@ -26,19 +26,19 @@
     </div>
 
     <!-- Navigation Tabs -->
-    <nav class="flex flex-wrap items-center gap-1 bg-[#080c14] p-1 rounded-xl border border-[#263040]">
-      <button onclick="switchTab('home')" id="tab-home" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all bg-amber-500 text-black shadow">🏠 Home</button>
-      <button onclick="switchTab('hangar1')" id="tab-hangar1" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white">🛡️ Hangar 1</button>
-      <button onclick="switchTab('hangar2')" id="tab-hangar2" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white">⚔️ Hangar 2</button>
-      <button onclick="switchTab('analyzer')" id="tab-analyzer" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white flex items-center gap-1.5">
+    <nav class="nav-scroll-container flex items-center gap-1.5 bg-[#080c14]/90 p-1.5 rounded-xl border border-[#263040] max-w-full overflow-x-auto shadow-inner">
+      <button onclick="switchTab('home')" id="tab-home" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all bg-amber-500 text-black shadow shrink-0">🏠 Home</button>
+      <button onclick="switchTab('hangar1')" id="tab-hangar1" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🛡️ Hangar 1</button>
+      <button onclick="switchTab('hangar2')" id="tab-hangar2" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">⚔️ Hangar 2</button>
+      <button onclick="switchTab('analyzer')" id="tab-analyzer" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white flex items-center gap-1.5 shrink-0">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> WRBrain Audit
       </button>
-      <button onclick="switchTab('dpslab')" id="tab-dpslab" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white">💥 DPS Lab</button>
-      <button onclick="switchTab('catalog_weapons')" id="tab-catalog_weapons" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white">🔫 Weapons Arsenal</button>
-      <button onclick="switchTab('catalog_bots')" id="tab-catalog_bots" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white">🤖 All Robots</button>
-      <button onclick="switchTab('catalog_titans')" id="tab-catalog_titans" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white">👑 Titans & Titan Weapons</button>
-      <button onclick="switchTab('meta')" id="tab-meta" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white">🌟 Meta Builds</button>
-      <button onclick="switchTab('storage')" id="tab-storage" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white">📦 My Inventory</button>
+      <button onclick="switchTab('dpslab')" id="tab-dpslab" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">💥 DPS Lab</button>
+      <button onclick="switchTab('catalog_weapons')" id="tab-catalog_weapons" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🔫 Weapons Arsenal</button>
+      <button onclick="switchTab('catalog_bots')" id="tab-catalog_bots" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🤖 All Robots</button>
+      <button onclick="switchTab('catalog_titans')" id="tab-catalog_titans" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">👑 Titans & Titan Weapons</button>
+      <button onclick="switchTab('meta')" id="tab-meta" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🌟 Meta Builds</button>
+      <button onclick="switchTab('storage')" id="tab-storage" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">📦 My Inventory</button>
     </nav>
 
     <!-- Global Actions -->
@@ -1125,6 +1125,34 @@
       </div>
     </div>
   </div>
+
+  <!-- MOBILE BOTTOM APP DOCK (SMARTPHONE OPTIMIZED) -->
+  <nav class="mobile-bottom-nav">
+    <button onclick="switchTab('home')" id="mnav-home" class="mobile-nav-item active">
+      <span class="text-xl">🏠</span>
+      <span>Home</span>
+    </button>
+    <button onclick="switchTab('hangar1')" id="mnav-hangar1" class="mobile-nav-item">
+      <span class="text-xl">🛡️</span>
+      <span>Hangar 1</span>
+    </button>
+    <button onclick="switchTab('hangar2')" id="mnav-hangar2" class="mobile-nav-item">
+      <span class="text-xl">⚔️</span>
+      <span>Hangar 2</span>
+    </button>
+    <button onclick="switchTab('catalog_weapons')" id="mnav-catalog_weapons" class="mobile-nav-item">
+      <span class="text-xl">🔫</span>
+      <span>Arsenal</span>
+    </button>
+    <button onclick="switchTab('meta')" id="mnav-meta" class="mobile-nav-item">
+      <span class="text-xl">🌟</span>
+      <span>Meta</span>
+    </button>
+    <button onclick="openAuthModal('signin')" class="mobile-nav-item">
+      <span class="text-xl">🔒</span>
+      <span>Profile</span>
+    </button>
+  </nav>
 
   <!-- COMPLETE MASTER DATA ENCYCLOPEDIA (ROBOTS, TITANS, REGULAR WEAPONS, TITAN WEAPONS) -->
 
