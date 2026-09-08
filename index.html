@@ -43,6 +43,7 @@
 
     <!-- Global Actions -->
     <div class="flex items-center gap-2">
+      <div id="commander-auth-badge-container"></div>
       <a href="https://instagram.com/wrbrain.official" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-gradient-to-r from-pink-500/20 to-purple-500/20 hover:from-pink-500/30 hover:to-purple-500/30 text-pink-300 border border-pink-500/40 flex items-center gap-1.5 shadow transition-all" title="Follow Official Instagram @wrbrain.official">
         📸 <span class="hidden sm:inline">Instagram</span>
       </a>
@@ -1024,6 +1025,107 @@
     </div>
   </div>
 
+  <!-- SECURE COMMANDER AUTHENTICATION MODAL -->
+  <div id="auth-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-[#111620] border border-[#263040] rounded-2xl max-w-md w-full flex flex-col shadow-2xl overflow-hidden animate-in fade-in duration-200">
+      
+      <!-- Header with Tabs -->
+      <div class="p-5 border-b border-[#263040] bg-[#161f2e] flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-base">
+            🛡️
+          </div>
+          <div>
+            <h3 id="auth-modal-title" class="text-base font-bold text-white">Commander Sign In</h3>
+            <p class="text-[11px] text-gray-400">Secure Cloud Hangar & Profile Sync</p>
+          </div>
+        </div>
+        <button onclick="closeAuthModal()" class="text-gray-400 hover:text-white text-lg p-1">✕</button>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="p-3 bg-[#0a0e17] border-b border-[#263040] flex gap-2">
+        <button id="auth-tab-signin" onclick="toggleAuthTab('signin')" class="flex-1 py-2 text-xs font-bold rounded-lg bg-amber-500 text-black shadow transition-all">Sign In</button>
+        <button id="auth-tab-signup" onclick="toggleAuthTab('signup')" class="flex-1 py-2 text-xs font-bold rounded-lg text-gray-400 hover:text-white transition-all">Create Callsign</button>
+      </div>
+
+      <div class="p-6 space-y-4">
+        <!-- Error message box -->
+        <div id="auth-error-msg" class="p-3 bg-red-950/50 border border-red-800/60 rounded-xl text-xs text-red-300 font-semibold hidden"></div>
+
+        <!-- 1. SIGN IN FORM -->
+        <form id="auth-signin-form" onsubmit="submitSignIn(event)" class="space-y-4">
+          <div class="space-y-1.5">
+            <label class="text-[11px] font-bold text-gray-300 uppercase tracking-wider">Commander Email</label>
+            <input type="email" id="auth-signin-email" required placeholder="commander@domain.com" class="w-full px-3.5 py-2.5 bg-[#080c14] border border-[#263040] rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition-all font-mono">
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between">
+              <label class="text-[11px] font-bold text-gray-300 uppercase tracking-wider">Password</label>
+            </div>
+            <div class="relative">
+              <input type="password" id="auth-signin-pass" required placeholder="••••••••" class="w-full px-3.5 py-2.5 bg-[#080c14] border border-[#263040] rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition-all font-mono">
+              <button type="button" onclick="togglePasswordVisibility('auth-signin-pass', 'signin-eye-icon')" class="absolute right-3 top-2.5 text-xs text-gray-400 hover:text-white">
+                <span id="signin-eye-icon">👁️</span>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" id="auth-signin-submit" class="w-full py-2.5 text-xs font-bold rounded-xl bg-amber-500 hover:bg-amber-400 text-black shadow-lg shadow-amber-500/20 transition-all">
+            Sign In to Cloud Hangar
+          </button>
+        </form>
+
+        <!-- 2. SIGN UP FORM -->
+        <form id="auth-signup-form" onsubmit="submitSignUp(event)" class="space-y-4 hidden">
+          <div class="space-y-1.5">
+            <label class="text-[11px] font-bold text-gray-300 uppercase tracking-wider">Commander Callsign / In-Game Name</label>
+            <input type="text" id="auth-signup-callsign" required placeholder="e.g. ApexTitan" class="w-full px-3.5 py-2.5 bg-[#080c14] border border-[#263040] rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition-all font-mono">
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="text-[11px] font-bold text-gray-300 uppercase tracking-wider">Email Address</label>
+            <input type="email" id="auth-signup-email" required placeholder="commander@domain.com" class="w-full px-3.5 py-2.5 bg-[#080c14] border border-[#263040] rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition-all font-mono">
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="text-[11px] font-bold text-gray-300 uppercase tracking-wider">Create Secure Password</label>
+            <div class="relative">
+              <input type="password" id="auth-signup-pass" oninput="onPasswordInput(this.value)" required placeholder="Minimum 6 characters" class="w-full px-3.5 py-2.5 bg-[#080c14] border border-[#263040] rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition-all font-mono">
+              <button type="button" onclick="togglePasswordVisibility('auth-signup-pass', 'signup-eye-icon')" class="absolute right-3 top-2.5 text-xs text-gray-400 hover:text-white">
+                <span id="signup-eye-icon">👁️</span>
+              </button>
+            </div>
+            
+            <!-- Live Password Strength Bar -->
+            <div class="pt-1.5 space-y-1">
+              <div class="flex items-center justify-between text-[10px]">
+                <span class="text-gray-400">Security Rating:</span>
+                <span id="auth-password-strength-label" class="text-gray-400 font-bold">Empty</span>
+              </div>
+              <div class="w-full h-1.5 bg-[#1a2332] rounded-full overflow-hidden">
+                <div id="auth-password-strength-bar" class="h-full w-0 rounded-full transition-all duration-300"></div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" id="auth-signup-submit" class="w-full py-2.5 text-xs font-bold rounded-xl bg-amber-500 hover:bg-amber-400 text-black shadow-lg shadow-amber-500/20 transition-all">
+            Create Cloud Profile
+          </button>
+        </form>
+
+        <!-- Security & Free Cloud Guarantee Note -->
+        <div class="p-3 bg-[#080c14] border border-[#1e2638] rounded-xl text-[10px] text-gray-400 space-y-1">
+          <div class="flex items-center gap-1.5 text-gray-300 font-bold">
+            <span>🛡️ 100% Free & Cryptographically Secured</span>
+          </div>
+          <p class="leading-relaxed">All passwords are salted and hashed with PBKDF2/SHA-256 before storage. Free $0 cloud sync enabled.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- COMPLETE MASTER DATA ENCYCLOPEDIA (ROBOTS, TITANS, REGULAR WEAPONS, TITAN WEAPONS) -->
 
   <!-- DATA LAYER -->
@@ -1037,6 +1139,7 @@
   <!-- ENGINE & CALCULATION LAYER -->
   <script src="js/engine/scaling.js"></script>
   <script src="js/engine/state.js"></script>
+  <script src="js/engine/auth.js"></script>
   <script src="js/engine/synergyAudit.js"></script>
   <script src="js/engine/dpsCalculator.js"></script>
 
@@ -1045,8 +1148,10 @@
   <script src="js/ui/hangarRenderer.js"></script>
   <script src="js/ui/catalogRenderer.js"></script>
   <script src="js/ui/modals.js"></script>
+  <script src="js/ui/authRenderer.js"></script>
 
   <!-- APPLICATION BOOTSTRAP -->
   <script src="js/app.js"></script>
 </body>
 </html>
+
