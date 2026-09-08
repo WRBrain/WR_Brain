@@ -45,7 +45,7 @@
       </nav>
 
       <!-- RIGHT HEADER ACTIONS -->
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
         <div id="commander-auth-badge-container"></div>
 
         <!-- Desktop Action Utilities (Hidden on mobile) -->
@@ -68,7 +68,7 @@
         </div>
 
         <!-- Mobile Quick Tools Button -->
-        <button onclick="openMobileMenuModal()" class="sm:hidden px-3 py-1.5 rounded-xl bg-[#161f2e] text-amber-400 border border-amber-500/30 hover:bg-[#202c40] flex items-center justify-center font-bold text-xs gap-1" title="Quick Tools">
+        <button onclick="openMobileMenuModal()" class="sm:hidden px-2.5 py-1.5 rounded-xl bg-[#161f2e] text-amber-400 border border-amber-500/30 hover:bg-[#202c40] flex items-center justify-center font-bold text-xs gap-1" title="Quick Tools">
           ⚡ <span>Tools</span>
         </button>
       </div>
@@ -98,17 +98,17 @@
           <p class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl">
             Inspired by PokeBrain — the all-in-one platform to theorycraft robot loadouts, inspect Sibling Variant families across Heavy/Medium/Light & Alpha/Beta hardpoints, simulate battle damage with Nuclear Amplifiers, and optimize team synergy.
           </p>
-          <div class="flex flex-wrap items-center gap-3 pt-3">
-            <button onclick="switchTab('hangar1')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-black font-black text-sm shadow-lg shadow-amber-500/20 flex items-center gap-2 transition-all hover:scale-105 active:scale-95">
+          <div class="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5 sm:gap-3 pt-3">
+            <button onclick="switchTab('hangar1')" class="col-span-2 sm:col-span-1 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-black font-black text-xs sm:text-sm shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95">
               🛡️ Open Hangar Builder
             </button>
-            <button onclick="switchTab('analyzer')" class="px-5 py-2.5 rounded-xl bg-[#161f2e] hover:bg-[#202c40] text-gray-200 border border-[#263040] hover:border-amber-500/50 font-bold text-sm flex items-center gap-2 transition-all hover:scale-105 active:scale-95">
+            <button onclick="switchTab('analyzer')" class="px-3.5 sm:px-5 py-2.5 rounded-xl bg-[#161f2e] hover:bg-[#202c40] text-gray-200 border border-[#263040] hover:border-amber-500/50 font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all hover:scale-105 active:scale-95">
               🧠 Run Synergy Audit
             </button>
-            <button onclick="switchTab('dpslab')" class="px-4 py-2.5 rounded-xl bg-[#161f2e] hover:bg-[#202c40] text-amber-300 border border-[#263040] hover:border-amber-500/50 font-bold text-sm flex items-center gap-2 transition-all hover:scale-105 active:scale-95">
+            <button onclick="switchTab('dpslab')" class="px-3.5 sm:px-4 py-2.5 rounded-xl bg-[#161f2e] hover:bg-[#202c40] text-amber-300 border border-[#263040] hover:border-amber-500/50 font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all hover:scale-105 active:scale-95">
               💥 DPS Battle Lab
             </button>
-            <button onclick="switchTab('storage')" class="px-4 py-2.5 rounded-xl bg-[#161f2e] hover:bg-[#202c40] text-cyan-300 border border-[#263040] hover:border-cyan-500/50 font-bold text-sm flex items-center gap-2 transition-all hover:scale-105 active:scale-95">
+            <button onclick="switchTab('storage')" class="col-span-2 sm:col-span-1 px-4 py-2.5 rounded-xl bg-[#161f2e] hover:bg-[#202c40] text-cyan-300 border border-[#263040] hover:border-cyan-500/50 font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all hover:scale-105 active:scale-95">
               📦 My Inventory
             </button>
           </div>
@@ -117,7 +117,7 @@
 
       <!-- LIVE SQUAD SNAPSHOTS -->
       <div class="space-y-4">
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
           <h2 class="text-xl font-black text-white flex items-center gap-2">
             🛡️ Your Active Battle Squads
           </h2>
@@ -130,7 +130,7 @@
 
       <!-- CORE FEATURES NAVIGATION MATRIX (6 CARDS) -->
       <div class="space-y-4">
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
           <h2 class="text-xl font-black text-white flex items-center gap-2">
             ⚡ Platform Feature Matrix
           </h2>
@@ -312,13 +312,13 @@
 
     <!-- VIEW 1: HANGAR 1 -->
     <section id="view-hangar1" class="view-panel hidden space-y-6">
-      <div class="flex flex-wrap items-center justify-between gap-4 bg-[#111620] p-4 rounded-xl border border-[#263040]">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-[#111620] p-4 rounded-xl border border-[#263040]">
         <div>
-          <h2 class="text-xl font-black text-white flex items-center gap-2">🛡️ Hangar 1: Primary Assault Team</h2>
-          <p class="text-xs text-gray-400">👑 Titan Command Core + 5 Battle Robot Bays • Symmetrical S-Formation Layout</p>
+          <h2 class="text-lg sm:text-xl font-black text-white flex items-center gap-2">🛡️ Hangar 1: Primary Assault Team</h2>
+          <p class="text-xs text-gray-400">👑 Titan Command Core + 5 Battle Robot Bays • Symmetrical S-Formation</p>
         </div>
-        <div class="flex items-center gap-2.5">
-          <div id="h1-synergy-badge" class="px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-1.5">
+        <div class="flex flex-wrap items-center gap-2">
+          <div id="h1-synergy-badge" class="px-2.5 sm:px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-1.5">
             Synergy: Calculating...
           </div>
           <button onclick="openEquipTitanModal('hangar1')" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-red-600 hover:bg-red-500 text-white flex items-center gap-1 shadow">
@@ -334,13 +334,13 @@
 
     <!-- VIEW 2: HANGAR 2 -->
     <section id="view-hangar2" class="view-panel hidden space-y-6">
-      <div class="flex flex-wrap items-center justify-between gap-4 bg-[#111620] p-4 rounded-xl border border-[#263040]">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-[#111620] p-4 rounded-xl border border-[#263040]">
         <div>
-          <h2 class="text-xl font-black text-white flex items-center gap-2">⚔️ Hangar 2: Specialized Strike Squad</h2>
-          <p class="text-xs text-gray-400">👑 Titan Command Core + 5 Battle Robot Bays • Specialized Strike Layout</p>
+          <h2 class="text-lg sm:text-xl font-black text-white flex items-center gap-2">⚔️ Hangar 2: Specialized Strike Squad</h2>
+          <p class="text-xs text-gray-400">👑 Titan Command Core + 5 Battle Robot Bays • Strike Layout</p>
         </div>
-        <div class="flex items-center gap-2.5">
-          <div id="h2-synergy-badge" class="px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-1.5">
+        <div class="flex flex-wrap items-center gap-2">
+          <div id="h2-synergy-badge" class="px-2.5 sm:px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-1.5">
             Synergy: Calculating...
           </div>
           <button onclick="openEquipTitanModal('hangar2')" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-red-600 hover:bg-red-500 text-white flex items-center gap-1 shadow">

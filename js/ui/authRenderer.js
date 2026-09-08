@@ -218,25 +218,25 @@ window.renderCommanderHeaderBadge = function() {
   const user = CommanderAuth.getCurrentUser();
   if (user) {
     container.innerHTML = `
-      <div class="relative group">
-        <button class="px-3 py-1.5 text-xs font-bold rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/40 flex items-center gap-1.5 shadow transition-all">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>${user.avatar || '🤖'} ${user.callsign}</span>
-          <span class="text-[10px] text-gray-400">▾</span>
+      <div class="relative" id="commander-dropdown-wrapper">
+        <button onclick="toggleCommanderDropdown(event)" class="px-2.5 sm:px-3 py-1.5 text-xs font-bold rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/40 flex items-center gap-1.5 shadow transition-all max-w-[125px] sm:max-w-none">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+          <span class="truncate">${user.avatar || '🤖'} ${user.callsign}</span>
+          <span class="text-[10px] text-gray-400 shrink-0">▾</span>
         </button>
-        <div class="absolute right-0 top-full mt-2 w-56 bg-[#111620] border border-[#263040] rounded-xl shadow-2xl p-2 hidden group-hover:block space-y-1 z-50">
+        <div id="commander-dropdown-menu" class="hidden absolute right-0 top-full mt-2 w-56 bg-[#111620] border border-[#263040] rounded-xl shadow-2xl p-2 space-y-1 z-50">
           <div class="p-2 border-b border-[#263040] text-[11px]">
             <div class="font-bold text-white">${user.callsign}</div>
             <div class="text-gray-400 font-mono text-[10px] truncate">${user.email}</div>
             <div class="text-emerald-400 font-bold text-[9px] mt-0.5">☁️ Cloud Sync Active</div>
           </div>
-          <button onclick="openAuthModal('sync')" class="w-full text-left px-2.5 py-1.5 text-xs text-amber-300 hover:bg-[#1c2436] rounded-lg transition-all flex items-center gap-1.5 font-semibold">
+          <button onclick="closeCommanderDropdown(); openAuthModal('sync')" class="w-full text-left px-2.5 py-1.5 text-xs text-amber-300 hover:bg-[#1c2436] rounded-lg transition-all flex items-center gap-1.5 font-semibold">
             📱 Link to Phone / PC
           </button>
-          <button onclick="triggerManualCloudSync()" class="w-full text-left px-2.5 py-1.5 text-xs text-gray-200 hover:bg-[#1c2436] rounded-lg transition-all flex items-center gap-1.5">
+          <button onclick="closeCommanderDropdown(); triggerManualCloudSync()" class="w-full text-left px-2.5 py-1.5 text-xs text-gray-200 hover:bg-[#1c2436] rounded-lg transition-all flex items-center gap-1.5">
             🔄 Force Cloud Sync
           </button>
-          <button onclick="CommanderAuth.signOut()" class="w-full text-left px-2.5 py-1.5 text-xs text-red-400 hover:bg-red-500/20 rounded-lg transition-all flex items-center gap-1.5">
+          <button onclick="closeCommanderDropdown(); CommanderAuth.signOut()" class="w-full text-left px-2.5 py-1.5 text-xs text-red-400 hover:bg-red-500/20 rounded-lg transition-all flex items-center gap-1.5">
             🚪 Logout
           </button>
         </div>
@@ -244,12 +244,29 @@ window.renderCommanderHeaderBadge = function() {
     `;
   } else {
     container.innerHTML = `
-      <button onclick="openAuthModal('signin')" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/40 flex items-center gap-1.5 shadow transition-all">
-        🔒 Commander Login
+      <button onclick="openAuthModal('signin')" class="px-2.5 sm:px-3 py-1.5 text-xs font-bold rounded-lg bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/40 flex items-center gap-1.5 shadow transition-all whitespace-nowrap">
+        <span>🔒</span> <span class="hidden xs:inline">Commander </span>Login
       </button>
     `;
   }
 };
+
+window.toggleCommanderDropdown = function(event) {
+  if (event) event.stopPropagation();
+  const menu = document.getElementById('commander-dropdown-menu');
+  if (menu) menu.classList.toggle('hidden');
+};
+
+window.closeCommanderDropdown = function() {
+  const menu = document.getElementById('commander-dropdown-menu');
+  if (menu) menu.classList.add('hidden');
+};
+
+document.addEventListener('click', () => {
+  if (typeof window.closeCommanderDropdown === 'function') {
+    window.closeCommanderDropdown();
+  }
+});
 
 window.addEventListener('DOMContentLoaded', () => {
   renderCommanderHeaderBadge();

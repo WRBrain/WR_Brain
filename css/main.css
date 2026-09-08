@@ -208,7 +208,7 @@ input[type=range].level-slider-titan:active::-webkit-slider-thumb {
 
 @media (max-width: 768px) {
   body {
-    padding-bottom: 76px; /* Safe space for bottom nav */
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); /* Safe space for bottom nav */
   }
 
   .mobile-bottom-nav {
@@ -217,7 +217,8 @@ input[type=range].level-slider-titan:active::-webkit-slider-thumb {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 62px;
+    height: calc(60px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 4px);
     background: rgba(10, 14, 23, 0.96);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -225,7 +226,8 @@ input[type=range].level-slider-titan:active::-webkit-slider-thumb {
     z-index: 45;
     justify-content: space-around;
     align-items: center;
-    padding: 0 4px;
+    padding-left: 6px;
+    padding-right: 6px;
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.7);
   }
 
@@ -237,8 +239,8 @@ input[type=range].level-slider-titan:active::-webkit-slider-thumb {
     flex: 1;
     height: 100%;
     color: #94a3b8;
-    font-size: 10px;
-    font-weight: 600;
+    font-size: 10.5px;
+    font-weight: 700;
     transition: all 0.2s;
     gap: 2px;
   }
