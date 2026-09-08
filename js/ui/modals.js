@@ -38,89 +38,243 @@ window.openAddCatalogModal = function(type) {
     window.openEquipDroneModal = function(hangarKey, slotIndex) {
       activeCatalogType = "drone_slot";
       activeEquipTarget = { hangarKey, slotIndex };
-      const modal = document.getElementById('catalog-modal');
-      document.getElementById('catalog-modal-title').innerText = `🛸 Equip Drone to ${hangarKey.toUpperCase()} (Slot ${slotIndex + 1})`;
-      modal.classList.remove('hidden');
-      filterCatalogModal();
+      openDroneConfigModal(hangarKey, slotIndex);
     };
 
-    window.openEquipTitanWeaponModal = function(hangarKey, hardpointIndex, size) {
-      activeEquipTarget = { hangarKey, isTitan: true, hardpointIndex, size };
-      const modal = document.getElementById('weapon-picker-modal');
-      document.getElementById('picker-modal-title').innerText = `Equip Titan ${size} Weapon (Hardpoint ${hardpointIndex + 1})`;
+    // =========================================================================
+    // 1. WEAPON CONFIGURATION & ARMORY SYSTEM
+    // =========================================================================
+    let activeWeaponPickerTier = "ALL";
 
-      const listContainer = document.getElementById('picker-weapons-list');
-      listContainer.innerHTML = "";
-      const catKey = size.toLowerCase();
-      const storageWeapons = (AppState.reserveWeapons && AppState.reserveWeapons[catKey]) ? AppState.reserveWeapons[catKey] : [];
+    window.openWeaponConfigModal = function(hangarKey, slotIndex, hardpointIndex, isTitan = false) {
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar) return;
 
-      if (storageWeapons.length > 0) {
-        listContainer.innerHTML += `<div class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">From Your Titan Storage</div>`;
-        storageWeapons.forEach(w => {
-          const mw = MASTER_WEAPONS.find(item => item.id === w.id);
-          listContainer.innerHTML += `
-            <div class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#161f2e] border border-[#263040] rounded-xl text-xs transition-all">
-              <div>
-                <span class="font-bold text-white text-sm">${w.name}</span>
-                <span class="text-gray-400 ml-1">(${w.level || 'Lv 1'}) • x${w.count} Available</span>
-                <span class="text-blue-400 font-mono block text-[11px]">${mw ? `${mw.range}m • ${mw.family}` : ''}</span>
-              </div>
-              <div class="flex items-center gap-1.5">
-                ${mw ? `<button onclick="inspectWeaponVariants('${mw.id}')" class="text-amber-400 text-[11px] px-2 py-1 hover:underline">Variants</button>` : ''}
-                <button onclick="equipWeaponDirect('${w.id}', '${w.level}', true)" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-amber-500 hover:bg-amber-400 text-black shadow">
-                  Equip
-                </button>
-              </div>
-            </div>
-          `;
-        });
+      let size = "Heavy";
+      let equippedWeapon = null;
+      let targetName = "";
+
+      if (isTitan) {
+        const titanSlot = hangar.titanSlot;
+        const mt = titanSlot && titanSlot.titanId ? (MASTER_TITANS.find(t => t.id === titanSlot.titanId) || { hardpoints: [{ size: "Alpha" }, { size: "Beta" }, { size: "Beta" }] }) : { hardpoints: [{ size: "Alpha" }, { size: "Beta" }, { size: "Beta" }] };
+        const hp = mt.hardpoints[hardpointIndex] || { size: hardpointIndex === 0 ? "Alpha" : "Beta" };
+        size = hp.size;
+        equippedWeapon = titanSlot && titanSlot.weapons ? titanSlot.weapons[hardpointIndex] : null;
+        targetName = `Titan ${titanSlot?.titanId ? (MASTER_TITANS.find(t=>t.id===titanSlot.titanId)?.name || 'Titan') : 'Deck'}`;
+      } else {
+        const slot = hangar.slots[slotIndex];
+        const mb = slot && slot.robotId ? (MASTER_ROBOTS.find(r => r.id === slot.robotId) || { hardpoints: [{ size: "Heavy" }] }) : { hardpoints: [{ size: "Heavy" }] };
+        const hp = mb.hardpoints[hardpointIndex] || { size: "Heavy" };
+        size = hp.size;
+        equippedWeapon = slot && slot.weapons ? slot.weapons[hardpointIndex] : null;
+        targetName = `Bay 0${slotIndex + 1}: ${mb.name || 'Combat Bay'}`;
       }
 
-      listContainer.innerHTML += `<div class="text-xs font-bold text-gray-400 uppercase tracking-wider mt-4 mb-2">Or Spawn From Master Catalog</div>`;
-      const catalogWeapons = MASTER_WEAPONS.filter(w => w.size.toLowerCase() === size.toLowerCase());
-      catalogWeapons.forEach(mw => {
-        listContainer.innerHTML += `
-          <div class="flex items-center justify-between p-2.5 bg-[#080c14]/60 hover:bg-[#080c14] border border-[#263040] rounded-xl text-xs">
-            <div>
-              <span class="font-bold text-gray-200">${mw.name}</span>
-              <span class="text-[10px] text-gray-400 ml-1">(${mw.tier}) • ${mw.range}m</span>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <button onclick="inspectWeaponVariants('${mw.id}')" class="text-amber-400 text-[11px] px-2 py-1 hover:underline">Variants</button>
-              <button onclick="equipWeaponDirect('${mw.id}', 'Lv 1', false)" class="px-2.5 py-1 text-xs font-semibold rounded bg-[#161f2e] hover:bg-amber-500 hover:text-black text-gray-300">
-                Spawn & Equip
-              </button>
-            </div>
-          </div>
-        `;
-      });
+      activeEquipTarget = { hangarKey, slotIndex, hardpointIndex, isTitan, size };
 
-      modal.classList.remove('hidden');
+      // Set titles
+      document.getElementById('picker-modal-title').innerHTML = `🔫 ${size} Mount #${hardpointIndex + 1} • <span class="text-amber-400">${targetName}</span>`;
+      document.getElementById('picker-modal-subtitle').innerText = isTitan ? `Manage Titan ${size} Weapon Hardpoint & Upgrade Level` : `Manage ${size} Weapon Mount & Upgrade Level`;
+
+      // Render Current Weapon Card
+      renderCurrentWeaponCard(equippedWeapon, size, isTitan);
+
+      // Render Tier Filters
+      renderWeaponPickerTierFilters(isTitan);
+
+      // Render Weapons List
+      filterWeaponPickerModal();
+
+      document.getElementById('weapon-picker-modal').classList.remove('hidden');
     };
 
+    // Backward compatible aliases
     window.openEquipWeaponModal = function(hangarKey, slotIndex, hardpointIndex, size) {
-      activeEquipTarget = { hangarKey, slotIndex, hardpointIndex, size };
-      const modal = document.getElementById('weapon-picker-modal');
-      document.getElementById('picker-modal-title').innerText = `Equip ${size} Weapon (Slot ${slotIndex + 1}, Hardpoint ${hardpointIndex + 1})`;
+      window.openWeaponConfigModal(hangarKey, slotIndex, hardpointIndex, false);
+    };
+    window.openEquipTitanWeaponModal = function(hangarKey, hardpointIndex, size) {
+      window.openWeaponConfigModal(hangarKey, null, hardpointIndex, true);
+    };
 
-      const listContainer = document.getElementById('picker-weapons-list');
-      listContainer.innerHTML = "";
-      const storageWeapons = (AppState.reserveWeapons && AppState.reserveWeapons[size.toLowerCase()]) ? AppState.reserveWeapons[size.toLowerCase()] : [];
+    function renderCurrentWeaponCard(equippedWeapon, size, isTitan) {
+      const container = document.getElementById('picker-current-weapon-card');
+      if (!container) return;
 
-      if (storageWeapons.length > 0) {
-        listContainer.innerHTML += `<div class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">From Your Storage Arsenal</div>`;
-        storageWeapons.forEach(w => {
-          const mw = MASTER_WEAPONS.find(item => item.id === w.id);
-          listContainer.innerHTML += `
-            <div class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#161f2e] border border-[#263040] rounded-xl text-xs transition-all">
-              <div>
-                <span class="font-bold text-white text-sm">${w.name}</span>
-                <span class="text-gray-400 ml-1">(${w.level || 'Lv 1'}) • x${w.count} Available</span>
-                <span class="text-blue-400 font-mono block text-[11px]">${mw ? `${mw.range}m • ${mw.family}` : ''}</span>
+      if (equippedWeapon && equippedWeapon.id) {
+        const mw = MASTER_WEAPONS.find(w => w.id === equippedWeapon.id) || { name: equippedWeapon.name || equippedWeapon.id, tier: "T4", size, range: 500, burstDps: 20000, sustainedDps: 15000, reloadTime: "5s", family: "Arsenal" };
+        const multType = isTitan ? 'titan_weapon' : 'bot_or_weapon';
+        const curLevel = equippedWeapon.level || 'Lv 1';
+        const mult = getLevelMultiplier(curLevel, multType);
+        const burstDPS = Math.round((mw.burstDps || 0) * mult);
+        const cycleDPS = Math.round((mw.sustainedDps || 0) * mult);
+        const levelsArray = isTitan ? TITAN_WEAPON_LEVELS : BOT_LEVELS;
+
+        let levelOptionsHtml = levelsArray.map(lvl => `<option value="${lvl}" ${lvl === curLevel ? 'selected' : ''}>${lvl}</option>`).join('');
+
+        container.innerHTML = `
+          <div class="p-4 rounded-2xl bg-gradient-to-br from-[#0c121e] to-[#080c14] border border-amber-500/40 shadow-xl space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="badge-${(mw.tier||'t4').toLowerCase()} text-[10px] font-black px-2 py-0.5 rounded uppercase">${mw.tier}</span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded ${size === 'Heavy' || size === 'Alpha' ? 'bg-red-950 text-red-300 border border-red-800/40' : size === 'Medium' || size === 'Beta' ? 'bg-amber-950 text-amber-300 border border-amber-800/40' : 'bg-blue-950 text-blue-300 border border-blue-800/40'}">${size.toUpperCase()}</span>
+                <span class="text-xs font-bold text-gray-400">Currently Installed</span>
               </div>
               <div class="flex items-center gap-1.5">
-                ${mw ? `<button onclick="inspectWeaponVariants('${mw.id}')" class="text-amber-400 text-[11px] px-2 py-1 hover:underline">Variants</button>` : ''}
-                <button onclick="equipWeaponDirect('${w.id}', '${w.level}', true)" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-amber-500 hover:bg-amber-400 text-black shadow">
+                <button onclick="inspectWeaponVariants('${mw.id}')" class="text-xs text-amber-400 bg-amber-500/10 hover:bg-amber-500/25 px-2.5 py-1 rounded-lg border border-amber-500/30 font-bold transition-all flex items-center gap-1">
+                  🔗 Sibling Variants
+                </button>
+                <button onclick="unequipActiveWeapon()" class="text-xs text-red-400 hover:text-red-300 bg-red-950/30 hover:bg-red-950/60 px-2.5 py-1 rounded-lg border border-red-800/40 font-bold transition-all flex items-center gap-1">
+                  ✕ Unequip
+                </button>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-1">
+              <div>
+                <h4 class="text-xl font-black text-white">${mw.name}</h4>
+                <p class="text-xs text-gray-400 mt-0.5">${mw.family} Family • ${mw.range}m Optimal Range ${mw.status ? `• <span class="text-amber-300 font-semibold">${mw.status}</span>` : ''}</p>
+              </div>
+
+              <!-- LIVE LEVEL PICKER -->
+              <div class="flex items-center gap-2 bg-[#161f2e] p-1.5 px-3 rounded-xl border border-[#263040]">
+                <span class="text-xs font-bold text-gray-300 uppercase tracking-wider">Level:</span>
+                <select onchange="changeActiveWeaponLevel(this.value)" class="bg-[#080c14] text-amber-400 font-bold font-mono text-xs rounded-lg px-2.5 py-1 border border-amber-500/40 focus:outline-none cursor-pointer">
+                  ${levelOptionsHtml}
+                </select>
+              </div>
+            </div>
+
+            <!-- LIVE STATS GRID -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-[#263040]">
+              <div class="p-2 rounded-xl bg-[#080c14] border border-[#263040] text-center">
+                <span class="text-[10px] text-gray-400 uppercase font-bold block">Burst Output</span>
+                <span class="text-sm font-black text-red-400 font-mono">${burstDPS.toLocaleString()} DPS</span>
+              </div>
+              <div class="p-2 rounded-xl bg-[#080c14] border border-[#263040] text-center">
+                <span class="text-[10px] text-gray-400 uppercase font-bold block">Cycle Output</span>
+                <span class="text-sm font-black text-amber-400 font-mono">${cycleDPS.toLocaleString()} DPS</span>
+              </div>
+              <div class="p-2 rounded-xl bg-[#080c14] border border-[#263040] text-center">
+                <span class="text-[10px] text-gray-400 uppercase font-bold block">Range</span>
+                <span class="text-sm font-black text-blue-400 font-mono">${mw.range}m</span>
+              </div>
+              <div class="p-2 rounded-xl bg-[#080c14] border border-[#263040] text-center">
+                <span class="text-[10px] text-gray-400 uppercase font-bold block">Reload Cooldown</span>
+                <span class="text-sm font-black text-emerald-400 font-mono">${mw.reloadTime || '5s'}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-dashed border-[#263040] flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#161f2e] border border-[#263040] flex items-center justify-center text-lg">
+                🔫
+              </div>
+              <div>
+                <span class="font-bold text-gray-300 text-sm">Hardpoint Unoccupied (${size})</span>
+                <p class="text-[11px] text-gray-500">Select any weapon from your storage or the catalog below to equip.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    window.changeActiveWeaponLevel = function(newLevel) {
+      if (!activeEquipTarget) return;
+      const { hangarKey, slotIndex, hardpointIndex, isTitan } = activeEquipTarget;
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar) return;
+
+      if (isTitan) {
+        if (hangar.titanSlot && hangar.titanSlot.weapons && hangar.titanSlot.weapons[hardpointIndex]) {
+          hangar.titanSlot.weapons[hardpointIndex].level = newLevel;
+        }
+      } else {
+        if (hangar.slots && hangar.slots[slotIndex] && hangar.slots[slotIndex].weapons && hangar.slots[slotIndex].weapons[hardpointIndex]) {
+          hangar.slots[slotIndex].weapons[hardpointIndex].level = newLevel;
+        }
+      }
+
+      saveState();
+      renderHangar(hangarKey);
+
+      // Re-render current card in modal with updated stats
+      const equippedWeapon = isTitan ? hangar.titanSlot?.weapons[hardpointIndex] : hangar.slots[slotIndex]?.weapons[hardpointIndex];
+      renderCurrentWeaponCard(equippedWeapon, activeEquipTarget.size, isTitan);
+    };
+
+    window.unequipActiveWeapon = function() {
+      if (!activeEquipTarget) return;
+      const { hangarKey, slotIndex, hardpointIndex, isTitan } = activeEquipTarget;
+      if (isTitan) unequipTitanWeapon(hangarKey, hardpointIndex);
+      else unequipWeapon(hangarKey, slotIndex, hardpointIndex);
+
+      renderCurrentWeaponCard(null, activeEquipTarget.size, isTitan);
+      filterWeaponPickerModal();
+    };
+
+    function renderWeaponPickerTierFilters(isTitan) {
+      const container = document.getElementById('weapon-picker-tier-filters');
+      if (!container) return;
+      const tiers = isTitan ? ["ALL", "T4", "T3"] : ["ALL", "ULTIMATE", "T4", "T3", "T2", "T1"];
+      activeWeaponPickerTier = "ALL";
+
+      container.innerHTML = tiers.map(t => `
+        <button onclick="setWeaponPickerTier('${t}')" id="wp-tier-${t}" class="px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all ${t === 'ALL' ? 'bg-amber-500 text-black shadow font-black' : 'bg-[#080c14] text-gray-400 hover:text-white border border-[#263040]'}">
+          ${t}
+        </button>
+      `).join('');
+    }
+
+    window.setWeaponPickerTier = function(tier) {
+      activeWeaponPickerTier = tier;
+      document.querySelectorAll('#weapon-picker-tier-filters button').forEach(b => {
+        b.className = "px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all bg-[#080c14] text-gray-400 hover:text-white border border-[#263040]";
+      });
+      const activeBtn = document.getElementById(`wp-tier-${tier}`);
+      if (activeBtn) activeBtn.className = "px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all bg-amber-500 text-black shadow font-black";
+      filterWeaponPickerModal();
+    };
+
+    window.filterWeaponPickerModal = function() {
+      if (!activeEquipTarget) return;
+      const container = document.getElementById('picker-weapons-list');
+      const countBadge = document.getElementById('picker-weapon-count-badge');
+      if (!container) return;
+
+      const search = (document.getElementById('weapon-picker-search')?.value || '').toLowerCase();
+      const targetSize = activeEquipTarget.size.toLowerCase();
+      container.innerHTML = "";
+
+      // 1. From Storage
+      const storageWeapons = (AppState.reserveWeapons && AppState.reserveWeapons[targetSize]) ? AppState.reserveWeapons[targetSize] : [];
+      const filteredStorage = storageWeapons.filter(w => {
+        const matchesSearch = w.name.toLowerCase().includes(search);
+        const matchesTier = activeWeaponPickerTier === 'ALL' || (w.tier === activeWeaponPickerTier);
+        return matchesSearch && matchesTier;
+      });
+
+      if (filteredStorage.length > 0) {
+        container.innerHTML += `<div class="text-[11px] font-black text-amber-400 uppercase tracking-widest pt-1">📦 From Your Storage Inventory</div>`;
+        filteredStorage.forEach(w => {
+          const mw = MASTER_WEAPONS.find(item => item.id === w.id);
+          container.innerHTML += `
+            <div class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#161f2e] border border-[#263040] hover:border-amber-500/40 rounded-xl text-xs transition-all">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="badge-${(w.tier||'t4').toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${w.tier||'T4'}</span>
+                  <span class="font-bold text-white text-sm">${w.name}</span>
+                  <span class="text-amber-400 font-mono text-[11px]">(${w.level || 'Lv 1'})</span>
+                  <span class="text-gray-400 text-[10px]">x${w.count} Available</span>
+                </div>
+                <span class="text-gray-400 text-[11px] block mt-0.5">${mw ? `${mw.range}m • ${mw.family} • ${mw.burstDps.toLocaleString()} Base Burst` : ''}</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                ${mw ? `<button onclick="inspectWeaponVariants('${mw.id}')" class="text-[11px] text-amber-400 hover:underline px-2 py-1">Variants</button>` : ''}
+                <button onclick="equipWeaponDirect('${w.id}', '${w.level}', true)" class="px-3.5 py-1.5 text-xs font-black rounded-lg bg-amber-500 hover:bg-amber-400 text-black shadow transition-all hover:scale-105">
                   Equip
                 </button>
               </div>
@@ -129,26 +283,844 @@ window.openAddCatalogModal = function(type) {
         });
       }
 
-      listContainer.innerHTML += `<div class="text-xs font-bold text-gray-400 uppercase tracking-wider mt-4 mb-2">Or Spawn From Master Catalog</div>`;
-      const catalogWeapons = MASTER_WEAPONS.filter(w => w.size.toLowerCase() === size.toLowerCase());
-      catalogWeapons.forEach(mw => {
-        listContainer.innerHTML += `
-          <div class="flex items-center justify-between p-2.5 bg-[#080c14]/60 hover:bg-[#080c14] border border-[#263040] rounded-xl text-xs">
+      // 2. From Master Catalog
+      const allMatching = MASTER_WEAPONS.filter(w => w.size.toLowerCase() === targetSize);
+      const filteredCatalog = allMatching.filter(w => {
+        const matchesSearch = w.name.toLowerCase().includes(search) || (w.family && w.family.toLowerCase().includes(search));
+        const matchesTier = activeWeaponPickerTier === 'ALL' || (w.tier === activeWeaponPickerTier);
+        return matchesSearch && matchesTier;
+      });
+
+      if (countBadge) countBadge.innerText = `${filteredCatalog.length} Compatible Weapons`;
+
+      container.innerHTML += `<div class="text-[11px] font-black text-gray-400 uppercase tracking-widest pt-2">🔫 Complete WR Armory Codex</div>`;
+      filteredCatalog.forEach(mw => {
+        container.innerHTML += `
+          <div class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#131b29] border border-[#263040] hover:border-amber-500/40 rounded-xl text-xs transition-all">
             <div>
-              <span class="font-bold text-gray-200">${mw.name}</span>
-              <span class="text-[10px] text-gray-400 ml-1">(${mw.tier}) • ${mw.range}m</span>
+              <div class="flex items-center gap-2">
+                <span class="badge-${mw.tier.toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${mw.tier}</span>
+                <span class="font-bold text-white text-sm">${mw.name}</span>
+                <span class="text-blue-400 font-mono text-[11px]">${mw.range}m</span>
+              </div>
+              <span class="text-gray-400 text-[11px] block mt-0.5">${mw.family} • <strong class="text-red-400">${mw.burstDps.toLocaleString()} Burst DPS</strong> ${mw.status ? `• <span class="text-amber-300 font-semibold">${mw.status}</span>` : ''}</span>
             </div>
             <div class="flex items-center gap-1.5">
-              <button onclick="inspectWeaponVariants('${mw.id}')" class="text-amber-400 text-[11px] px-2 py-1 hover:underline">Variants</button>
-              <button onclick="equipWeaponDirect('${mw.id}', 'Lv 1', false)" class="px-2.5 py-1 text-xs font-semibold rounded bg-[#161f2e] hover:bg-amber-500 hover:text-black text-gray-300">
-                Spawn & Equip
+              <button onclick="inspectWeaponVariants('${mw.id}')" class="text-[11px] text-amber-400 hover:underline px-2 py-1">Variants</button>
+              <button onclick="equipWeaponDirect('${mw.id}', 'Lv 1', false)" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-[#161f2e] hover:bg-amber-500 hover:text-black text-gray-200 border border-[#263040] transition-all hover:scale-105">
+                Equip (Lv 1)
               </button>
             </div>
           </div>
         `;
       });
+    };
 
-      modal.classList.remove('hidden');
+    // =========================================================================
+    // 2. ROBOT BAY CONFIGURATION SYSTEM
+    // =========================================================================
+    let activeRobotConfigRole = "ALL";
+    let activeRobotConfigTarget = null;
+
+    window.openRobotConfigModal = function(hangarKey, slotIndex = 0) {
+      activeRobotConfigTarget = { hangarKey, slotIndex };
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar) return;
+      const slot = hangar.slots[slotIndex];
+
+      document.getElementById('robot-config-modal-title').innerHTML = `🤖 Bay 0${slotIndex + 1} • <span class="text-amber-400">${hangar.name.split(':')[0]}</span>`;
+      document.getElementById('robot-config-modal-subtitle').innerText = `Configure Robot Chassis, Upgrade Level (Lv 1 to MK3) or Deploy New Unit`;
+
+      renderCurrentRobotCard(slot, hangarKey, slotIndex);
+      renderRobotConfigRoleFilters();
+      filterRobotConfigModal();
+
+      document.getElementById('robot-config-modal').classList.remove('hidden');
+    };
+
+    // Alias for backward compatibility
+    window.openAddRobotModal = function(hangarKey, slotIndex = 0) {
+      window.openRobotConfigModal(hangarKey, slotIndex);
+    };
+
+    function renderCurrentRobotCard(slot, hangarKey, slotIndex) {
+      const container = document.getElementById('robot-config-current-card');
+      if (!container) return;
+
+      if (slot && slot.robotId) {
+        const mb = MASTER_ROBOTS.find(r => r.id === slot.robotId) || { name: slot.robotId, tier: "T4", role: "Brawler", faction: "SpaceTech", hp: 220000, speed: 50, ability: "Combat Overdrive", hardpoints: [] };
+        const curLevel = slot.level || 'Lv 1';
+        const mult = getLevelMultiplier(curLevel, 'bot_or_weapon');
+        const scaledHp = Math.round((mb.hp || 220000) * mult);
+        const hardpointsStr = (mb.hardpoints || []).map(h => `<span class="px-1.5 py-0.5 rounded text-[10px] font-bold ${h.size === 'Heavy' ? 'bg-red-950 text-red-300' : h.size === 'Medium' ? 'bg-amber-950 text-amber-300' : 'bg-blue-950 text-blue-300'}">${h.size}</span>`).join(' ');
+
+        let levelOptionsHtml = BOT_LEVELS.map(lvl => `<option value="${lvl}" ${lvl === curLevel ? 'selected' : ''}>${lvl}</option>`).join('');
+
+        container.innerHTML = `
+          <div class="p-4 rounded-2xl bg-gradient-to-br from-[#0c121e] to-[#080c14] border border-blue-500/40 shadow-xl space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="badge-${mb.tier.toLowerCase()} text-[10px] font-black px-2 py-0.5 rounded uppercase">${mb.tier}</span>
+                <span class="text-xs font-bold text-gray-400">Deployed in Bay 0${slotIndex + 1}</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                ${mb.seriesKey ? `<button onclick="inspectRobotSeries('${mb.id}')" class="text-xs text-amber-400 bg-amber-500/10 hover:bg-amber-500/25 px-2.5 py-1 rounded-lg border border-amber-500/30 font-bold transition-all">🧬 Series Family</button>` : ''}
+                <button onclick="unequipRobot('${hangarKey}', ${slotIndex}); closeModal('robot-config-modal');" class="text-xs text-red-400 hover:text-red-300 bg-red-950/30 hover:bg-red-950/60 px-2.5 py-1 rounded-lg border border-red-800/40 font-bold transition-all">
+                  📦 Send to Storage
+                </button>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-1">
+              <div>
+                <h4 class="text-2xl font-black text-white">${mb.name}</h4>
+                <p class="text-xs text-gray-400 mt-0.5">${mb.faction} • ${mb.role} • Speed: ${mb.speed} km/h</p>
+              </div>
+
+              <!-- LIVE LEVEL PICKER -->
+              <div class="flex items-center gap-2 bg-[#161f2e] p-1.5 px-3 rounded-xl border border-[#263040]">
+                <span class="text-xs font-bold text-gray-300 uppercase tracking-wider">Level:</span>
+                <select onchange="changeActiveRobotLevel(this.value)" class="bg-[#080c14] text-amber-400 font-bold font-mono text-xs rounded-lg px-2.5 py-1 border border-amber-500/40 focus:outline-none cursor-pointer">
+                  ${levelOptionsHtml}
+                </select>
+              </div>
+            </div>
+
+            <!-- STATS & ABILITY -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-[#263040]">
+              <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
+                <span class="text-[10px] text-gray-400 uppercase font-bold block">Durability HP</span>
+                <span class="text-sm font-black text-emerald-400 font-mono">${scaledHp.toLocaleString()} HP</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
+                <span class="text-[10px] text-gray-400 uppercase font-bold block">Hardpoint Mounts</span>
+                <div class="flex flex-wrap gap-1 mt-1">${hardpointsStr}</div>
+              </div>
+              <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
+                <span class="text-[10px] text-gray-400 uppercase font-bold block">Special Ability</span>
+                <span class="text-xs font-bold text-amber-300 truncate block mt-0.5">${mb.ability}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-dashed border-[#263040] flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#161f2e] border border-[#263040] flex items-center justify-center text-lg">
+                🤖
+              </div>
+              <div>
+                <span class="font-bold text-gray-300 text-sm">Bay 0${slotIndex + 1}: Unoccupied</span>
+                <p class="text-[11px] text-gray-500">Select any combat robot from the catalog below to deploy to this bay.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    window.changeActiveRobotLevel = function(newLevel) {
+      if (!activeRobotConfigTarget) return;
+      const { hangarKey, slotIndex } = activeRobotConfigTarget;
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar || !hangar.slots[slotIndex]) return;
+
+      hangar.slots[slotIndex].level = newLevel;
+      saveState();
+      renderHangar(hangarKey);
+      renderCurrentRobotCard(hangar.slots[slotIndex], hangarKey, slotIndex);
+    };
+
+    function renderRobotConfigRoleFilters() {
+      const container = document.getElementById('robot-config-role-filters');
+      if (!container) return;
+      const roles = ["ALL", "Brawler", "Tank", "Beacon Runner", "Sniper", "Support"];
+      activeRobotConfigRole = "ALL";
+
+      container.innerHTML = roles.map(r => `
+        <button onclick="setRobotConfigRole('${r}')" id="rc-role-${r}" class="px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all ${r === 'ALL' ? 'bg-amber-500 text-black shadow font-black' : 'bg-[#080c14] text-gray-400 hover:text-white border border-[#263040]'}">
+          ${r}
+        </button>
+      `).join('');
+    }
+
+    window.setRobotConfigRole = function(role) {
+      activeRobotConfigRole = role;
+      document.querySelectorAll('#robot-config-role-filters button').forEach(b => {
+        b.className = "px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all bg-[#080c14] text-gray-400 hover:text-white border border-[#263040]";
+      });
+      const activeBtn = document.getElementById(`rc-role-${role}`);
+      if (activeBtn) activeBtn.className = "px-2.5 py-1 text-[11px] font-bold rounded-lg transition-all bg-amber-500 text-black shadow font-black";
+      filterRobotConfigModal();
+    };
+
+    window.filterRobotConfigModal = function() {
+      if (!activeRobotConfigTarget) return;
+      const container = document.getElementById('robot-config-list');
+      const countBadge = document.getElementById('robot-config-count-badge');
+      if (!container) return;
+
+      const search = (document.getElementById('robot-config-search')?.value || '').toLowerCase();
+      container.innerHTML = "";
+
+      // 1. From Storage
+      const storageBots = AppState.reserveRobots || [];
+      const filteredStorage = storageBots.filter(r => {
+        const matchesSearch = r.name.toLowerCase().includes(search);
+        const matchesRole = activeRobotConfigRole === 'ALL' || (r.role === activeRobotConfigRole);
+        return matchesSearch && matchesRole;
+      });
+
+      if (filteredStorage.length > 0) {
+        container.innerHTML += `<div class="text-[11px] font-black text-amber-400 uppercase tracking-widest pt-1">📦 From Your Robot Reserve Storage</div>`;
+        filteredStorage.forEach(r => {
+          container.innerHTML += `
+            <div class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#161f2e] border border-[#263040] hover:border-amber-500/40 rounded-xl text-xs transition-all">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="badge-${(r.tier||'t4').toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${r.tier||'T4'}</span>
+                  <span class="font-bold text-white text-sm">${r.name}</span>
+                  <span class="text-amber-400 font-mono text-[11px]">(${r.level || 'Lv 1'})</span>
+                  <span class="text-gray-400 text-[10px]">x${r.count} in Storage</span>
+                </div>
+                <span class="text-gray-400 text-[11px] block mt-0.5">${r.role} • ${r.faction}</span>
+              </div>
+              <button onclick="deployRobotDirect('${r.id}', '${r.level}', true)" class="px-3.5 py-1.5 text-xs font-black rounded-lg bg-amber-500 hover:bg-amber-400 text-black shadow transition-all hover:scale-105">
+                Deploy
+              </button>
+            </div>
+          `;
+        });
+      }
+
+      // 2. From Master Catalog
+      const filteredCatalog = MASTER_ROBOTS.filter(r => {
+        const matchesSearch = r.name.toLowerCase().includes(search) || r.role.toLowerCase().includes(search) || r.faction.toLowerCase().includes(search);
+        const matchesRole = activeRobotConfigRole === 'ALL' || (r.role === activeRobotConfigRole);
+        return matchesSearch && matchesRole;
+      });
+
+      if (countBadge) countBadge.innerText = `${filteredCatalog.length} Robots Available`;
+
+      container.innerHTML += `<div class="text-[11px] font-black text-gray-400 uppercase tracking-widest pt-2">🤖 Complete War Robots Master Catalog</div>`;
+      filteredCatalog.forEach(r => {
+        container.innerHTML += `
+          <div class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#131b29] border border-[#263040] hover:border-amber-500/40 rounded-xl text-xs transition-all">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="badge-${r.tier.toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${r.tier}</span>
+                <span class="font-bold text-white text-sm">${r.name}</span>
+                <span class="text-emerald-400 font-mono text-[11px]">${r.hp.toLocaleString()} HP</span>
+              </div>
+              <span class="text-gray-400 text-[11px] block mt-0.5">${r.role} • ${r.faction} • ${r.hardpoints.map(h => h.size).join(" + ")}</span>
+            </div>
+            <button onclick="deployRobotDirect('${r.id}', 'Lv 1', false)" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-[#161f2e] hover:bg-amber-500 hover:text-black text-gray-200 border border-[#263040] transition-all hover:scale-105">
+              Deploy (Lv 1)
+            </button>
+          </div>
+        `;
+      });
+    };
+
+    window.deployRobotDirect = function(robotId, level, fromStorage) {
+      if (!activeRobotConfigTarget) return;
+      const { hangarKey, slotIndex } = activeRobotConfigTarget;
+      const mb = MASTER_ROBOTS.find(r => r.id === robotId);
+      if (!mb) return;
+
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar) return;
+
+      const oldSlot = hangar.slots[slotIndex];
+      if (oldSlot && oldSlot.robotId) {
+        if (!AppState.reserveRobots) AppState.reserveRobots = [];
+        const ex = AppState.reserveRobots.find(x => x.id === oldSlot.robotId && x.level === oldSlot.level);
+        if (ex) ex.count = (ex.count || 1) + 1;
+        else AppState.reserveRobots.push({ id: oldSlot.robotId, name: MASTER_ROBOTS.find(r=>r.id===oldSlot.robotId)?.name || oldSlot.robotId, level: oldSlot.level || 'Lv 1', tier: MASTER_ROBOTS.find(r=>r.id===oldSlot.robotId)?.tier || 'T4', role: MASTER_ROBOTS.find(r=>r.id===oldSlot.robotId)?.role || 'Brawler', count: 1 });
+      }
+
+      if (fromStorage && AppState.reserveRobots) {
+        const idx = AppState.reserveRobots.findIndex(r => r.id === robotId && r.level === level);
+        if (idx !== -1) {
+          if (AppState.reserveRobots[idx].count > 1) AppState.reserveRobots[idx].count--;
+          else AppState.reserveRobots.splice(idx, 1);
+        }
+      }
+
+      // Populate default empty weapon slots matching robot hardpoints
+      const weapons = (mb.hardpoints || []).map(hp => {
+        const mw = MASTER_WEAPONS.find(w => w.size.toLowerCase() === hp.size.toLowerCase());
+        return mw ? { id: mw.id, size: hp.size, level: "Lv 1" } : null;
+      });
+
+      hangar.slots[slotIndex] = {
+        robotId: mb.id,
+        level: level || "Lv 1",
+        weapons,
+        drone: oldSlot?.drone || null,
+        pilot: oldSlot?.pilot || null
+      };
+
+      saveState();
+      closeModal('robot-config-modal');
+      renderHangar(hangarKey);
+    };
+
+    // =========================================================================
+    // 3. PILOT CONFIGURATION SYSTEM
+    // =========================================================================
+    let activePilotConfigTarget = null;
+
+    window.openPilotConfigModal = function(hangarKey, slotIndex) {
+      activePilotConfigTarget = { hangarKey, slotIndex };
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar) return;
+      const slot = hangar.slots[slotIndex];
+
+      document.getElementById('pilot-config-modal-title').innerHTML = `🧑‍✈️ Bay 0${slotIndex + 1} • <span class="text-purple-400">Legendary Pilot Command</span>`;
+      document.getElementById('pilot-config-modal-subtitle').innerText = `Assign Legendary Pilot, Level Up, and Fine-Tune 7 Combat Synergy Skills`;
+
+      renderCurrentPilotCard(slot, hangarKey, slotIndex);
+      filterPilotConfigModal();
+
+      document.getElementById('pilot-config-modal').classList.remove('hidden');
+    };
+
+    function renderCurrentPilotCard(slot, hangarKey, slotIndex) {
+      const container = document.getElementById('pilot-config-current-card');
+      if (!container) return;
+
+      if (slot && slot.pilot && slot.pilot.name) {
+        const p = slot.pilot;
+        const mp = MASTER_PILOTS.find(item => item.id === p.id) || { name: p.name, skill: p.skill || "Combat Specialist", bot: p.bot || "All Robots" };
+        const curLevel = p.level || 'Lv 1';
+        const skillsCount = (p.skills || []).length;
+
+        let levelOptionsHtml = PILOT_LEVELS.map(lvl => `<option value="${lvl}" ${lvl === curLevel ? 'selected' : ''}>${lvl}</option>`).join('');
+
+        container.innerHTML = `
+          <div class="p-4 rounded-2xl bg-gradient-to-br from-[#180f2b] to-[#080c14] border border-purple-500/40 shadow-xl space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="badge-t4 text-[10px] font-black px-2 py-0.5 rounded uppercase">LEGENDARY PILOT</span>
+                <span class="text-xs font-bold text-gray-400">Assigned to Bay 0${slotIndex + 1}</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <button onclick="closeModal('pilot-config-modal'); openPilotSkillsModal('${hangarKey}', ${slotIndex});" class="text-xs text-purple-300 bg-purple-900/40 hover:bg-purple-900/80 px-3 py-1 rounded-lg border border-purple-500/40 font-bold transition-all flex items-center gap-1">
+                  ✨ Configure 7 Skills (${skillsCount}/7)
+                </button>
+                <button onclick="unequipPilot('${hangarKey}', ${slotIndex}); renderCurrentPilotCard(null, '${hangarKey}', ${slotIndex});" class="text-xs text-red-400 hover:text-red-300 bg-red-950/30 hover:bg-red-950/60 px-2.5 py-1 rounded-lg border border-red-800/40 font-bold transition-all">
+                  ✕ Unequip
+                </button>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-1">
+              <div>
+                <h4 class="text-2xl font-black text-white">🧑‍✈️ ${p.name}</h4>
+                <p class="text-xs text-purple-200 mt-0.5">Synergy Specialty: <strong>${mp.bot}</strong></p>
+              </div>
+
+              <!-- LIVE LEVEL PICKER -->
+              <div class="flex items-center gap-2 bg-[#161f2e] p-1.5 px-3 rounded-xl border border-[#263040]">
+                <span class="text-xs font-bold text-gray-300 uppercase tracking-wider">Level:</span>
+                <select onchange="changeActivePilotLevel(this.value)" class="bg-[#080c14] text-purple-300 font-bold font-mono text-xs rounded-lg px-2.5 py-1 border border-purple-500/40 focus:outline-none cursor-pointer">
+                  ${levelOptionsHtml}
+                </select>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl bg-[#080c14] border border-purple-500/30 text-xs">
+              <span class="text-[10px] text-purple-400 uppercase font-bold block">Innate Legendary Ability</span>
+              <p class="text-purple-100 text-xs mt-0.5 leading-relaxed font-medium">⚡ ${mp.skill}</p>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-dashed border-[#263040] flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#161f2e] border border-[#263040] flex items-center justify-center text-lg">
+                🧑‍✈️
+              </div>
+              <div>
+                <span class="font-bold text-gray-300 text-sm">No Legendary Pilot Assigned</span>
+                <p class="text-[11px] text-gray-500">Select a Legendary Pilot from the catalog below to unlock specialized combat perks.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    window.changeActivePilotLevel = function(newLevel) {
+      if (!activePilotConfigTarget) return;
+      const { hangarKey, slotIndex } = activePilotConfigTarget;
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar || !hangar.slots[slotIndex] || !hangar.slots[slotIndex].pilot) return;
+
+      hangar.slots[slotIndex].pilot.level = newLevel;
+      saveState();
+      renderHangar(hangarKey);
+      renderCurrentPilotCard(hangar.slots[slotIndex], hangarKey, slotIndex);
+    };
+
+    window.filterPilotConfigModal = function() {
+      if (!activePilotConfigTarget) return;
+      const container = document.getElementById('pilot-config-list');
+      const countBadge = document.getElementById('pilot-config-count-badge');
+      if (!container) return;
+
+      const search = (document.getElementById('pilot-config-search')?.value || '').toLowerCase();
+      const filtered = MASTER_PILOTS.filter(p => p.name.toLowerCase().includes(search) || p.bot.toLowerCase().includes(search) || p.skill.toLowerCase().includes(search));
+
+      if (countBadge) countBadge.innerText = `${filtered.length} Pilots Available`;
+      container.innerHTML = "";
+
+      filtered.forEach(p => {
+        container.innerHTML += `
+          <div class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#161426] border border-[#263040] hover:border-purple-500/40 rounded-xl text-xs transition-all">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="badge-t4 text-[9px] font-black px-1.5 py-0.2 rounded uppercase">PILOT</span>
+                <span class="font-bold text-white text-sm">🧑‍✈️ ${p.name}</span>
+                <span class="text-purple-400 font-mono text-[11px]">(${p.bot})</span>
+              </div>
+              <p class="text-gray-400 text-[11px] mt-0.5 line-clamp-1">${p.skill}</p>
+            </div>
+            <button onclick="assignPilotDirect('${p.id}', 'Lv 1')" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-purple-600 hover:bg-purple-500 text-white shadow transition-all hover:scale-105 shrink-0 ml-2">
+              Assign Pilot
+            </button>
+          </div>
+        `;
+      });
+    };
+
+    window.assignPilotDirect = function(pilotId, level) {
+      if (!activePilotConfigTarget) return;
+      const { hangarKey, slotIndex } = activePilotConfigTarget;
+      activeEquipTarget = { hangarKey, slotIndex };
+      equipPilotDirect(pilotId, level, false);
+      renderCurrentPilotCard(AppState.hangars[hangarKey].slots[slotIndex], hangarKey, slotIndex);
+    };
+
+    // =========================================================================
+    // 4. DRONE CONFIGURATION SYSTEM
+    // =========================================================================
+    let activeDroneConfigTarget = null;
+
+    window.openDroneConfigModal = function(hangarKey, slotIndex) {
+      activeDroneConfigTarget = { hangarKey, slotIndex };
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar) return;
+      const slot = hangar.slots[slotIndex];
+
+      document.getElementById('drone-config-modal-title').innerHTML = `🛸 Bay 0${slotIndex + 1} • <span class="text-cyan-400">Tactical Drone Support</span>`;
+      document.getElementById('drone-config-modal-subtitle').innerText = `Attach Tactical Drone, Upgrade Level (Lv 1 to Lv 12), and Enable Combat Microchips`;
+
+      renderCurrentDroneCard(slot, hangarKey, slotIndex);
+      filterDroneConfigModal();
+
+      document.getElementById('drone-config-modal').classList.remove('hidden');
+    };
+
+    function renderCurrentDroneCard(slot, hangarKey, slotIndex) {
+      const container = document.getElementById('drone-config-current-card');
+      if (!container) return;
+
+      if (slot && slot.drone && slot.drone.name) {
+        const d = slot.drone;
+        const md = MASTER_DRONES.find(item => item.id === d.id) || { name: d.name, effect: "Combat Support Microchips" };
+        const curLevel = d.level || 'Lv 12';
+
+        let levelOptionsHtml = DRONE_LEVELS.map(lvl => `<option value="${lvl}" ${lvl === curLevel ? 'selected' : ''}>${lvl}</option>`).join('');
+
+        container.innerHTML = `
+          <div class="p-4 rounded-2xl bg-gradient-to-br from-[#0a1824] to-[#080c14] border border-cyan-500/40 shadow-xl space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="badge-t4 text-[10px] font-black px-2 py-0.5 rounded uppercase">TACTICAL DRONE</span>
+                <span class="text-xs font-bold text-gray-400">Attached to Bay 0${slotIndex + 1}</span>
+              </div>
+              <button onclick="unequipDrone('${hangarKey}', ${slotIndex}); renderCurrentDroneCard(null, '${hangarKey}', ${slotIndex});" class="text-xs text-red-400 hover:text-red-300 bg-red-950/30 hover:bg-red-950/60 px-2.5 py-1 rounded-lg border border-red-800/40 font-bold transition-all">
+                ✕ Unequip
+              </button>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-1">
+              <div>
+                <h4 class="text-2xl font-black text-white">🛸 ${d.name}</h4>
+                <p class="text-xs text-cyan-200 mt-0.5">Tier 4 Combat Drone Support Platform</p>
+              </div>
+
+              <!-- LIVE LEVEL PICKER -->
+              <div class="flex items-center gap-2 bg-[#161f2e] p-1.5 px-3 rounded-xl border border-[#263040]">
+                <span class="text-xs font-bold text-gray-300 uppercase tracking-wider">Level:</span>
+                <select onchange="changeActiveDroneLevel(this.value)" class="bg-[#080c14] text-cyan-300 font-bold font-mono text-xs rounded-lg px-2.5 py-1 border border-cyan-500/40 focus:outline-none cursor-pointer">
+                  ${levelOptionsHtml}
+                </select>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl bg-[#080c14] border border-cyan-500/30 text-xs">
+              <span class="text-[10px] text-cyan-400 uppercase font-bold block">Microchip Perks & Combat Abilities</span>
+              <p class="text-cyan-100 text-xs mt-0.5 leading-relaxed font-medium">⚡ ${md.effect}</p>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-dashed border-[#263040] flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#161f2e] border border-[#263040] flex items-center justify-center text-lg">
+                🛸
+              </div>
+              <div>
+                <span class="font-bold text-gray-300 text-sm">No Drone Attached</span>
+                <p class="text-[11px] text-gray-500">Select a Tactical Drone from the catalog below to provide automatic shields, repairs, or damage buffs.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    window.changeActiveDroneLevel = function(newLevel) {
+      if (!activeDroneConfigTarget) return;
+      const { hangarKey, slotIndex } = activeDroneConfigTarget;
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar || !hangar.slots[slotIndex] || !hangar.slots[slotIndex].drone) return;
+
+      hangar.slots[slotIndex].drone.level = newLevel;
+      saveState();
+      renderHangar(hangarKey);
+      renderCurrentDroneCard(hangar.slots[slotIndex], hangarKey, slotIndex);
+    };
+
+    window.filterDroneConfigModal = function() {
+      if (!activeDroneConfigTarget) return;
+      const container = document.getElementById('drone-config-list');
+      const countBadge = document.getElementById('drone-config-count-badge');
+      if (!container) return;
+
+      const search = (document.getElementById('drone-config-search')?.value || '').toLowerCase();
+      const filtered = MASTER_DRONES.filter(d => d.name.toLowerCase().includes(search) || d.effect.toLowerCase().includes(search));
+
+      if (countBadge) countBadge.innerText = `${filtered.length} Drones Available`;
+      container.innerHTML = "";
+
+      filtered.forEach(d => {
+        container.innerHTML += `
+          <div class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#0c1a24] border border-[#263040] hover:border-cyan-500/40 rounded-xl text-xs transition-all">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="badge-t4 text-[9px] font-black px-1.5 py-0.2 rounded uppercase">DRONE</span>
+                <span class="font-bold text-white text-sm">🛸 ${d.name}</span>
+              </div>
+              <p class="text-gray-400 text-[11px] mt-0.5 line-clamp-1">${d.effect}</p>
+            </div>
+            <button onclick="attachDroneDirect('${d.id}', 'Lv 12')" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white shadow transition-all hover:scale-105 shrink-0 ml-2">
+              Attach Drone
+            </button>
+          </div>
+        `;
+      });
+    };
+
+    window.attachDroneDirect = function(droneId, level) {
+      if (!activeDroneConfigTarget) return;
+      const { hangarKey, slotIndex } = activeDroneConfigTarget;
+      const md = MASTER_DRONES.find(d => d.id === droneId);
+      if (!md) return;
+
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar || !hangar.slots[slotIndex]) return;
+
+      hangar.slots[slotIndex].drone = { id: md.id, name: md.name, level: level || "Lv 12", tier: "T4", effect: md.effect };
+      saveState();
+      renderHangar(hangarKey);
+      renderCurrentDroneCard(hangar.slots[slotIndex], hangarKey, slotIndex);
+    };
+
+    // =========================================================================
+    // 5. TITAN CHASSIS CONFIGURATION SYSTEM
+    // =========================================================================
+    window.openTitanConfigModal = function(hangarKey) {
+      activeEquipTarget = { hangarKey };
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar) return;
+
+      document.getElementById('titan-config-modal-title').innerHTML = `👑 Titan Command Deck • <span class="text-red-400">${hangar.name.split(':')[0]}</span>`;
+      document.getElementById('titan-config-modal-subtitle').innerText = `Deploy Colossal Titan Chassis, Set Hull Level (Lv 1 to Lv 150), and Inspect Combat Systems`;
+
+      renderCurrentTitanCard(hangar.titanSlot, hangarKey);
+      filterTitanConfigModal();
+
+      document.getElementById('titan-config-modal').classList.remove('hidden');
+    };
+
+    function renderCurrentTitanCard(titanSlot, hangarKey) {
+      const container = document.getElementById('titan-config-current-card');
+      if (!container) return;
+
+      if (titanSlot && titanSlot.titanId) {
+        const mt = MASTER_TITANS.find(t => t.id === titanSlot.titanId) || { name: titanSlot.titanId, tier: "T4", role: "Titan Brawler", hp: 950000, ability: "Heavy Combat Systems", hardpoints: [{ size: "Alpha" }, { size: "Beta" }, { size: "Beta" }] };
+        const curLevel = titanSlot.level || 'Lv 15';
+        const mult = getLevelMultiplier(curLevel, 'titan');
+        const scaledHp = Math.round((mt.hp || 950000) * mult);
+        const hardpointsStr = (mt.hardpoints || []).map(h => `<span class="px-1.5 py-0.5 rounded text-[10px] font-bold ${h.size === 'Alpha' ? 'bg-red-950 text-red-300' : 'bg-amber-950 text-amber-300'}">${h.size}</span>`).join(' ');
+
+        let levelOptionsHtml = TITAN_LEVELS.map(lvl => `<option value="${lvl}" ${lvl === curLevel ? 'selected' : ''}>${lvl}</option>`).join('');
+
+        container.innerHTML = `
+          <div class="p-4 rounded-2xl bg-gradient-to-br from-[#240d11] to-[#080c14] border border-red-500/40 shadow-xl space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="badge-titan text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-wider">TITAN CORE</span>
+                <span class="text-xs font-bold text-gray-400">Command Center</span>
+              </div>
+              <button onclick="unequipTitan('${hangarKey}'); renderCurrentTitanCard(null, '${hangarKey}');" class="text-xs text-red-400 hover:text-red-300 bg-red-950/30 hover:bg-red-950/60 px-2.5 py-1 rounded-lg border border-red-800/40 font-bold transition-all">
+                📦 Send to Storage
+              </button>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-1">
+              <div>
+                <h4 class="text-2xl font-black text-white">👑 ${mt.name}</h4>
+                <p class="text-xs text-red-200 mt-0.5">${mt.role} • Colossal Titan Platform</p>
+              </div>
+
+              <!-- LIVE LEVEL PICKER -->
+              <div class="flex items-center gap-2 bg-[#161f2e] p-1.5 px-3 rounded-xl border border-[#263040]">
+                <span class="text-xs font-bold text-gray-300 uppercase tracking-wider">Level:</span>
+                <select onchange="changeActiveTitanLevel(this.value)" class="bg-[#080c14] text-red-400 font-bold font-mono text-xs rounded-lg px-2.5 py-1 border border-red-500/40 focus:outline-none cursor-pointer">
+                  ${levelOptionsHtml}
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-[#263040]">
+              <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
+                <span class="text-[10px] text-gray-400 uppercase font-bold block">Hull Durability</span>
+                <span class="text-sm font-black text-emerald-400 font-mono">${scaledHp.toLocaleString()} HP</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
+                <span class="text-[10px] text-gray-400 uppercase font-bold block">Heavy Mounts</span>
+                <div class="flex flex-wrap gap-1 mt-1">${hardpointsStr}</div>
+              </div>
+              <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
+                <span class="text-[10px] text-gray-400 uppercase font-bold block">Titan Ability</span>
+                <span class="text-xs font-bold text-red-300 truncate block mt-0.5">${mt.ability}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-dashed border-[#263040] flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#161f2e] border border-[#263040] flex items-center justify-center text-lg">
+                👑
+              </div>
+              <div>
+                <span class="font-bold text-gray-300 text-sm">Titan Command Deck Unoccupied</span>
+                <p class="text-[11px] text-gray-500">Select a Titan chassis from the catalog below to anchor your squad.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    window.changeActiveTitanLevel = function(newLevel) {
+      if (!activeEquipTarget) return;
+      const { hangarKey } = activeEquipTarget;
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar || !hangar.titanSlot) return;
+
+      hangar.titanSlot.level = newLevel;
+      saveState();
+      renderHangar(hangarKey);
+      renderCurrentTitanCard(hangar.titanSlot, hangarKey);
+    };
+
+    window.filterTitanConfigModal = function() {
+      if (!activeEquipTarget) return;
+      const container = document.getElementById('titan-config-list');
+      const countBadge = document.getElementById('titan-config-count-badge');
+      if (!container) return;
+
+      const search = (document.getElementById('titan-config-search')?.value || '').toLowerCase();
+      const filtered = MASTER_TITANS.filter(t => t.name.toLowerCase().includes(search) || t.role.toLowerCase().includes(search) || t.ability.toLowerCase().includes(search));
+
+      if (countBadge) countBadge.innerText = `${filtered.length} Titans Available`;
+      container.innerHTML = "";
+
+      filtered.forEach(t => {
+        container.innerHTML += `
+          <div class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#1f0d11] border border-[#263040] hover:border-red-500/40 rounded-xl text-xs transition-all">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="badge-titan text-[9px] font-black px-1.5 py-0.2 rounded uppercase">TITAN</span>
+                <span class="font-bold text-white text-sm">${t.name}</span>
+                <span class="text-emerald-400 font-mono text-[11px]">${t.hp.toLocaleString()} HP</span>
+              </div>
+              <span class="text-gray-400 text-[11px] block mt-0.5">${t.role} • ${t.hardpoints.map(h => h.size).join(" + ")}</span>
+            </div>
+            <button onclick="deployTitanDirect('${t.id}', 'Lv 15')" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-red-600 hover:bg-red-500 text-white shadow transition-all hover:scale-105 shrink-0 ml-2">
+              Deploy Titan
+            </button>
+          </div>
+        `;
+      });
+    };
+
+    window.deployTitanDirect = function(titanId, level) {
+      if (!activeEquipTarget) return;
+      const { hangarKey } = activeEquipTarget;
+      const mt = MASTER_TITANS.find(t => t.id === titanId);
+      if (!mt) return;
+
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar) return;
+
+      const oldTitan = hangar.titanSlot;
+      const weapons = (mt.hardpoints || []).map(hp => {
+        const mw = MASTER_WEAPONS.find(w => w.size.toLowerCase() === hp.size.toLowerCase());
+        return mw ? { id: mw.id, size: hp.size, level: "Lv 1" } : null;
+      });
+
+      hangar.titanSlot = {
+        titanId: mt.id,
+        level: level || "Lv 15",
+        weapons
+      };
+
+      saveState();
+      closeModal('titan-config-modal');
+      renderHangar(hangarKey);
+    };
+
+    // =========================================================================
+    // 6. ORBITAL MOTHERSHIP CONFIGURATION SYSTEM
+    // =========================================================================
+    window.openMothershipConfigModal = function(hangarKey) {
+      activeEquipTarget = { hangarKey };
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar) return;
+
+      document.getElementById('mothership-config-modal-title').innerHTML = `🚀 Orbital Mothership Deck • <span class="text-purple-400">${hangar.name.split(':')[0]}</span>`;
+      document.getElementById('mothership-config-modal-subtitle').innerText = `Deploy Orbital Strike Platform, Set Level (Lv 1 to Lv 60), and Enable Combat Support`;
+
+      renderCurrentMothershipCard(hangar.mothership, hangarKey);
+      filterMothershipConfigModal();
+
+      document.getElementById('mothership-config-modal').classList.remove('hidden');
+    };
+
+    function renderCurrentMothershipCard(mothershipSlot, hangarKey) {
+      const container = document.getElementById('mothership-config-current-card');
+      if (!container) return;
+
+      if (mothershipSlot && mothershipSlot.id) {
+        const mm = MASTER_MOTHERSHIPS.find(m => m.id === mothershipSlot.id) || { name: mothershipSlot.name || mothershipSlot.id, effect: "Orbital Strike Support Platform" };
+        const curLevel = mothershipSlot.level || 'Lv 60';
+
+        let levelOptionsHtml = MOTHERSHIP_LEVELS.map(lvl => `<option value="${lvl}" ${lvl === curLevel ? 'selected' : ''}>${lvl}</option>`).join('');
+
+        container.innerHTML = `
+          <div class="p-4 rounded-2xl bg-gradient-to-br from-[#1b0d29] to-[#080c14] border border-purple-500/40 shadow-xl space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="badge-t4 text-[10px] font-black px-2 py-0.5 rounded uppercase">ORBITAL MOTHERSHIP</span>
+                <span class="text-xs font-bold text-gray-400">Command Platform</span>
+              </div>
+              <button onclick="unequipMothership('${hangarKey}'); renderCurrentMothershipCard(null, '${hangarKey}');" class="text-xs text-red-400 hover:text-red-300 bg-red-950/30 hover:bg-red-950/60 px-2.5 py-1 rounded-lg border border-red-800/40 font-bold transition-all">
+                ✕ Unequip
+              </button>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-1">
+              <div>
+                <h4 class="text-2xl font-black text-white">🚀 ${mm.name}</h4>
+                <p class="text-xs text-purple-200 mt-0.5">Tier 4 Orbital Fleet Vessel</p>
+              </div>
+
+              <!-- LIVE LEVEL PICKER -->
+              <div class="flex items-center gap-2 bg-[#161f2e] p-1.5 px-3 rounded-xl border border-[#263040]">
+                <span class="text-xs font-bold text-gray-300 uppercase tracking-wider">Level:</span>
+                <select onchange="changeActiveMothershipLevel(this.value)" class="bg-[#080c14] text-purple-300 font-bold font-mono text-xs rounded-lg px-2.5 py-1 border border-purple-500/40 focus:outline-none cursor-pointer">
+                  ${levelOptionsHtml}
+                </select>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl bg-[#080c14] border border-purple-500/30 text-xs">
+              <span class="text-[10px] text-purple-400 uppercase font-bold block">Orbital Strike Ability & Cleansing Effects</span>
+              <p class="text-purple-100 text-xs mt-0.5 leading-relaxed font-medium">⚡ ${mm.effect}</p>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div class="p-4 rounded-2xl bg-[#080c14] border border-dashed border-[#263040] flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#161f2e] border border-[#263040] flex items-center justify-center text-lg">
+                🚀
+              </div>
+              <div>
+                <span class="font-bold text-gray-300 text-sm">Orbital Mothership Deck Unoccupied</span>
+                <p class="text-[11px] text-gray-500">Deploy Paladin, Avalon, Roulette, or Orion for active orbital strikes, Aegis shields & status cleansing.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    window.changeActiveMothershipLevel = function(newLevel) {
+      if (!activeEquipTarget) return;
+      const { hangarKey } = activeEquipTarget;
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar || !hangar.mothership) return;
+
+      hangar.mothership.level = newLevel;
+      saveState();
+      renderHangar(hangarKey);
+      renderCurrentMothershipCard(hangar.mothership, hangarKey);
+    };
+
+    window.filterMothershipConfigModal = function() {
+      if (!activeEquipTarget) return;
+      const container = document.getElementById('mothership-config-list');
+      if (!container) return;
+
+      container.innerHTML = "";
+      MASTER_MOTHERSHIPS.forEach(m => {
+        container.innerHTML += `
+          <div class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#160c21] border border-[#263040] hover:border-purple-500/40 rounded-xl text-xs transition-all">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="badge-t4 text-[9px] font-black px-1.5 py-0.2 rounded uppercase">MOTHERSHIP</span>
+                <span class="font-bold text-white text-sm">🚀 ${m.name}</span>
+              </div>
+              <p class="text-gray-400 text-[11px] mt-0.5 line-clamp-1">${m.effect}</p>
+            </div>
+            <button onclick="deployMothershipDirect('${m.id}', 'Lv 60')" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-purple-600 hover:bg-purple-500 text-white shadow transition-all hover:scale-105 shrink-0 ml-2">
+              Deploy Ship
+            </button>
+          </div>
+        `;
+      });
+    };
+
+    window.deployMothershipDirect = function(shipId, level) {
+      if (!activeEquipTarget) return;
+      const { hangarKey } = activeEquipTarget;
+      activeEquipTarget = { hangarKey };
+      equipMothershipDirect(shipId, level, false);
+      renderCurrentMothershipCard(AppState.hangars[hangarKey].mothership, hangarKey);
     };
 
     window.filterCatalogModal = function() {
