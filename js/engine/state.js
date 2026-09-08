@@ -1,12 +1,28 @@
 /* WRBrain - App State Management & Persistence */
 
 const STORAGE_KEY = "WRBRAIN_PERSIST_V6";
-    let AppState = (function() {
-      let state = null;
-      try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) state = JSON.parse(saved);
-      } catch (e) {}
+const LEGACY_STORAGE_KEYS = [
+  "WRBRAIN_PERSIST_V6", "WRBRAIN_PERSIST_V5", "WRBRAIN_PERSIST_V4", 
+  "WRBRAIN_PERSIST_V3", "WRBRAIN_PERSIST_V2", "WRBRAIN_PERSIST_V1", 
+  "WRBRAIN_STATE", "WRBRAIN_PERSIST"
+];
+
+let AppState = (function() {
+  let state = null;
+
+  // 1. Try to load from primary or any legacy storage key
+  for (const key of LEGACY_STORAGE_KEYS) {
+    try {
+      const saved = localStorage.getItem(key);
+      if (saved) {
+        state = JSON.parse(saved);
+        if (state && (state.hangars || state.reserveRobots)) {
+          // Found valid user data!
+          break;
+        }
+      }
+    } catch (e) {}
+  }
 
       if (!state) {
         state = {
@@ -221,6 +237,11 @@ const STORAGE_KEY = "WRBRAIN_PERSIST_V6";
     })();
 
     function saveState() {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(AppState)); } catch (e) {}
+      try { 
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(AppState)); 
+        if (window.CommanderAuth && typeof window.CommanderAuth.syncHangarToCloud === 'function') {
+          window.CommanderAuth.syncHangarToCloud();
+        }
+      } catch (e) {}
       renderAll();
     }
