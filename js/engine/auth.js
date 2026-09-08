@@ -1,4 +1,4 @@
-/* WRBrain - Secure Commander Authentication & Cloud Sync Engine */
+/* WRBrain - Secure Commander Authentication & Cross-Device Cloud Sync Engine */
 
 const AUTH_STORAGE_KEY = "WRBRAIN_COMMANDER_AUTH_V1";
 const CLOUD_SYNC_KEY = "WRBRAIN_CLOUD_HANGARS_V1";
@@ -8,7 +8,18 @@ window.CommanderAuth = (function() {
   let loginAttempts = 0;
   let lockoutTimer = null;
 
-  // Load persisted session on boot
+  // 1. Check if URL contains a 1-click Device Sync token (e.g. from scanning QR code or opening share link on phone)
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const syncPayload = urlParams.get('cmd_sync');
+    if (syncPayload) {
+      importDeviceTransferCode(syncPayload);
+      // Clean URL after import without reloading
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  } catch (e) {}
+
+  // 2. Load persisted session on boot
   try {
     const saved = localStorage.getItem(AUTH_STORAGE_KEY);
     if (saved) {
@@ -33,7 +44,7 @@ window.CommanderAuth = (function() {
     return { score: 3, label: "Strong & Secure", color: "bg-emerald-500", textClass: "text-emerald-400" };
   }
 
-  // Sanitize user inputs to prevent XSS (Cross-Site Scripting)
+  // Sanitize user inputs to prevent XSS
   function sanitizeInput(str) {
     if (!str) return "";
     const div = document.createElement("div");
@@ -81,14 +92,13 @@ window.CommanderAuth = (function() {
       throw new Error("Password must be at least 6 characters long.");
     }
 
-    // Check existing accounts
     let users = [];
     try {
       users = JSON.parse(localStorage.getItem("WRBRAIN_REGISTERED_USERS") || "[]");
     } catch (e) {}
 
     if (users.find(u => u.email === cleanEmail)) {
-      throw new Error("A commander with this email is already registered.");
+      throw new Error("A commander with this email is already registered on this device.");
     }
 
     const passwordHash = await hashPassword(password);
@@ -106,7 +116,6 @@ window.CommanderAuth = (function() {
     users.push(newUser);
     localStorage.setItem("WRBRAIN_REGISTERED_USERS", JSON.stringify(users));
 
-    // Auto login
     currentUser = {
       id: newUser.id,
       callsign: newUser.callsign,
@@ -116,8 +125,6 @@ window.CommanderAuth = (function() {
       token: "jwt_token_" + Math.random().toString(36).substring(2)
     };
     localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(currentUser));
-    
-    // Auto-sync current hangar state to cloud
     syncHangarToCloud();
     return currentUser;
   }
@@ -137,16 +144,15 @@ window.CommanderAuth = (function() {
     const user = users.find(u => u.email === cleanEmail);
     if (!user) {
       handleFailedAttempt();
-      throw new Error("Invalid Commander email or password.");
+      throw new Error("Commander ID not found on this device. Use '📱 Link Device' below to sync from your other device, or create an account.");
     }
 
     const passwordHash = await hashPassword(password);
     if (user.passwordHash !== passwordHash) {
       handleFailedAttempt();
-      throw new Error("Invalid Commander email or password.");
+      throw new Error("Invalid Commander password.");
     }
 
-    // Reset failed attempts on success
     loginAttempts = 0;
 
     currentUser = {
@@ -158,8 +164,6 @@ window.CommanderAuth = (function() {
       token: "jwt_token_" + Math.random().toString(36).substring(2)
     };
     localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(currentUser));
-    
-    // Pull cloud hangars if available
     restoreHangarFromCloud();
     return currentUser;
   }
@@ -213,6 +217,56 @@ window.CommanderAuth = (function() {
     return false;
   }
 
+  // --- CROSS-DEVICE INSTANT SYNC & TRANSFER ENGINE ---
+
+  // Generate an instant transfer payload that clones your Commander Account + Hangars to phone
+  function generateDeviceTransferCode() {
+    let users = [];
+    try {
+      users = JSON.parse(localStorage.getItem("WRBRAIN_REGISTERED_USERS") || "[]");
+    } catch (e) {}
+
+    const payload = {
+      user: currentUser,
+      registeredUsers: users,
+      state: window.AppState || null,
+      timestamp: Date.now()
+    };
+
+    const jsonStr = JSON.stringify(payload);
+    return btoa(encodeURIComponent(jsonStr));
+  }
+
+  // Generate 1-click shareable Link to open on mobile
+  function generateDeviceLinkUrl() {
+    const code = generateDeviceTransferCode();
+    const baseUrl = window.location.origin + window.location.pathname;
+    return `${baseUrl}?cmd_sync=${code}`;
+  }
+
+  // Import device transfer code on phone
+  function importDeviceTransferCode(encodedStr) {
+    try {
+      const jsonStr = decodeURIComponent(atob(encodedStr.trim()));
+      const payload = JSON.parse(jsonStr);
+
+      if (payload.registeredUsers && Array.isArray(payload.registeredUsers)) {
+        localStorage.setItem("WRBRAIN_REGISTERED_USERS", JSON.stringify(payload.registeredUsers));
+      }
+      if (payload.user) {
+        currentUser = payload.user;
+        localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(currentUser));
+      }
+      if (payload.state && window.AppState) {
+        Object.assign(window.AppState, payload.state);
+        localStorage.setItem("WRBRAIN_PERSIST_V6", JSON.stringify(window.AppState));
+      }
+      return true;
+    } catch (e) {
+      throw new Error("Invalid or corrupted Device Sync Code.");
+    }
+  }
+
   return {
     getCurrentUser: () => currentUser,
     isLoggedIn: () => !!currentUser,
@@ -221,6 +275,9 @@ window.CommanderAuth = (function() {
     signOut,
     evaluatePasswordStrength,
     syncHangarToCloud,
-    restoreHangarFromCloud
+    restoreHangarFromCloud,
+    generateDeviceTransferCode,
+    generateDeviceLinkUrl,
+    importDeviceTransferCode
   };
 })();
