@@ -156,14 +156,59 @@ input[type=range].level-slider-titan:active::-webkit-slider-thumb {
   box-shadow: 0 0 18px rgba(239, 68, 68, 0.9);
 }
 
+/* BOUNCY SPRING MODAL ANIMATIONS */
+@keyframes modal-pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.88) translateY(24px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03) translateY(-4px);
+  }
+  75% {
+    transform: scale(0.985) translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-bounce-in {
+  animation: modal-pop-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* MODAL OVERLAYS & VIEWPORT BOUNDARY SAFETY */
+.modal-overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(3, 6, 12, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow-y: auto;
+}
+
 /* MOBILE BOTTOM NAVIGATION BAR */
 .mobile-bottom-nav {
   display: none;
 }
 
+@media (max-width: 1024px) {
+  .desktop-nav-pills {
+    display: none !important;
+  }
+}
+
 @media (max-width: 768px) {
   body {
-    padding-bottom: 72px; /* Space for bottom nav */
+    padding-bottom: 76px; /* Safe space for bottom nav */
   }
 
   .mobile-bottom-nav {
@@ -172,16 +217,16 @@ input[type=range].level-slider-titan:active::-webkit-slider-thumb {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 64px;
-    background: rgba(10, 14, 23, 0.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    height: 62px;
+    background: rgba(10, 14, 23, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid var(--border-subtle);
     z-index: 45;
     justify-content: space-around;
     align-items: center;
-    padding: 0 8px;
-    box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.6);
+    padding: 0 4px;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.7);
   }
 
   .mobile-nav-item {
@@ -195,23 +240,24 @@ input[type=range].level-slider-titan:active::-webkit-slider-thumb {
     font-size: 10px;
     font-weight: 600;
     transition: all 0.2s;
-    gap: 3px;
+    gap: 2px;
   }
 
   .mobile-nav-item.active {
     color: #f59e0b;
   }
 
-  .mobile-nav-item.active span.icon {
-    transform: translateY(-2px);
+  .mobile-nav-item:active {
+    transform: scale(0.92);
   }
 
-  /* MODALS ON MOBILE: NATIVE BOTTOM SHEET FEEL */
+  /* MODALS ON SMARTPHONES: BOTTOM SHEET FEEL WITH DRAG COMFORT */
   .mobile-sheet-dialog {
-    max-height: 92vh !important;
+    max-height: 88vh !important;
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
     width: 100% !important;
     margin-top: auto !important;
+    border-top: 2px solid rgba(245, 158, 11, 0.4) !important;
   }
 }

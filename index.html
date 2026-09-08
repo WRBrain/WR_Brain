@@ -11,57 +11,68 @@
 <body class="min-h-screen flex flex-col custom-scroll">
 
   <!-- TOP APP HEADER -->
-  <header class="bg-[#0e131d]/90 border-b border-[#263040] px-6 py-3.5 flex flex-wrap items-center justify-between gap-4 sticky top-0 z-40 shadow-2xl backdrop-blur-md">
-    <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 via-orange-500 to-amber-300 flex items-center justify-center font-black text-xl text-black shadow-lg shadow-amber-500/20">
-        🧠
-      </div>
-      <div>
-        <div class="flex items-center gap-2">
-          <h1 class="text-xl font-black tracking-wider text-white">WR<span class="text-amber-400">BRAIN</span></h1>
-          <span class="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Complete Encyclopedia</span>
+  <header class="bg-[#0e131d]/95 border-b border-[#1e293b] px-4 sm:px-6 py-2.5 sm:py-3.5 sticky top-0 z-40 shadow-2xl backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      
+      <!-- LOGO -->
+      <div class="flex items-center gap-2.5 shrink-0 cursor-pointer" onclick="switchTab('home')">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-amber-600 via-orange-500 to-amber-300 flex items-center justify-center font-black text-lg sm:text-xl text-black shadow-lg shadow-amber-500/20">
+          🧠
         </div>
-        <p class="text-xs text-gray-400">War Robots Team Analyzer, Loadout Sandbox & Titan Arsenal</p>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h1 class="text-lg sm:text-xl font-black tracking-wider text-white">WR<span class="text-amber-400">BRAIN</span></h1>
+            <span class="hidden sm:inline-block text-[9px] uppercase font-bold tracking-widest px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Encyclopedia</span>
+          </div>
+          <p class="hidden sm:block text-[11px] text-gray-400">War Robots Team Analyzer & Arsenal</p>
+        </div>
       </div>
-    </div>
 
-    <!-- Navigation Tabs -->
-    <nav class="nav-scroll-container flex items-center gap-1.5 bg-[#080c14]/90 p-1.5 rounded-xl border border-[#263040] max-w-full overflow-x-auto shadow-inner">
-      <button onclick="switchTab('home')" id="tab-home" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all bg-amber-500 text-black shadow shrink-0">🏠 Home</button>
-      <button onclick="switchTab('hangar1')" id="tab-hangar1" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🛡️ Hangar 1</button>
-      <button onclick="switchTab('hangar2')" id="tab-hangar2" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">⚔️ Hangar 2</button>
-      <button onclick="switchTab('analyzer')" id="tab-analyzer" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white flex items-center gap-1.5 shrink-0">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> WRBrain Audit
-      </button>
-      <button onclick="switchTab('dpslab')" id="tab-dpslab" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">💥 DPS Lab</button>
-      <button onclick="switchTab('catalog_weapons')" id="tab-catalog_weapons" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🔫 Weapons Arsenal</button>
-      <button onclick="switchTab('catalog_bots')" id="tab-catalog_bots" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🤖 All Robots</button>
-      <button onclick="switchTab('catalog_titans')" id="tab-catalog_titans" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">👑 Titans & Titan Weapons</button>
-      <button onclick="switchTab('meta')" id="tab-meta" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🌟 Meta Builds</button>
-      <button onclick="switchTab('storage')" id="tab-storage" class="tab-btn px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">📦 My Inventory</button>
-    </nav>
+      <!-- DESKTOP NAVIGATION PILLS (HIDDEN ON MOBILE, BOTTOM DOCK USED INSTEAD) -->
+      <nav class="hidden xl:flex nav-scroll-container items-center gap-1 bg-[#080c14]/90 p-1.5 rounded-xl border border-[#263040] shadow-inner">
+        <button onclick="switchTab('home')" id="tab-home" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all bg-amber-500 text-black shadow shrink-0">🏠 Home</button>
+        <button onclick="switchTab('hangar1')" id="tab-hangar1" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🛡️ Hangar 1</button>
+        <button onclick="switchTab('hangar2')" id="tab-hangar2" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">⚔️ Hangar 2</button>
+        <button onclick="switchTab('analyzer')" id="tab-analyzer" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white flex items-center gap-1.5 shrink-0">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> WRBrain Audit
+        </button>
+        <button onclick="switchTab('dpslab')" id="tab-dpslab" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">💥 DPS Lab</button>
+        <button onclick="switchTab('catalog_weapons')" id="tab-catalog_weapons" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🔫 Arsenal</button>
+        <button onclick="switchTab('catalog_bots')" id="tab-catalog_bots" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🤖 Bots</button>
+        <button onclick="switchTab('catalog_titans')" id="tab-catalog_titans" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">👑 Titans</button>
+        <button onclick="switchTab('meta')" id="tab-meta" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🌟 Meta</button>
+        <button onclick="switchTab('storage')" id="tab-storage" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">📦 Vault</button>
+      </nav>
 
-    <!-- Global Actions -->
-    <div class="flex items-center gap-2">
-      <div id="commander-auth-badge-container"></div>
-      <a href="https://instagram.com/wrbrain.official" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-gradient-to-r from-pink-500/20 to-purple-500/20 hover:from-pink-500/30 hover:to-purple-500/30 text-pink-300 border border-pink-500/40 flex items-center gap-1.5 shadow transition-all" title="Follow Official Instagram @wrbrain.official">
-        📸 <span class="hidden sm:inline">Instagram</span>
-      </a>
-      <button onclick="openSupportModal()" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 flex items-center gap-1.5 shadow transition-all" title="Contact Support & Submit Feedback">
-        📬 Support & Feedback
-      </button>
-      <button onclick="openSyncMarkdownModal()" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-purple-950/40 hover:bg-purple-900/60 text-purple-300 border border-purple-800/40 flex items-center gap-1 shadow" title="Sync Hangar to Local Markdown Folders">
-        📝 Sync Markdown
-      </button>
-      <button onclick="openExportModal()" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-[#161f2e] hover:bg-[#202c40] text-gray-200 border border-[#263040] flex items-center gap-1 shadow">
-        💾 Export
-      </button>
-      <button onclick="openImportModal()" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-[#161f2e] hover:bg-[#202c40] text-gray-200 border border-[#263040] flex items-center gap-1 shadow">
-        📥 Import
-      </button>
-      <button onclick="resetData()" class="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-red-950/40 hover:bg-red-900/60 text-red-300 border border-red-800/40" title="Reset Account">
-        🔄 Reset
-      </button>
+      <!-- RIGHT HEADER ACTIONS -->
+      <div class="flex items-center gap-2">
+        <div id="commander-auth-badge-container"></div>
+
+        <!-- Desktop Action Utilities (Hidden on mobile) -->
+        <div class="hidden sm:flex items-center gap-1.5">
+          <a href="https://instagram.com/wrbrain.official" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-pink-500/15 hover:bg-pink-500/25 text-pink-300 border border-pink-500/30 flex items-center shadow transition-all" title="Official Instagram @wrbrain.official">
+            📸
+          </a>
+          <button onclick="openSupportModal()" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/30 flex items-center gap-1 shadow transition-all" title="Support & Feedback">
+            📬 <span class="hidden md:inline">Support</span>
+          </button>
+          <button onclick="openSyncMarkdownModal()" class="px-2 py-1.5 text-xs font-semibold rounded-lg bg-purple-950/40 hover:bg-purple-900/60 text-purple-300 border border-purple-800/40 shadow" title="Sync Markdown">
+            📝
+          </button>
+          <button onclick="openExportModal()" class="px-2 py-1.5 text-xs font-semibold rounded-lg bg-[#161f2e] hover:bg-[#202c40] text-gray-200 border border-[#263040] shadow" title="Export Hangar">
+            💾
+          </button>
+          <button onclick="openImportModal()" class="px-2 py-1.5 text-xs font-semibold rounded-lg bg-[#161f2e] hover:bg-[#202c40] text-gray-200 border border-[#263040] shadow" title="Import Hangar">
+            📥
+          </button>
+        </div>
+
+        <!-- Mobile Quick Tools Button -->
+        <button onclick="openMobileMenuModal()" class="sm:hidden px-3 py-1.5 rounded-xl bg-[#161f2e] text-amber-400 border border-amber-500/30 hover:bg-[#202c40] flex items-center justify-center font-bold text-xs gap-1" title="Quick Tools">
+          ⚡ <span>Tools</span>
+        </button>
+      </div>
+
     </div>
   </header>
 
@@ -762,8 +773,8 @@
   </footer>
 
   <!-- SIBLING VARIANTS INSPECTOR MODAL -->
-  <div id="variants-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-[#111620] border border-[#263040] rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+  <div id="variants-modal" onclick="handleModalBackdropClick(event, 'variants-modal')" class="modal-overlay-backdrop hidden">
+    <div class="modal-bounce-in mobile-sheet-dialog bg-[#111620] border border-[#263040] rounded-2xl max-w-2xl w-full max-h-[88vh] flex flex-col shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
       <div class="px-6 py-4 border-b border-[#263040] flex items-center justify-between bg-[#0e131d]">
         <div>
           <h3 id="variants-modal-title" class="text-base font-bold text-white flex items-center gap-2">
@@ -771,18 +782,18 @@
           </h3>
           <p id="variants-modal-subtitle" class="text-xs text-gray-400">Compare Heavy, Medium & Light or Alpha & Beta weapon siblings</p>
         </div>
-        <button onclick="closeModal('variants-modal')" class="text-gray-400 hover:text-white text-lg">✕</button>
+        <button onclick="closeModal('variants-modal')" class="text-gray-400 hover:text-white text-lg p-1">✕</button>
       </div>
       <div id="variants-modal-content" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scroll max-h-[60vh]"></div>
     </div>
   </div>
 
   <!-- ADD CATALOG MODAL -->
-  <div id="catalog-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-[#111620] border border-[#263040] rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
-      <div class="px-6 py-4 border-b border-[#263040] flex items-center justify-between">
+  <div id="catalog-modal" onclick="handleModalBackdropClick(event, 'catalog-modal')" class="modal-overlay-backdrop hidden">
+    <div class="modal-bounce-in mobile-sheet-dialog bg-[#111620] border border-[#263040] rounded-2xl max-w-2xl w-full max-h-[88vh] flex flex-col shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+      <div class="px-6 py-4 border-b border-[#263040] flex items-center justify-between bg-[#0e131d]">
         <h3 id="catalog-modal-title" class="text-base font-bold text-white flex items-center gap-2">➕ Add to Storage</h3>
-        <button onclick="closeModal('catalog-modal')" class="text-gray-400 hover:text-white text-lg">✕</button>
+        <button onclick="closeModal('catalog-modal')" class="text-gray-400 hover:text-white text-lg p-1">✕</button>
       </div>
       <div class="p-4 border-b border-[#263040] flex flex-wrap gap-2 items-center bg-[#080c14]">
         <input type="text" id="catalog-search" oninput="filterCatalogModal()" placeholder="Search catalog..." class="flex-1 bg-[#111620] border border-[#263040] rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500">
@@ -828,22 +839,22 @@
   </div>
 
   <!-- WEAPON PICKER MODAL -->
-  <div id="weapon-picker-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-[#111620] border border-[#263040] rounded-2xl max-w-xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
-      <div class="px-6 py-4 border-b border-[#263040] flex items-center justify-between">
+  <div id="weapon-picker-modal" onclick="handleModalBackdropClick(event, 'weapon-picker-modal')" class="modal-overlay-backdrop hidden">
+    <div class="modal-bounce-in mobile-sheet-dialog bg-[#111620] border border-[#263040] rounded-2xl max-w-xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+      <div class="px-6 py-4 border-b border-[#263040] flex items-center justify-between bg-[#0e131d]">
         <div>
           <h3 id="picker-modal-title" class="text-base font-bold text-white">Equip Hardpoint Slot</h3>
           <p class="text-xs text-gray-400">Select compatible weapon from storage or master catalog</p>
         </div>
-        <button onclick="closeModal('weapon-picker-modal')" class="text-gray-400 hover:text-white text-lg">✕</button>
+        <button onclick="closeModal('weapon-picker-modal')" class="text-gray-400 hover:text-white text-lg p-1">✕</button>
       </div>
       <div id="picker-weapons-list" class="flex-1 overflow-y-auto p-4 space-y-2 custom-scroll max-h-[55vh]"></div>
     </div>
   </div>
 
   <!-- SUPPORT & FEEDBACK MODAL -->
-  <div id="support-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-[#111620] border border-[#263040] rounded-2xl max-w-lg w-full flex flex-col shadow-2xl overflow-hidden animate-in fade-in duration-200">
+  <div id="support-modal" onclick="handleModalBackdropClick(event, 'support-modal')" class="modal-overlay-backdrop hidden">
+    <div class="modal-bounce-in mobile-sheet-dialog bg-[#111620] border border-[#263040] rounded-2xl max-w-lg w-full flex flex-col shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
       <div class="p-5 border-b border-[#263040] flex items-center justify-between bg-[#161f2e]">
         <div class="flex items-center gap-2.5">
           <div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-base">
@@ -933,11 +944,11 @@
   </div>
 
   <!-- DATA MODAL -->
-  <div id="data-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-[#111620] border border-[#263040] rounded-2xl max-w-xl w-full flex flex-col shadow-2xl overflow-hidden p-6 space-y-4">
+  <div id="data-modal" onclick="handleModalBackdropClick(event, 'data-modal')" class="modal-overlay-backdrop hidden">
+    <div class="modal-bounce-in mobile-sheet-dialog bg-[#111620] border border-[#263040] rounded-2xl max-w-xl w-full flex flex-col shadow-2xl overflow-hidden p-6 space-y-4" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between">
         <h3 id="data-modal-title" class="text-base font-bold text-white">Data Management</h3>
-        <button onclick="closeModal('data-modal')" class="text-gray-400 hover:text-white text-lg">✕</button>
+        <button onclick="closeModal('data-modal')" class="text-gray-400 hover:text-white text-lg p-1">✕</button>
       </div>
       <textarea id="data-modal-textarea" rows="10" class="w-full bg-[#080c14] border border-[#263040] rounded-lg p-3 text-xs text-emerald-400 font-mono focus:outline-none focus:border-amber-500 custom-scroll"></textarea>
       <div class="flex justify-end gap-2">
@@ -948,14 +959,14 @@
   </div>
 
   <!-- MARKDOWN SYNC MODAL -->
-  <div id="markdown-sync-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-[#111620] border border-[#263040] rounded-2xl max-w-2xl w-full flex flex-col shadow-2xl overflow-hidden p-6 space-y-4">
+  <div id="markdown-sync-modal" onclick="handleModalBackdropClick(event, 'markdown-sync-modal')" class="modal-overlay-backdrop hidden">
+    <div class="modal-bounce-in mobile-sheet-dialog bg-[#111620] border border-[#263040] rounded-2xl max-w-2xl w-full flex flex-col shadow-2xl overflow-hidden p-6 space-y-4" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between border-b border-[#263040] pb-3">
         <div>
           <h3 class="text-base font-bold text-white flex items-center gap-2">📝 1-Click Markdown Sync</h3>
           <p class="text-xs text-gray-400">Export loadouts formatted for <code>WarRobots/Hangars/</code> or local documentation</p>
         </div>
-        <button onclick="closeModal('markdown-sync-modal')" class="text-gray-400 hover:text-white text-lg">✕</button>
+        <button onclick="closeModal('markdown-sync-modal')" class="text-gray-400 hover:text-white text-lg p-1">✕</button>
       </div>
       <div class="flex gap-2 border-b border-[#263040] pb-2">
         <button onclick="selectSyncMarkdownTab('hangar1')" id="sync-tab-hangar1" class="px-3 py-1 text-xs font-bold rounded-lg bg-amber-500 text-black shadow">Hangar 1</button>
@@ -978,8 +989,8 @@
   </div>
 
   <!-- PILOT SKILLS MANAGER MODAL -->
-  <div id="pilot-skills-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-[#111620] border border-[#263040] rounded-2xl max-w-3xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in duration-200">
+  <div id="pilot-skills-modal" onclick="handleModalBackdropClick(event, 'pilot-skills-modal')" class="modal-overlay-backdrop hidden">
+    <div class="modal-bounce-in mobile-sheet-dialog bg-[#111620] border border-[#263040] rounded-2xl max-w-3xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
       <!-- Modal Header -->
       <div class="px-6 py-4 border-b border-[#263040] flex items-center justify-between bg-[#161f2e]">
         <div>
@@ -988,7 +999,7 @@
           </h3>
           <p id="pilot-skills-modal-subtitle" class="text-xs text-purple-300 font-medium">Configure up to 7 specialized pilot skills and tiers (T1–T4)</p>
         </div>
-        <button onclick="closeModal('pilot-skills-modal')" class="text-gray-400 hover:text-white text-lg">✕</button>
+        <button onclick="closeModal('pilot-skills-modal')" class="text-gray-400 hover:text-white text-lg p-1">✕</button>
       </div>
 
       <!-- Innate Legendary Skill & Presets Bar -->
@@ -1026,8 +1037,8 @@
   </div>
 
   <!-- SECURE COMMANDER AUTHENTICATION MODAL -->
-  <div id="auth-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-[#111620] border border-[#263040] rounded-2xl max-w-md w-full flex flex-col shadow-2xl overflow-hidden animate-in fade-in duration-200">
+  <div id="auth-modal" onclick="handleModalBackdropClick(event, 'auth-modal')" class="modal-overlay-backdrop hidden">
+    <div class="modal-bounce-in mobile-sheet-dialog bg-[#111620] border border-[#263040] rounded-2xl max-w-md w-full max-h-[88vh] flex flex-col shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
       
       <!-- Header with Tabs -->
       <div class="p-5 border-b border-[#263040] bg-[#161f2e] flex items-center justify-between">
@@ -1144,6 +1155,44 @@
           </div>
           <p class="leading-relaxed">All passwords are salted and hashed with PBKDF2/SHA-256 before storage. Free $0 cloud sync enabled.</p>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE QUICK TOOLS MODAL -->
+  <div id="mobile-menu-modal" onclick="handleModalBackdropClick(event, 'mobile-menu-modal')" class="modal-overlay-backdrop hidden">
+    <div class="modal-bounce-in mobile-sheet-dialog bg-[#111620] border border-[#263040] rounded-2xl max-w-md w-full flex flex-col shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+      <div class="p-4 border-b border-[#263040] bg-[#161f2e] flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-amber-400 font-black text-sm">⚡ WRBrain Quick Tools & Links</span>
+        </div>
+        <button onclick="closeModal('mobile-menu-modal')" class="text-gray-400 hover:text-white text-lg p-1">✕</button>
+      </div>
+      <div class="p-4 space-y-2.5">
+        <button onclick="closeModal('mobile-menu-modal'); openSyncMarkdownModal('hangar1')" class="w-full p-3 rounded-xl bg-[#080c14] hover:bg-[#161f2e] border border-[#263040] flex items-center justify-between text-xs font-bold text-gray-200">
+          <span class="flex items-center gap-2">📝 <span>1-Click Markdown Sync</span></span>
+          <span class="text-purple-400">→</span>
+        </button>
+        <button onclick="closeModal('mobile-menu-modal'); openExportModal()" class="w-full p-3 rounded-xl bg-[#080c14] hover:bg-[#161f2e] border border-[#263040] flex items-center justify-between text-xs font-bold text-gray-200">
+          <span class="flex items-center gap-2">💾 <span>Export Hangar JSON</span></span>
+          <span class="text-amber-400">→</span>
+        </button>
+        <button onclick="closeModal('mobile-menu-modal'); openImportModal()" class="w-full p-3 rounded-xl bg-[#080c14] hover:bg-[#161f2e] border border-[#263040] flex items-center justify-between text-xs font-bold text-gray-200">
+          <span class="flex items-center gap-2">📥 <span>Import Hangar JSON</span></span>
+          <span class="text-cyan-400">→</span>
+        </button>
+        <button onclick="closeModal('mobile-menu-modal'); openSupportModal()" class="w-full p-3 rounded-xl bg-[#080c14] hover:bg-[#161f2e] border border-amber-500/30 flex items-center justify-between text-xs font-bold text-amber-300">
+          <span class="flex items-center gap-2">📬 <span>Support, Inquiries & Bugs</span></span>
+          <span class="text-amber-400">→</span>
+        </button>
+        <a href="https://instagram.com/wrbrain.official" target="_blank" rel="noopener noreferrer" class="w-full p-3 rounded-xl bg-pink-500/10 hover:bg-pink-500/20 border border-pink-500/30 flex items-center justify-between text-xs font-bold text-pink-300">
+          <span class="flex items-center gap-2">📸 <span>Official Instagram @wrbrain.official</span></span>
+          <span>↗</span>
+        </a>
+        <button onclick="closeModal('mobile-menu-modal'); resetData()" class="w-full p-3 rounded-xl bg-red-950/30 hover:bg-red-950/60 border border-red-800/40 flex items-center justify-between text-xs font-bold text-red-300">
+          <span class="flex items-center gap-2">⚠️ <span>Reset Hangar Data</span></span>
+          <span>✕</span>
+        </button>
       </div>
     </div>
   </div>

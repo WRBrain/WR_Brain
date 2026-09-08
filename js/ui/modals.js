@@ -1305,7 +1305,25 @@ window.openAddCatalogModal = function(type) {
       });
     };
 
+    window.openMobileMenuModal = function() {
+      const modal = document.getElementById('mobile-menu-modal');
+      if (modal) modal.classList.remove('hidden');
+    };
+
     window.closeModal = function(id) {
       const modal = document.getElementById(id);
       if (modal) modal.classList.add('hidden');
     };
+
+    window.handleModalBackdropClick = function(event, modalId) {
+      if (event.target.id === modalId || event.target.classList.contains('modal-overlay-backdrop')) {
+        closeModal(modalId);
+      }
+    };
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const activeModals = document.querySelectorAll('.modal-overlay-backdrop:not(.hidden)');
+        activeModals.forEach(m => m.classList.add('hidden'));
+      }
+    });
