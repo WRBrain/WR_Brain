@@ -1,0 +1,116 @@
+/* WRBrain Main Stylesheet */
+
+body {
+      background-color: #080c14;
+      color: #e6edf3;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .badge-ultimate { background: rgba(255, 215, 0, 0.2); border: 1px solid #ffd700; color: #ffe66d; text-shadow: 0 0 8px rgba(255,215,0,0.5); }
+    .badge-titan { background: rgba(255, 75, 75, 0.2); border: 1px solid #ff4b4b; color: #ff7675; }
+    .badge-alpha { background: rgba(255, 75, 75, 0.2); border: 1px solid #ff4b4b; color: #ff7675; font-weight: bold; }
+    .badge-beta { background: rgba(255, 159, 67, 0.2); border: 1px solid #ff9f43; color: #feca57; font-weight: bold; }
+    .badge-t4 { background: rgba(227, 179, 65, 0.15); border: 1px solid rgba(227, 179, 65, 0.5); color: #f2cc60; }
+    .badge-t3 { background: rgba(163, 113, 247, 0.15); border: 1px solid rgba(163, 113, 247, 0.5); color: #d2a8ff; }
+    .badge-t2 { background: rgba(88, 166, 255, 0.15); border: 1px solid rgba(88, 166, 255, 0.5); color: #79c0ff; }
+    .badge-t1 { background: rgba(139, 148, 158, 0.15); border: 1px solid rgba(139, 148, 158, 0.5); color: #c9d1d9; }
+    .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scroll::-webkit-scrollbar-track { background: #111620; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 3px; }
+    .glass-card {
+      background: #111620;
+      border: 1px solid #263040;
+    }
+    .glass-card:hover {
+      border-color: #3b485d;
+    }
+    @keyframes radar-sweep {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .radar-sweep-anim {
+      animation: radar-sweep 4s linear infinite;
+    }
+    .tactical-titan-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(239, 68, 68, 0.16) 0%, rgba(17, 22, 32, 0.95) 75%);
+      border: 1px solid rgba(239, 68, 68, 0.45);
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.1);
+    }
+    .tactical-titan-glow:hover {
+      border-color: rgba(239, 68, 68, 0.7);
+      box-shadow: 0 0 35px rgba(239, 68, 68, 0.18);
+    }
+    .tactical-radar-glow {
+      background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.12) 0%, rgba(17, 22, 32, 0.95) 80%);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.09);
+    }
+    .tactical-split-bot {
+      background: radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.1) 0%, rgba(17, 22, 32, 0.95) 75%);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+    }
+    .tactical-split-bot:hover {
+      border-color: rgba(59, 130, 246, 0.65);
+    }
+    .tactical-mothership-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.18) 0%, rgba(17, 22, 32, 0.95) 75%);
+      border: 1px solid rgba(168, 85, 247, 0.45);
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.1);
+    }
+    .tactical-mothership-glow:hover {
+      border-color: rgba(168, 85, 247, 0.7);
+      box-shadow: 0 0 35px rgba(168, 85, 247, 0.18);
+    }
+    .tactical-grid-container {
+      position: relative;
+    }
+    .tactical-axis-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      transform: translateX(-50%);
+      background-image: linear-gradient(to bottom, rgba(245, 158, 11, 0.4) 50%, transparent 50%);
+      background-size: 2px 14px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* CYBER LEVEL SLIDER STYLES */
+    input[type=range].level-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 4px;
+      background: #1b2332;
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    input[type=range].level-slider:hover {
+      background: #28354d;
+    }
+    input[type=range].level-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #f59e0b;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(245, 158, 11, 0.7);
+      border: 1.5px solid #080c14;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    input[type=range].level-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.3);
+      box-shadow: 0 0 12px rgba(245, 158, 11, 1);
+    }
+    input[type=range].level-slider-titan::-webkit-slider-thumb {
+      background: #ef4444;
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.7);
+    }
+    input[type=range].level-slider-titan::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 12px rgba(239, 68, 68, 1);
+    }
