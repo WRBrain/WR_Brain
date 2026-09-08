@@ -747,7 +747,7 @@ window.openAddCatalogModal = function(type) {
 
       if (slot && slot.drone && slot.drone.name) {
         const d = slot.drone;
-        const md = MASTER_DRONES.find(item => item.id === d.id) || { name: d.name, effect: "Combat Support Microchips" };
+        const md = MASTER_DRONES.find(item => item.id === d.id) || { name: d.name, role: "Combat Drone", desc: "Autonomous tactical support system." };
         const curLevel = d.level || 'Lv 12';
 
         let levelOptionsHtml = DRONE_LEVELS.map(lvl => `<option value="${lvl}" ${lvl === curLevel ? 'selected' : ''}>${lvl}</option>`).join('');
@@ -767,7 +767,7 @@ window.openAddCatalogModal = function(type) {
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-1">
               <div>
                 <h4 class="text-2xl font-black text-white">🛸 ${d.name}</h4>
-                <p class="text-xs text-cyan-200 mt-0.5">Tier 4 Combat Drone Support Platform</p>
+                <p class="text-xs text-cyan-200 mt-0.5">${md.role || 'Combat Drone Support Platform'}</p>
               </div>
 
               <!-- LIVE LEVEL PICKER -->
@@ -781,7 +781,7 @@ window.openAddCatalogModal = function(type) {
 
             <div class="p-3 rounded-xl bg-[#080c14] border border-cyan-500/30 text-xs">
               <span class="text-[10px] text-cyan-400 uppercase font-bold block">Microchip Perks & Combat Abilities</span>
-              <p class="text-cyan-100 text-xs mt-0.5 leading-relaxed font-medium">⚡ ${md.effect}</p>
+              <p class="text-cyan-100 text-xs mt-0.5 leading-relaxed font-medium">⚡ ${md.desc || md.role || 'Autonomous combat support.'}</p>
             </div>
           </div>
         `;
@@ -821,7 +821,7 @@ window.openAddCatalogModal = function(type) {
       if (!container) return;
 
       const search = (document.getElementById('drone-config-search')?.value || '').toLowerCase();
-      const filtered = MASTER_DRONES.filter(d => d.name.toLowerCase().includes(search) || d.effect.toLowerCase().includes(search));
+      const filtered = MASTER_DRONES.filter(d => d.name.toLowerCase().includes(search) || (d.role||'').toLowerCase().includes(search) || (d.desc||'').toLowerCase().includes(search));
 
       if (countBadge) countBadge.innerText = `${filtered.length} Drones Available`;
       container.innerHTML = "";
@@ -833,8 +833,9 @@ window.openAddCatalogModal = function(type) {
               <div class="flex items-center gap-2">
                 <span class="badge-t4 text-[9px] font-black px-1.5 py-0.2 rounded uppercase">DRONE</span>
                 <span class="font-bold text-white text-sm">🛸 ${d.name}</span>
+                <span class="text-cyan-400 font-mono text-[10px]">${d.role || ''}</span>
               </div>
-              <p class="text-gray-400 text-[11px] mt-0.5 line-clamp-1">${d.effect}</p>
+              <p class="text-gray-400 text-[11px] mt-0.5 line-clamp-1">${d.desc || d.role || ''}</p>
             </div>
             <button onclick="attachDroneDirect('${d.id}', 'Lv 12')" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white shadow transition-all hover:scale-105 shrink-0 ml-2">
               Attach Drone
@@ -843,6 +844,7 @@ window.openAddCatalogModal = function(type) {
         `;
       });
     };
+
 
     window.attachDroneDirect = function(droneId, level) {
       if (!activeDroneConfigTarget) return;
