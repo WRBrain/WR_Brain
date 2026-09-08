@@ -40,6 +40,11 @@ let activeWeaponSizeTab = "ALL";
     };
 
     window.switchTab = function(tabId) {
+      if (tabId.startsWith('hangar') && tabId !== 'hangars') {
+        currentActiveHangarKey = tabId;
+        tabId = 'hangars';
+      }
+
       document.querySelectorAll('.view-panel').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('bg-amber-500', 'text-black', 'shadow');
@@ -71,6 +76,10 @@ let activeWeaponSizeTab = "ALL";
       }
 
       if (tabId === 'home') renderHome();
+      else if (tabId === 'hangars') {
+        renderHangarDeckSelector();
+        renderHangar(currentActiveHangarKey, 'hangar-active-grid');
+      }
       else if (tabId === 'analyzer') runAudit(currentAuditHangar);
       else if (tabId === 'dpslab') initDpsLab();
       else if (tabId === 'catalog_weapons') renderWeaponEncyclopedia();

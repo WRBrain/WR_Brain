@@ -85,13 +85,34 @@ function calculateHangarSynergy(slots = [], titanSlot = null) {
       return { synergyScore, activeBots, roles, counterMatrix, totalBurstDPS, totalCycleDPS, botAudits, recommendations };
     }
 
+    let currentAuditHangar = "hangar1";
     window.runAudit = function(hangarKey) {
+      if (!hangarKey || !AppState.hangars[hangarKey]) {
+        hangarKey = currentActiveHangarKey || Object.keys(AppState.hangars)[0] || "hangar1";
+      }
       currentAuditHangar = hangarKey;
       const hangar = AppState.hangars[hangarKey];
       if (!hangar) return;
 
-      document.getElementById('audit-btn-h1').className = hangarKey === 'hangar1' ? "px-3.5 py-1.5 text-xs font-bold rounded-lg bg-amber-500 text-black shadow" : "px-3.5 py-1.5 text-xs font-bold rounded-lg bg-[#161f2e] text-gray-300 border border-[#263040]";
-      document.getElementById('audit-btn-h2').className = hangarKey === 'hangar2' ? "px-3.5 py-1.5 text-xs font-bold rounded-lg bg-amber-500 text-black shadow" : "px-3.5 py-1.5 text-xs font-bold rounded-lg bg-[#161f2e] text-gray-300 border border-[#263040]";
+      const auditSelectorContainer = document.getElementById('audit-hangar-selector-container');
+      if (auditSelectorContainer) {
+        auditSelectorContainer.innerHTML = "";
+        Object.keys(AppState.hangars).forEach((k, idx) => {
+          const h = AppState.hangars[k];
+          const isSelected = k === hangarKey;
+          const icon = idx === 0 ? '🛡️' : idx === 1 ? '⚔️' : idx === 2 ? '🎯' : idx === 3 ? '🏃' : '👑';
+          const btn = document.createElement('button');
+          btn.onclick = () => runAudit(k);
+          btn.className = `px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all ${isSelected ? 'bg-amber-500 text-black shadow font-black' : 'bg-[#161f2e] text-gray-300 border border-[#263040] hover:border-amber-500/40'}`;
+          btn.innerHTML = `${icon} ${h.name.split(':')[0] || h.name}`;
+          auditSelectorContainer.appendChild(btn);
+        });
+      } else {
+        const btnH1 = document.getElementById('audit-btn-h1');
+        const btnH2 = document.getElementById('audit-btn-h2');
+        if (btnH1) btnH1.className = hangarKey === 'hangar1' ? "px-3.5 py-1.5 text-xs font-bold rounded-lg bg-amber-500 text-black shadow" : "px-3.5 py-1.5 text-xs font-bold rounded-lg bg-[#161f2e] text-gray-300 border border-[#263040]";
+        if (btnH2) btnH2.className = hangarKey === 'hangar2' ? "px-3.5 py-1.5 text-xs font-bold rounded-lg bg-amber-500 text-black shadow" : "px-3.5 py-1.5 text-xs font-bold rounded-lg bg-[#161f2e] text-gray-300 border border-[#263040]";
+      }
 
       const audit = calculateHangarSynergy(hangar.slots, hangar.titanSlot);
       document.getElementById('audit-score-num').innerText = `${audit.synergyScore}%`;

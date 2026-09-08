@@ -68,6 +68,69 @@ let AppState = (function() {
                 { robotId: "dagon", level: "Lv 1", weapons: [{ id: "gladius", size: "Light", level: "Lv 2" }, { id: "gladius", size: "Light", level: "Lv 2" }, { id: "gladius", size: "Light", level: "Lv 2" }, { id: "tamer", size: "Light", level: "Lv 1" }, { id: "velos", size: "Light", level: "Lv 1" }, { id: "velos", size: "Light", level: "Lv 1" }] },
                 { robotId: "siren", level: "Lv 1", weapons: [{ id: "smuta", size: "Heavy", level: "Lv 1" }, { id: "smuta", size: "Heavy", level: "Lv 1" }, { id: "smite", size: "Light", level: "Lv 1" }] }
               ]
+            },
+            hangar3: {
+              id: "hangar3",
+              name: "Hangar 3: Long-Range Artillery & Snipers",
+              mothership: { id: "orion", name: "Orion", level: "Lv 40", tier: "T4", effect: "Fires orbital laser strike dealing continuous heavy damage in an 80m blast radius." },
+              titanSlot: {
+                titanId: "bersagliere",
+                level: "Lv 20",
+                weapons: [
+                  { id: "tonans", name: "Tonans", size: "Alpha", level: "Lv 1", tier: "T4" },
+                  { id: "fulgur", name: "Fulgur", size: "Beta", level: "Lv 1", tier: "T4" },
+                  { id: "fulgur", name: "Fulgur", size: "Beta", level: "Lv 1", tier: "T4" }
+                ]
+              },
+              slots: [
+                { robotId: "bagliore", level: "Lv 1", weapons: [{ id: "dune", size: "Heavy", level: "Lv 1" }, { id: "dune", size: "Heavy", level: "Lv 1" }, { id: "dune", size: "Heavy", level: "Lv 1" }, { id: "dune", size: "Heavy", level: "Lv 1" }] },
+                { robotId: "crisis", level: "Lv 1", weapons: [{ id: "reaper", size: "Heavy", level: "Lv 1" }, { id: "reaper", size: "Heavy", level: "Lv 1" }, { id: "reaper", size: "Heavy", level: "Lv 1" }, { id: "reaper", size: "Heavy", level: "Lv 1" }] },
+                { robotId: "erebus", level: "Lv 1", weapons: [{ id: "hel", size: "Heavy", level: "Lv 1" }, { id: "hel", size: "Heavy", level: "Lv 1" }, { id: "hel", size: "Heavy", level: "Lv 1" }] },
+                { robotId: "behemoth", level: "Lv 1", weapons: [{ id: "prism", size: "Heavy", level: "Lv 1" }, { id: "prism", size: "Heavy", level: "Lv 1" }, { id: "prism", size: "Heavy", level: "Lv 1" }, { id: "prism", size: "Heavy", level: "Lv 1" }] },
+                { robotId: "fafnir", level: "Lv 1", weapons: [{ id: "skadi", size: "Medium", level: "Lv 1" }, { id: "skadi", size: "Medium", level: "Lv 1" }, { id: "skadi", size: "Medium", level: "Lv 1" }, { id: "skadi", size: "Medium", level: "Lv 1" }] }
+              ]
+            },
+            hangar4: {
+              id: "hangar4",
+              name: "Hangar 4: Beacon Rush Mobile Squad",
+              mothership: { id: "roulette", name: "Roulette", level: "Lv 30", tier: "T4", effect: "Emits wide EMP pulse disabling enemy active modules and abilities." },
+              titanSlot: {
+                titanId: "bedwyr",
+                level: "Lv 25",
+                weapons: [
+                  { id: "inferno", name: "Inferno", size: "Alpha", level: "Lv 1", tier: "T4" },
+                  { id: "pyro", name: "Pyro", size: "Beta", level: "Lv 1", tier: "T4" },
+                  { id: "pyro", name: "Pyro", size: "Beta", level: "Lv 1", tier: "T4" }
+                ]
+              },
+              slots: [
+                { robotId: "imugi", level: "Lv 1", weapons: [{ id: "warrior_scorcher", size: "Medium", level: "Lv 1" }, { id: "gladius", size: "Light", level: "Lv 1" }, { id: "gladius", size: "Light", level: "Lv 1" }] },
+                { robotId: "nether", level: "Lv 1", weapons: [{ id: "blaze", size: "Light", level: "Lv 1" }, { id: "blaze", size: "Light", level: "Lv 1" }, { id: "blaze", size: "Light", level: "Lv 1" }, { id: "blaze", size: "Light", level: "Lv 1" }] },
+                { robotId: "lynx", level: "Lv 1", weapons: [{ id: "brisant", size: "Heavy", level: "Lv 1" }, { id: "brisant", size: "Heavy", level: "Lv 1" }] },
+                { robotId: "kumiho", level: "Lv 1", weapons: [{ id: "havoc", size: "Medium", level: "Lv 1" }, { id: "havoc", size: "Medium", level: "Lv 1" }] },
+                { robotId: "raven", level: "Lv 2", weapons: [{ id: "cryo", size: "Medium", level: "Lv 1" }, { id: "cryo", size: "Medium", level: "Lv 1" }, { id: "sinister_rime", size: "Light", level: "Lv 1" }, { id: "sinister_rime", size: "Light", level: "Lv 1" }] }
+              ]
+            },
+            hangar5: {
+              id: "hangar5",
+              name: "Hangar 5: Heavy Brawlers & Tanks",
+              mothership: { id: "northlight", name: "Northlight", level: "Lv 50", tier: "T4", effect: "Instantly restores 200,000 HP and adds 150,000 Aegis shielding." },
+              titanSlot: {
+                titanId: "rook",
+                level: "Lv 15",
+                weapons: [
+                  { id: "argon", name: "Argon", size: "Alpha", level: "Lv 1", tier: "T4" },
+                  { id: "oxy", name: "Oxy", size: "Beta", level: "Lv 1", tier: "T4" },
+                  { id: "oxy", name: "Oxy", size: "Beta", level: "Lv 1", tier: "T4" }
+                ]
+              },
+              slots: [
+                { robotId: "fenrir", level: "Lv 1", pilot: { id: "bernadette_wolff", name: "Bernadette Wolff", bot: "Fenrir", level: "Lv 50", tier: "T4", skill: "+60% Base Durability", skills: [] }, weapons: [{ id: "athos", size: "Heavy", level: "Lv 1" }, { id: "porthos", size: "Medium", level: "Lv 1" }, { id: "porthos", size: "Medium", level: "Lv 1" }] },
+                { robotId: "revenant", level: "Lv 1", weapons: [{ id: "puncher", size: "Heavy", level: "Lv 1" }, { id: "toxin", size: "Light", level: "Lv 1" }, { id: "toxin", size: "Light", level: "Lv 1" }] },
+                { robotId: "invader", level: "Lv 1", weapons: [{ id: "igniter", size: "Medium", level: "Lv 1" }, { id: "blaze", size: "Light", level: "Lv 1" }, { id: "blaze", size: "Light", level: "Lv 1" }] },
+                { robotId: "shell", level: "Lv 1", weapons: [{ id: "devastator", size: "Heavy", level: "Lv 1" }, { id: "scatter", size: "Light", level: "Lv 1" }, { id: "scatter", size: "Light", level: "Lv 1" }] },
+                { robotId: "weyland", level: "Lv 2", weapons: [{ id: "viper", size: "Heavy", level: "Lv 1" }, { id: "viper", size: "Heavy", level: "Lv 1" }] }
+              ]
             }
           },
           reserveRobots: [
@@ -172,36 +235,23 @@ let AppState = (function() {
         state.reserveWeapons.heavy.unshift({ id: "lumen_h", name: "Lumen-H", tier: "T4", level: "Lv 1", count: 1 });
       }
 
-      // Ensure Titan slots exist in both hangars
-      if (state.hangars && state.hangars.hangar1 && !state.hangars.hangar1.titanSlot) {
-        state.hangars.hangar1.titanSlot = {
-          titanId: "luchador",
-          level: "Lv 15",
-          weapons: [
-            { id: "veyron", name: "Veyron", size: "Alpha", level: "Lv 1", tier: "T4" },
-            { id: "evora", name: "Evora", size: "Beta", level: "Lv 1", tier: "T4" },
-            { id: "evora", name: "Evora", size: "Beta", level: "Lv 1", tier: "T4" }
-          ]
-        };
-      }
-      if (state.hangars && state.hangars.hangar2 && !state.hangars.hangar2.titanSlot) {
-        state.hangars.hangar2.titanSlot = {
-          titanId: "indra",
-          level: "Lv 1",
-          weapons: [
-            { id: "vajra", name: "Vajra", size: "Alpha", level: "Lv 1", tier: "T4" },
-            { id: "maha_vajra", name: "Maha-Vajra", size: "Beta", level: "Lv 1", tier: "T4" },
-            { id: "maha_vajra", name: "Maha-Vajra", size: "Beta", level: "Lv 1", tier: "T4" }
-          ]
-        };
-      }
-
-      // Ensure Mothership exists in both hangars
-      if (state.hangars && state.hangars.hangar1 && !state.hangars.hangar1.mothership) {
-        state.hangars.hangar1.mothership = { id: "paladin", name: "Paladin", level: "Lv 60", tier: "T4", effect: "Deploys a 300,000 HP Aegis Dome and repairs 250,000 unhealable Grey Damage." };
-      }
-      if (state.hangars && state.hangars.hangar2 && !state.hangars.hangar2.mothership) {
-        state.hangars.hangar2.mothership = { id: "avalon", name: "Avalon", level: "Lv 35", tier: "T4", effect: "Cleanses all negative status effects (Rust, EMP, Blind), grants Immunity stacks, and heals Grey Damage." };
+      // Ensure all hangars have basic titanSlot and mothership
+      if (state.hangars) {
+        Object.keys(state.hangars).forEach(hk => {
+          const h = state.hangars[hk];
+          if (!h.titanSlot) {
+            h.titanSlot = { titanId: null, level: "Lv 15", weapons: [] };
+          }
+          if (!h.slots) {
+            h.slots = [
+              { robotId: null, level: "Lv 1", weapons: [] },
+              { robotId: null, level: "Lv 1", weapons: [] },
+              { robotId: null, level: "Lv 1", weapons: [] },
+              { robotId: null, level: "Lv 1", weapons: [] },
+              { robotId: null, level: "Lv 1", weapons: [] }
+            ];
+          }
+        });
       }
 
       // Ensure Hastatus Gladius is updated to Lv 4
@@ -215,16 +265,18 @@ let AppState = (function() {
       }
 
       // Ensure all equipped and reserve pilots have 7 skills initialized
-      ['hangar1', 'hangar2'].forEach(hk => {
-        if (state.hangars && state.hangars[hk] && state.hangars[hk].slots) {
-          state.hangars[hk].slots.forEach(slot => {
-            if (slot && slot.pilot && (!slot.pilot.skills || slot.pilot.skills.length === 0)) {
-              const mb = MASTER_ROBOTS.find(r => r.id === slot.robotId);
-              slot.pilot.skills = getDefaultPilotSkills(mb ? mb.role : "Brawler");
-            }
-          });
-        }
-      });
+      if (state.hangars) {
+        Object.keys(state.hangars).forEach(hk => {
+          if (state.hangars[hk] && state.hangars[hk].slots) {
+            state.hangars[hk].slots.forEach(slot => {
+              if (slot && slot.pilot && (!slot.pilot.skills || slot.pilot.skills.length === 0)) {
+                const mb = MASTER_ROBOTS.find(r => r.id === slot.robotId);
+                slot.pilot.skills = getDefaultPilotSkills(mb ? mb.role : "Brawler");
+              }
+            });
+          }
+        });
+      }
       if (state.reservePilots) {
         state.reservePilots.forEach(p => {
           if (!p.skills || p.skills.length === 0) {
@@ -235,6 +287,77 @@ let AppState = (function() {
 
       return state;
     })();
+
+    let currentActiveHangarKey = "hangar1";
+
+    window.createDefaultHangarStructure = function(id, name) {
+      return {
+        id,
+        name,
+        mothership: null,
+        titanSlot: { titanId: null, level: "Lv 15", weapons: [] },
+        slots: [
+          { robotId: null, level: "Lv 1", weapons: [] },
+          { robotId: null, level: "Lv 1", weapons: [] },
+          { robotId: null, level: "Lv 1", weapons: [] },
+          { robotId: null, level: "Lv 1", weapons: [] },
+          { robotId: null, level: "Lv 1", weapons: [] }
+        ]
+      };
+    };
+
+    window.addNewHangarDeck = function() {
+      const count = Object.keys(AppState.hangars).length + 1;
+      const newKey = `hangar${Date.now()}`;
+      const defaultName = `Hangar ${count}: Custom Deck`;
+      const name = prompt("Enter name for your new Hangar Deck:", defaultName);
+      if (!name || !name.trim()) return;
+
+      AppState.hangars[newKey] = createDefaultHangarStructure(newKey, name.trim());
+      saveState();
+      switchActiveHangar(newKey);
+    };
+
+    window.renameActiveHangar = function(hangarKey) {
+      const h = AppState.hangars[hangarKey];
+      if (!h) return;
+      const newName = prompt("Enter new name for this Hangar Deck:", h.name);
+      if (newName && newName.trim()) {
+        h.name = newName.trim();
+        saveState();
+        renderHangarDeckSelector();
+        renderHangar(hangarKey, 'hangar-active-grid');
+      }
+    };
+
+    window.deleteHangarDeck = function(hangarKey) {
+      const keys = Object.keys(AppState.hangars);
+      if (keys.length <= 1) {
+        alert("You must keep at least 1 active Hangar deck!");
+        return;
+      }
+      const h = AppState.hangars[hangarKey];
+      if (!h) return;
+      if (confirm(`Delete '${h.name}'? Any equipped robots/titans will be returned to your inventory storage.`)) {
+        if (h.titanSlot && h.titanSlot.titanId) unequipTitan(hangarKey);
+        if (h.mothership) unequipMothership(hangarKey);
+        if (h.slots) {
+          h.slots.forEach((s, idx) => {
+            if (s && s.robotId) unequipRobot(hangarKey, idx);
+          });
+        }
+        delete AppState.hangars[hangarKey];
+        saveState();
+        const remainingKeys = Object.keys(AppState.hangars);
+        switchActiveHangar(remainingKeys[0]);
+      }
+    };
+
+    window.switchActiveHangar = function(hangarKey) {
+      currentActiveHangarKey = hangarKey;
+      renderHangarDeckSelector();
+      renderHangar(hangarKey, 'hangar-active-grid');
+    };
 
     function saveState() {
       try { 

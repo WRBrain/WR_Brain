@@ -118,8 +118,55 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
       `;
     }
 
-    function renderHangar(hangarKey, containerId) {
-      const container = document.getElementById(containerId);
+    window.renderHangarDeckSelector = function() {
+      const container = document.getElementById('hangar-deck-pills-container');
+      if (!container || !AppState.hangars) return;
+
+      container.innerHTML = "";
+      const keys = Object.keys(AppState.hangars);
+      if (!AppState.hangars[currentActiveHangarKey]) {
+        currentActiveHangarKey = keys[0] || "hangar1";
+      }
+
+      keys.forEach((k, idx) => {
+        const h = AppState.hangars[k];
+        const isCurrent = k === currentActiveHangarKey;
+        const activeCount = h.slots ? h.slots.filter(s => s && s.robotId).length : 0;
+
+        const pill = document.createElement('div');
+        pill.className = `flex items-center gap-1 rounded-xl border transition-all ${isCurrent ? 'bg-amber-500 text-black border-amber-400 shadow-md font-bold' : 'bg-[#080c14] text-gray-300 border-[#263040] hover:border-amber-500/40'}`;
+        pill.innerHTML = `
+          <button onclick="switchActiveHangar('${k}')" class="px-3 py-1.5 text-xs flex items-center gap-1.5 font-bold">
+            <span>${idx === 0 ? '🛡️' : idx === 1 ? '⚔️' : idx === 2 ? '🎯' : idx === 3 ? '🏃' : '👑'}</span>
+            <span>${h.name}</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded font-mono ${isCurrent ? 'bg-black/20 text-black font-black' : 'bg-[#161f2e] text-amber-400'}">${activeCount}/5</span>
+          </button>
+          ${keys.length > 1 ? `
+            <button onclick="deleteHangarDeck('${k}')" class="px-2 py-1 text-xs hover:text-red-500 font-bold opacity-70 hover:opacity-100" title="Delete Hangar Deck">✕</button>
+          ` : ''}
+        `;
+        container.appendChild(pill);
+      });
+
+      // Update header text for active hangar
+      const curHangar = AppState.hangars[currentActiveHangarKey];
+      if (curHangar) {
+        const titleEl = document.getElementById('active-hangar-title');
+        const subEl = document.getElementById('active-hangar-subtitle');
+        if (titleEl) titleEl.innerText = curHangar.name;
+        if (subEl) subEl.innerText = `👑 ${curHangar.titanSlot?.titanId ? (MASTER_TITANS.find(t=>t.id===curHangar.titanSlot.titanId)?.name || 'Titan') : 'No Titan'} + ${curHangar.slots.filter(s=>s&&s.robotId).length} Deployed Combat Bays`;
+      }
+    };
+
+    function renderHangar(hangarKey = currentActiveHangarKey, containerId = 'hangar-active-grid') {
+      if (!hangarKey) hangarKey = currentActiveHangarKey;
+      let container = document.getElementById(containerId);
+      if (!container || container.classList.contains('hidden') || containerId.includes('-grid') && containerId !== 'hangar-active-grid') {
+        const activeContainer = document.getElementById('hangar-active-grid');
+        if (activeContainer && hangarKey === currentActiveHangarKey) {
+          container = activeContainer;
+        }
+      }
       if (!container) return;
       const hangar = AppState.hangars[hangarKey];
       if (!hangar) return;
@@ -127,9 +174,14 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
       container.innerHTML = "";
 
       const audit = calculateHangarSynergy(hangar.slots, hangar.titanSlot);
-      const badgeId = hangarKey === "hangar1" ? "h1-synergy-badge" : "h2-synergy-badge";
-      const badge = document.getElementById(badgeId);
+      const badge = document.getElementById('active-hangar-synergy-badge');
       if (badge) badge.innerHTML = `⚡ Synergy: <strong>${audit.synergyScore}%</strong> • ${audit.totalBurstDPS.toLocaleString()} Burst DPS`;
+
+      // Update titles
+      const titleEl = document.getElementById('active-hangar-title');
+      const subEl = document.getElementById('active-hangar-subtitle');
+      if (titleEl) titleEl.innerText = hangar.name;
+      if (subEl) subEl.innerText = `👑 ${hangar.titanSlot?.titanId ? (MASTER_TITANS.find(t=>t.id===hangar.titanSlot.titanId)?.name || 'Titan') : 'No Titan'} + ${hangar.slots.filter(s=>s&&s.robotId).length} Deployed Combat Bays`;
 
       // 0. CENTER AXIS LINE (Subtle glowing dashed spine from the sketch)
       const axisLine = document.createElement('div');
@@ -443,64 +495,64 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
     }
 
 function renderHome() {
-      const container = document.getElementById('home-hangars-overview');
-      if (!container) return;
-      container.innerHTML = "";
+  const container = document.getElementById('home-hangars-overview');
+  if (!container || !AppState.hangars) return;
+  container.innerHTML = "";
 
-      ['hangar1', 'hangar2'].forEach(hangarKey => {
-        const hangar = AppState.hangars[hangarKey];
-        if (!hangar) return;
-        const audit = calculateHangarSynergy(hangar.slots, hangar.titanSlot);
-        
-        let titanBadge = "";
-        if (hangar.titanSlot && hangar.titanSlot.titanId) {
-          const mt = MASTER_TITANS.find(t => t.id === hangar.titanSlot.titanId) || { name: hangar.titanSlot.titanId };
-          titanBadge = `
-            <div class="flex items-center gap-1.5 bg-red-950/40 border border-red-500/40 px-2.5 py-1.5 rounded-lg text-xs">
-              <span class="badge-titan text-[9px] font-black px-1.5 py-0.2 rounded uppercase">👑 TITAN</span>
-              <span class="font-bold text-white">${mt.name}</span>
-              <span class="text-red-300 text-[10px] font-mono">(${hangar.titanSlot.level || 'Lv 15'})</span>
-            </div>
-          `;
-        }
-
-        let botsHtml = "";
-        hangar.slots.forEach(slot => {
-          if (!slot || !slot.robotId) return;
-          const mb = MASTER_ROBOTS.find(r => r.id === slot.robotId) || { name: slot.robotId, tier: "T4" };
-          botsHtml += `
-            <div class="flex items-center gap-1.5 bg-[#080c14] border border-[#263040] px-2.5 py-1.5 rounded-lg text-xs">
-              <span class="badge-${mb.tier.toLowerCase()} text-[9px] font-black px-1 py-0.2 rounded">${mb.tier}</span>
-              <span class="font-bold text-white">${mb.name}</span>
-              <span class="text-gray-400 text-[10px]">(${slot.level})</span>
-            </div>
-          `;
-        });
-
-        container.innerHTML += `
-          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between space-y-4 border border-[#263040] hover:border-amber-500/40 transition-all">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                  <span class="text-lg">${hangarKey === 'hangar1' ? '🛡️' : '⚔️'}</span>
-                  <h3 class="text-base font-black text-white">${hangar.name}</h3>
-                </div>
-                <span class="px-2.5 py-0.5 rounded-md text-xs font-bold ${audit.synergyScore >= 80 ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'}">
-                  ${audit.synergyScore}% Synergy
-                </span>
-              </div>
-              <div class="flex flex-wrap gap-2 pt-1">
-                ${titanBadge}
-                ${botsHtml || '<span class="text-gray-500 text-xs italic">No robots equipped in this hangar yet.</span>'}
-              </div>
-            </div>
-            <div class="pt-3 border-t border-[#263040] flex items-center justify-between">
-              <span class="text-xs text-gray-400">${hangar.slots.filter(s => s && s.robotId).length} / 5 Slots Active ${hangar.titanSlot && hangar.titanSlot.titanId ? '+ 👑 Titan' : ''}</span>
-              <button onclick="switchTab('${hangarKey}')" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-[#161f2e] hover:bg-amber-500 hover:text-black text-amber-300 border border-[#263040] transition-all">
-                Open ${hangarKey.toUpperCase()} Builder →
-              </button>
-            </div>
-          </div>
-        `;
-      });
+  Object.keys(AppState.hangars).forEach((hangarKey, hIdx) => {
+    const hangar = AppState.hangars[hangarKey];
+    if (!hangar) return;
+    const audit = calculateHangarSynergy(hangar.slots, hangar.titanSlot);
+    
+    let titanBadge = "";
+    if (hangar.titanSlot && hangar.titanSlot.titanId) {
+      const mt = MASTER_TITANS.find(t => t.id === hangar.titanSlot.titanId) || { name: hangar.titanSlot.titanId };
+      titanBadge = `
+        <div class="flex items-center gap-1.5 bg-red-950/40 border border-red-500/40 px-2.5 py-1.5 rounded-lg text-xs">
+          <span class="badge-titan text-[9px] font-black px-1.5 py-0.2 rounded uppercase">👑 TITAN</span>
+          <span class="font-bold text-white">${mt.name}</span>
+          <span class="text-red-300 text-[10px] font-mono">(${hangar.titanSlot.level || 'Lv 15'})</span>
+        </div>
+      `;
     }
+
+    let botsHtml = "";
+    (hangar.slots || []).forEach(slot => {
+      if (!slot || !slot.robotId) return;
+      const mb = MASTER_ROBOTS.find(r => r.id === slot.robotId) || { name: slot.robotId, tier: "T4" };
+      botsHtml += `
+        <div class="flex items-center gap-1.5 bg-[#080c14] border border-[#263040] px-2.5 py-1.5 rounded-lg text-xs">
+          <span class="badge-${mb.tier.toLowerCase()} text-[9px] font-black px-1 py-0.2 rounded">${mb.tier}</span>
+          <span class="font-bold text-white">${mb.name}</span>
+          <span class="text-gray-400 text-[10px]">(${slot.level})</span>
+        </div>
+      `;
+    });
+
+    container.innerHTML += `
+      <div class="glass-card p-5 rounded-2xl flex flex-col justify-between space-y-4 border border-[#263040] hover:border-amber-500/40 transition-all">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">${hIdx === 0 ? '🛡️' : hIdx === 1 ? '⚔️' : hIdx === 2 ? '🎯' : hIdx === 3 ? '🏃' : '👑'}</span>
+              <h3 class="text-base font-black text-white">${hangar.name}</h3>
+            </div>
+            <span class="px-2.5 py-0.5 rounded-md text-xs font-bold ${audit.synergyScore >= 80 ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'}">
+              ${audit.synergyScore}% Synergy
+            </span>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1">
+            ${titanBadge}
+            ${botsHtml || '<span class="text-gray-500 text-xs italic">No robots equipped in this hangar yet.</span>'}
+          </div>
+        </div>
+        <div class="pt-3 border-t border-[#263040] flex items-center justify-between">
+          <span class="text-xs text-gray-400">${(hangar.slots || []).filter(s => s && s.robotId).length} / 5 Slots Active ${hangar.titanSlot && hangar.titanSlot.titanId ? '+ 👑 Titan' : ''}</span>
+          <button onclick="switchActiveHangar('${hangarKey}'); switchTab('hangars');" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-[#161f2e] hover:bg-amber-500 hover:text-black text-amber-300 border border-[#263040] transition-all">
+            Open Deck →
+          </button>
+        </div>
+      </div>
+    `;
+  });
+}

@@ -31,8 +31,7 @@
       <!-- DESKTOP NAVIGATION PILLS (HIDDEN ON MOBILE, BOTTOM DOCK USED INSTEAD) -->
       <nav class="hidden xl:flex nav-scroll-container items-center gap-1 bg-[#080c14]/90 p-1.5 rounded-xl border border-[#263040] shadow-inner">
         <button onclick="switchTab('home')" id="tab-home" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all bg-amber-500 text-black shadow shrink-0">🏠 Home</button>
-        <button onclick="switchTab('hangar1')" id="tab-hangar1" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🛡️ Hangar 1</button>
-        <button onclick="switchTab('hangar2')" id="tab-hangar2" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">⚔️ Hangar 2</button>
+        <button onclick="switchTab('hangars')" id="tab-hangars" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white shrink-0">🛡️ Hangars</button>
         <button onclick="switchTab('analyzer')" id="tab-analyzer" class="tab-btn px-3 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white flex items-center gap-1.5 shrink-0">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> WRBrain Audit
         </button>
@@ -99,7 +98,7 @@
             Inspired by PokeBrain — the all-in-one platform to theorycraft robot loadouts, inspect Sibling Variant families across Heavy/Medium/Light & Alpha/Beta hardpoints, simulate battle damage with Nuclear Amplifiers, and optimize team synergy.
           </p>
           <div class="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5 sm:gap-3 pt-3">
-            <button onclick="switchTab('hangar1')" class="col-span-2 sm:col-span-1 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-black font-black text-xs sm:text-sm shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95">
+            <button onclick="switchTab('hangars')" class="col-span-2 sm:col-span-1 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-black font-black text-xs sm:text-sm shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95">
               🛡️ Open Hangar Builder
             </button>
             <button onclick="switchTab('analyzer')" class="px-3.5 sm:px-5 py-2.5 rounded-xl bg-[#161f2e] hover:bg-[#202c40] text-gray-200 border border-[#263040] hover:border-amber-500/50 font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all hover:scale-105 active:scale-95">
@@ -140,14 +139,14 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           
           <!-- Card 1: Hangar Builder -->
-          <div onclick="switchTab('hangar1')" class="glass-card p-5 rounded-2xl cursor-pointer hover:border-amber-500/60 hover:-translate-y-1 transition-all group relative overflow-hidden flex flex-col justify-between">
+          <div onclick="switchTab('hangars')" class="glass-card p-5 rounded-2xl cursor-pointer hover:border-amber-500/60 hover:-translate-y-1 transition-all group relative overflow-hidden flex flex-col justify-between">
             <div class="space-y-3">
               <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-xl text-amber-400 group-hover:scale-110 transition-transform">
                 🛡️
               </div>
               <h3 class="text-base font-black text-white group-hover:text-amber-400 transition-colors">Hangar Builder & Loadouts</h3>
               <p class="text-xs text-gray-400 leading-relaxed">
-                Build custom 5-robot squad teams across Hangar 1 & Hangar 2 with strict hardpoint slot validation (Heavy, Medium, Light mounts).
+                Build custom 5-robot squad teams across multiple Hangar Decks with strict hardpoint slot validation (Heavy, Medium, Light mounts).
               </p>
             </div>
             <div class="mt-4 pt-3 border-t border-[#263040] flex items-center justify-between text-xs text-amber-400 font-bold">
@@ -310,48 +309,58 @@
 
     </section>
 
-    <!-- VIEW 1: HANGAR 1 -->
-    <section id="view-hangar1" class="view-panel hidden space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-[#111620] p-4 rounded-xl border border-[#263040]">
-        <div>
-          <h2 class="text-lg sm:text-xl font-black text-white flex items-center gap-2">🛡️ Hangar 1: Primary Assault Team</h2>
-          <p class="text-xs text-gray-400">👑 Titan Command Core + 5 Battle Robot Bays • Symmetrical S-Formation</p>
-        </div>
-        <div class="flex flex-wrap items-center gap-2">
-          <div id="h1-synergy-badge" class="px-2.5 sm:px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-1.5">
-            Synergy: Calculating...
+    <!-- VIEW 1: UNIFIED HANGARS DECK SYSTEM -->
+    <section id="view-hangars" class="view-panel hidden space-y-6">
+      <!-- DECK SELECTOR BAR -->
+      <div class="glass-card p-4 rounded-2xl border border-[#263040] space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <span class="text-[10px] font-black tracking-widest text-amber-400 uppercase font-mono">Tactical Deck Manager</span>
+            <h2 class="text-base sm:text-lg font-black text-white flex items-center gap-2">
+              🛡️ Select Battle Hangar Deck
+            </h2>
           </div>
-          <button onclick="openEquipTitanModal('hangar1')" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-red-600 hover:bg-red-500 text-white flex items-center gap-1 shadow">
-            👑 Deploy Titan
-          </button>
-          <button onclick="openAddRobotModal('hangar1')" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-amber-500 hover:bg-amber-400 text-black flex items-center gap-1 shadow">
-            ➕ Add / Swap Robot
-          </button>
+          <div class="flex items-center gap-2">
+            <button onclick="renameActiveHangar()" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-[#161f2e] hover:bg-[#202c40] text-gray-200 border border-[#263040] flex items-center gap-1.5 shadow transition-all" title="Rename Active Deck">
+              ✏️ Rename Deck
+            </button>
+            <button onclick="addNewHangarDeck()" class="px-3.5 py-1.5 text-xs font-black rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-black flex items-center gap-1.5 shadow-lg shadow-amber-500/20 transition-all hover:scale-105 active:scale-95">
+              ➕ Add Hangar Deck
+            </button>
+          </div>
+        </div>
+        <div id="hangar-deck-pills-container" class="flex flex-wrap gap-2 pt-1">
+          <!-- Rendered dynamically by renderHangarDeckSelector() -->
         </div>
       </div>
-      <div id="hangar1-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative items-stretch"></div>
-    </section>
 
-    <!-- VIEW 2: HANGAR 2 -->
-    <section id="view-hangar2" class="view-panel hidden space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-[#111620] p-4 rounded-xl border border-[#263040]">
+      <!-- ACTIVE HANGAR CONTROL BAR -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 bg-[#111620] p-4 rounded-2xl border border-[#263040]">
         <div>
-          <h2 class="text-lg sm:text-xl font-black text-white flex items-center gap-2">⚔️ Hangar 2: Specialized Strike Squad</h2>
-          <p class="text-xs text-gray-400">👑 Titan Command Core + 5 Battle Robot Bays • Strike Layout</p>
+          <h2 id="active-hangar-title" class="text-lg sm:text-xl font-black text-white flex items-center gap-2">
+            🛡️ Hangar 1: Primary Assault Team
+          </h2>
+          <p id="active-hangar-subtitle" class="text-xs text-gray-400">
+            👑 Titan Command Core + 5 Battle Robot Bays • Symmetrical S-Formation
+          </p>
         </div>
         <div class="flex flex-wrap items-center gap-2">
-          <div id="h2-synergy-badge" class="px-2.5 sm:px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-1.5">
+          <div id="active-hangar-synergy-badge" class="px-2.5 sm:px-3 py-1 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-1.5">
             Synergy: Calculating...
           </div>
-          <button onclick="openEquipTitanModal('hangar2')" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-red-600 hover:bg-red-500 text-white flex items-center gap-1 shadow">
+          <button onclick="openEquipTitanModal(currentActiveHangarKey)" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-red-600 hover:bg-red-500 text-white flex items-center gap-1 shadow transition-all hover:scale-105">
             👑 Deploy Titan
           </button>
-          <button onclick="openAddRobotModal('hangar2')" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-amber-500 hover:bg-amber-400 text-black flex items-center gap-1 shadow">
+          <button onclick="openAddRobotModal(currentActiveHangarKey)" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-amber-500 hover:bg-amber-400 text-black flex items-center gap-1 shadow transition-all hover:scale-105">
             ➕ Add / Swap Robot
           </button>
         </div>
       </div>
-      <div id="hangar2-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative items-stretch"></div>
+
+      <!-- ACTIVE HANGAR SQUAD GRID -->
+      <div id="hangar-active-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative items-stretch"></div>
+      <div id="hangar1-grid" class="hidden"></div>
+      <div id="hangar2-grid" class="hidden"></div>
     </section>
 
     <!-- VIEW 3: WRBRAIN AUDIT & SYNERGY -->
@@ -361,7 +370,7 @@
           <h2 class="text-2xl font-black text-white flex items-center gap-2">🧠 WRBrain Hangar Audit & Diagnostics</h2>
           <p class="text-xs text-gray-300">Inspired by PokeBrain: Real-time range harmony, tactical role distribution & counter coverage</p>
         </div>
-        <div class="flex gap-2">
+        <div id="audit-hangar-selector-container" class="flex flex-wrap gap-2">
           <button onclick="runAudit('hangar1')" id="audit-btn-h1" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-amber-500 text-black shadow">Audit Hangar 1</button>
           <button onclick="runAudit('hangar2')" id="audit-btn-h2" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-[#161f2e] text-gray-300 border border-[#263040]">Audit Hangar 2</button>
         </div>
@@ -1203,17 +1212,17 @@
       <span class="text-xl">🏠</span>
       <span>Home</span>
     </button>
-    <button onclick="switchTab('hangar1')" id="mnav-hangar1" class="mobile-nav-item">
+    <button onclick="switchTab('hangars')" id="mnav-hangars" class="mobile-nav-item">
       <span class="text-xl">🛡️</span>
-      <span>Hangar 1</span>
-    </button>
-    <button onclick="switchTab('hangar2')" id="mnav-hangar2" class="mobile-nav-item">
-      <span class="text-xl">⚔️</span>
-      <span>Hangar 2</span>
+      <span>Hangars</span>
     </button>
     <button onclick="switchTab('catalog_weapons')" id="mnav-catalog_weapons" class="mobile-nav-item">
       <span class="text-xl">🔫</span>
       <span>Arsenal</span>
+    </button>
+    <button onclick="switchTab('analyzer')" id="mnav-analyzer" class="mobile-nav-item">
+      <span class="text-xl">🧠</span>
+      <span>Audit</span>
     </button>
     <button onclick="switchTab('meta')" id="mnav-meta" class="mobile-nav-item">
       <span class="text-xl">🌟</span>

@@ -2,8 +2,12 @@
 
 function renderAll() {
   renderHome();
-  renderHangar('hangar1', 'hangar1-grid');
-  renderHangar('hangar2', 'hangar2-grid');
+  if (typeof renderHangarDeckSelector === 'function') {
+    renderHangarDeckSelector();
+  }
+  if (typeof renderHangar === 'function') {
+    renderHangar(currentActiveHangarKey, 'hangar-active-grid');
+  }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -13,3 +17,4 @@ window.addEventListener('DOMContentLoaded', () => {
   renderAll();
 });
 renderAll();
+
