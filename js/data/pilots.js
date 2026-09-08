@@ -526,3 +526,19 @@ const MASTER_PILOT_SKILLS = [
     "desc": "Injects rapid repair serum on each ability use."
   }
 ];
+
+function getDefaultPilotSkills(role) {
+  const defaultMap = {
+    "Brawler": ["armor_expert", "road_hog", "mechanic", "tough_guy", "master_gunsmith", "deft_survivor", "dodger"],
+    "Assassin": ["road_hog", "master_gunsmith", "deft_survivor", "destroyer", "armor_expert", "mechanic", "speed_shooter"],
+    "Support": ["armor_expert", "true_ace", "mechanic", "road_hog", "dodger", "wonderworker", "energy_shield_expert"],
+    "Sniper": ["master_gunsmith", "sharpshooter", "speed_shooter", "armor_expert", "mechanic", "road_hog", "destroyer"],
+    "Tank": ["armor_expert", "tough_guy", "mechanic", "energy_shield_expert", "crazy_electrician", "dodger", "road_hog"]
+  };
+  const skillIds = defaultMap[role] || defaultMap["Brawler"];
+  return skillIds.map(id => ({ id, tier: "T4" }));
+}
+
+if (typeof window !== 'undefined') window.getDefaultPilotSkills = getDefaultPilotSkills;
+if (typeof globalThis !== 'undefined') globalThis.getDefaultPilotSkills = getDefaultPilotSkills;
+

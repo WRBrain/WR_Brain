@@ -73,3 +73,6 @@ function initDpsLab() {
       document.getElementById('dps-sustained-val').innerText = Math.round(sustained * bonusMultiplier).toLocaleString();
       document.getElementById('dps-clip-val').innerText = Math.round(burst * 4 * bonusMultiplier).toLocaleString();
     };
+
+    window.initDpsLab = initDpsLab;
+

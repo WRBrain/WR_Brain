@@ -362,7 +362,7 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
             </div>
           </div>
 
-          <!-- FOOTER UTILS -->
+            <!-- FOOTER UTILS -->
           <div class="pt-1.5 border-t border-[#263040]/60 flex items-center justify-between text-xs">
             ${masterBot.seriesKey ? `<button onclick="inspectRobotSeries('${masterBot.id}')" class="text-[10px] font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded hover:bg-amber-500/20">🧬 Series</button>` : '<span></span>'}
             <button onclick="unequipRobot('${hangarKey}', ${idx})" class="text-[10px] text-gray-400 hover:text-red-400 px-2 py-0.5 rounded hover:bg-[#161f2e]">📦 Storage</button>
@@ -371,7 +371,73 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
       `;
     }
 
+function renderHangar(hangarKey, containerId = 'hangar-active-grid') {
+  const container = document.getElementById(containerId);
+  if (!container || !AppState.hangars) return;
+
+  const hangar = AppState.hangars[hangarKey];
+  if (!hangar) return;
+
+  // Update header titles
+  const titleEl = document.getElementById('active-hangar-title');
+  const subEl = document.getElementById('active-hangar-subtitle');
+  const synEl = document.getElementById('active-hangar-synergy-badge');
+
+  if (titleEl) titleEl.innerHTML = `🛡️ ${hangar.name || 'Active Hangar Deck'}`;
+  if (subEl) subEl.innerText = `👑 Titan Command Core + 5 Battle Robot Bays • Dynamic Loadout Control`;
+
+  if (synEl && typeof calculateHangarSynergy === 'function') {
+    const audit = calculateHangarSynergy(hangar.slots, hangar.titanSlot);
+    synEl.innerHTML = `⚡ Synergy: <span class="font-black text-amber-400 font-mono ml-1">${audit.synergyScore || 85}%</span>`;
+  }
+
+  container.innerHTML = "";
+
+  // 1. Orbital Mothership Full Width Banner Deck
+  const msHtml = getMothershipCardHtml(hangarKey, hangar.mothership);
+  const msWrapper = document.createElement('div');
+  msWrapper.className = "col-span-1 md:col-span-2 lg:col-span-4";
+  msWrapper.innerHTML = msHtml;
+  container.appendChild(msWrapper);
+
+  // 2. Robot Bay 01 & Bay 02
+  const slot0 = hangar.slots ? hangar.slots[0] : null;
+  const slot1 = hangar.slots ? hangar.slots[1] : null;
+
+  const card0 = document.createElement('div');
+  card0.innerHTML = getRobotCardHtml(hangarKey, slot0, 0, false);
+  container.appendChild(card0.firstElementChild || card0);
+
+  const card1 = document.createElement('div');
+  card1.innerHTML = getRobotCardHtml(hangarKey, slot1, 1, false);
+  container.appendChild(card1.firstElementChild || card1);
+
+  // 3. Titan Center Command Card (Spans 2 columns on desktop)
+  const titanCard = document.createElement('div');
+  titanCard.className = "col-span-1 md:col-span-2 lg:col-span-2";
+  titanCard.innerHTML = getTitanCardHtml(hangarKey, hangar.titanSlot);
+  container.appendChild(titanCard);
+
+  // 4. Robot Bay 03, Bay 04, Bay 05
+  const slot2 = hangar.slots ? hangar.slots[2] : null;
+  const slot3 = hangar.slots ? hangar.slots[3] : null;
+  const slot4 = hangar.slots ? hangar.slots[4] : null;
+
+  const card2 = document.createElement('div');
+  card2.innerHTML = getRobotCardHtml(hangarKey, slot2, 2, false);
+  container.appendChild(card2.firstElementChild || card2);
+
+  const card3 = document.createElement('div');
+  card3.innerHTML = getRobotCardHtml(hangarKey, slot3, 3, false);
+  container.appendChild(card3.firstElementChild || card3);
+
+  const card4 = document.createElement('div');
+  card4.innerHTML = getRobotCardHtml(hangarKey, slot4, 4, false);
+  container.appendChild(card4.firstElementChild || card4);
+}
+
 function renderHome() {
+
   const container = document.getElementById('home-hangars-overview');
   if (!container || !AppState.hangars) return;
   container.innerHTML = "";
@@ -433,3 +499,43 @@ function renderHome() {
     `;
   });
 }
+
+function renderHangarDeckSelector() {
+  const container = document.getElementById('hangar-deck-pills-container');
+  if (!container) return;
+  container.innerHTML = "";
+
+  const keys = Object.keys(AppState.hangars || {});
+  keys.forEach((hangarKey, idx) => {
+    const hangar = AppState.hangars[hangarKey];
+    if (!hangar) return;
+    const isActive = hangarKey === currentActiveHangarKey;
+    const activeBotsCount = (hangar.slots || []).filter(s => s && s.robotId).length;
+    const hasTitan = hangar.titanSlot && hangar.titanSlot.titanId;
+
+    const pill = document.createElement('div');
+    pill.className = `flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
+      isActive 
+        ? 'bg-amber-500 text-black border-amber-400 shadow-md font-black' 
+        : 'bg-[#161f2e] text-gray-300 border-[#263040] hover:bg-[#202c40] hover:text-white'
+    }`;
+    pill.onclick = () => {
+      switchActiveHangar(hangarKey);
+    };
+
+    pill.innerHTML = `
+      <span>${idx === 0 ? '🛡️' : idx === 1 ? '⚔️' : idx === 2 ? '🎯' : idx === 3 ? '🏃' : '👑'}</span>
+      <span>${hangar.name || `Hangar ${idx + 1}`}</span>
+      <span class="text-[10px] px-1.5 py-0.2 rounded ${isActive ? 'bg-black/20 text-black font-black' : 'bg-[#0c121d] text-amber-400'} font-mono">${activeBotsCount}/5 ${hasTitan ? '+ 👑' : ''}</span>
+      ${keys.length > 1 ? `
+        <button onclick="event.stopPropagation(); deleteHangarDeck('${hangarKey}')" class="ml-1 text-gray-400 hover:text-red-500 text-xs px-1" title="Delete Hangar Deck">✕</button>
+      ` : ''}
+    `;
+    container.appendChild(pill);
+  });
+}
+
+window.renderHangarDeckSelector = renderHangarDeckSelector;
+window.renderHangar = renderHangar;
+window.renderHome = renderHome;
+

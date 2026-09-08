@@ -1,8 +1,9 @@
 /* WRBrain - Interactive Modals & Command Decks */
 
-let currentAuditHangar = "hangar1";
+window.currentAuditHangar = window.currentAuditHangar || "hangar1";
 let activeCatalogType = "robot";
 let activeEquipTarget = null;
+
 
 window.openAddCatalogModal = function(type) {
       activeCatalogType = type;
@@ -466,8 +467,22 @@ window.openAddCatalogModal = function(type) {
 
       // 1. From Storage
       const storageBots = AppState.reserveRobots || [];
-      const filteredStorage = storageBots.filter(r => {
-        const matchesSearch = r.name.toLowerCase().includes(search);
+      const normalizedStorage = storageBots.map(r => {
+        const botId = r.robotId || r.id;
+        const mb = MASTER_ROBOTS.find(item => item.id === botId) || { name: botId, role: "Brawler", faction: "SpaceTech", tier: r.tier || "T4" };
+        return {
+          id: botId,
+          name: mb.name,
+          level: r.level || 'Lv 1',
+          tier: r.tier || mb.tier,
+          role: mb.role,
+          faction: mb.faction,
+          count: r.count || 1
+        };
+      });
+
+      const filteredStorage = normalizedStorage.filter(r => {
+        const matchesSearch = r.name.toLowerCase().includes(search) || (r.role||'').toLowerCase().includes(search);
         const matchesRole = activeRobotConfigRole === 'ALL' || (r.role === activeRobotConfigRole);
         return matchesSearch && matchesRole;
       });
@@ -493,6 +508,7 @@ window.openAddCatalogModal = function(type) {
           `;
         });
       }
+
 
       // 2. From Master Catalog
       const filteredCatalog = MASTER_ROBOTS.filter(r => {
