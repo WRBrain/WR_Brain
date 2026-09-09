@@ -19,7 +19,21 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+html, body {
+  background-color: #06090f !important;
+  color: #e2e8f0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
 
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-mono, .badge-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
 
 /* CYBER GLASS & CARDS */
 .glass-card {
