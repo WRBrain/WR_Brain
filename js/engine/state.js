@@ -56,9 +56,9 @@ let AppState = (function() {
                 titanId: "indra",
                 level: "Lv 1",
                 weapons: [
-                  { id: "vajra", name: "Vajra", size: "Alpha", level: "Lv 1", tier: "T4" },
-                  { id: "maha_vajra", name: "Maha-Vajra", size: "Beta", level: "Lv 1", tier: "T4" },
-                  { id: "maha_vajra", name: "Maha-Vajra", size: "Beta", level: "Lv 1", tier: "T4" }
+                  { id: "maha_vajra", name: "Maha-Vajra", size: "Alpha", level: "Lv 1", tier: "T4" },
+                  { id: "vajra", name: "Vajra", size: "Beta", level: "Lv 1", tier: "T4" },
+                  { id: "vajra", name: "Vajra", size: "Beta", level: "Lv 1", tier: "T4" }
                 ]
               },
               slots: [
@@ -86,7 +86,7 @@ let AppState = (function() {
                 { robotId: "bagliore", level: "Lv 1", weapons: [{ id: "dune", size: "Heavy", level: "Lv 1" }, { id: "dune", size: "Heavy", level: "Lv 1" }, { id: "dune", size: "Heavy", level: "Lv 1" }, { id: "dune", size: "Heavy", level: "Lv 1" }] },
                 { robotId: "crisis", level: "Lv 1", weapons: [{ id: "reaper", size: "Heavy", level: "Lv 1" }, { id: "reaper", size: "Heavy", level: "Lv 1" }, { id: "reaper", size: "Heavy", level: "Lv 1" }, { id: "reaper", size: "Heavy", level: "Lv 1" }] },
                 { robotId: "erebus", level: "Lv 1", weapons: [{ id: "hel", size: "Heavy", level: "Lv 1" }, { id: "hel", size: "Heavy", level: "Lv 1" }, { id: "hel", size: "Heavy", level: "Lv 1" }] },
-                { robotId: "behemoth", level: "Lv 1", weapons: [{ id: "prism", size: "Heavy", level: "Lv 1" }, { id: "prism", size: "Heavy", level: "Lv 1" }, { id: "prism", size: "Heavy", level: "Lv 1" }, { id: "prism", size: "Heavy", level: "Lv 1" }] },
+                { robotId: "behemoth", level: "Lv 1", weapons: [{ id: "prisma", size: "Heavy", level: "Lv 1" }, { id: "prisma", size: "Heavy", level: "Lv 1" }, { id: "prisma", size: "Heavy", level: "Lv 1" }, { id: "prisma", size: "Heavy", level: "Lv 1" }] },
                 { robotId: "fafnir", level: "Lv 1", weapons: [{ id: "skadi", size: "Medium", level: "Lv 1" }, { id: "skadi", size: "Medium", level: "Lv 1" }, { id: "skadi", size: "Medium", level: "Lv 1" }, { id: "skadi", size: "Medium", level: "Lv 1" }] }
               ]
             },
@@ -98,7 +98,7 @@ let AppState = (function() {
                 titanId: "bedwyr",
                 level: "Lv 25",
                 weapons: [
-                  { id: "inferno", name: "Inferno", size: "Alpha", level: "Lv 1", tier: "T4" },
+                  { id: "infernus", name: "Inferno", size: "Alpha", level: "Lv 1", tier: "T4" },
                   { id: "pyro", name: "Pyro", size: "Beta", level: "Lv 1", tier: "T4" },
                   { id: "pyro", name: "Pyro", size: "Beta", level: "Lv 1", tier: "T4" }
                 ]
@@ -281,6 +281,49 @@ let AppState = (function() {
         state.reservePilots.forEach(p => {
           if (!p.skills || p.skills.length === 0) {
             p.skills = getDefaultPilotSkills("Brawler");
+          }
+        });
+      }
+
+      
+      // Auto-heal and normalize robot hardpoints & titan slots across all hangars
+      if (state.hangars) {
+        Object.keys(state.hangars).forEach(hk => {
+          const h = state.hangars[hk];
+          if (h && h.slots) {
+            h.slots.forEach((slot, sIdx) => {
+              if (slot && slot.robotId) {
+                const mb = (typeof MASTER_ROBOTS !== 'undefined' ? MASTER_ROBOTS.find(r => r.id === slot.robotId) : null);
+                if (mb && mb.hardpoints) {
+                  if (!slot.weapons || slot.weapons.length !== mb.hardpoints.length) {
+                    const oldWeapons = slot.weapons || [];
+                    slot.weapons = mb.hardpoints.map((hp, hpIdx) => {
+                      const existing = oldWeapons[hpIdx];
+                      if (existing && existing.id) {
+                        return existing;
+                      }
+                      const defaultW = (typeof MASTER_WEAPONS !== 'undefined' ? MASTER_WEAPONS.find(w => w.size === hp.size) : null);
+                      return defaultW ? { id: defaultW.id, name: defaultW.name, size: hp.size, level: "Lv 1", tier: defaultW.tier } : null;
+                    });
+                  }
+                }
+              }
+            });
+          }
+
+          if (h && h.titanSlot && h.titanSlot.titanId) {
+            const mt = (typeof MASTER_TITANS !== 'undefined' ? MASTER_TITANS.find(t => t.id === h.titanSlot.titanId) : null);
+            if (mt && mt.hardpoints) {
+              if (!h.titanSlot.weapons || h.titanSlot.weapons.length !== mt.hardpoints.length) {
+                const oldW = h.titanSlot.weapons || [];
+                h.titanSlot.weapons = mt.hardpoints.map((hp, hpIdx) => {
+                  const existing = oldW[hpIdx];
+                  if (existing && existing.id) return existing;
+                  const defaultW = (typeof MASTER_WEAPONS !== 'undefined' ? MASTER_WEAPONS.find(w => w.size === hp.size) : null);
+                  return defaultW ? { id: defaultW.id, name: defaultW.name, size: hp.size, level: "Lv 1", tier: defaultW.tier } : null;
+                });
+              }
+            }
           }
         });
       }
