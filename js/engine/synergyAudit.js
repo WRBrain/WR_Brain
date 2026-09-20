@@ -31,13 +31,20 @@ function calculateHangarSynergy(slots = [], titanSlot = null) {
           if (mw.status && mw.status.includes("Grey Damage")) counterMatrix.hasSonicGreyDamage = true;
         });
 
-        // Factor in Specialization modules
-        if (slot.specializations) {
-          if (slot.specializations.active === 'shieldbreaker') counterMatrix.hasShieldbreaker = true;
-          if (slot.specializations.active === 'quantum_radar') counterMatrix.hasAntiStealth = true;
-          if (slot.specializations.passives) {
-            if (slot.specializations.passives.includes('nuclear_amplifier')) botBurst = Math.round(botBurst * 1.25);
-            if (slot.specializations.passives.includes('repair_amplifier')) counterMatrix.hasSonicGreyDamage = true;
+        // Factor in Specialization modules & Active Path
+        const spec = slot.specialization || slot.specializations;
+        if (spec) {
+          const actMod = spec.activeModule || spec.active;
+          if (actMod === 'shieldbreaker') counterMatrix.hasShieldbreaker = true;
+          if (actMod === 'quantum_radar') counterMatrix.hasAntiStealth = true;
+          if (actMod === 'unstable_conduit' || actMod === 'advanced_repair') counterMatrix.hasSonicGreyDamage = true;
+          
+          const actPath = spec.activePath || "class";
+          if (actPath === 'offense' || actPath === 'class') {
+            botBurst = Math.round(botBurst * 1.20);
+          }
+          if (actPath === 'defense') {
+            counterMatrix.hasSonicGreyDamage = true;
           }
         }
 

@@ -201,28 +201,40 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
 
     
     function getSpecializationHtml(hangarKey, slot, idx) {
-      const specs = slot.specializations || { active: "unstable_conduit", passives: ["nuclear_amplifier", "repair_amplifier", "immune_amplifier"] };
-      const masterAct = (typeof MASTER_SPECIALIZATIONS !== 'undefined' && MASTER_SPECIALIZATIONS.active) ? MASTER_SPECIALIZATIONS.active.find(a => a.id === specs.active) : null;
-      const passives = specs.passives || [];
+      const spec = slot.specialization || slot.specializations || { activePath: "class", activeModule: (slot.robotId === 'nuo' ? 'shieldbreaker' : 'unstable_conduit') };
+      const mb = (typeof MASTER_ROBOTS !== 'undefined' ? MASTER_ROBOTS.find(r => r.id === slot.robotId) : null);
+      const classSpec = (typeof getClassSpecializationForBot === 'function') ? getClassSpecializationForBot(mb ? mb.role : "Brawler") : null;
       
-      const passiveBadges = passives.map(pId => {
-        const mp = (typeof MASTER_SPECIALIZATIONS !== 'undefined' && MASTER_SPECIALIZATIONS.passive) ? MASTER_SPECIALIZATIONS.passive.find(p => p.id === pId) : null;
-        return mp ? `<span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-[#111723] border border-cyan-500/30 text-cyan-300 truncate max-w-[80px]" title="${mp.name}">${mp.icon} ${mp.name.split(' ')[0]}</span>` : '';
-      }).join(' ');
+      const actMod = (typeof ACTIVE_MODULES !== 'undefined') ? ACTIVE_MODULES.find(a => a.id === (spec.activeModule || spec.active)) : null;
+      const activePath = spec.activePath || "class";
+
+      let pathBadge = "🎖️ Class";
+      let pathColor = "border-cyan-500/40 text-cyan-300 bg-cyan-950/60";
+      if (activePath === 'offense') {
+        pathBadge = "⚔️ Offense";
+        pathColor = "border-red-500/40 text-red-300 bg-red-950/60";
+      } else if (activePath === 'defense') {
+        pathBadge = "🛡️ Defense";
+        pathColor = "border-emerald-500/40 text-emerald-300 bg-emerald-950/60";
+      } else if (classSpec) {
+        pathBadge = `${classSpec.icon} ${classSpec.name.replace(" Specialization", "")}`;
+      }
 
       return `
         <button onclick="openSpecializationModal('${hangarKey}', ${idx})" class="w-full text-left p-2 rounded-xl bg-gradient-to-r from-[#0a121f] to-[#070d17] hover:from-[#111d30] hover:to-[#0c1626] border border-cyan-500/30 hover:border-cyan-400 transition-all flex items-center justify-between gap-2 group shadow-sm">
           <div class="flex items-center gap-2 min-w-0">
             <div class="w-6 h-6 rounded-lg bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-xs shrink-0 group-hover:scale-110 transition-transform">
-              ${masterAct ? masterAct.icon : '💠'}
+              ${actMod ? actMod.icon : '💠'}
             </div>
             <div class="min-w-0 flex-1">
               <div class="flex items-center gap-1.5 truncate">
-                <span class="text-[9px] font-black uppercase text-cyan-400 font-mono tracking-wider shrink-0">Specs (${passives.length + 1})</span>
-                <span class="text-xs font-bold text-white group-hover:text-cyan-200 truncate">${masterAct ? masterAct.name : 'Specialization Matrix'}</span>
+                <span class="text-[9px] font-black uppercase text-amber-400 font-mono tracking-wider shrink-0">${actMod ? actMod.name : 'Active Module'}</span>
+                <span class="text-xs font-bold text-white group-hover:text-cyan-200 truncate">•</span>
+                <span class="text-[10px] font-bold text-gray-300 truncate">${pathBadge}</span>
               </div>
-              <div class="flex items-center gap-1 mt-1 overflow-x-hidden flex-nowrap">
-                ${passiveBadges}
+              <div class="flex items-center gap-1 mt-0.5 overflow-x-hidden flex-nowrap text-[9px]">
+                <span class="px-1.5 py-0.2 rounded font-mono font-bold ${pathColor} truncate">Tree: ${activePath.toUpperCase()}</span>
+                <span class="text-gray-400 font-mono">• Basic + 3 Cells Active</span>
               </div>
             </div>
           </div>

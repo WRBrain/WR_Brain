@@ -2056,21 +2056,23 @@ window.openAddCatalogModal = function(type) {
       if (!master) return;
 
       if (activeEquipTarget.isTitan) {
-        const titanSlot = AppState.hangars[activeEquipTarget.hangarKey].titanSlot;
+        const titanSlot = AppState.hangars[activeEquipTarget.hangarKey]?.titanSlot;
+        if (!titanSlot) return;
         if (!titanSlot.weapons) titanSlot.weapons = [];
         const current = titanSlot.weapons[activeEquipTarget.hardpointIndex];
 
         if (current && current.id) {
-          const cat = current.size.toLowerCase();
+          const curMaster = MASTER_WEAPONS.find(w => w.id === current.id);
+          const cat = ((current.size || curMaster?.size || activeEquipTarget.size || 'Alpha')).toLowerCase();
           if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
           if (!AppState.reserveWeapons[cat]) AppState.reserveWeapons[cat] = [];
           const ex = AppState.reserveWeapons[cat].find(w => w.id === current.id && w.level === current.level);
           if (ex) ex.count++;
-          else AppState.reserveWeapons[cat].push({ id: current.id, name: current.name, tier: current.tier, level: current.level, count: 1 });
+          else AppState.reserveWeapons[cat].push({ id: current.id, name: current.name || curMaster?.name, tier: current.tier || curMaster?.tier || 'T4', level: current.level || 'Lv 1', count: 1 });
         }
 
         if (fromInventory) {
-          const cat = master.size.toLowerCase();
+          const cat = (master.size || 'Alpha').toLowerCase();
           if (AppState.reserveWeapons && AppState.reserveWeapons[cat]) {
             const idx = AppState.reserveWeapons[cat].findIndex(w => w.id === weaponId && w.level === level);
             if (idx !== -1) {
@@ -2080,27 +2082,32 @@ window.openAddCatalogModal = function(type) {
           }
         }
 
-        titanSlot.weapons[activeEquipTarget.hardpointIndex] = { id: master.id, name: master.name, size: master.size, level, tier: master.tier };
+        titanSlot.weapons[activeEquipTarget.hardpointIndex] = { id: master.id, name: master.name, size: master.size, level: level || 'Lv 1', tier: master.tier };
         saveState();
         closeModal('weapon-picker-modal');
         if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
         return;
       }
 
-      const slot = AppState.hangars[activeEquipTarget.hangarKey].slots[activeEquipTarget.slotIndex];
-      const current = slot.weapons[activeEquipTarget.hardpointIndex];
+      const hangar = AppState.hangars[activeEquipTarget.hangarKey];
+      if (!hangar || !hangar.slots) return;
+      const slot = hangar.slots[activeEquipTarget.slotIndex];
+      if (!slot) return;
+      if (!slot.weapons) slot.weapons = [];
 
+      const current = slot.weapons[activeEquipTarget.hardpointIndex];
       if (current && current.id) {
-        const cat = current.size.toLowerCase();
+        const curMaster = MASTER_WEAPONS.find(w => w.id === current.id);
+        const cat = ((current.size || curMaster?.size || activeEquipTarget.size || 'Heavy')).toLowerCase();
         if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
         if (!AppState.reserveWeapons[cat]) AppState.reserveWeapons[cat] = [];
         const ex = AppState.reserveWeapons[cat].find(w => w.id === current.id && w.level === current.level);
         if (ex) ex.count++;
-        else AppState.reserveWeapons[cat].push({ id: current.id, name: current.name, tier: current.tier, level: current.level, count: 1 });
+        else AppState.reserveWeapons[cat].push({ id: current.id, name: current.name || curMaster?.name, tier: current.tier || curMaster?.tier || 'T4', level: current.level || 'Lv 1', count: 1 });
       }
 
       if (fromInventory) {
-        const cat = master.size.toLowerCase();
+        const cat = (master.size || 'Heavy').toLowerCase();
         if (AppState.reserveWeapons && AppState.reserveWeapons[cat]) {
           const idx = AppState.reserveWeapons[cat].findIndex(w => w.id === weaponId && w.level === level);
           if (idx !== -1) {
@@ -2110,7 +2117,7 @@ window.openAddCatalogModal = function(type) {
         }
       }
 
-      slot.weapons[activeEquipTarget.hardpointIndex] = { id: master.id, name: master.name, size: master.size, level, tier: master.tier };
+      slot.weapons[activeEquipTarget.hardpointIndex] = { id: master.id, name: master.name, size: master.size, level: level || 'Lv 1', tier: master.tier };
       saveState();
       closeModal('weapon-picker-modal');
       if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
@@ -2121,12 +2128,13 @@ window.openAddCatalogModal = function(type) {
       if (!slot || !slot.weapons) return;
       const w = slot.weapons[hardpointIndex];
       if (w && w.id) {
-        const cat = w.size.toLowerCase();
+        const mw = MASTER_WEAPONS.find(item => item.id === w.id);
+        const cat = ((w.size || mw?.size || 'Heavy')).toLowerCase();
         if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
         if (!AppState.reserveWeapons[cat]) AppState.reserveWeapons[cat] = [];
         const ex = AppState.reserveWeapons[cat].find(item => item.id === w.id && item.level === w.level);
         if (ex) ex.count++;
-        else AppState.reserveWeapons[cat].push({ id: w.id, name: w.name, tier: w.tier, level: w.level, count: 1 });
+        else AppState.reserveWeapons[cat].push({ id: w.id, name: w.name || mw?.name, tier: w.tier || mw?.tier || 'T4', level: w.level || 'Lv 1', count: 1 });
         slot.weapons[hardpointIndex] = null;
         saveState();
         if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
@@ -2147,11 +2155,12 @@ window.openAddCatalogModal = function(type) {
         if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
         slot.weapons.forEach(w => {
           if (w && w.id) {
-            const cat = w.size.toLowerCase();
+            const mw = MASTER_WEAPONS.find(item => item.id === w.id);
+            const cat = ((w.size || mw?.size || 'Heavy')).toLowerCase();
             if (!AppState.reserveWeapons[cat]) AppState.reserveWeapons[cat] = [];
             const ex = AppState.reserveWeapons[cat].find(item => item.id === w.id && item.level === w.level);
             if (ex) ex.count++;
-            else AppState.reserveWeapons[cat].push({ id: w.id, name: w.name, tier: w.tier, level: w.level, count: 1 });
+            else AppState.reserveWeapons[cat].push({ id: w.id, name: w.name || mw?.name, tier: w.tier || mw?.tier || 'T4', level: w.level || 'Lv 1', count: 1 });
           }
         });
       }
@@ -2385,7 +2394,7 @@ window.openAddCatalogModal = function(type) {
     });
 
     // =========================================================================
-    // 7. SPECIALIZATION MATRIX & SUBSYSTEMS CONFIGURATION
+    // 7. AUTHENTIC WAR ROBOTS 10.5.2+ SPECIALIZATION MATRIX SYSTEM
     // =========================================================================
     let activeSpecializationTarget = null;
     let currentSpecWorkingState = null;
@@ -2397,113 +2406,141 @@ window.openAddCatalogModal = function(type) {
       const slot = hangar.slots[slotIndex];
       if (!slot || !slot.robotId) return;
 
-      const mb = (typeof MASTER_ROBOTS !== 'undefined' ? MASTER_ROBOTS.find(r => r.id === slot.robotId) : null) || { name: slot.robotId, tier: "T4" };
-      const isUltimate = (slot.robotId.startsWith('ultimate_') || mb.tier === 'Ultimate');
-      const maxPassives = isUltimate ? 4 : 3;
+      const mb = (typeof MASTER_ROBOTS !== 'undefined' ? MASTER_ROBOTS.find(r => r.id === slot.robotId) : null) || { name: slot.robotId, role: "Brawler", tier: "T4" };
+      const classSpec = (typeof getClassSpecializationForBot === 'function') ? getClassSpecializationForBot(mb.role) : null;
 
-      // Copy or initialize working state
-      const currentSpecs = slot.specializations || {};
-      const activeModule = currentSpecs.active || "unstable_conduit";
-      let passives = (currentSpecs.passives && currentSpecs.passives.length > 0) 
-        ? [...currentSpecs.passives] 
-        : ["nuclear_amplifier", "repair_amplifier", "immune_amplifier"];
-      
-      while (passives.length < maxPassives) {
-        passives.push("balanced_unit");
-      }
-      if (passives.length > maxPassives) {
-        passives = passives.slice(0, maxPassives);
-      }
+      // Extract current specialization
+      const currentSpec = slot.specialization || slot.specializations || {};
+      const activePath = currentSpec.activePath || "class"; // "class" | "offense" | "defense"
+      const defaultActiveMod = (slot.robotId === 'nuo') ? 'shieldbreaker' : 'unstable_conduit';
+      const activeModule = currentSpec.activeModule || currentSpec.active || defaultActiveMod;
 
       currentSpecWorkingState = {
-        active: activeModule,
-        passives: passives,
-        maxPassives: maxPassives,
-        isUltimate: isUltimate
+        robotId: slot.robotId,
+        robotRole: mb.role || "Brawler",
+        activePath: activePath,
+        activeModule: activeModule,
+        classSpec: classSpec
       };
 
       document.getElementById('specialization-modal-title').innerHTML = `💠 Specialization Matrix • <span class="text-cyan-400">Bay 0${slotIndex + 1}: ${mb.name}</span>`;
-      document.getElementById('specialization-modal-subtitle').innerText = `Configure Active Combat Module, ${maxPassives} Passive Specialization Slots & Meta Loadouts`;
-      document.getElementById('spec-passive-count-label').innerText = `${maxPassives} Slots (${isUltimate ? 'Ultimate Gold ★' : 'Standard Chassis'})`;
+      document.getElementById('specialization-modal-subtitle').innerText = `Official WR 10.5.2+ System: Basic Foundation, Active Modules & ${mb.role || 'Role'} Specialization Tree`;
 
-      renderSpecPresets();
       renderSpecActiveGrid();
-      renderSpecPassivesGrid();
+      renderSpecPaths();
       renderSpecLiveStats();
 
       document.getElementById('specialization-modal').classList.remove('hidden');
     };
 
-    function renderSpecPresets() {
-      const container = document.getElementById('spec-presets-container');
-      if (!container || typeof SPECIALIZATION_PRESETS === 'undefined') return;
-
-      container.innerHTML = SPECIALIZATION_PRESETS.map(preset => `
-        <button onclick="applySpecPreset('${preset.id}')" class="text-left p-2.5 rounded-xl bg-[#0e1624] hover:bg-[#15233a] border border-[#26354a] hover:border-cyan-400 transition-all flex flex-col justify-between group">
-          <div>
-            <span class="text-xs font-bold text-white group-hover:text-cyan-300 block truncate">${preset.name}</span>
-            <p class="text-[10px] text-gray-400 mt-0.5 line-clamp-2">${preset.desc}</p>
-          </div>
-          <div class="mt-2 flex items-center justify-between border-t border-[#26354a]/50 pt-1.5 text-[9px] font-mono text-cyan-400">
-            <span>Apply Preset →</span>
-            <span class="text-gray-400">1-Click</span>
-          </div>
-        </button>
-      `).join('');
-    }
-
     function renderSpecActiveGrid() {
       const container = document.getElementById('spec-active-grid');
-      if (!container || typeof MASTER_SPECIALIZATIONS === 'undefined') return;
+      if (!container || typeof ACTIVE_MODULES === 'undefined') return;
 
-      container.innerHTML = MASTER_SPECIALIZATIONS.active.map(mod => {
-        const isSelected = currentSpecWorkingState.active === mod.id;
+      container.innerHTML = ACTIVE_MODULES.map(mod => {
+        const isSelected = currentSpecWorkingState.activeModule === mod.id;
         return `
-          <div onclick="selectActiveSpecialization('${mod.id}')" class="p-3 rounded-xl cursor-pointer transition-all border ${isSelected ? 'bg-gradient-to-br from-amber-950/40 to-[#161208] border-amber-500 shadow-lg shadow-amber-500/10' : 'bg-[#0a121e] hover:bg-[#121e30] border-[#263040] hover:border-gray-500'}">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-1.5">
-                <span class="text-base">${mod.icon}</span>
-                <strong class="text-xs font-bold ${isSelected ? 'text-amber-300' : 'text-white'} truncate">${mod.name}</strong>
+          <div onclick="selectActiveSpecialization('${mod.id}')" class="p-2.5 rounded-xl cursor-pointer transition-all border ${isSelected ? 'bg-gradient-to-br from-amber-950/50 to-[#181208] border-amber-500 shadow-lg shadow-amber-500/20 ring-1 ring-amber-400/40' : 'bg-[#09101a] hover:bg-[#111e30] border-[#202c3d] hover:border-gray-400'} flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-1.5 min-w-0">
+                  <span class="text-base shrink-0">${mod.icon}</span>
+                  <strong class="text-xs font-bold ${isSelected ? 'text-amber-300' : 'text-white group-hover:text-amber-200'} truncate">${mod.name}</strong>
+                </div>
+                <span class="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded shrink-0 ${isSelected ? 'bg-amber-500 text-black' : 'bg-[#161f2e] text-gray-400'}">${mod.cooldown}</span>
               </div>
-              <span class="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded ${isSelected ? 'bg-amber-500 text-black' : 'bg-[#161f2e] text-gray-400'}">${mod.cooldown}</span>
+              <p class="text-[10px] text-gray-400 mt-1 line-clamp-2">${mod.description}</p>
             </div>
-            <p class="text-[10px] text-gray-400 mt-1.5 line-clamp-2">${mod.desc}</p>
-            ${isSelected ? '<span class="text-[9px] font-black text-amber-400 uppercase tracking-wider block mt-1.5">✓ Active Selection</span>' : ''}
+            <div class="mt-2 pt-1 border-t border-[#1c293a] flex items-center justify-between text-[9px]">
+              <span class="text-gray-500">${mod.cost}</span>
+              <span class="${isSelected ? 'text-amber-400 font-bold' : 'text-gray-400 group-hover:text-white'}">${isSelected ? '✓ ACTIVE' : 'Equip →'}</span>
+            </div>
           </div>
         `;
       }).join('');
     }
 
-    function renderSpecPassivesGrid() {
-      const container = document.getElementById('spec-passives-container');
-      if (!container || typeof MASTER_SPECIALIZATIONS === 'undefined') return;
+    function renderSpecPaths() {
+      const container = document.getElementById('spec-paths-container');
+      if (!container || typeof ADDITIONAL_SPECIALIZATION_PATHS === 'undefined') return;
 
-      container.innerHTML = currentSpecWorkingState.passives.map((currentId, slotIdx) => {
-        const currentMod = MASTER_SPECIALIZATIONS.passive.find(p => p.id === currentId) || MASTER_SPECIALIZATIONS.passive[0];
-        
-        let optionsHtml = MASTER_SPECIALIZATIONS.passive.map(p => `
-          <option value="${p.id}" ${p.id === currentId ? 'selected' : ''}>${p.icon} ${p.name} (${p.category})</option>
+      const { offense, defense } = ADDITIONAL_SPECIALIZATION_PATHS;
+      const classSpec = currentSpecWorkingState.classSpec || ADDITIONAL_SPECIALIZATION_PATHS.class_archetypes.brawler;
+      const activePathKey = currentSpecWorkingState.activePath;
+
+      const paths = [
+        { key: "class", data: classSpec, isClass: true },
+        { key: "offense", data: offense, isClass: false },
+        { key: "defense", data: defense, isClass: false }
+      ];
+
+      container.innerHTML = paths.map(p => {
+        const isSelected = activePathKey === p.key;
+        const item = p.data;
+        const borderClass = isSelected 
+          ? (p.key === 'offense' ? 'border-red-500 ring-2 ring-red-500/40 bg-gradient-to-br from-red-950/40 via-[#120a0c] to-[#0a0f18]' : p.key === 'defense' ? 'border-emerald-500 ring-2 ring-emerald-500/40 bg-gradient-to-br from-emerald-950/40 via-[#0a1410] to-[#0a0f18]' : 'border-cyan-500 ring-2 ring-cyan-500/40 bg-gradient-to-br from-cyan-950/40 via-[#081524] to-[#0a0f18]')
+          : 'border-[#243347] bg-[#080d16] hover:bg-[#0e1624] hover:border-gray-400';
+
+        const permHtml = item.permanentEffects.map(pe => `
+          <div class="flex items-center justify-between text-[10px] bg-[#05080f]/80 p-1.5 rounded-lg border border-[#1b2636]">
+            <span class="text-gray-300 font-medium">${pe.name}</span>
+            <span class="text-emerald-400 font-mono font-bold">${pe.value}</span>
+          </div>
+        `).join('');
+
+        const moduleCellsHtml = item.moduleCells.map(c => `
+          <div class="p-2 rounded-lg bg-[#060a12] border ${isSelected ? 'border-cyan-500/40' : 'border-[#1b2738]'} space-y-1">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="text-sm">${c.icon}</span>
+                <span class="text-[11px] font-bold ${isSelected ? 'text-white' : 'text-gray-300'}">${c.name}</span>
+              </div>
+              <span class="text-[9px] font-mono px-1 py-0.2 rounded ${isSelected ? 'bg-cyan-950 text-cyan-300 border border-cyan-500/30' : 'bg-[#121a26] text-gray-500'}">Cell Active</span>
+            </div>
+            <p class="text-[9px] text-gray-400 leading-tight line-clamp-2">${c.desc}</p>
+          </div>
         `).join('');
 
         return `
-          <div class="p-3 rounded-xl bg-gradient-to-br from-[#0c1422] to-[#080d16] border border-cyan-500/40 space-y-2.5 shadow-md">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] font-black uppercase tracking-wider text-cyan-400 font-mono">Passive Slot #${slotIdx + 1}</span>
-              <span class="badge-${currentMod.tier.toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${currentMod.tier}</span>
-            </div>
+          <div onclick="selectSpecializationPath('${p.key}')" class="p-3.5 rounded-2xl cursor-pointer transition-all border ${borderClass} space-y-3 flex flex-col justify-between shadow-lg group">
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="text-xl">${item.icon}</span>
+                  <div>
+                    <h4 class="text-xs sm:text-sm font-black text-white group-hover:text-cyan-300">${item.name}</h4>
+                    <span class="text-[10px] font-bold text-gray-400">${item.roleName}</span>
+                  </div>
+                </div>
+                ${isSelected 
+                  ? `<span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-cyan-500 text-black shadow-md">✓ ACTIVE PATH</span>`
+                  : `<span class="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-[#141d2c] text-gray-400 group-hover:text-white border border-[#26354a]">Select</span>`
+                }
+              </div>
 
-            <div class="flex items-center gap-2">
-              <span class="text-xl">${currentMod.icon}</span>
-              <div class="min-w-0 flex-1">
-                <select onchange="selectPassiveSpecialization(${slotIdx}, this.value)" class="w-full bg-[#080c14] text-xs font-bold text-white rounded-lg p-1.5 border border-cyan-500/50 focus:outline-none focus:border-cyan-400 cursor-pointer">
-                  ${optionsHtml}
-                </select>
+              <p class="text-[10px] text-gray-400 leading-relaxed">${item.description}</p>
+
+              <!-- Permanent Effects Section -->
+              <div class="space-y-1 pt-1 border-t border-[#1b2636]">
+                <span class="text-[9px] font-black uppercase text-gray-400 tracking-wider block">Permanent Effects (Always Unlocked):</span>
+                <div class="space-y-1">
+                  ${permHtml}
+                </div>
+              </div>
+
+              <!-- Module Cells Section -->
+              <div class="space-y-1.5 pt-1 border-t border-[#1b2636]">
+                <span class="text-[9px] font-black uppercase text-cyan-400 tracking-wider block">Specialization Module Cells (${isSelected ? 'ACTIVE ⚡' : 'Dormant'}):</span>
+                <div class="space-y-1.5">
+                  ${moduleCellsHtml}
+                </div>
               </div>
             </div>
 
-            <p class="text-[10px] text-gray-400 line-clamp-3 bg-[#060a10] p-2 rounded-lg border border-[#202c3d]">
-              ${currentMod.desc}
-            </p>
+            <div class="pt-2 border-t border-[#1b2636] flex items-center justify-between text-[10px]">
+              <span class="text-gray-500">WR 10.5.2 Tree</span>
+              <span class="font-bold ${isSelected ? 'text-cyan-300' : 'text-gray-400 group-hover:text-cyan-400'}">${isSelected ? 'Currently Selected Matrix' : 'Click to Activate Tree →'}</span>
+            </div>
           </div>
         `;
       }).join('');
@@ -2511,64 +2548,71 @@ window.openAddCatalogModal = function(type) {
 
     function renderSpecLiveStats() {
       const container = document.getElementById('spec-live-stats-summary');
+      const badgeContainer = document.getElementById('spec-active-path-badge');
       if (!container || !currentSpecWorkingState) return;
 
-      const actMod = MASTER_SPECIALIZATIONS.active.find(a => a.id === currentSpecWorkingState.active);
-      const passMods = currentSpecWorkingState.passives.map(pId => MASTER_SPECIALIZATIONS.passive.find(p => p.id === pId)).filter(Boolean);
+      const actMod = (typeof ACTIVE_MODULES !== 'undefined') ? ACTIVE_MODULES.find(a => a.id === currentSpecWorkingState.activeModule) : null;
+      const classSpec = currentSpecWorkingState.classSpec || ADDITIONAL_SPECIALIZATION_PATHS.class_archetypes.brawler;
+      const activePathKey = currentSpecWorkingState.activePath;
 
-      const hasNucAmp = passMods.some(m => m.id === 'nuclear_amplifier');
-      const hasRepAmp = passMods.some(m => m.id === 'repair_amplifier');
-      const hasImmuneAmp = passMods.some(m => m.id === 'immune_amplifier');
-      const hasLastStand = passMods.some(m => m.id === 'last_stand');
+      let pathLabel = "Class (" + classSpec.roleName + ")";
+      if (activePathKey === 'offense') pathLabel = "Offense Specialization";
+      if (activePathKey === 'defense') pathLabel = "Defense Specialization";
+
+      if (badgeContainer) {
+        badgeContainer.innerText = `Active Path: ${pathLabel}`;
+      }
+
+      // Calculate combined permanent and active benefits
+      // Backbone: +10% HP, +7% DMG
+      // Offense Perm: +8% DMG, +5% Mitigation
+      // Defense Perm: +12% HP, +25 DP
+      // Class Perm: Role dependent
+      let totalHpBonus = 10 + 12 + (classSpec.permanentEffects.find(e => e.stat === 'hp')?.amount || 0) * 100;
+      let totalDmgBonus = 7 + 8 + (classSpec.permanentEffects.find(e => e.stat === 'damage')?.amount || 0) * 100;
+      
+      let activePerk = "Nuclear Amp Ramp (+80%)";
+      if (activePathKey === 'defense') activePerk = "Repair Amp (+35 DP & Grey Repair)";
+      if (activePathKey === 'class') {
+        if (classSpec.roleKey === 'support') activePerk = "Siege Link + Nanite Aura (+15% CD)";
+        else if (classSpec.roleKey === 'brawler') activePerk = "Repair Amp + Tenacity (+30 DP)";
+        else if (classSpec.roleKey === 'assassin') activePerk = "Ambush Lethality (+12% Burst)";
+        else if (classSpec.roleKey === 'sniper') activePerk = "Nuclear Stacks + Precision Optics";
+        else if (classSpec.roleKey === 'saboteur') activePerk = "Beacon Velocity + Cloaking";
+        else activePerk = "Colossal Dominance & Grey Repair";
+      }
 
       container.innerHTML = `
         <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
-          <span class="text-[9px] text-gray-400 uppercase font-bold block">Active Skill Surge</span>
-          <span class="text-xs font-bold text-amber-300 truncate block mt-0.5">${actMod ? actMod.name : 'Standard'}</span>
+          <span class="text-[9px] text-gray-400 uppercase font-bold block">Equipped Active Module</span>
+          <span class="text-xs font-bold text-amber-300 truncate block mt-0.5">${actMod ? actMod.name : 'Unstable Conduit'}</span>
         </div>
         <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
-          <span class="text-[9px] text-gray-400 uppercase font-bold block">Firepower Scaling</span>
-          <span class="text-xs font-bold text-red-400 font-mono block mt-0.5">${hasNucAmp ? '+80% (Max Nuc Stacks)' : '+12% Baseline'}</span>
+          <span class="text-[9px] text-gray-400 uppercase font-bold block">Combined Firepower Boost</span>
+          <span class="text-xs font-bold text-red-400 font-mono block mt-0.5">+${Math.round(totalDmgBonus)}% Weapon DMG</span>
         </div>
         <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
-          <span class="text-[9px] text-gray-400 uppercase font-bold block">Durability & Sustain</span>
-          <span class="text-xs font-bold text-emerald-400 font-mono block mt-0.5">${hasRepAmp ? '+35 DP & Grey Repair' : '+15% Max HP'}</span>
+          <span class="text-[9px] text-gray-400 uppercase font-bold block">Combined Durability Boost</span>
+          <span class="text-xs font-bold text-emerald-400 font-mono block mt-0.5">+${Math.round(totalHpBonus)}% Max HP</span>
         </div>
         <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
-          <span class="text-[9px] text-gray-400 uppercase font-bold block">Tactical Status</span>
-          <span class="text-xs font-bold text-cyan-300 truncate block mt-0.5">${hasImmuneAmp ? 'Freeze/EMP Immune' : hasLastStand ? '4.5s Last Stand' : 'Shielded'}</span>
+          <span class="text-[9px] text-gray-400 uppercase font-bold block">Active Tree Synergy</span>
+          <span class="text-xs font-bold text-cyan-300 truncate block mt-0.5" title="${activePerk}">${activePerk}</span>
         </div>
       `;
     }
 
     window.selectActiveSpecialization = function(modId) {
       if (!currentSpecWorkingState) return;
-      currentSpecWorkingState.active = modId;
+      currentSpecWorkingState.activeModule = modId;
       renderSpecActiveGrid();
       renderSpecLiveStats();
     };
 
-    window.selectPassiveSpecialization = function(slotIdx, passiveId) {
+    window.selectSpecializationPath = function(pathKey) {
       if (!currentSpecWorkingState) return;
-      currentSpecWorkingState.passives[slotIdx] = passiveId;
-      renderSpecPassivesGrid();
-      renderSpecLiveStats();
-    };
-
-    window.applySpecPreset = function(presetId) {
-      if (!currentSpecWorkingState || typeof SPECIALIZATION_PRESETS === 'undefined') return;
-      const preset = SPECIALIZATION_PRESETS.find(p => p.id === presetId);
-      if (!preset) return;
-
-      currentSpecWorkingState.active = preset.active;
-      currentSpecWorkingState.passives = [...preset.passives];
-      
-      while (currentSpecWorkingState.passives.length < currentSpecWorkingState.maxPassives) {
-        currentSpecWorkingState.passives.push("balanced_unit");
-      }
-
-      renderSpecActiveGrid();
-      renderSpecPassivesGrid();
+      currentSpecWorkingState.activePath = pathKey;
+      renderSpecPaths();
       renderSpecLiveStats();
     };
 
@@ -2578,10 +2622,15 @@ window.openAddCatalogModal = function(type) {
       const hangar = AppState.hangars[hangarKey];
       if (!hangar || !hangar.slots[slotIndex]) return;
 
-      hangar.slots[slotIndex].specializations = {
-        active: currentSpecWorkingState.active,
-        passives: currentSpecWorkingState.passives
+      const updatedSpec = {
+        activePath: currentSpecWorkingState.activePath,
+        activeModule: currentSpecWorkingState.activeModule,
+        unlockedPaths: ["basic", "offense", "defense", "class"],
+        level: "MAX"
       };
+
+      hangar.slots[slotIndex].specialization = updatedSpec;
+      hangar.slots[slotIndex].specializations = updatedSpec; // backward compatibility mirror
 
       saveState();
       closeModal('specialization-modal');

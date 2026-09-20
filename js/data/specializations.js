@@ -1,235 +1,464 @@
-/* WRBrain - Master Specializations Database (Active & Passive Modules & Matrices) */
+/* =============================================================================
+   WAR ROBOTS — OFFICIAL SPECIALIZATIONS & MODULE SYSTEM (Update 10.5.2+)
+   =============================================================================
+   Structure:
+   1. Basic Specialization (Base): Always active, provides backbone HP & Damage,
+      and contains the Active Module slot.
+   2. Additional Specializations:
+      - Offense Specialization (Damage boosts & Nuclear/Overdrive module cells)
+      - Defense Specialization (Durability/Defense Points & Repair/Immune module cells)
+      - Class Specialization (Chassis Role-specific: Support, Brawler, Assassin, Sniper, Saboteur, Titan)
+   ============================================================================= */
 
-const MASTER_SPECIALIZATIONS = {
-  active: [
-    {
-      id: "unstable_conduit",
-      name: "Unstable Conduit",
-      tier: "T4",
-      icon: "⚡",
-      cooldown: "20s",
-      category: "Active Utility",
-      desc: "Emergency combat surge restoring 35% Durability, repairing 25% Grey Damage, and increasing Weapon Damage by +15% for 6s.",
-      stats: { heal: "35%", greyHeal: "25%", damageBuff: "+15%" }
-    },
-    {
-      id: "phase_shift",
-      name: "Phase Shift",
-      tier: "T3",
-      icon: "🌀",
-      cooldown: "35s",
-      category: "Active Defense",
-      desc: "Drifts into an alternate dimension for 3 seconds, granting total invulnerability to all incoming attacks, status effects, and lock-ons.",
-      stats: { invulnerability: "3s", cleanse: "All Debuffs" }
-    },
-    {
-      id: "shieldbreaker",
-      name: "Shieldbreaker",
-      tier: "T3",
-      icon: "🗡️",
-      cooldown: "25s",
-      category: "Active Assault",
-      desc: "Overcharges weapon targeting matrices for 6 seconds, allowing all equipped weapons to bypass Absorber, Aegis, and Ancile energy shields.",
-      stats: { shieldPenetration: "100%", duration: "6s" }
-    },
-    {
-      id: "advanced_repair",
-      name: "Advanced Repair Unit",
-      tier: "T3",
-      icon: "💉",
-      cooldown: "20s",
-      category: "Active Defense",
-      desc: "High-output nanite repair array restoring 50% max durability and 35% grey damage over 4 seconds with bonus defense points.",
-      stats: { heal: "50%", greyHeal: "35%", duration: "4s" }
-    },
-    {
-      id: "deathmark",
-      name: "Deathmark",
-      tier: "T3",
-      icon: "🎯",
-      cooldown: "25s",
-      category: "Active Assault",
-      desc: "Designates target enemy with laser lock-on for 6 seconds, amplifying all allied and personal damage dealt to target by +20%.",
-      stats: { damageAmp: "+20%", range: "600m", duration: "6s" }
-    },
-    {
-      id: "quantum_radar",
-      name: "Quantum Radar",
-      tier: "T2",
-      icon: "📡",
-      cooldown: "25s",
-      category: "Active Recon",
-      desc: "Activates quantum optical sensors for 6 seconds, allowing weapons to lock onto and track stealth-cloaked enemies.",
-      stats: { stealthDetection: "Active", duration: "6s" }
-    },
-    {
-      id: "jump_unit",
-      name: "Jump Unit",
-      tier: "T2",
-      icon: "🚀",
-      cooldown: "25s",
-      category: "Active Agility",
-      desc: "Fires high-thrust kinetic booster rockets, launching robot 50 meters into the air for ambush strikes and obstacle bypass.",
-      stats: { verticalThrust: "50m", cooldown: "25s" }
-    },
-    {
-      id: "lockdown_ammo",
-      name: "Lockdown Ammo",
-      tier: "T2",
-      icon: "🔒",
-      cooldown: "25s",
-      category: "Active Support",
-      desc: "Infuses next weapon salvos with electromagnetic disruption particles, instantly immobilizing targeted enemies for 5 seconds.",
-      stats: { lockdownDuration: "5s", duration: "6s" }
-    }
-  ],
-
-  passive: [
-    {
-      id: "nuclear_amplifier",
-      name: "Nuclear Amplifier",
-      tier: "T4",
-      icon: "☢️",
-      category: "Assault Amp",
-      desc: "For every 25,000 damage dealt, grants +0.1% damage stack (up to +80% at 80 stacks). At max stacks, grants +20% Defense Mitigation and continuous Grey Damage repair.",
-      stats: { maxDamage: "+80%", defenseMitigation: "+20%", greyRepair: "Active" }
-    },
-    {
-      id: "repair_amplifier",
-      name: "Repair Amplifier",
-      tier: "T4",
-      icon: "🛡️",
-      category: "Defense Amp",
-      desc: "For every 9% durability lost, gains 1 stack granting +0.03% regeneration and +0.45 Defense Points (up to 60 stacks). At max stacks, converts damage into grey HP restoration.",
-      stats: { maxStacks: "60", greyHpConversion: "Active", maxDefensePoints: "+35 DP" }
-    },
-    {
-      id: "immune_amplifier",
-      name: "Immune Amplifier",
-      tier: "T4",
-      icon: "🧬",
-      category: "Immunity Amp",
-      desc: "Passively increases base HP by +10% and speed by +5 km/h. As damage is received, builds stacks granting permanent immunity to Freeze, Lockdown, and EMP.",
-      stats: { hpBonus: "+10%", speedBonus: "+5 km/h", immunities: "Freeze / Lockdown / EMP" }
-    },
-    {
-      id: "last_stand",
-      name: "Last Stand",
-      tier: "T4",
-      icon: "⭐",
-      category: "Emergency Defense",
-      desc: "When durability drops below 30%, activates an impenetrable invulnerability barrier for 4.5 seconds, saving the robot from lethal bursts.",
-      stats: { threshold: "<30% HP", invulnerability: "4.5s", cooldown: "Once per spawn" }
-    },
-    {
-      id: "fortifier",
-      name: "Fortifier",
-      tier: "T4",
-      icon: "🏰",
-      category: "Shield Enhancer",
-      desc: "Overclocks all defensive shielding systems: +20% Physical Shield HP, +25% Aegis & Absorber Shield Capacity, and +100% Shield Recharge Rate.",
-      stats: { shieldCapacity: "+25%", rechargeRate: "+100%" }
-    },
-    {
-      id: "cloaking_unit",
-      name: "Cloaking Unit",
-      tier: "T4",
-      icon: "🕶️",
-      category: "Stealth Trigger",
-      desc: "Upon taking 10% damage in under 3 seconds, triggers automatic Radar Stealth for 5 seconds.",
-      stats: { stealthDuration: "5s", triggerThreshold: "10% HP in 3s" }
-    },
-    {
-      id: "balanced_unit",
-      name: "Balanced Unit",
-      tier: "T4",
-      icon: "⚖️",
-      category: "Hybrid Boost",
-      desc: "Provides synchronized tactical enhancement: +12% permanent Weapon Damage and +12% permanent Robot Max Durability.",
-      stats: { damageBuff: "+12%", hpBuff: "+12%" }
-    },
-    {
-      id: "nitro_unit",
-      name: "Nitro Unit",
-      tier: "T3",
-      icon: "🏎️",
-      category: "Speed Accelerator",
-      desc: "Injects pressurized nitro fuels into locomotive thrusters, granting +15 km/h top speed while above 70% durability.",
-      stats: { speedBuff: "+15 km/h", threshold: ">70% HP" }
-    },
-    {
-      id: "overdrive_unit",
-      name: "Overdrive Unit",
-      tier: "T3",
-      icon: "🔥",
-      category: "Low-HP Assault",
-      desc: "When durability drops below 50%, activates overclocked reactor overdrive delivering +25% continuous weapon firepower.",
-      stats: { damageBuff: "+25%", threshold: "<50% HP" }
-    },
-    {
-      id: "heavy_armor_kit",
-      name: "Heavy Armor Kit",
-      tier: "T3",
-      icon: "🧱",
-      category: "Armor Reinforcement",
-      desc: "Heavy alloy composite chassis plating providing a flat +15% permanent Durability boost.",
-      stats: { hpBuff: "+15%" }
-    },
-    {
-      id: "thermonuclear_reactor",
-      name: "Thermonuclear Reactor",
-      tier: "T3",
-      icon: "💥",
-      category: "Raw Firepower",
-      desc: "Auxiliary high-energy plasma reactor providing a flat +10% permanent Weapon Damage multiplier.",
-      stats: { damageBuff: "+10%" }
-    },
-    {
-      id: "anticontrol",
-      name: "Anticontrol",
-      tier: "T4",
-      icon: "🛡️",
-      category: "Status Purge",
-      desc: "Instantly cleanses Lockdown, Freeze, and Suppression debuffs upon application with temporary 5s status immunity.",
-      stats: { autoCleanse: "Immediate", immunityWindow: "5s" }
-    }
-  ]
-};
-
-const SPECIALIZATION_PRESETS = [
+const ACTIVE_MODULES = [
   {
-    id: "meta_trinity",
-    name: "💥 Meta Amplifier Trinity (Brawler / Assault)",
-    desc: "The premier competitive meta setup: Nuclear Amplifier for escalating damage, Repair Amplifier for sustain/grey HP, and Immune Amplifier for speed and debuff immunities.",
-    active: "unstable_conduit",
-    passives: ["nuclear_amplifier", "repair_amplifier", "immune_amplifier"]
+    id: "unstable_conduit",
+    name: "Unstable Conduit",
+    icon: "⚡",
+    tier: "T4",
+    cooldown: "15s",
+    duration: "6s",
+    cost: "40 Powercells",
+    description: "Instantly restores 20% durability + 7% grey HP, grants +15% weapon damage, and enables high-tempo counter-assault."
   },
   {
-    id: "fortress_tank",
-    name: "🛡️ Immortal Juggernaut (Ultra Tank)",
-    desc: "Maximizes survivability and armor stacking with dual Repair Amplifiers, Heavy Armor Kit, and Advanced Repair for endless sustain under heavy fire.",
-    active: "advanced_repair",
-    passives: ["repair_amplifier", "repair_amplifier", "heavy_armor_kit"]
+    id: "shieldbreaker",
+    name: "Shieldbreaker",
+    icon: "🛡️",
+    tier: "T4",
+    cooldown: "18s",
+    duration: "6s",
+    cost: "20 Powercells",
+    description: "Allows all equipped weapons and abilities to directly bypass Aegis, Absorber, and Ancile energy shields."
   },
   {
-    id: "beacon_assassin",
-    name: "⚡ High-Speed Beacon Assassin (Agility / Stealth)",
-    desc: "Designed for fast beacon capture and burst ambushes with high locomotive speed, stealth on critical damage, and dimensional Phase Shift.",
-    active: "phase_shift",
-    passives: ["nuclear_amplifier", "nitro_unit", "cloaking_unit"]
+    id: "phase_shift",
+    name: "Phase Shift",
+    icon: "🌀",
+    tier: "T4",
+    cooldown: "20s",
+    duration: "3s",
+    cost: "40 Powercells",
+    description: "Shifts the robot into an alternate dimension, granting complete invulnerability to all damage and status effects."
   },
   {
-    id: "artillery_sniper",
-    name: "🎯 Extreme Range Shieldbreaker (Sniper / Artillery)",
-    desc: "Penetrates Absorber and Aegis energy shields while stacking high raw damage bonuses for devastating long-distance volleys.",
-    active: "shieldbreaker",
-    passives: ["nuclear_amplifier", "thermonuclear_reactor", "overdrive_unit"]
+    id: "advanced_repair",
+    name: "Advanced Repair Unit",
+    icon: "💉",
+    tier: "T4",
+    cooldown: "15s",
+    duration: "5s",
+    cost: "40 Powercells",
+    description: "Rapidly restores 50% max durability and significantly repairs lost grey (permanent) damage over 5 seconds."
   },
   {
-    id: "survivor_clutch",
-    name: "⭐ Clutch Survivor (Last Stand)",
-    desc: "Guarantees a 4.5s invulnerability safety net when dropping low, paired with Nuclear Amp and Immune Amp for lethal counter-attacks.",
-    active: "phase_shift",
-    passives: ["nuclear_amplifier", "immune_amplifier", "last_stand"]
+    id: "repair_unit",
+    name: "Repair Unit",
+    icon: "💚",
+    tier: "T2",
+    cooldown: "18s",
+    duration: "5s",
+    cost: "20 Powercells",
+    description: "Standard repair nanites restoring 25% max hull durability over 5 seconds."
+  },
+  {
+    id: "quantum_radar",
+    name: "Quantum Radar",
+    icon: "👁️",
+    tier: "T3",
+    cooldown: "20s",
+    duration: "6s",
+    cost: "20 Powercells",
+    description: "Allows the robot to target and lock onto enemy robots cloaked in Stealth mode."
+  },
+  {
+    id: "deathmark",
+    name: "Deathmark",
+    icon: "🎯",
+    tier: "T3",
+    cooldown: "22s",
+    duration: "6s",
+    cost: "25 Powercells",
+    description: "Marks target enemy, increasing all incoming weapon and ability damage taken by +20% for the entire team."
+  },
+  {
+    id: "jump_unit",
+    name: "Jump Unit",
+    icon: "🚀",
+    tier: "T3",
+    cooldown: "25s",
+    duration: "Instant",
+    cost: "15 Powercells",
+    description: "Launches the robot high into the air for strategic vantage, repositioning, and obstacle clearance."
+  },
+  {
+    id: "lockdown_ammo",
+    name: "Lockdown Ammo",
+    icon: "⛓️",
+    tier: "T3",
+    cooldown: "18s",
+    duration: "5s",
+    cost: "20 Powercells",
+    description: "Imbues all weapons with 100% lockdown accumulation, immobilizing targeted enemies on hit."
   }
 ];
+
+const BASIC_SPECIALIZATION = {
+  id: "basic",
+  name: "Basic Specialization",
+  badge: "⭐ BASE",
+  description: "Permanent foundation of all combat platforms. Provides backbone durability, damage, base passive cells, and unlocks the Active Module slot.",
+  isAlwaysActive: true,
+  permanentEffects: [
+    { name: "Backbone Durability", value: "+10% Max HP", stat: "hp", amount: 0.10 },
+    { name: "Backbone Firepower", value: "+7% Weapon Damage", stat: "damage", amount: 0.07 }
+  ],
+  passiveCell: {
+    id: "base_armor_link",
+    name: "Base Subsystem Link",
+    icon: "💠",
+    effect: "+5% Defense Mitigation & Structural Integrity"
+  }
+};
+
+const ADDITIONAL_SPECIALIZATION_PATHS = {
+  offense: {
+    id: "offense",
+    name: "Offense Specialization",
+    roleName: "Offense Focus",
+    icon: "⚔️",
+    badge: "⚔️ OFFENSE",
+    color: "red",
+    description: "Maximizes offensive aggression, burst multiplier ramp-up, armor penetration, and cycle throughput.",
+    permanentEffects: [
+      { name: "Aggression Matrix", value: "+8% Weapon Damage", stat: "damage", amount: 0.08 },
+      { name: "Armor Piercing", value: "+5% Defense Mitigation", stat: "mitigation", amount: 0.05 }
+    ],
+    moduleCells: [
+      {
+        id: "nuclear_amplifier",
+        name: "Nuclear Amplifier",
+        icon: "⚛️",
+        type: "Passive Module",
+        desc: "Stacks +0.1% damage per 25k dealt. At 80 stacks: +80% damage bonus & +20% defense mitigation."
+      },
+      {
+        id: "overdrive_unit",
+        name: "Overdrive Unit",
+        icon: "🔥",
+        type: "Passive Module",
+        desc: "Increases weapon damage by +25% when durability drops below 50% threshold."
+      },
+      {
+        id: "balanced_unit",
+        name: "Balanced Unit",
+        icon: "⚖️",
+        type: "Passive Module",
+        desc: "Grants +9% weapon damage and +9% max hull durability."
+      }
+    ]
+  },
+
+  defense: {
+    id: "defense",
+    name: "Defense Specialization",
+    roleName: "Defense Focus",
+    icon: "🛡️",
+    badge: "🛡️ DEFENSE",
+    color: "emerald",
+    description: "Maximizes hull endurance, shield absorption, defense point stacking, and grey damage recovery.",
+    permanentEffects: [
+      { name: "Titanium Plating", value: "+12% Max HP", stat: "hp", amount: 0.12 },
+      { name: "Defense Matrix", value: "+25 Defense Points (20% Dmg Reduction)", stat: "defense_points", amount: 25 }
+    ],
+    moduleCells: [
+      {
+        id: "repair_amplifier",
+        name: "Repair Amplifier",
+        icon: "🔧",
+        type: "Passive Module",
+        desc: "Generates repair stacks upon taking damage. At 60 stacks: restores grey damage & grants +35 Defense Points."
+      },
+      {
+        id: "immune_amplifier",
+        name: "Immune Amplifier",
+        icon: "🧪",
+        type: "Passive Module",
+        desc: "Grants bonus durability and permanent immunity to Freeze, Lockdown, and EMP effects."
+      },
+      {
+        id: "fortifier_or_last_stand",
+        name: "Fortifier / Last Stand",
+        icon: "⏳",
+        type: "Passive Module",
+        desc: "+25% Physical & Energy Shield Capacity + Emergency 4.5s Invulnerability threshold."
+      }
+    ]
+  },
+
+  class_archetypes: {
+    support: {
+      id: "class_support",
+      roleKey: "support",
+      name: "Support Class Specialization",
+      roleName: "Support Archetype",
+      icon: "💖",
+      badge: "💖 CLASS: SUPPORT",
+      color: "cyan",
+      matchingRoles: ["Support", "Healer", "Support / Energy Sniper"],
+      description: "Tailored specifically for support & link platforms like Nuo, Weyland, Mender, Demeter, Nightingale, and Khepri.",
+      permanentEffects: [
+        { name: "System Acceleration", value: "+15% Ability Cooldown Speed", stat: "cooldown", amount: 0.15 },
+        { name: "Tether & Link Resonance", value: "+10% Link Range & Durability Sharing", stat: "support", amount: 0.10 }
+      ],
+      moduleCells: [
+        {
+          id: "repair_amplifier",
+          name: "Repair Amplifier",
+          icon: "🔧",
+          type: "Class Passive Cell",
+          desc: "Restores grey damage and stacks continuous nanite repair during sustained support tether."
+        },
+        {
+          id: "nuclear_amplifier",
+          name: "Nuclear Amplifier",
+          icon: "⚛️",
+          type: "Class Passive Cell",
+          desc: "Amplifies ally damage transfer and high-range volley output during flight/support mode."
+        },
+        {
+          id: "fortifier",
+          name: "Fortifier / Shield Cell",
+          icon: "🔰",
+          type: "Class Passive Cell",
+          desc: "Boosts personal and linked energy shield regeneration by +25%."
+        }
+      ]
+    },
+
+    brawler: {
+      id: "class_brawler",
+      roleKey: "brawler",
+      name: "Brawler Class Specialization",
+      roleName: "Brawler Archetype",
+      icon: "🥊",
+      badge: "🥊 CLASS: BRAWLER",
+      color: "amber",
+      matchingRoles: ["Brawler", "Tank", "Assault Brawler", "Combat Brawler", "Heavy Brawler"],
+      description: "Optimized for close-quarters durability monsters like Fenrir, Ravana, Revenant, Shell, Invader, and Curie.",
+      permanentEffects: [
+        { name: "CQC Reinforced Hull", value: "+15% Close-Range Durability", stat: "hp", amount: 0.15 },
+        { name: "Brawler Tenacity", value: "+30 Defense Points below 50% HP", stat: "defense_points", amount: 30 }
+      ],
+      moduleCells: [
+        {
+          id: "repair_amplifier",
+          name: "Repair Amplifier",
+          icon: "🔧",
+          type: "Class Passive Cell",
+          desc: "Accelerates grey damage restoration and grants massive defense point bursts under fire."
+        },
+        {
+          id: "immune_amplifier",
+          name: "Immune Amplifier",
+          icon: "🧪",
+          type: "Class Passive Cell",
+          desc: "Grants +10% max durability and immunity to lockdown, suppression, and freeze."
+        },
+        {
+          id: "nuclear_amplifier",
+          name: "Nuclear Amplifier",
+          icon: "⚛️",
+          type: "Class Passive Cell",
+          desc: "Quickly maxes out damage stacks in point-blank slugfests for devastating output."
+        }
+      ]
+    },
+
+    assassin: {
+      id: "class_assassin",
+      roleKey: "assassin",
+      name: "Assassin Class Specialization",
+      roleName: "Assassin Archetype",
+      icon: "🗡️",
+      badge: "🗡️ CLASS: ASSASSIN",
+      color: "purple",
+      matchingRoles: ["Assassin", "Flanker", "Ambush", "Stealth Assassin", "Damage Dealer"],
+      description: "Designed for high-speed strike & ambush units like Scorpion, Shenlou, Lynx, Crisis, and Angler.",
+      permanentEffects: [
+        { name: "Surge Lethality", value: "+12% Burst Weapon Damage", stat: "damage", amount: 0.12 },
+        { name: "Thruster Overclock", value: "+10 km/h Ability Speed", stat: "speed", amount: 10 }
+      ],
+      moduleCells: [
+        {
+          id: "nuclear_amplifier",
+          name: "Nuclear Amplifier",
+          icon: "⚛️",
+          type: "Class Passive Cell",
+          desc: "Rapidly ramps up weapon damage during sudden target assassinations."
+        },
+        {
+          id: "cloaking_unit",
+          name: "Cloaking Unit",
+          icon: "👻",
+          type: "Class Passive Cell",
+          desc: "Automatically triggers 5s Stealth and speed boost when taking sudden critical damage."
+        },
+        {
+          id: "nitro_unit",
+          name: "Nitro Unit",
+          icon: "⚡",
+          type: "Class Passive Cell",
+          desc: "+15% baseline movement speed while durability remains above 70%."
+        }
+      ]
+    },
+
+    sniper: {
+      id: "class_sniper",
+      roleKey: "sniper",
+      name: "Sniper / Energy Class Specialization",
+      roleName: "Sniper Archetype",
+      icon: "🔭",
+      badge: "🔭 CLASS: SNIPER",
+      color: "blue",
+      matchingRoles: ["Sniper", "Long Range", "Artillery", "Energy Sniper"],
+      description: "Calibrated for precision long-range platforms like Nuo, Crisis, Erebus, Behemoth, Bagliore, and Siren.",
+      permanentEffects: [
+        { name: "Precision Optics", value: "+10% Weapon Damage past 400m", stat: "damage", amount: 0.10 },
+        { name: "Target Acquisition", value: "+20% Faster Lock-on Speed", stat: "lockon", amount: 0.20 }
+      ],
+      moduleCells: [
+        {
+          id: "nuclear_amplifier",
+          name: "Nuclear Amplifier",
+          icon: "⚛️",
+          type: "Class Passive Cell",
+          desc: "Stacks high-damage multipliers from safe firing distances."
+        },
+        {
+          id: "overdrive_unit",
+          name: "Overdrive Unit",
+          icon: "🔥",
+          type: "Class Passive Cell",
+          desc: "Provides instant +25% damage boost to eliminate high-value targets."
+        },
+        {
+          id: "last_stand",
+          name: "Last Stand",
+          icon: "⏳",
+          type: "Class Passive Cell",
+          desc: "Grants 4.5s invulnerability barrier if intercepted by enemy flankers."
+        }
+      ]
+    },
+
+    saboteur: {
+      id: "class_saboteur",
+      roleKey: "saboteur",
+      name: "Saboteur / Beacon Runner Class Specialization",
+      roleName: "Saboteur Archetype",
+      icon: "🏃",
+      badge: "🏃 CLASS: SABOTEUR",
+      color: "emerald",
+      matchingRoles: ["Saboteur", "Beacon Runner", "Scout", "Infiltrator", "Tactical"],
+      description: "Tailored for high-mobility beacon runners like Imugi, Nether, Kumiho, Loki, Skyros, and Phantom.",
+      permanentEffects: [
+        { name: "Beacon Dominance", value: "+20% Beacon Capture Speed", stat: "capture", amount: 0.20 },
+        { name: "Kinetic Evasion", value: "+12% Base Movement Velocity", stat: "speed", amount: 12 }
+      ],
+      moduleCells: [
+        {
+          id: "nitro_unit",
+          name: "Nitro Unit",
+          icon: "⚡",
+          type: "Class Passive Cell",
+          desc: "Grants maximum speed to capture opening beacons before enemy arrival."
+        },
+        {
+          id: "immune_amplifier",
+          name: "Immune Amplifier",
+          icon: "🧪",
+          type: "Class Passive Cell",
+          desc: "Prevents enemies from locking down or suppressing during beacon captures."
+        },
+        {
+          id: "cloaking_unit",
+          name: "Cloaking Unit",
+          icon: "👻",
+          type: "Class Passive Cell",
+          desc: "Emergency stealth cloaking when defending or capturing contested beacons."
+        }
+      ]
+    },
+
+    titan_class: {
+      id: "class_titan",
+      roleKey: "titan",
+      name: "Titan Flagship Specialization",
+      roleName: "Titan Archetype",
+      icon: "👑",
+      badge: "👑 TITAN FLAGSHIP",
+      color: "red",
+      matchingRoles: ["Titan", "Titan Brawler", "Titan Slayer", "Titan Support"],
+      description: "Colossal flagship specialization matrix engineered for capital combat Titans.",
+      permanentEffects: [
+        { name: "Colossal Hull Frame", value: "+15% Titan Base Durability", stat: "hp", amount: 0.15 },
+        { name: "Capital Firepower", value: "+10% Alpha & Beta Weapon Damage", stat: "damage", amount: 0.10 }
+      ],
+      moduleCells: [
+        {
+          id: "titan_repair_amp",
+          name: "Titan Repair Amplifier",
+          icon: "🔧",
+          type: "Titan Specialization Cell",
+          desc: "Restores massive Titan hull and grey durability stacks under focus fire."
+        },
+        {
+          id: "titan_damage_controller",
+          name: "Titan Damage Controller",
+          icon: "🛡️",
+          type: "Titan Specialization Cell",
+          desc: "Reduces grey damage suffered and grants immunity to defense mitigation."
+        },
+        {
+          id: "titan_grand_armor",
+          name: "Titan Grand Armor Kit",
+          icon: "🔰",
+          type: "Titan Specialization Cell",
+          desc: "+27% bonus Titan durability buffer."
+        }
+      ]
+    }
+  }
+};
+
+/**
+ * Helper to get the matching Class Specialization for a given robot role
+ */
+function getClassSpecializationForBot(robotRole, isTitan = false) {
+  if (isTitan) return ADDITIONAL_SPECIALIZATION_PATHS.class_archetypes.titan_class;
+  if (!robotRole) return ADDITIONAL_SPECIALIZATION_PATHS.class_archetypes.brawler;
+
+  const roleLower = robotRole.toLowerCase();
+  if (roleLower.includes("support") || roleLower.includes("healer")) {
+    return ADDITIONAL_SPECIALIZATION_PATHS.class_archetypes.support;
+  }
+  if (roleLower.includes("sniper") || roleLower.includes("long range") || roleLower.includes("artillery")) {
+    return ADDITIONAL_SPECIALIZATION_PATHS.class_archetypes.sniper;
+  }
+  if (roleLower.includes("assassin") || roleLower.includes("ambush") || roleLower.includes("stealth") || roleLower.includes("flanker")) {
+    return ADDITIONAL_SPECIALIZATION_PATHS.class_archetypes.assassin;
+  }
+  if (roleLower.includes("saboteur") || roleLower.includes("runner") || roleLower.includes("scout") || roleLower.includes("tactical")) {
+    return ADDITIONAL_SPECIALIZATION_PATHS.class_archetypes.saboteur;
+  }
+  return ADDITIONAL_SPECIALIZATION_PATHS.class_archetypes.brawler;
+}
+
+if (typeof window !== 'undefined') {
+  window.ACTIVE_MODULES = ACTIVE_MODULES;
+  window.BASIC_SPECIALIZATION = BASIC_SPECIALIZATION;
+  window.ADDITIONAL_SPECIALIZATION_PATHS = ADDITIONAL_SPECIALIZATION_PATHS;
+  window.getClassSpecializationForBot = getClassSpecializationForBot;
+}

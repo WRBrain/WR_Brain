@@ -270,7 +270,7 @@ let AppState = (function() {
           if (state.hangars[hk] && state.hangars[hk].slots) {
             state.hangars[hk].slots.forEach(slot => {
               if (slot && slot.pilot && (!slot.pilot.skills || slot.pilot.skills.length === 0)) {
-                const mb = MASTER_ROBOTS.find(r => r.id === slot.robotId);
+                const mb = (typeof MASTER_ROBOTS !== 'undefined' ? MASTER_ROBOTS.find(r => r.id === slot.robotId) : null);
                 slot.pilot.skills = getDefaultPilotSkills(mb ? mb.role : "Brawler");
               }
             });
@@ -294,45 +294,41 @@ let AppState = (function() {
             h.slots.forEach((slot, sIdx) => {
               if (slot && slot.robotId) {
                 const mb = (typeof MASTER_ROBOTS !== 'undefined' ? MASTER_ROBOTS.find(r => r.id === slot.robotId) : null);
-                const isUltimate = (slot.robotId.startsWith('ultimate_') || (mb && mb.tier === 'Ultimate'));
-                const defaultPassives = isUltimate 
-                  ? ["nuclear_amplifier", "repair_amplifier", "immune_amplifier", "last_stand"]
-                  : ["nuclear_amplifier", "repair_amplifier", "immune_amplifier"];
                 
-                if (!slot.specializations || !slot.specializations.passives || slot.specializations.passives.length === 0) {
-                  slot.specializations = {
-                    active: slot.specializations?.active || "unstable_conduit",
-                    passives: defaultPassives
-                  };
-                } else {
-                  // Ensure proper count of passives
-                  const requiredCount = isUltimate ? 4 : 3;
-                  while (slot.specializations.passives.length < requiredCount) {
-                    slot.specializations.passives.push("balanced_unit");
-                  }
-                }
-              }
-            });
-          }
-        });
-      }
-      if (state.hangars) {
-        Object.keys(state.hangars).forEach(hk => {
-          const h = state.hangars[hk];
-          if (h && h.slots) {
-            h.slots.forEach((slot, sIdx) => {
-              if (slot && slot.robotId) {
-                const mb = (typeof MASTER_ROBOTS !== 'undefined' ? MASTER_ROBOTS.find(r => r.id === slot.robotId) : null);
+                // Authentic WR 10.5.2+ Specialization object
+                const defaultActiveMod = (slot.robotId === 'nuo') ? 'shieldbreaker' : 'unstable_conduit';
+                const curActiveMod = slot.specialization?.activeModule || slot.specializations?.active || defaultActiveMod;
+                const curActivePath = slot.specialization?.activePath || "class"; // "class" | "offense" | "defense"
+
+                slot.specialization = {
+                  activePath: curActivePath,
+                  activeModule: curActiveMod,
+                  unlockedPaths: ["basic", "offense", "defense", "class"],
+                  level: "MAX"
+                };
+
+                // Backward compatibility mirror
+                slot.specializations = slot.specialization;
+
+                // Guarantee weapon sizes and hardpoints matching
                 if (mb && mb.hardpoints) {
                   if (!slot.weapons || slot.weapons.length !== mb.hardpoints.length) {
                     const oldWeapons = slot.weapons || [];
                     slot.weapons = mb.hardpoints.map((hp, hpIdx) => {
                       const existing = oldWeapons[hpIdx];
                       if (existing && existing.id) {
+                        existing.size = existing.size || hp.size;
                         return existing;
                       }
                       const defaultW = (typeof MASTER_WEAPONS !== 'undefined' ? MASTER_WEAPONS.find(w => w.size === hp.size) : null);
                       return defaultW ? { id: defaultW.id, name: defaultW.name, size: hp.size, level: "Lv 1", tier: defaultW.tier } : null;
+                    });
+                  } else {
+                    slot.weapons.forEach((w, wIdx) => {
+                      if (w && w.id && !w.size) {
+                        const mw = (typeof MASTER_WEAPONS !== 'undefined' ? MASTER_WEAPONS.find(item => item.id === w.id) : null);
+                        w.size = mw ? mw.size : (mb.hardpoints[wIdx] ? mb.hardpoints[wIdx].size : 'Heavy');
+                      }
                     });
                   }
                 }
@@ -347,9 +343,19 @@ let AppState = (function() {
                 const oldW = h.titanSlot.weapons || [];
                 h.titanSlot.weapons = mt.hardpoints.map((hp, hpIdx) => {
                   const existing = oldW[hpIdx];
-                  if (existing && existing.id) return existing;
+                  if (existing && existing.id) {
+                    existing.size = existing.size || hp.size;
+                    return existing;
+                  }
                   const defaultW = (typeof MASTER_WEAPONS !== 'undefined' ? MASTER_WEAPONS.find(w => w.size === hp.size) : null);
                   return defaultW ? { id: defaultW.id, name: defaultW.name, size: hp.size, level: "Lv 1", tier: defaultW.tier } : null;
+                });
+              } else {
+                h.titanSlot.weapons.forEach((w, wIdx) => {
+                  if (w && w.id && !w.size) {
+                    const mw = (typeof MASTER_WEAPONS !== 'undefined' ? MASTER_WEAPONS.find(item => item.id === w.id) : null);
+                    w.size = mw ? mw.size : (mt.hardpoints[wIdx] ? mt.hardpoints[wIdx].size : 'Alpha');
+                  }
                 });
               }
             }
