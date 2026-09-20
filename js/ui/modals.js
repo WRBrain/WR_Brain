@@ -2401,6 +2401,7 @@ window.openAddCatalogModal = function(type) {
 
     window.openSpecializationModal = function(hangarKey, slotIndex) {
       activeSpecializationTarget = { hangarKey, slotIndex };
+      window.activeSpecializationTarget = activeSpecializationTarget;
       const hangar = AppState.hangars[hangarKey];
       if (!hangar) return;
       const slot = hangar.slots[slotIndex];
@@ -2422,6 +2423,7 @@ window.openAddCatalogModal = function(type) {
         activeModule: activeModule,
         classSpec: classSpec
       };
+      window.currentSpecWorkingState = currentSpecWorkingState;
 
       document.getElementById('specialization-modal-title').innerHTML = `💠 Specialization Matrix • <span class="text-cyan-400">Bay 0${slotIndex + 1}: ${mb.name}</span>`;
       document.getElementById('specialization-modal-subtitle').innerText = `Official WR 10.5.2+ System: Basic Foundation, Active Modules & ${mb.role || 'Role'} Specialization Tree`;

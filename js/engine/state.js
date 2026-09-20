@@ -64,7 +64,7 @@ let AppState = (function() {
               slots: [
                 { robotId: "ultimate_ares", level: "Lv 3", weapons: [{ id: "damper", size: "Medium", level: "Lv 1" }, { id: "shatter", size: "Medium", level: "Lv 1" }, { id: "razdor", size: "Light", level: "Lv 1" }, { id: "razdor", size: "Light", level: "Lv 1" }] },
                 { robotId: "void_shoggoth", level: "Lv 1", weapons: [{ id: "decay", size: "Heavy", level: "Lv 1" }, { id: "basileus", size: "Medium", level: "Lv 1" }, { id: "neon_machaira", size: "Light", level: "Lv 1" }, { id: "machaira", size: "Light", level: "Lv 1" }] },
-                { robotId: "vector", level: "Lv 6", weapons: [{ id: "fahrenheit", size: "Heavy", level: "Lv 1" }, { id: "kroko", size: "Medium", level: "Lv 1" }, { id: "celsius", size: "Medium", level: "Lv 1" }, { id: "steel_hedjet", size: "Light", level: "Lv 1" }] },
+                { robotId: "vector", level: "Lv 6", weapons: [{ id: "fahrenheit", size: "Heavy", level: "Lv 1" }, { id: "hippo", size: "Medium", level: "Lv 1" }, { id: "celsius", size: "Medium", level: "Lv 1" }, { id: "steel_hedjet", size: "Light", level: "Lv 1" }] },
                 { robotId: "dagon", level: "Lv 1", weapons: [{ id: "gladius", size: "Light", level: "Lv 2" }, { id: "gladius", size: "Light", level: "Lv 2" }, { id: "gladius", size: "Light", level: "Lv 2" }, { id: "tamer", size: "Light", level: "Lv 1" }, { id: "velos", size: "Light", level: "Lv 1" }, { id: "velos", size: "Light", level: "Lv 1" }] },
                 { robotId: "siren", level: "Lv 1", weapons: [{ id: "smuta", size: "Heavy", level: "Lv 1" }, { id: "smuta", size: "Heavy", level: "Lv 1" }, { id: "smite", size: "Light", level: "Lv 1" }] }
               ]
@@ -104,7 +104,7 @@ let AppState = (function() {
                 ]
               },
               slots: [
-                { robotId: "imugi", level: "Lv 1", weapons: [{ id: "warrior_scorcher", size: "Medium", level: "Lv 1" }, { id: "gladius", size: "Light", level: "Lv 1" }, { id: "gladius", size: "Light", level: "Lv 1" }] },
+                { robotId: "imugi", level: "Lv 1", weapons: [{ id: "warrior_scorcher", size: "Medium", level: "Lv 1" }, { id: "scorcher", size: "Medium", level: "Lv 1" }, { id: "gladius", size: "Light", level: "Lv 1" }] },
                 { robotId: "nether", level: "Lv 1", weapons: [{ id: "blaze", size: "Light", level: "Lv 1" }, { id: "blaze", size: "Light", level: "Lv 1" }, { id: "blaze", size: "Light", level: "Lv 1" }, { id: "blaze", size: "Light", level: "Lv 1" }] },
                 { robotId: "lynx", level: "Lv 1", weapons: [{ id: "brisant", size: "Heavy", level: "Lv 1" }, { id: "brisant", size: "Heavy", level: "Lv 1" }] },
                 { robotId: "kumiho", level: "Lv 1", weapons: [{ id: "havoc", size: "Medium", level: "Lv 1" }, { id: "havoc", size: "Medium", level: "Lv 1" }] },

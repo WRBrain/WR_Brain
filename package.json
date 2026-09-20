@@ -1,0 +1,16 @@
+{
+  "name": "wrbrain",
+  "version": "2.0.0",
+  "description": "WRBrain — War Robots Ultimate Hangar Builder, Armory & Specialization Matrix",
+  "scripts": {
+    "test": "./test.sh"
+  },
+  "keywords": [
+    "war-robots",
+    "hangar-builder",
+    "specializations",
+    "armory"
+  ],
+  "author": "WRBrain Team",
+  "license": "MIT"
+}
