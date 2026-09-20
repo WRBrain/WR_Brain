@@ -2383,3 +2383,207 @@ window.openAddCatalogModal = function(type) {
         activeModals.forEach(m => m.classList.add('hidden'));
       }
     });
+
+    // =========================================================================
+    // 7. SPECIALIZATION MATRIX & SUBSYSTEMS CONFIGURATION
+    // =========================================================================
+    let activeSpecializationTarget = null;
+    let currentSpecWorkingState = null;
+
+    window.openSpecializationModal = function(hangarKey, slotIndex) {
+      activeSpecializationTarget = { hangarKey, slotIndex };
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar) return;
+      const slot = hangar.slots[slotIndex];
+      if (!slot || !slot.robotId) return;
+
+      const mb = (typeof MASTER_ROBOTS !== 'undefined' ? MASTER_ROBOTS.find(r => r.id === slot.robotId) : null) || { name: slot.robotId, tier: "T4" };
+      const isUltimate = (slot.robotId.startsWith('ultimate_') || mb.tier === 'Ultimate');
+      const maxPassives = isUltimate ? 4 : 3;
+
+      // Copy or initialize working state
+      const currentSpecs = slot.specializations || {};
+      const activeModule = currentSpecs.active || "unstable_conduit";
+      let passives = (currentSpecs.passives && currentSpecs.passives.length > 0) 
+        ? [...currentSpecs.passives] 
+        : ["nuclear_amplifier", "repair_amplifier", "immune_amplifier"];
+      
+      while (passives.length < maxPassives) {
+        passives.push("balanced_unit");
+      }
+      if (passives.length > maxPassives) {
+        passives = passives.slice(0, maxPassives);
+      }
+
+      currentSpecWorkingState = {
+        active: activeModule,
+        passives: passives,
+        maxPassives: maxPassives,
+        isUltimate: isUltimate
+      };
+
+      document.getElementById('specialization-modal-title').innerHTML = `💠 Specialization Matrix • <span class="text-cyan-400">Bay 0${slotIndex + 1}: ${mb.name}</span>`;
+      document.getElementById('specialization-modal-subtitle').innerText = `Configure Active Combat Module, ${maxPassives} Passive Specialization Slots & Meta Loadouts`;
+      document.getElementById('spec-passive-count-label').innerText = `${maxPassives} Slots (${isUltimate ? 'Ultimate Gold ★' : 'Standard Chassis'})`;
+
+      renderSpecPresets();
+      renderSpecActiveGrid();
+      renderSpecPassivesGrid();
+      renderSpecLiveStats();
+
+      document.getElementById('specialization-modal').classList.remove('hidden');
+    };
+
+    function renderSpecPresets() {
+      const container = document.getElementById('spec-presets-container');
+      if (!container || typeof SPECIALIZATION_PRESETS === 'undefined') return;
+
+      container.innerHTML = SPECIALIZATION_PRESETS.map(preset => `
+        <button onclick="applySpecPreset('${preset.id}')" class="text-left p-2.5 rounded-xl bg-[#0e1624] hover:bg-[#15233a] border border-[#26354a] hover:border-cyan-400 transition-all flex flex-col justify-between group">
+          <div>
+            <span class="text-xs font-bold text-white group-hover:text-cyan-300 block truncate">${preset.name}</span>
+            <p class="text-[10px] text-gray-400 mt-0.5 line-clamp-2">${preset.desc}</p>
+          </div>
+          <div class="mt-2 flex items-center justify-between border-t border-[#26354a]/50 pt-1.5 text-[9px] font-mono text-cyan-400">
+            <span>Apply Preset →</span>
+            <span class="text-gray-400">1-Click</span>
+          </div>
+        </button>
+      `).join('');
+    }
+
+    function renderSpecActiveGrid() {
+      const container = document.getElementById('spec-active-grid');
+      if (!container || typeof MASTER_SPECIALIZATIONS === 'undefined') return;
+
+      container.innerHTML = MASTER_SPECIALIZATIONS.active.map(mod => {
+        const isSelected = currentSpecWorkingState.active === mod.id;
+        return `
+          <div onclick="selectActiveSpecialization('${mod.id}')" class="p-3 rounded-xl cursor-pointer transition-all border ${isSelected ? 'bg-gradient-to-br from-amber-950/40 to-[#161208] border-amber-500 shadow-lg shadow-amber-500/10' : 'bg-[#0a121e] hover:bg-[#121e30] border-[#263040] hover:border-gray-500'}">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="text-base">${mod.icon}</span>
+                <strong class="text-xs font-bold ${isSelected ? 'text-amber-300' : 'text-white'} truncate">${mod.name}</strong>
+              </div>
+              <span class="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded ${isSelected ? 'bg-amber-500 text-black' : 'bg-[#161f2e] text-gray-400'}">${mod.cooldown}</span>
+            </div>
+            <p class="text-[10px] text-gray-400 mt-1.5 line-clamp-2">${mod.desc}</p>
+            ${isSelected ? '<span class="text-[9px] font-black text-amber-400 uppercase tracking-wider block mt-1.5">✓ Active Selection</span>' : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderSpecPassivesGrid() {
+      const container = document.getElementById('spec-passives-container');
+      if (!container || typeof MASTER_SPECIALIZATIONS === 'undefined') return;
+
+      container.innerHTML = currentSpecWorkingState.passives.map((currentId, slotIdx) => {
+        const currentMod = MASTER_SPECIALIZATIONS.passive.find(p => p.id === currentId) || MASTER_SPECIALIZATIONS.passive[0];
+        
+        let optionsHtml = MASTER_SPECIALIZATIONS.passive.map(p => `
+          <option value="${p.id}" ${p.id === currentId ? 'selected' : ''}>${p.icon} ${p.name} (${p.category})</option>
+        `).join('');
+
+        return `
+          <div class="p-3 rounded-xl bg-gradient-to-br from-[#0c1422] to-[#080d16] border border-cyan-500/40 space-y-2.5 shadow-md">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-black uppercase tracking-wider text-cyan-400 font-mono">Passive Slot #${slotIdx + 1}</span>
+              <span class="badge-${currentMod.tier.toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${currentMod.tier}</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span class="text-xl">${currentMod.icon}</span>
+              <div class="min-w-0 flex-1">
+                <select onchange="selectPassiveSpecialization(${slotIdx}, this.value)" class="w-full bg-[#080c14] text-xs font-bold text-white rounded-lg p-1.5 border border-cyan-500/50 focus:outline-none focus:border-cyan-400 cursor-pointer">
+                  ${optionsHtml}
+                </select>
+              </div>
+            </div>
+
+            <p class="text-[10px] text-gray-400 line-clamp-3 bg-[#060a10] p-2 rounded-lg border border-[#202c3d]">
+              ${currentMod.desc}
+            </p>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderSpecLiveStats() {
+      const container = document.getElementById('spec-live-stats-summary');
+      if (!container || !currentSpecWorkingState) return;
+
+      const actMod = MASTER_SPECIALIZATIONS.active.find(a => a.id === currentSpecWorkingState.active);
+      const passMods = currentSpecWorkingState.passives.map(pId => MASTER_SPECIALIZATIONS.passive.find(p => p.id === pId)).filter(Boolean);
+
+      const hasNucAmp = passMods.some(m => m.id === 'nuclear_amplifier');
+      const hasRepAmp = passMods.some(m => m.id === 'repair_amplifier');
+      const hasImmuneAmp = passMods.some(m => m.id === 'immune_amplifier');
+      const hasLastStand = passMods.some(m => m.id === 'last_stand');
+
+      container.innerHTML = `
+        <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
+          <span class="text-[9px] text-gray-400 uppercase font-bold block">Active Skill Surge</span>
+          <span class="text-xs font-bold text-amber-300 truncate block mt-0.5">${actMod ? actMod.name : 'Standard'}</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
+          <span class="text-[9px] text-gray-400 uppercase font-bold block">Firepower Scaling</span>
+          <span class="text-xs font-bold text-red-400 font-mono block mt-0.5">${hasNucAmp ? '+80% (Max Nuc Stacks)' : '+12% Baseline'}</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
+          <span class="text-[9px] text-gray-400 uppercase font-bold block">Durability & Sustain</span>
+          <span class="text-xs font-bold text-emerald-400 font-mono block mt-0.5">${hasRepAmp ? '+35 DP & Grey Repair' : '+15% Max HP'}</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
+          <span class="text-[9px] text-gray-400 uppercase font-bold block">Tactical Status</span>
+          <span class="text-xs font-bold text-cyan-300 truncate block mt-0.5">${hasImmuneAmp ? 'Freeze/EMP Immune' : hasLastStand ? '4.5s Last Stand' : 'Shielded'}</span>
+        </div>
+      `;
+    }
+
+    window.selectActiveSpecialization = function(modId) {
+      if (!currentSpecWorkingState) return;
+      currentSpecWorkingState.active = modId;
+      renderSpecActiveGrid();
+      renderSpecLiveStats();
+    };
+
+    window.selectPassiveSpecialization = function(slotIdx, passiveId) {
+      if (!currentSpecWorkingState) return;
+      currentSpecWorkingState.passives[slotIdx] = passiveId;
+      renderSpecPassivesGrid();
+      renderSpecLiveStats();
+    };
+
+    window.applySpecPreset = function(presetId) {
+      if (!currentSpecWorkingState || typeof SPECIALIZATION_PRESETS === 'undefined') return;
+      const preset = SPECIALIZATION_PRESETS.find(p => p.id === presetId);
+      if (!preset) return;
+
+      currentSpecWorkingState.active = preset.active;
+      currentSpecWorkingState.passives = [...preset.passives];
+      
+      while (currentSpecWorkingState.passives.length < currentSpecWorkingState.maxPassives) {
+        currentSpecWorkingState.passives.push("balanced_unit");
+      }
+
+      renderSpecActiveGrid();
+      renderSpecPassivesGrid();
+      renderSpecLiveStats();
+    };
+
+    window.saveSpecializationConfig = function() {
+      if (!activeSpecializationTarget || !currentSpecWorkingState) return;
+      const { hangarKey, slotIndex } = activeSpecializationTarget;
+      const hangar = AppState.hangars[hangarKey];
+      if (!hangar || !hangar.slots[slotIndex]) return;
+
+      hangar.slots[slotIndex].specializations = {
+        active: currentSpecWorkingState.active,
+        passives: currentSpecWorkingState.passives
+      };
+
+      saveState();
+      closeModal('specialization-modal');
+      renderHangar(hangarKey);
+    };

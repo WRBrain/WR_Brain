@@ -286,7 +286,36 @@ let AppState = (function() {
       }
 
       
-      // Auto-heal and normalize robot hardpoints & titan slots across all hangars
+      // Auto-heal and normalize robot hardpoints, specializations & titan slots across all hangars
+      if (state.hangars) {
+        Object.keys(state.hangars).forEach(hk => {
+          const h = state.hangars[hk];
+          if (h && h.slots) {
+            h.slots.forEach((slot, sIdx) => {
+              if (slot && slot.robotId) {
+                const mb = (typeof MASTER_ROBOTS !== 'undefined' ? MASTER_ROBOTS.find(r => r.id === slot.robotId) : null);
+                const isUltimate = (slot.robotId.startsWith('ultimate_') || (mb && mb.tier === 'Ultimate'));
+                const defaultPassives = isUltimate 
+                  ? ["nuclear_amplifier", "repair_amplifier", "immune_amplifier", "last_stand"]
+                  : ["nuclear_amplifier", "repair_amplifier", "immune_amplifier"];
+                
+                if (!slot.specializations || !slot.specializations.passives || slot.specializations.passives.length === 0) {
+                  slot.specializations = {
+                    active: slot.specializations?.active || "unstable_conduit",
+                    passives: defaultPassives
+                  };
+                } else {
+                  // Ensure proper count of passives
+                  const requiredCount = isUltimate ? 4 : 3;
+                  while (slot.specializations.passives.length < requiredCount) {
+                    slot.specializations.passives.push("balanced_unit");
+                  }
+                }
+              }
+            });
+          }
+        });
+      }
       if (state.hangars) {
         Object.keys(state.hangars).forEach(hk => {
           const h = state.hangars[hk];

@@ -199,6 +199,38 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
       `;
     }
 
+    
+    function getSpecializationHtml(hangarKey, slot, idx) {
+      const specs = slot.specializations || { active: "unstable_conduit", passives: ["nuclear_amplifier", "repair_amplifier", "immune_amplifier"] };
+      const masterAct = (typeof MASTER_SPECIALIZATIONS !== 'undefined' && MASTER_SPECIALIZATIONS.active) ? MASTER_SPECIALIZATIONS.active.find(a => a.id === specs.active) : null;
+      const passives = specs.passives || [];
+      
+      const passiveBadges = passives.map(pId => {
+        const mp = (typeof MASTER_SPECIALIZATIONS !== 'undefined' && MASTER_SPECIALIZATIONS.passive) ? MASTER_SPECIALIZATIONS.passive.find(p => p.id === pId) : null;
+        return mp ? `<span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-[#111723] border border-cyan-500/30 text-cyan-300 truncate max-w-[80px]" title="${mp.name}">${mp.icon} ${mp.name.split(' ')[0]}</span>` : '';
+      }).join(' ');
+
+      return `
+        <button onclick="openSpecializationModal('${hangarKey}', ${idx})" class="w-full text-left p-2 rounded-xl bg-gradient-to-r from-[#0a121f] to-[#070d17] hover:from-[#111d30] hover:to-[#0c1626] border border-cyan-500/30 hover:border-cyan-400 transition-all flex items-center justify-between gap-2 group shadow-sm">
+          <div class="flex items-center gap-2 min-w-0">
+            <div class="w-6 h-6 rounded-lg bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-xs shrink-0 group-hover:scale-110 transition-transform">
+              ${masterAct ? masterAct.icon : '💠'}
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-1.5 truncate">
+                <span class="text-[9px] font-black uppercase text-cyan-400 font-mono tracking-wider shrink-0">Specs (${passives.length + 1})</span>
+                <span class="text-xs font-bold text-white group-hover:text-cyan-200 truncate">${masterAct ? masterAct.name : 'Specialization Matrix'}</span>
+              </div>
+              <div class="flex items-center gap-1 mt-1 overflow-x-hidden flex-nowrap">
+                ${passiveBadges}
+              </div>
+            </div>
+          </div>
+          <span class="text-[11px] text-cyan-400 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0">⚙️</span>
+        </button>
+      `;
+    }
+
     function getRobotCardHtml(hangarKey, slot, idx, isCenterSplit) {
       if (!slot || !slot.robotId) {
         return `
@@ -261,6 +293,7 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
 
       const droneTag = getDroneHtml(hangarKey, slot, idx);
       const pilotTag = getPilotHtml(hangarKey, slot, idx);
+      const specTag = getSpecializationHtml(hangarKey, slot, idx);
 
       if (isCenterSplit) {
         return `
@@ -308,6 +341,7 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
                   </div>
                   ${pilotTag}
                   ${droneTag}
+                  ${specTag}
                 </div>
 
                 <div class="pt-2 border-t border-[#263040] flex items-center justify-between text-xs">
@@ -354,11 +388,12 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
             </div>
           </div>
 
-          <!-- SUPPORT SYSTEMS (PILOT & DRONE) -->
+          <!-- SUPPORT SYSTEMS & SPECIALIZATIONS -->
           <div class="space-y-1.5 pt-1 border-t border-[#263040]">
             <div class="grid grid-cols-1 gap-1.5">
               ${pilotTag}
               ${droneTag}
+              ${specTag}
             </div>
           </div>
 
