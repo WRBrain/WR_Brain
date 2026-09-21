@@ -1,5 +1,11 @@
 /* WRBrain - Interactive Modals & Command Decks */
 
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  if (modal) modal.classList.add('hidden');
+}
+window.closeModal = closeModal;
+
 window.currentAuditHangar = window.currentAuditHangar || "hangar1";
 let activeCatalogType = "robot";
 let activeEquipTarget = null;
@@ -2079,11 +2085,15 @@ window.openAddCatalogModal = function(type) {
       const master = MASTER_WEAPONS.find(w => w.id === weaponId);
       if (!master) return;
 
-      if (activeEquipTarget.isTitan) {
-        const titanSlot = AppState.hangars[activeEquipTarget.hangarKey]?.titanSlot;
+      const hangarKey = activeEquipTarget.hangarKey || window.currentActiveHangarKey || "hangar1";
+      const isTitan = !!activeEquipTarget.isTitan;
+      const hardpointIndex = (typeof activeEquipTarget.hardpointIndex === 'number') ? activeEquipTarget.hardpointIndex : (parseInt(activeEquipTarget.hardpointIndex) || 0);
+
+      if (isTitan) {
+        const titanSlot = AppState.hangars[hangarKey]?.titanSlot;
         if (!titanSlot) return;
         if (!titanSlot.weapons) titanSlot.weapons = [];
-        const current = titanSlot.weapons[activeEquipTarget.hardpointIndex];
+        const current = titanSlot.weapons[hardpointIndex];
 
         if (current && current.id) {
           const curMaster = MASTER_WEAPONS.find(w => w.id === current.id);
@@ -2106,23 +2116,24 @@ window.openAddCatalogModal = function(type) {
           }
         }
 
-        titanSlot.weapons[activeEquipTarget.hardpointIndex] = { id: master.id, name: master.name, size: master.size, level: level || 'Lv 1', tier: master.tier };
+        titanSlot.weapons[hardpointIndex] = { id: master.id, name: master.name, size: master.size, level: level || 'Lv 1', tier: master.tier };
         saveState();
         closeModal('weapon-picker-modal');
         if (typeof renderHangar === 'function') {
-          renderHangar(activeEquipTarget.hangarKey, 'hangar-active-grid');
+          renderHangar(hangarKey, 'hangar-active-grid');
         }
         if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
         return;
       }
 
-      const hangar = AppState.hangars[activeEquipTarget.hangarKey];
+      const slotIndex = (typeof activeEquipTarget.slotIndex === 'number') ? activeEquipTarget.slotIndex : (parseInt(activeEquipTarget.slotIndex) || 0);
+      const hangar = AppState.hangars[hangarKey];
       if (!hangar || !hangar.slots) return;
-      const slot = hangar.slots[activeEquipTarget.slotIndex];
+      const slot = hangar.slots[slotIndex];
       if (!slot) return;
       if (!slot.weapons) slot.weapons = [];
 
-      const current = slot.weapons[activeEquipTarget.hardpointIndex];
+      const current = slot.weapons[hardpointIndex];
       if (current && current.id) {
         const curMaster = MASTER_WEAPONS.find(w => w.id === current.id);
         const cat = ((current.size || curMaster?.size || activeEquipTarget.size || 'Heavy')).toLowerCase();
@@ -2144,11 +2155,11 @@ window.openAddCatalogModal = function(type) {
         }
       }
 
-      slot.weapons[activeEquipTarget.hardpointIndex] = { id: master.id, name: master.name, size: master.size, level: level || 'Lv 1', tier: master.tier };
+      slot.weapons[hardpointIndex] = { id: master.id, name: master.name, size: master.size, level: level || 'Lv 1', tier: master.tier };
       saveState();
       closeModal('weapon-picker-modal');
       if (typeof renderHangar === 'function') {
-        renderHangar(activeEquipTarget.hangarKey, 'hangar-active-grid');
+        renderHangar(hangarKey, 'hangar-active-grid');
       }
       if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
     };
