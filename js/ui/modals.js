@@ -1615,15 +1615,27 @@ window.openAddCatalogModal = function(type) {
     let activePilotSkillsTarget = null;
     let activeWorkingSkills = [];
 
-    const PILOT_RANK_LABELS = [
-      "Rank 1: Private (Skill 1)",
-      "Rank 2: Corporal (Skill 2)",
-      "Rank 3: Sergeant (Skill 3)",
-      "Rank 4: Lieutenant (Skill 4)",
-      "Rank 5: Captain (Skill 5)",
-      "Rank 6: Major (Skill 6)",
-      "Rank 7: Colonel (Skill 7)"
+    const PILOT_RANK_DATA = [
+      { minLevel: 1, rankName: "Private", rankTitle: "Rank 1: Private (Skill Slot 1)", badgeColor: "bg-gray-800 text-gray-300 border border-gray-700" },
+      { minLevel: 11, rankName: "Corporal", rankTitle: "Rank 2: Corporal (Skill Slot 2)", badgeColor: "bg-blue-950/80 text-blue-300 border border-blue-700/50" },
+      { minLevel: 21, rankName: "Sergeant", rankTitle: "Rank 3: Sergeant (Skill Slot 3)", badgeColor: "bg-cyan-950/80 text-cyan-300 border border-cyan-700/50" },
+      { minLevel: 31, rankName: "Lieutenant", rankTitle: "Rank 4: Lieutenant (Skill Slot 4)", badgeColor: "bg-emerald-950/80 text-emerald-300 border border-emerald-700/50" },
+      { minLevel: 41, rankName: "Captain", rankTitle: "Rank 5: Captain (Skill Slot 5)", badgeColor: "bg-amber-950/80 text-amber-300 border border-amber-700/50" },
+      { minLevel: 51, rankName: "Major", rankTitle: "Rank 6: Major (Skill Slot 6)", badgeColor: "bg-orange-950/80 text-orange-300 border border-orange-700/50" },
+      { minLevel: 61, rankName: "Colonel", rankTitle: "Rank 7: Colonel (Skill Slot 7)", badgeColor: "bg-purple-950/80 text-purple-300 border border-purple-700/50" }
     ];
+
+    function getUnlockedPilotSlotsCount(levelStr) {
+      if (!levelStr) return 1;
+      const num = parseInt(String(levelStr).replace(/[^0-9]/g, '')) || 1;
+      if (num >= 61) return 7;
+      if (num >= 51) return 6;
+      if (num >= 41) return 5;
+      if (num >= 31) return 4;
+      if (num >= 21) return 3;
+      if (num >= 11) return 2;
+      return 1;
+    }
 
     function getPilotTargetObject() {
       if (!activePilotSkillsTarget) return null;
@@ -1684,18 +1696,34 @@ window.openAddCatalogModal = function(type) {
       const innateBox = document.getElementById('pilot-innate-skill-box');
       const listContainer = document.getElementById('pilot-active-skills-list');
 
-      title.innerHTML = `🧑‍✈️ ${pilot.name} <span class="text-xs text-amber-400 font-mono font-normal">(${pilot.level || 'Lv 1'})</span> — Pilot Skills Matrix`;
-      subtitle.innerText = `Dedicated Robot: ${pilot.bot || (mp ? mp.bot : 'Universal')} • Configure 7 Rank Skills (T1 Grey → T4 Gold)`;
+      const curLevel = pilot.level || 'Lv 1';
+      const pLevelNum = parseInt(String(curLevel).replace(/[^0-9]/g, '')) || 1;
+      const unlockedCount = getUnlockedPilotSlotsCount(curLevel);
+
+      let levelOptionsHtml = PILOT_LEVELS.map(lvl => `<option value="${lvl}" ${lvl === curLevel ? 'selected' : ''}>${lvl}</option>`).join('');
+
+      title.innerHTML = `🧑‍✈️ ${pilot.name} <span class="text-xs text-purple-400 font-mono font-normal">(${curLevel})</span> — Pilot Skills Matrix`;
+      subtitle.innerText = `Dedicated Robot: ${pilot.bot || (mp ? mp.bot : 'Universal')} • ${unlockedCount}/7 Skill Slots Unlocked with Pilot Promotions`;
 
       innateBox.innerHTML = `
-        <div class="flex items-start gap-2.5">
-          <span class="text-lg">👑</span>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="font-bold text-purple-300 uppercase tracking-wider text-[10px]">Innate Legendary Pilot Skill</span>
-              <span class="badge-t4 text-[9px] font-black px-1.5 py-0.2 rounded">SPECIALTY</span>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-start gap-2.5">
+            <span class="text-xl">👑</span>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-bold text-purple-300 uppercase tracking-wider text-[10px]">Innate Legendary Pilot Specialty</span>
+                <span class="badge-t4 text-[9px] font-black px-1.5 py-0.2 rounded">PRIMARY PERK</span>
+              </div>
+              <p class="text-purple-100/90 text-xs mt-0.5 leading-relaxed">${pilot.skill || (mp ? mp.skill : 'Grants specialized combat synergy.')}</p>
             </div>
-            <p class="text-purple-100/90 text-xs mt-0.5">${pilot.skill || (mp ? mp.skill : 'Grants specialized combat synergy.')}</p>
+          </div>
+
+          <!-- Pilot Level Picker & Promotion Status -->
+          <div class="flex items-center gap-2 bg-[#111620] p-1.5 px-3 rounded-xl border border-purple-500/40 shrink-0">
+            <span class="text-[11px] font-bold text-purple-300 uppercase">Rank Level:</span>
+            <select onchange="promotePilotInSkillsModal(this.value)" class="bg-[#080c14] text-purple-200 font-bold font-mono text-xs rounded-lg px-2 py-1 border border-purple-500/50 focus:outline-none cursor-pointer">
+              ${levelOptionsHtml}
+            </select>
           </div>
         </div>
       `;
@@ -1703,66 +1731,104 @@ window.openAddCatalogModal = function(type) {
       listContainer.innerHTML = "";
 
       for (let i = 0; i < 7; i++) {
+        const req = PILOT_RANK_DATA[i];
+        const isUnlocked = pLevelNum >= req.minLevel;
         const current = activeWorkingSkills[i] || { id: "", tier: "T4" };
         const mSkill = MASTER_PILOT_SKILLS.find(ms => ms.id === current.id);
-        const rankLabel = PILOT_RANK_LABELS[i];
         const currentTier = current.tier || "T4";
-        const currentTierData = mSkill ? mSkill.tiers[currentTier] : null;
-        const effectText = currentTierData ? currentTierData.val : (mSkill ? mSkill.desc : "No skill selected for this rank slot.");
-
-        const categories = {
-          defense: "🛡️ Durability & Repair",
-          damage: "⚔️ Weapon Damage & Accuracy",
-          speed: "🏃 Speed & Mobility",
-          shield: "🔮 Energy & Physical Shield",
-          utility: "⏱️ Modules & Utility"
-        };
-
-        let optionsHtml = `<option value="">-- [Slot ${i + 1}] Select Pilot Skill --</option>`;
-        Object.keys(categories).forEach(catKey => {
-          optionsHtml += `<optgroup label="${categories[catKey]}">`;
-          MASTER_PILOT_SKILLS.filter(s => s.category === catKey).forEach(s => {
-            const isSelected = s.id === current.id ? "selected" : "";
-            optionsHtml += `<option value="${s.id}" ${isSelected}>${s.icon} ${s.name} (${s.desc})</option>`;
-          });
-          optionsHtml += `</optgroup>`;
-        });
+        const currentTierData = (mSkill && mSkill.tiers) ? mSkill.tiers[currentTier] : null;
+        const effectText = currentTierData ? currentTierData.val : (mSkill ? mSkill.desc : "No skill assigned");
 
         const slotCard = document.createElement('div');
-        slotCard.className = `p-3.5 rounded-xl border ${current.id ? 'bg-[#080c14] border-[#263040]' : 'bg-[#080c14]/50 border-dashed border-[#263040]'} space-y-2.5 transition-all`;
-        slotCard.innerHTML = `
-          <div class="flex flex-wrap items-center justify-between gap-2">
+
+        if (isUnlocked) {
+          const categories = {
+            defense: "🛡️ Durability & Repair",
+            damage: "⚔️ Weapon Damage & Accuracy",
+            speed: "🏃 Speed & Mobility",
+            shield: "🔮 Energy & Physical Shield",
+            utility: "⏱️ Modules & Utility"
+          };
+
+          let optionsHtml = `<option value="">-- [Slot ${i + 1}] Select Pilot Skill --</option>`;
+          Object.keys(categories).forEach(catKey => {
+            optionsHtml += `<optgroup label="${categories[catKey]}">`;
+            MASTER_PILOT_SKILLS.filter(s => s.category === catKey).forEach(s => {
+              const isSelected = s.id === current.id ? "selected" : "";
+              optionsHtml += `<option value="${s.id}" ${isSelected}>${s.icon} ${s.name} (${s.desc})</option>`;
+            });
+            optionsHtml += `</optgroup>`;
+          });
+
+          slotCard.className = `p-3.5 rounded-xl border ${current.id ? 'bg-[#080c14] border-purple-500/40' : 'bg-[#080c14]/60 border-dashed border-[#263040]'} space-y-2.5 transition-all`;
+          slotCard.innerHTML = `
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="text-[9px] font-mono font-black px-2 py-0.5 rounded ${req.badgeColor} uppercase tracking-wider">${req.rankTitle}</span>
+                ${mSkill ? `<span class="text-[11px] text-amber-300 font-bold">${mSkill.icon} ${mSkill.name}</span>` : '<span class="text-[11px] text-gray-500 italic">Empty Slot</span>'}
+              </div>
+
+              <!-- Tier Selectors (T1, T2, T3, T4) -->
+              <div class="flex items-center gap-1 bg-[#111620] p-0.5 rounded-lg border border-[#263040]">
+                <button onclick="onPilotSkillTierChange(${i}, 'T1')" class="px-2 py-0.5 text-[10px] font-bold rounded ${currentTier === 'T1' ? 'bg-gray-700 text-white font-black shadow' : 'text-gray-400 hover:text-gray-200'}">T1</button>
+                <button onclick="onPilotSkillTierChange(${i}, 'T2')" class="px-2 py-0.5 text-[10px] font-bold rounded ${currentTier === 'T2' ? 'bg-blue-600 text-white font-black shadow' : 'text-gray-400 hover:text-blue-300'}">T2</button>
+                <button onclick="onPilotSkillTierChange(${i}, 'T3')" class="px-2 py-0.5 text-[10px] font-bold rounded ${currentTier === 'T3' ? 'bg-purple-600 text-white font-black shadow' : 'text-gray-400 hover:text-purple-300'}">T3</button>
+                <button onclick="onPilotSkillTierChange(${i}, 'T4')" class="px-2 py-0.5 text-[10px] font-bold rounded ${currentTier === 'T4' ? 'bg-amber-500 text-black font-black shadow' : 'text-gray-400 hover:text-amber-300'}">T4</button>
+              </div>
+            </div>
+
             <div class="flex items-center gap-2">
-              <span class="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-wider">${rankLabel}</span>
-              ${mSkill ? `<span class="text-[10px] text-amber-400 font-bold">${mSkill.icon} ${mSkill.name}</span>` : ''}
+              <select onchange="onPilotSkillSlotChange(${i}, this.value)" class="flex-1 bg-[#111620] border border-[#263040] focus:border-purple-500 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none">
+                ${optionsHtml}
+              </select>
+              ${current.id ? `<button onclick="clearPilotSkillSlot(${i})" class="px-2 py-1.5 text-xs text-gray-500 hover:text-red-400 rounded hover:bg-red-950/30" title="Clear slot">✕</button>` : ''}
             </div>
 
-            <!-- Tier Selectors (T1, T2, T3, T4) -->
-            <div class="flex items-center gap-1 bg-[#111620] p-0.5 rounded-lg border border-[#263040]">
-              <button onclick="onPilotSkillTierChange(${i}, 'T1')" class="px-2 py-0.5 text-[10px] font-bold rounded ${currentTier === 'T1' ? 'bg-gray-700 text-white font-black shadow' : 'text-gray-400 hover:text-gray-200'}">T1</button>
-              <button onclick="onPilotSkillTierChange(${i}, 'T2')" class="px-2 py-0.5 text-[10px] font-bold rounded ${currentTier === 'T2' ? 'bg-blue-600 text-white font-black shadow' : 'text-gray-400 hover:text-blue-300'}">T2</button>
-              <button onclick="onPilotSkillTierChange(${i}, 'T3')" class="px-2 py-0.5 text-[10px] font-bold rounded ${currentTier === 'T3' ? 'bg-purple-600 text-white font-black shadow' : 'text-gray-400 hover:text-purple-300'}">T3</button>
-              <button onclick="onPilotSkillTierChange(${i}, 'T4')" class="px-2 py-0.5 text-[10px] font-bold rounded ${currentTier === 'T4' ? 'bg-amber-500 text-black font-black shadow' : 'text-gray-400 hover:text-amber-300'}">T4</button>
+            <div class="flex items-center justify-between text-xs px-1">
+              <span class="text-gray-400 font-mono text-[11px]">${effectText}</span>
+              ${currentTierData ? `<span class="text-amber-400 font-mono font-bold text-[11px]">${currentTierData.val}</span>` : ''}
             </div>
-          </div>
+          `;
+        } else {
+          // Locked Slot (Requires Promotion)
+          slotCard.className = `p-3.5 rounded-xl border border-dashed border-gray-800 bg-[#06090e]/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs opacity-75 hover:opacity-100 transition-opacity`;
+          slotCard.innerHTML = `
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center text-sm">
+                🔒
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-mono font-bold text-gray-500 uppercase">${req.rankTitle}</span>
+                  <span class="text-[9px] font-bold text-red-400/90 bg-red-950/40 border border-red-800/30 px-1.5 py-0.2 rounded uppercase">Locked</span>
+                </div>
+                <p class="text-[11px] text-gray-400 mt-0.5">Unlocks with promotion to <strong class="text-purple-300">Level ${req.minLevel} (${req.rankName})</strong>.</p>
+              </div>
+            </div>
+            <button onclick="promotePilotInSkillsModal('Lv ${req.minLevel}')" class="px-3.5 py-1 text-xs font-bold rounded-lg bg-gradient-to-r from-purple-700 to-purple-600 hover:from-purple-600 hover:to-purple-500 text-white border border-purple-400/30 transition-all hover:scale-105 shadow-md shrink-0">
+              ⚡ Promote to Lv ${req.minLevel}
+            </button>
+          `;
+        }
 
-          <div class="flex items-center gap-2">
-            <select onchange="onPilotSkillSlotChange(${i}, this.value)" class="flex-1 bg-[#111620] border border-[#263040] rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500">
-              ${optionsHtml}
-            </select>
-            ${current.id ? `<button onclick="clearPilotSkillSlot(${i})" class="px-2 py-1.5 text-xs text-gray-500 hover:text-red-400 rounded hover:bg-red-950/30" title="Clear slot">✕</button>` : ''}
-          </div>
-
-          <div class="flex items-center justify-between text-xs px-1">
-            <span class="text-gray-400 font-mono text-[11px]">${effectText}</span>
-            ${currentTierData ? `<span class="text-amber-400 font-mono font-bold text-[11px]">${currentTierData.val}</span>` : ''}
-          </div>
-        `;
         listContainer.appendChild(slotCard);
       }
 
       updatePilotSkillsSummary();
     }
+
+    window.promotePilotInSkillsModal = function(newLevel) {
+      const pilot = getPilotTargetObject();
+      if (!pilot) return;
+      pilot.level = newLevel;
+      saveState();
+      renderPilotSkillsModal();
+      if (activePilotSkillsTarget.hangarKey) {
+        renderHangar(activePilotSkillsTarget.hangarKey);
+      } else {
+        renderStorage();
+      }
+    };
 
     window.onPilotSkillSlotChange = function(slotIdx, newSkillId) {
       if (!activeWorkingSkills[slotIdx]) activeWorkingSkills[slotIdx] = { id: "", tier: "T4" };
@@ -1784,6 +1850,12 @@ window.openAddCatalogModal = function(type) {
     window.applyPilotSkillPreset = function(presetKey) {
       const preset = PILOT_SKILL_PRESETS[presetKey];
       if (!preset) return;
+      const pilot = getPilotTargetObject();
+      if (pilot) {
+        // Automatically promote to Colonel Lv 70 when applying a full preset
+        pilot.level = "Lv 70";
+        saveState();
+      }
       activeWorkingSkills = JSON.parse(JSON.stringify(preset));
       while (activeWorkingSkills.length < 7) {
         activeWorkingSkills.push({ id: "", tier: "T4" });
@@ -1794,15 +1866,17 @@ window.openAddCatalogModal = function(type) {
     function updatePilotSkillsSummary() {
       const summaryEl = document.getElementById('pilot-skills-summary-stats');
       if (!summaryEl) return;
+      const pilot = getPilotTargetObject();
+      const unlockedCount = getUnlockedPilotSlotsCount(pilot ? pilot.level : 'Lv 1');
 
       let durBonus = 0, dmgBonus = 0, spdBonus = 0, repairSec = 0, shieldBonus = 0, cooldownRed = 0;
 
-      activeWorkingSkills.forEach(s => {
+      activeWorkingSkills.slice(0, unlockedCount).forEach(s => {
         if (!s || !s.id) return;
         const ms = MASTER_PILOT_SKILLS.find(x => x.id === s.id);
         if (!ms) return;
         const tier = s.tier || "T4";
-        const tData = ms.tiers[tier];
+        const tData = (ms && ms.tiers) ? ms.tiers[tier] : null;
         if (!tData) return;
 
         if (s.id === 'armor_expert' || s.id === 'tough_guy') durBonus += tData.bonus;
@@ -1828,7 +1902,8 @@ window.openAddCatalogModal = function(type) {
       const pilot = getPilotTargetObject();
       if (!pilot) return;
 
-      const cleanedSkills = activeWorkingSkills.filter(s => s && s.id).map(s => {
+      const unlockedCount = getUnlockedPilotSlotsCount(pilot.level || 'Lv 1');
+      const cleanedSkills = activeWorkingSkills.slice(0, unlockedCount).filter(s => s && s.id).map(s => {
         const ms = MASTER_PILOT_SKILLS.find(x => x.id === s.id);
         return {
           id: s.id,

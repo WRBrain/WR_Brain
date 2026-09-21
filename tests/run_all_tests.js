@@ -267,6 +267,28 @@ window.saveSpecializationConfig();
 assert(testSlot.specialization.activePath === 'class' && testSlot.specialization.activeModule === 'shieldbreaker',
   "Nuo restored to signature Support Class Specialization + Shieldbreaker");
 
+// Test 4.6: Pilot Skills Level-Based Rank Unlocking
+if (!testSlot.pilot) {
+  testSlot.pilot = { id: "walter_trommel", name: "Walter Trommel", level: "Lv 1", skills: [] };
+}
+testSlot.pilot.level = "Lv 1";
+window.openPilotSkillsModal('hangar1', 0);
+assert(typeof getUnlockedPilotSlotsCount === 'function' && getUnlockedPilotSlotsCount('Lv 1') === 1,
+  "Pilot Lv 1 (Private) correctly unlocks exactly 1 skill slot");
+
+assert(getUnlockedPilotSlotsCount('Lv 15') === 2,
+  "Pilot Lv 15 (Corporal) correctly unlocks 2 skill slots");
+
+assert(getUnlockedPilotSlotsCount('Lv 45') === 5,
+  "Pilot Lv 45 (Captain) correctly unlocks 5 skill slots");
+
+assert(getUnlockedPilotSlotsCount('Lv 70') === 7,
+  "Pilot Lv 70 (Colonel) unlocks all 7 full skill slots");
+
+window.promotePilotInSkillsModal('Lv 70');
+assert(testSlot.pilot.level === 'Lv 70',
+  "Promoted pilot directly in Skills Manager to Lv 70 (Colonel)");
+
 
 // =============================================================================
 // SUITE 5: COMBAT SYNERGY ENGINE & COUNTER MATRIX
