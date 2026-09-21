@@ -1,0 +1,16 @@
+{
+  "id": "sanjay_goyal",
+  "name": "Sanjay Goyal",
+  "bot": "Erebus",
+  "tier": "T4",
+  "skill": "Overcharge Matrix: Erebus weapon damage increases by +15% while Aegis shield is active.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

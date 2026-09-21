@@ -1,0 +1,16 @@
+{
+  "id": "amalia_dewhurst",
+  "name": "Amalia Dewhurst",
+  "bot": "Weyland",
+  "tier": "T4",
+  "skill": "Field Surgeon: Weyland gains +35 Defense Points while in stationary repair mode.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

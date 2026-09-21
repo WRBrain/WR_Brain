@@ -1,0 +1,16 @@
+{
+  "id": "adrian_chong",
+  "name": "Adrian Chong",
+  "bot": "Universal",
+  "tier": "T4",
+  "skill": "Adrian's Mastery: Increases damage across all equipped weapons by +5% unconditionally.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

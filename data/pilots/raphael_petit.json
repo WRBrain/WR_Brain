@@ -1,0 +1,16 @@
+{
+  "id": "raphael_petit",
+  "name": "Raphael Petit",
+  "bot": "Flamethrower Specialist",
+  "tier": "T4",
+  "skill": "Napalm Expander: Flamethrower blast radius and projectile spread increased by 30%.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

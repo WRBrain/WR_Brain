@@ -1,0 +1,16 @@
+{
+  "id": "thomas_mindread",
+  "name": "Thomas Mindread",
+  "bot": "Leech",
+  "tier": "T4",
+  "skill": "Adrenaline Rush: Leech gains +35% movement speed while Repulse is active.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

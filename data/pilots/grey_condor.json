@@ -1,0 +1,16 @@
+{
+  "id": "grey_condor",
+  "name": "Grey",
+  "bot": "Condor",
+  "tier": "T4",
+  "skill": "Apex Predator: +25% Sonic Scream damage & restores 15% durability upon eliminating an enemy during flight.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

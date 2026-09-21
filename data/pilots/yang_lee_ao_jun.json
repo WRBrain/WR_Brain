@@ -1,0 +1,16 @@
+{
+  "id": "yang_lee_ao_jun",
+  "name": "Yang Lee",
+  "bot": "Ao Jun",
+  "tier": "T4",
+  "skill": "Dragon Eye: Grants Quantum Radar (stealth detection) during Dragon Flight.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

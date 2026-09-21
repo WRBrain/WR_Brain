@@ -1,0 +1,16 @@
+{
+  "id": "min_ji_novak",
+  "name": "Min-ji Novak",
+  "bot": "Ares",
+  "tier": "T4",
+  "skill": "Novak's Retribution: Retribution built-in cannons gain +20% firing duration.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

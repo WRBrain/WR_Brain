@@ -1,0 +1,16 @@
+{
+  "id": "manni",
+  "name": "Manni",
+  "bot": "Universal",
+  "tier": "T4",
+  "skill": "Manni's Rage: Weapon damage increases by up to +15% as robot durability drops.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

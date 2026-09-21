@@ -1,67 +1,195 @@
-/* WRBrain - Master Pilots & Skills Database */
+/* WRBrain - Master Pilots & Skills Database (Auto-compiled from data/pilots/) */
 
 const MASTER_PILOTS = [
+  {
+    "id": "jill_break",
+    "name": "Jill Break",
+    "bot": "Nemesis",
+    "tier": "T4",
+    "skill": "Break's Vengeance: Built-in rocket launcher deals +25% increased damage.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "kate_odonnell",
+    "name": "Kate O'Donnell",
+    "bot": "Lockdown Specialist",
+    "tier": "T4",
+    "skill": "Kinetic Lock: Lockdown weapons deal +10% damage and apply lockdown 25% faster.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
   {
     "id": "grey_condor",
     "name": "Grey",
     "bot": "Condor",
     "tier": "T4",
-    "skill": "Apex Predator: +25% Sonic Scream damage & +15% HP repair on flight kill",
+    "skill": "Apex Predator: +25% Sonic Scream damage & restores 15% durability upon eliminating an enemy during flight.",
     "skills": [
       "Armor Expert",
       "Road Hog",
       "Mechanic",
-      "Destroyer",
-      "Speed Shooter",
-      "Deft Survivor",
-      "Master Gunsmith"
-    ]
-  },
-  {
-    "id": "maya_patel",
-    "name": "Maya Patel",
-    "bot": "Raptor",
-    "tier": "T4",
-    "skill": "Comet Vanguard: +35% Defense Points and +20% Reflector reflection on landing",
-    "skills": [
-      "Armor Expert",
-      "Tough Guy",
-      "Mechanic",
-      "Dodger",
-      "Quartermaster",
-      "Wonderworker",
-      "Road Hog"
-    ]
-  },
-  {
-    "id": "curtis_drake",
-    "name": "Curtis Drake",
-    "bot": "Pathfinder",
-    "tier": "T4",
-    "skill": "Hunter's Mark: +3s Track duration & +15% team bonus damage against tracked foes",
-    "skills": [
-      "Armor Expert",
-      "Road Hog",
-      "Mechanic",
-      "Sharpshooter",
       "Master Gunsmith",
-      "Deft Survivor",
-      "Invulnerable Raider"
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
     ]
   },
   {
-    "id": "zoe_kamau",
-    "name": "Zoe Kamau",
-    "bot": "Curie",
+    "id": "virginia_walker",
+    "name": "Virginia Walker",
+    "bot": "Nightingale",
     "tier": "T4",
-    "skill": "Turret Overclock: +30% turret fire rate & instant 20% Aegis shield on ability trigger",
+    "skill": "Air Superiority: Nightingale's Air Support ability cooldown reduced by 5 seconds.",
     "skills": [
       "Armor Expert",
       "Road Hog",
       "Mechanic",
+      "Master Gunsmith",
       "Dodger",
       "Tough Guy",
-      "Energy Shield Expert",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "svyatogor_belov",
+    "name": "Svyatogor Belov",
+    "bot": "Fafnir",
+    "tier": "T4",
+    "skill": "Breaching Shot: Built-in weapon and equipped guns completely bypass enemy Absorber shields.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "jack_moore",
+    "name": "Jack Moore",
+    "bot": "Strider",
+    "tier": "T4",
+    "skill": "Moore's Momentum: Strider gains +5% damage per dash stack used in combat.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "cormac_briggs",
+    "name": "Cormac Briggs",
+    "bot": "Falcon",
+    "tier": "T4",
+    "skill": "Briggs' Special: Falcon's central Heavy weapon deals +15% increased weapon damage.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "vepkho_mzhavia",
+    "name": "Vepkho Mzhavia",
+    "bot": "Ochokochi",
+    "tier": "T4",
+    "skill": "Rampaging Bull: Stampede deals +30% collision damage and grants temporary Stealth after charge ends.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "amalia_dewhurst",
+    "name": "Amalia Dewhurst",
+    "bot": "Weyland",
+    "tier": "T4",
+    "skill": "Field Surgeon: Weyland gains +35 Defense Points while in stationary repair mode.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "river_chase",
+    "name": "River Chase",
+    "bot": "Siren",
+    "tier": "T4",
+    "skill": "Snowstorm Fury: Siren deals +20% weapon damage while flying in Snowstorm.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "nessa_manning_titan",
+    "name": "Nessa Manning (Titan)",
+    "bot": "Aether / Rook",
+    "tier": "Titan",
+    "skill": "Celestial Overdrive: Titan ability recharge accelerated by 20% with +10% titan speed.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "min_ji_novak",
+    "name": "Min-ji Novak",
+    "bot": "Ares",
+    "tier": "T4",
+    "skill": "Novak's Retribution: Retribution built-in cannons gain +20% firing duration.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
       "Deft Survivor"
     ]
   },
@@ -70,127 +198,47 @@ const MASTER_PILOTS = [
     "name": "Captain Thorne",
     "bot": "Shenlou",
     "tier": "T4",
-    "skill": "Phase Blitz: Backstab teleport releases an EMP pulse silencing target abilities for 2.5s",
+    "skill": "Phase Blitz: Backstab teleport releases an EMP pulse silencing target active abilities for 2.5s.",
     "skills": [
-      "Armor Expert",
-      "Road Hog",
-      "Master Gunsmith",
-      "Speed Shooter",
-      "Mechanic",
-      "Deft Survivor",
-      "Destroyer"
-    ]
-  },
-  {
-    "id": "nathan_fleming",
-    "name": "Nathan Fleming",
-    "bot": "Dagon",
-    "tier": "T4",
-    "skill": "Aegis Resurgence: +50% Aegis recharge rate and +15% weapon damage while shield holds",
-    "skills": [
-      "Crazy Electrician",
-      "Energy Shield Expert",
       "Armor Expert",
       "Road Hog",
       "Mechanic",
       "Master Gunsmith",
-      "Dodger"
-    ]
-  },
-  {
-    "id": "vepkhia",
-    "name": "Vepkhia",
-    "bot": "Ochokochi",
-    "tier": "T4",
-    "skill": "Stampede Breaker: +2s Stampede duration & 40% damage-to-repair conversion during charge",
-    "skills": [
-      "Armor Expert",
-      "Road Hog",
+      "Dodger",
       "Tough Guy",
-      "Mechanic",
-      "Deft Survivor",
-      "Dodger",
-      "Wonderworker"
+      "Deft Survivor"
     ]
   },
   {
-    "id": "stefan_benson",
-    "name": "Stefan Benson",
-    "bot": "Ophion",
+    "id": "sanjay_goyal",
+    "name": "Sanjay Goyal",
+    "bot": "Erebus",
     "tier": "T4",
-    "skill": "Viper Ascendancy: Built-in venom pierces 30% Defense Points with 100% blast immunity",
-    "skills": [
-      "Armor Expert",
-      "Road Hog",
-      "Mechanic",
-      "Destroyer",
-      "Master Gunsmith",
-      "Dodger",
-      "Speed Shooter"
-    ]
-  },
-  {
-    "id": "rolf_garcia",
-    "name": "Rolf Garcia",
-    "bot": "Nether",
-    "tier": "T4",
-    "skill": "Quinquuple Dash: Grants a 5th dash charge and repairs 7% durability on each dash",
+    "skill": "Overcharge Matrix: Erebus weapon damage increases by +15% while Aegis shield is active.",
     "skills": [
       "Armor Expert",
       "Road Hog",
       "Mechanic",
       "Master Gunsmith",
       "Dodger",
-      "Deft Survivor",
-      "Speed Shooter"
+      "Tough Guy",
+      "Deft Survivor"
     ]
   },
   {
-    "id": "captain_clyde",
-    "name": "Captain Clyde",
-    "bot": "Mars",
+    "id": "walter_trommel",
+    "name": "Walter Trommel",
+    "bot": "Nuo",
     "tier": "T4",
-    "skill": "Remote Ordnance: +35% remote turret fire rate with autonomous mini-Aegis bubble",
+    "skill": "Sonic Resonance Tether: Increases Nuo's flight speed by 25% and repairs 5% grey damage per second during Siege Link.",
     "skills": [
       "Armor Expert",
       "Road Hog",
       "Mechanic",
-      "Destroyer",
-      "Energy Shield Expert",
-      "Crazy Electrician",
-      "Dodger"
-    ]
-  },
-  {
-    "id": "victoria_bloom",
-    "name": "Victoria Bloom",
-    "bot": "Seraph",
-    "tier": "T4",
-    "skill": "Seraphic Radiance: +3s Skyward flight duration & +20% electric strike damage",
-    "skills": [
-      "Armor Expert",
-      "Road Hog",
-      "Mechanic",
-      "Destroyer",
       "Master Gunsmith",
       "Dodger",
-      "Wonderworker"
-    ]
-  },
-  {
-    "id": "misaki_misha",
-    "name": "Misaki & Misha",
-    "bot": "Siren / Harpy",
-    "tier": "T4",
-    "skill": "Immunity Protocol: Complete immunity to Freeze, Lockdown, and Suppression during flight",
-    "skills": [
-      "Armor Expert",
-      "Road Hog",
-      "Mechanic",
-      "Destroyer",
-      "Master Gunsmith",
-      "Deft Survivor",
-      "Dodger"
+      "Tough Guy",
+      "Deft Survivor"
     ]
   },
   {
@@ -198,47 +246,47 @@ const MASTER_PILOTS = [
     "name": "Bernadette Wolff",
     "bot": "Fenrir",
     "tier": "T4",
-    "skill": "Unstoppable Resilience: Replaces Aegis with massive +60% base durability in Defense Mode",
-    "skills": [
-      "Armor Expert",
-      "Tough Guy",
-      "Mechanic",
-      "Road Hog",
-      "Master Gunsmith",
-      "Dodger",
-      "Invulnerable Raider"
-    ]
-  },
-  {
-    "id": "vasiliy",
-    "name": "Vasiliy",
-    "bot": "Revenant",
-    "tier": "T4",
-    "skill": "Aggressive Teleport: Extended blink duration with full negative status purge on trigger",
-    "skills": [
-      "Armor Expert",
-      "Tough Guy",
-      "Mechanic",
-      "Road Hog",
-      "Deft Survivor",
-      "Dodger",
-      "Master Gunsmith"
-    ]
-  },
-  {
-    "id": "river_chase",
-    "name": "River Chase",
-    "bot": "Typhon",
-    "tier": "T4",
-    "skill": "Blackout Overcharge: +25% bonus weapon damage for 5s after firing Blackout",
+    "skill": "Fenrir's Will: Replaces Aegis shield with +60% additional base durability (+80 Defense Points).",
     "skills": [
       "Armor Expert",
       "Road Hog",
       "Mechanic",
       "Master Gunsmith",
-      "Energy Shield Expert",
-      "Crazy Electrician",
-      "Destroyer"
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "alisa_kovalev",
+    "name": "Alisa Kovalev",
+    "bot": "Demeter",
+    "tier": "T4",
+    "skill": "Repair Protocol: Demeter's Absorber shield repairs 20% more hull durability.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "alexander_frost",
+    "name": "Alexander Frost",
+    "bot": "Cerberus",
+    "tier": "T4",
+    "skill": "Frost's Suppression: Cerberus built-in cannon range increased to 500m.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
     ]
   },
   {
@@ -246,31 +294,63 @@ const MASTER_PILOTS = [
     "name": "Ash Skarsgard",
     "bot": "Scorpion",
     "tier": "T4",
-    "skill": "Phantom Infiltration: Grants 5 seconds of Stealth immediately upon Backstab teleport",
+    "skill": "Shadow Step: Scorpion gains Stealth for 5 seconds upon activating and teleporting via Backstab.",
     "skills": [
       "Armor Expert",
       "Road Hog",
       "Mechanic",
       "Master Gunsmith",
-      "Speed Shooter",
-      "Deft Survivor",
-      "Dodger"
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
     ]
   },
   {
-    "id": "arnav_poe",
-    "name": "Arnav Poe",
-    "bot": "Ravana",
+    "id": "kelli_raven",
+    "name": "Kelli & Raven",
+    "bot": "Lynx",
     "tier": "T4",
-    "skill": "Transcendent Charge: Grants Ravana an additional 3rd Transcendence ability charge",
+    "skill": "Guillotine Sniper: Lynx execution threshold increased from 25% to 30% enemy HP.",
     "skills": [
       "Armor Expert",
       "Road Hog",
       "Mechanic",
-      "Dodger",
       "Master Gunsmith",
-      "Deft Survivor",
-      "Wonderworker"
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "victoria_walker",
+    "name": "Victoria Walker",
+    "bot": "Seraph",
+    "tier": "T4",
+    "skill": "Seraph Wing: Seraph flight speed increased by +20% and built-in lightning deals +15% damage.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "zoe_kamau",
+    "name": "Zoe Kamau",
+    "bot": "Curie",
+    "tier": "T4",
+    "skill": "Turret Overclock: Increases turret fire rate by 30% and instantly restores 20% Aegis shield on ability activation.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
     ]
   },
   {
@@ -278,111 +358,127 @@ const MASTER_PILOTS = [
     "name": "APPM-3TR",
     "bot": "Demeter",
     "tier": "T4",
-    "skill": "Repair Core: Demeter repairs non-repairable grey damage during Absorber shield",
+    "skill": "Nanite Overload: Demeter repairs 10% grey damage upon teleporting to an ally.",
     "skills": [
       "Armor Expert",
       "Road Hog",
       "Mechanic",
+      "Master Gunsmith",
       "Dodger",
-      "Wonderworker",
-      "True Ace",
+      "Tough Guy",
       "Deft Survivor"
     ]
   },
   {
-    "id": "ponchy",
-    "name": "Ponchy",
-    "bot": "Khepri",
-    "tier": "T4",
-    "skill": "Bond Mastery: Increases speed buff and repairs both Khepri and tethered ally continuously",
-    "skills": [
-      "Armor Expert",
-      "Road Hog",
-      "Mechanic",
-      "True Ace",
-      "Dodger",
-      "Master Gunsmith",
-      "Tough Guy"
-    ]
-  },
-  {
-    "id": "markus",
-    "name": "Markus",
-    "bot": "Angler",
-    "tier": "T4",
-    "skill": "Electric Vortex: Blinds enemies 50% faster and restores 10% durability upon entering shift",
+    "id": "oliver_song_titan",
+    "name": "Oliver Song (Titan)",
+    "bot": "Luchador / Minos",
+    "tier": "Titan",
+    "skill": "Titan Shockwave: Titan jump/slam blast radius increased by 30% with +15% damage.",
     "skills": [
       "Armor Expert",
       "Road Hog",
       "Mechanic",
       "Master Gunsmith",
       "Dodger",
-      "Deft Survivor",
-      "Tough Guy"
-    ]
-  },
-  {
-    "id": "sati_patel",
-    "name": "Sati Patel",
-    "bot": "Lynx",
-    "tier": "T4",
-    "skill": "Ferocious Execution: Higher execution threshold for built-in cannon and extended stealth",
-    "skills": [
-      "Armor Expert",
-      "Road Hog",
-      "Mechanic",
-      "Master Gunsmith",
-      "Speed Shooter",
-      "Deft Survivor",
-      "Dodger"
-    ]
-  },
-  {
-    "id": "theseus",
-    "name": "Theseus",
-    "bot": "Skyros",
-    "tier": "T4",
-    "skill": "Impenetrable Shell: Ball Mode defense points cannot be mitigated by Reaper or Titan weapons",
-    "skills": [
-      "Armor Expert",
-      "Road Hog",
-      "Mechanic",
       "Tough Guy",
-      "Dodger",
-      "Invulnerable Raider",
-      "Wonderworker"
+      "Deft Survivor"
     ]
   },
   {
-    "id": "andrey_knyazev",
-    "name": "Andrey Knyazev",
-    "bot": "Behemoth",
+    "id": "curtis_drake",
+    "name": "Curtis Drake",
+    "bot": "Pathfinder",
     "tier": "T4",
-    "skill": "Siege Fortress: In Siege Mode, Behemoth gains +15% weapon range and +40 Defense Points",
+    "skill": "Hunter's Mark: Increases Track duration by 3s and boosts team damage against tracked foes by +15%.",
     "skills": [
       "Armor Expert",
       "Road Hog",
       "Mechanic",
       "Master Gunsmith",
-      "Sharpshooter",
-      "Speed Shooter",
-      "Dodger"
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
     ]
   },
   {
-    "id": "clive_vicious",
-    "name": "Clive Vicious",
-    "bot": "Blitz",
+    "id": "nicolas_wodanson",
+    "name": "Nicolas Wodanson",
+    "bot": "Fenrir",
     "tier": "T4",
-    "skill": "Craze Armor: Replaces Aegis shield with +80% Defense Points during Break-in ability",
+    "skill": "Wodanson's Protection: Fenrir gains +25 Defense Points while its active ability is recharging.",
     "skills": [
       "Armor Expert",
       "Road Hog",
       "Mechanic",
       "Master Gunsmith",
-      "Deft Survivor",
       "Dodger",
-      "Tough Guy"
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "kyle_rogers_inquisitor",
+    "name": "Kyle Rogers (Inquisitor)",
+    "bot": "Inquisitor",
+    "tier": "T3",
+    "skill": "Stealth Master: Inquisitor repairs 10% durability upon entering Descend stealth.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "trixie_hope",
+    "name": "Trixie Hope",
+    "bot": "Universal",
+    "tier": "T4",
+    "skill": "Hope's Concoction: Active module cooldown reduced by 50% with instant 10% repair on trigger.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "eddie_noll",
+    "name": "Eddie Noll",
+    "bot": "Shotgun Specialist",
+    "tier": "T4",
+    "skill": "Shotgun Velocity: Kinetic and energy shotguns gain +15% increased rate of fire.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "monique_leblanc",
+    "name": "Monique Leblanc",
+    "bot": "Imugi",
+    "tier": "T4",
+    "skill": "Portal Mastery: Teleport portal grants +35 Defense Points and instant 15% repair to allies.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
     ]
   },
   {
@@ -390,15 +486,31 @@ const MASTER_PILOTS = [
     "name": "Thomas Mindread",
     "bot": "Leech",
     "tier": "T4",
-    "skill": "Adrenaline Rush: Leech gains +35% movement speed while Repulse is active",
+    "skill": "Adrenaline Rush: Leech gains +35% movement speed while Repulse is active.",
     "skills": [
       "Armor Expert",
       "Road Hog",
       "Mechanic",
       "Master Gunsmith",
       "Dodger",
-      "Deft Survivor",
-      "Speed Shooter"
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "stanislav_protasov",
+    "name": "Stanislav Protasov",
+    "bot": "Invader",
+    "tier": "T4",
+    "skill": "Protasov's Suppression: Increases Suppression debuff strength by +20%.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
     ]
   },
   {
@@ -406,29 +518,479 @@ const MASTER_PILOTS = [
     "name": "Kyle Rogers",
     "bot": "Hawk",
     "tier": "T4",
-    "skill": "Lockdown Immunity: Hawk becomes completely immune to Lockdown and Suppression effects",
+    "skill": "Lockdown Immunity: Hawk becomes completely immune to Lockdown and Suppression effects.",
     "skills": [
       "Armor Expert",
       "Road Hog",
       "Mechanic",
       "Master Gunsmith",
-      "Destroyer",
-      "Speed Shooter",
-      "Dodger"
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "nessa_manning",
+    "name": "Nessa Manning",
+    "bot": "Nether",
+    "tier": "T4",
+    "skill": "Quinquennial Dash: Nether gains temporary stealth after using Quinquennial Dash.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "chester_coen",
+    "name": "Chester Coen",
+    "bot": "Loki",
+    "tier": "T4",
+    "skill": "Ghost Runner: Loki receives temporary Stealth for 5 seconds when exiting Recon mode.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "misaki_misha",
+    "name": "Misaki & Misha",
+    "bot": "Khepri",
+    "tier": "T4",
+    "skill": "True Bond: Khepri and its tethered ally become immune to Freeze, Lockdown, and Suppression.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "rose_lin",
+    "name": "Rose Lin",
+    "bot": "Typhon",
+    "tier": "T4",
+    "skill": "Blackout Focus: Typhon gains +10% speed and +10% damage for 5 seconds after Blackout.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "brijit_barot",
+    "name": "Brijit Barot",
+    "bot": "Orochi",
+    "tier": "T4",
+    "skill": "Barot's Camouflage: Orochi gains extended stealth duration during Viper Strike.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "maya_patel",
+    "name": "Maya Patel",
+    "bot": "Raptor",
+    "tier": "T4",
+    "skill": "Comet Vanguard: Grants +35% Defense Points and reflects +20% additional damage with Reflector on landing.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "harold_han",
+    "name": "Harold Han",
+    "bot": "Laser Specialist",
+    "tier": "T4",
+    "skill": "Optic Cooling: Laser weapons overheat 40% slower, sustaining maximum output.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "nathan_fleming",
+    "name": "Nathan Fleming",
+    "bot": "Dagon",
+    "tier": "T4",
+    "skill": "Aegis Resurgence: +50% Aegis recharge rate and +15% weapon damage while Aegis shield holds.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "jad_parkes",
+    "name": "Jad Parkes",
+    "bot": "Erebus",
+    "tier": "T4",
+    "skill": "Homing Overload: Homemaker rocket swarm inflicts 15% more blackout damage.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "brigitte_martel",
+    "name": "Brigitte Martel",
+    "bot": "Orochi",
+    "tier": "T4",
+    "skill": "Martel's Grace: Grants Orochi an additional 3rd Viper Strike dash charge.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "talita",
+    "name": "Talita",
+    "bot": "Mars",
+    "tier": "T4",
+    "skill": "Remote Artillery: Mars turret deals +25% higher blast damage and gains 100m range.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "raphael_petit",
+    "name": "Raphael Petit",
+    "bot": "Flamethrower Specialist",
+    "tier": "T4",
+    "skill": "Napalm Expander: Flamethrower blast radius and projectile spread increased by 30%.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "olga_minina",
+    "name": "Olga Minina",
+    "bot": "Phantom",
+    "tier": "T4",
+    "skill": "Phantom Reflexes: Phantom's Blink ability duration increased by 5 seconds.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "andrey_knyazev",
+    "name": "Andrey Knyazev",
+    "bot": "Behemoth",
+    "tier": "T4",
+    "skill": "Siege Fortress: In Siege Mode, Behemoth gains +15% weapon range and +40 Defense Points.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "marie_leclair",
+    "name": "Marie Leclair",
+    "bot": "Mender",
+    "tier": "T4",
+    "skill": "Nanite Overhaul: Mender's pulse ability can repair unhealable Grey Damage for itself and allies.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
     ]
   },
   {
     "id": "yang_lee_titan",
-    "name": "Yang Lee",
+    "name": "Yang Lee (Titan)",
     "bot": "Any Titan",
-    "tier": "T4",
-    "skill": "Titan Sensor Lock: Bypasses enemy Stealth (Quantum Radar) & grants +15% Titan weapon damage",
+    "tier": "Titan",
+    "skill": "Titan Sensor Lock: Bypasses enemy Stealth (Quantum Radar) & grants +15% Titan weapon damage.",
     "skills": [
-      "Titan Armor Expert",
-      "Titan Accelerator",
-      "Titan Destroyer",
-      "Titan Mechanic",
-      "Titan Master Gunsmith"
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "louis_duncan",
+    "name": "Louis Duncan",
+    "bot": "Invader",
+    "tier": "T4",
+    "skill": "Duncan's Shield: Invader activates a 50k Aegis shield when durability falls below 50%.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "otto_scherer",
+    "name": "Otto Scherer",
+    "bot": "Radiation Specialist",
+    "tier": "T4",
+    "skill": "Radioactive Accelerator: Radiation burst weapons (Decay/Hazard/Blight) gain +35% increased firing rate.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "ghost",
+    "name": "Ghost",
+    "bot": "Orochi",
+    "tier": "T4",
+    "skill": "Silent Assassin: Orochi gains +10% weapon damage while in stealth.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "adrian_chong",
+    "name": "Adrian Chong",
+    "bot": "Universal",
+    "tier": "T4",
+    "skill": "Adrian's Mastery: Increases damage across all equipped weapons by +5% unconditionally.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "clive_vicious",
+    "name": "Clive Vicious",
+    "bot": "Blitz",
+    "tier": "T4",
+    "skill": "Craze Armor: Replaces Aegis shield with +80% Defense Points during Break-in ability.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "iskra_mult",
+    "name": "Iskra Mult",
+    "bot": "Scorpion",
+    "tier": "T4",
+    "skill": "Hunter's Instinct: Scorpion gains +15% damage bonus and 35% speed boost after teleporting.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "arnav_poe",
+    "name": "Arnav Poe",
+    "bot": "Ravana",
+    "tier": "T4",
+    "skill": "Poe's Transcendence: Grants Ravana an additional 3rd Transcendence ability charge.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "liam_stern",
+    "name": "Liam Stern",
+    "bot": "Bedwyr",
+    "tier": "Titan",
+    "skill": "Phalanx Bastion: Bedwyr's barrier shield absorbs +30% more kinetic/energy damage.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "yang_lee_ao_jun",
+    "name": "Yang Lee",
+    "bot": "Ao Jun",
+    "tier": "T4",
+    "skill": "Dragon Eye: Grants Quantum Radar (stealth detection) during Dragon Flight.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "pilot_newton",
+    "name": "Pilot Newton",
+    "bot": "Newton",
+    "tier": "Titan",
+    "skill": "Choke Lift: Telekinesis choke duration increased by +2 seconds with +15% sniper damage.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "daniel_delgado",
+    "name": "Daniel Delgado",
+    "bot": "Harpy",
+    "tier": "T4",
+    "skill": "Firestorm Overdrive: Harpy built-in firestorm inflicts +25% burn damage.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "oliver_song",
+    "name": "Oliver Song",
+    "bot": "Angler",
+    "tier": "T4",
+    "skill": "Electric Surge: Angler's Electric Shift ability blinds and slows enemies for +2 seconds.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
+    ]
+  },
+  {
+    "id": "manni",
+    "name": "Manni",
+    "bot": "Universal",
+    "tier": "T4",
+    "skill": "Manni's Rage: Weapon damage increases by up to +15% as robot durability drops.",
+    "skills": [
+      "Armor Expert",
+      "Road Hog",
+      "Mechanic",
+      "Master Gunsmith",
+      "Dodger",
+      "Tough Guy",
+      "Deft Survivor"
     ]
   }
 ];
@@ -541,4 +1103,3 @@ function getDefaultPilotSkills(role) {
 
 if (typeof window !== 'undefined') window.getDefaultPilotSkills = getDefaultPilotSkills;
 if (typeof globalThis !== 'undefined') globalThis.getDefaultPilotSkills = getDefaultPilotSkills;
-

@@ -1,0 +1,16 @@
+{
+  "id": "brigitte_martel",
+  "name": "Brigitte Martel",
+  "bot": "Orochi",
+  "tier": "T4",
+  "skill": "Martel's Grace: Grants Orochi an additional 3rd Viper Strike dash charge.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

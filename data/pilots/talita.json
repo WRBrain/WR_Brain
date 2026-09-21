@@ -1,0 +1,16 @@
+{
+  "id": "talita",
+  "name": "Talita",
+  "bot": "Mars",
+  "tier": "T4",
+  "skill": "Remote Artillery: Mars turret deals +25% higher blast damage and gains 100m range.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

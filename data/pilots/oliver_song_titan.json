@@ -1,0 +1,16 @@
+{
+  "id": "oliver_song_titan",
+  "name": "Oliver Song (Titan)",
+  "bot": "Luchador / Minos",
+  "tier": "Titan",
+  "skill": "Titan Shockwave: Titan jump/slam blast radius increased by 30% with +15% damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

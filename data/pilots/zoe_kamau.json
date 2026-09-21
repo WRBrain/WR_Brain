@@ -1,0 +1,16 @@
+{
+  "id": "zoe_kamau",
+  "name": "Zoe Kamau",
+  "bot": "Curie",
+  "tier": "T4",
+  "skill": "Turret Overclock: Increases turret fire rate by 30% and instantly restores 20% Aegis shield on ability activation.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

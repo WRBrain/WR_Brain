@@ -1,0 +1,16 @@
+{
+  "id": "nessa_manning",
+  "name": "Nessa Manning",
+  "bot": "Nether",
+  "tier": "T4",
+  "skill": "Quinquennial Dash: Nether gains temporary stealth after using Quinquennial Dash.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

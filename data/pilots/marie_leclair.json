@@ -1,0 +1,16 @@
+{
+  "id": "marie_leclair",
+  "name": "Marie Leclair",
+  "bot": "Mender",
+  "tier": "T4",
+  "skill": "Nanite Overhaul: Mender's pulse ability can repair unhealable Grey Damage for itself and allies.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

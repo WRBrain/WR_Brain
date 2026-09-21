@@ -1,0 +1,16 @@
+{
+  "id": "alisa_kovalev",
+  "name": "Alisa Kovalev",
+  "bot": "Demeter",
+  "tier": "T4",
+  "skill": "Repair Protocol: Demeter's Absorber shield repairs 20% more hull durability.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

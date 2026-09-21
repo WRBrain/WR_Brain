@@ -1,0 +1,16 @@
+{
+  "id": "rose_lin",
+  "name": "Rose Lin",
+  "bot": "Typhon",
+  "tier": "T4",
+  "skill": "Blackout Focus: Typhon gains +10% speed and +10% damage for 5 seconds after Blackout.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

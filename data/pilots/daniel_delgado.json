@@ -1,0 +1,16 @@
+{
+  "id": "daniel_delgado",
+  "name": "Daniel Delgado",
+  "bot": "Harpy",
+  "tier": "T4",
+  "skill": "Firestorm Overdrive: Harpy built-in firestorm inflicts +25% burn damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

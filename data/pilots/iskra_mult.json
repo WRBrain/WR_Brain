@@ -1,0 +1,16 @@
+{
+  "id": "iskra_mult",
+  "name": "Iskra Mult",
+  "bot": "Scorpion",
+  "tier": "T4",
+  "skill": "Hunter's Instinct: Scorpion gains +15% damage bonus and 35% speed boost after teleporting.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "ash_skarsgard",
+  "name": "Ash Skarsgard",
+  "bot": "Scorpion",
+  "tier": "T4",
+  "skill": "Shadow Step: Scorpion gains Stealth for 5 seconds upon activating and teleporting via Backstab.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

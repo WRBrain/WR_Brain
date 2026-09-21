@@ -1,0 +1,16 @@
+{
+  "id": "victoria_walker",
+  "name": "Victoria Walker",
+  "bot": "Seraph",
+  "tier": "T4",
+  "skill": "Seraph Wing: Seraph flight speed increased by +20% and built-in lightning deals +15% damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

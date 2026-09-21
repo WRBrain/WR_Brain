@@ -1,0 +1,16 @@
+{
+  "id": "curtis_drake",
+  "name": "Curtis Drake",
+  "bot": "Pathfinder",
+  "tier": "T4",
+  "skill": "Hunter's Mark: Increases Track duration by 3s and boosts team damage against tracked foes by +15%.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "virginia_walker",
+  "name": "Virginia Walker",
+  "bot": "Nightingale",
+  "tier": "T4",
+  "skill": "Air Superiority: Nightingale's Air Support ability cooldown reduced by 5 seconds.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

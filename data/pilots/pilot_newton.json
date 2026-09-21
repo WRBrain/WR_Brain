@@ -1,0 +1,16 @@
+{
+  "id": "pilot_newton",
+  "name": "Pilot Newton",
+  "bot": "Newton",
+  "tier": "Titan",
+  "skill": "Choke Lift: Telekinesis choke duration increased by +2 seconds with +15% sniper damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "yang_lee_titan",
+  "name": "Yang Lee (Titan)",
+  "bot": "Any Titan",
+  "tier": "Titan",
+  "skill": "Titan Sensor Lock: Bypasses enemy Stealth (Quantum Radar) & grants +15% Titan weapon damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

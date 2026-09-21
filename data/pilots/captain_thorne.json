@@ -1,0 +1,16 @@
+{
+  "id": "captain_thorne",
+  "name": "Captain Thorne",
+  "bot": "Shenlou",
+  "tier": "T4",
+  "skill": "Phase Blitz: Backstab teleport releases an EMP pulse silencing target active abilities for 2.5s.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

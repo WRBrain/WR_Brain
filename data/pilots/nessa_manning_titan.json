@@ -1,0 +1,16 @@
+{
+  "id": "nessa_manning_titan",
+  "name": "Nessa Manning (Titan)",
+  "bot": "Aether / Rook",
+  "tier": "Titan",
+  "skill": "Celestial Overdrive: Titan ability recharge accelerated by 20% with +10% titan speed.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

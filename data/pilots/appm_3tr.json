@@ -1,0 +1,16 @@
+{
+  "id": "appm_3tr",
+  "name": "APPM-3TR",
+  "bot": "Demeter",
+  "tier": "T4",
+  "skill": "Nanite Overload: Demeter repairs 10% grey damage upon teleporting to an ally.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

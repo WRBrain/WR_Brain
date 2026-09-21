@@ -1,0 +1,16 @@
+{
+  "id": "chester_coen",
+  "name": "Chester Coen",
+  "bot": "Loki",
+  "tier": "T4",
+  "skill": "Ghost Runner: Loki receives temporary Stealth for 5 seconds when exiting Recon mode.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

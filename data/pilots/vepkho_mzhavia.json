@@ -1,0 +1,16 @@
+{
+  "id": "vepkho_mzhavia",
+  "name": "Vepkho Mzhavia",
+  "bot": "Ochokochi",
+  "tier": "T4",
+  "skill": "Rampaging Bull: Stampede deals +30% collision damage and grants temporary Stealth after charge ends.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

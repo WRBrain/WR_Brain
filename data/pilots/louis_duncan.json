@@ -1,0 +1,16 @@
+{
+  "id": "louis_duncan",
+  "name": "Louis Duncan",
+  "bot": "Invader",
+  "tier": "T4",
+  "skill": "Duncan's Shield: Invader activates a 50k Aegis shield when durability falls below 50%.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

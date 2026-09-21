@@ -1,0 +1,16 @@
+{
+  "id": "ghost",
+  "name": "Ghost",
+  "bot": "Orochi",
+  "tier": "T4",
+  "skill": "Silent Assassin: Orochi gains +10% weapon damage while in stealth.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

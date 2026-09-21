@@ -1,0 +1,16 @@
+{
+  "id": "jack_moore",
+  "name": "Jack Moore",
+  "bot": "Strider",
+  "tier": "T4",
+  "skill": "Moore's Momentum: Strider gains +5% damage per dash stack used in combat.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

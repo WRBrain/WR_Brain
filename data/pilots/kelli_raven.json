@@ -1,0 +1,16 @@
+{
+  "id": "kelli_raven",
+  "name": "Kelli & Raven",
+  "bot": "Lynx",
+  "tier": "T4",
+  "skill": "Guillotine Sniper: Lynx execution threshold increased from 25% to 30% enemy HP.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "river_chase",
+  "name": "River Chase",
+  "bot": "Siren",
+  "tier": "T4",
+  "skill": "Snowstorm Fury: Siren deals +20% weapon damage while flying in Snowstorm.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

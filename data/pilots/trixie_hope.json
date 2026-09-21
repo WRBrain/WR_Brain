@@ -1,0 +1,16 @@
+{
+  "id": "trixie_hope",
+  "name": "Trixie Hope",
+  "bot": "Universal",
+  "tier": "T4",
+  "skill": "Hope's Concoction: Active module cooldown reduced by 50% with instant 10% repair on trigger.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

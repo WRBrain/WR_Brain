@@ -1,0 +1,16 @@
+{
+  "id": "kyle_rogers_hawk",
+  "name": "Kyle Rogers",
+  "bot": "Hawk",
+  "tier": "T4",
+  "skill": "Lockdown Immunity: Hawk becomes completely immune to Lockdown and Suppression effects.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

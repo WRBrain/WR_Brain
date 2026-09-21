@@ -1,0 +1,16 @@
+{
+  "id": "svyatogor_belov",
+  "name": "Svyatogor Belov",
+  "bot": "Fafnir",
+  "tier": "T4",
+  "skill": "Breaching Shot: Built-in weapon and equipped guns completely bypass enemy Absorber shields.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

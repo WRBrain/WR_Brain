@@ -1,0 +1,16 @@
+{
+  "id": "clive_vicious",
+  "name": "Clive Vicious",
+  "bot": "Blitz",
+  "tier": "T4",
+  "skill": "Craze Armor: Replaces Aegis shield with +80% Defense Points during Break-in ability.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

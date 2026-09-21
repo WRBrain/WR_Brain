@@ -1,0 +1,16 @@
+{
+  "id": "jad_parkes",
+  "name": "Jad Parkes",
+  "bot": "Erebus",
+  "tier": "T4",
+  "skill": "Homing Overload: Homemaker rocket swarm inflicts 15% more blackout damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

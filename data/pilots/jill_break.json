@@ -1,0 +1,16 @@
+{
+  "id": "jill_break",
+  "name": "Jill Break",
+  "bot": "Nemesis",
+  "tier": "T4",
+  "skill": "Break's Vengeance: Built-in rocket launcher deals +25% increased damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

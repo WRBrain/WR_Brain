@@ -1,0 +1,16 @@
+{
+  "id": "nicolas_wodanson",
+  "name": "Nicolas Wodanson",
+  "bot": "Fenrir",
+  "tier": "T4",
+  "skill": "Wodanson's Protection: Fenrir gains +25 Defense Points while its active ability is recharging.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

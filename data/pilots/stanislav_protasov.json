@@ -1,0 +1,16 @@
+{
+  "id": "stanislav_protasov",
+  "name": "Stanislav Protasov",
+  "bot": "Invader",
+  "tier": "T4",
+  "skill": "Protasov's Suppression: Increases Suppression debuff strength by +20%.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "kate_odonnell",
+  "name": "Kate O'Donnell",
+  "bot": "Lockdown Specialist",
+  "tier": "T4",
+  "skill": "Kinetic Lock: Lockdown weapons deal +10% damage and apply lockdown 25% faster.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

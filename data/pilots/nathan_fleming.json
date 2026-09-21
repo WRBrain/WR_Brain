@@ -1,0 +1,16 @@
+{
+  "id": "nathan_fleming",
+  "name": "Nathan Fleming",
+  "bot": "Dagon",
+  "tier": "T4",
+  "skill": "Aegis Resurgence: +50% Aegis recharge rate and +15% weapon damage while Aegis shield holds.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

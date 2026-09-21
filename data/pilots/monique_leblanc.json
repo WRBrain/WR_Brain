@@ -1,0 +1,16 @@
+{
+  "id": "monique_leblanc",
+  "name": "Monique Leblanc",
+  "bot": "Imugi",
+  "tier": "T4",
+  "skill": "Portal Mastery: Teleport portal grants +35 Defense Points and instant 15% repair to allies.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "misaki_misha",
+  "name": "Misaki & Misha",
+  "bot": "Khepri",
+  "tier": "T4",
+  "skill": "True Bond: Khepri and its tethered ally become immune to Freeze, Lockdown, and Suppression.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

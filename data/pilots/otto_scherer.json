@@ -1,0 +1,16 @@
+{
+  "id": "otto_scherer",
+  "name": "Otto Scherer",
+  "bot": "Radiation Specialist",
+  "tier": "T4",
+  "skill": "Radioactive Accelerator: Radiation burst weapons (Decay/Hazard/Blight) gain +35% increased firing rate.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

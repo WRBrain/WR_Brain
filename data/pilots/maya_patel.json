@@ -1,0 +1,16 @@
+{
+  "id": "maya_patel",
+  "name": "Maya Patel",
+  "bot": "Raptor",
+  "tier": "T4",
+  "skill": "Comet Vanguard: Grants +35% Defense Points and reflects +20% additional damage with Reflector on landing.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

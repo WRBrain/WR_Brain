@@ -1,0 +1,16 @@
+{
+  "id": "arnav_poe",
+  "name": "Arnav Poe",
+  "bot": "Ravana",
+  "tier": "T4",
+  "skill": "Poe's Transcendence: Grants Ravana an additional 3rd Transcendence ability charge.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

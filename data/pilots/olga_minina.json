@@ -1,0 +1,16 @@
+{
+  "id": "olga_minina",
+  "name": "Olga Minina",
+  "bot": "Phantom",
+  "tier": "T4",
+  "skill": "Phantom Reflexes: Phantom's Blink ability duration increased by 5 seconds.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

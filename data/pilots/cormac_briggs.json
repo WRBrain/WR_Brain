@@ -1,0 +1,16 @@
+{
+  "id": "cormac_briggs",
+  "name": "Cormac Briggs",
+  "bot": "Falcon",
+  "tier": "T4",
+  "skill": "Briggs' Special: Falcon's central Heavy weapon deals +15% increased weapon damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

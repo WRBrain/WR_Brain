@@ -1,0 +1,16 @@
+{
+  "id": "alexander_frost",
+  "name": "Alexander Frost",
+  "bot": "Cerberus",
+  "tier": "T4",
+  "skill": "Frost's Suppression: Cerberus built-in cannon range increased to 500m.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

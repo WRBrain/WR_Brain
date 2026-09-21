@@ -1,0 +1,16 @@
+{
+  "id": "andrey_knyazev",
+  "name": "Andrey Knyazev",
+  "bot": "Behemoth",
+  "tier": "T4",
+  "skill": "Siege Fortress: In Siege Mode, Behemoth gains +15% weapon range and +40 Defense Points.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

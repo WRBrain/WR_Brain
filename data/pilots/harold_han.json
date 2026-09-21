@@ -1,0 +1,16 @@
+{
+  "id": "harold_han",
+  "name": "Harold Han",
+  "bot": "Laser Specialist",
+  "tier": "T4",
+  "skill": "Optic Cooling: Laser weapons overheat 40% slower, sustaining maximum output.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

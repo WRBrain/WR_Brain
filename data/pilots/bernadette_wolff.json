@@ -1,0 +1,16 @@
+{
+  "id": "bernadette_wolff",
+  "name": "Bernadette Wolff",
+  "bot": "Fenrir",
+  "tier": "T4",
+  "skill": "Fenrir's Will: Replaces Aegis shield with +60% additional base durability (+80 Defense Points).",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}
