@@ -1,9 +1,9 @@
 {
   "id": "alisa_kovalev",
   "name": "Alisa Kovalev",
-  "bot": "Demeter",
+  "bot": "Khepri",
   "tier": "T4",
-  "skill": "Repair Protocol: Demeter's Absorber shield repairs 20% more hull durability.",
+  "skill": "Bond Acceleration: Khepri Bond ability gives +15% additional movement speed and shield recharge.",
   "skills": [
     "Armor Expert",
     "Road Hog",

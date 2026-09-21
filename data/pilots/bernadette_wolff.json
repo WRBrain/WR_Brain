@@ -3,7 +3,7 @@
   "name": "Bernadette Wolff",
   "bot": "Fenrir",
   "tier": "T4",
-  "skill": "Fenrir's Will: Replaces Aegis shield with +60% additional base durability (+80 Defense Points).",
+  "skill": "Iron Will: Fenrir gains +60% maximum durability, but its Aegis energy shield is deactivated.",
   "skills": [
     "Armor Expert",
     "Road Hog",

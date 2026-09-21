@@ -1,9 +1,9 @@
 {
   "id": "amalia_dewhurst",
   "name": "Amalia Dewhurst",
-  "bot": "Weyland",
+  "bot": "Leech",
   "tier": "T4",
-  "skill": "Field Surgeon: Weyland gains +35 Defense Points while in stationary repair mode.",
+  "skill": "Blood Pact: Leech gains +25 Defense Points permanently in combat.",
   "skills": [
     "Armor Expert",
     "Road Hog",

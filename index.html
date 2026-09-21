@@ -1006,11 +1006,20 @@
         <!-- Swap Pilot List -->
         <div class="space-y-3 pt-2">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-black uppercase tracking-wider text-gray-300">🔄 Assign Legendary Pilot</span>
-            <span id="pilot-config-count-badge" class="text-[10px] text-gray-400 font-mono">27 Legendary Pilots</span>
+            <span class="text-xs font-black uppercase tracking-wider text-gray-300">🔄 Assign Pilot</span>
+            <span id="pilot-config-count-badge" class="text-[10px] text-gray-400 font-mono">126 Pilots Available</span>
           </div>
 
-          <input type="text" id="pilot-config-search" oninput="filterPilotConfigModal()" placeholder="Search pilot by name or matched robot..." class="w-full bg-[#080c14] border border-[#263040] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-purple-500">
+          <div class="flex items-center gap-1.5 overflow-x-auto pb-1" id="pilot-config-tier-filters">
+            <button onclick="setPilotConfigTierFilter('ALL')" class="pilot-tier-btn active px-2.5 py-1 rounded-lg text-[10px] font-black bg-purple-600 text-white" data-tier="ALL">ALL</button>
+            <button onclick="setPilotConfigTierFilter('ULTIMATE')" class="pilot-tier-btn px-2.5 py-1 rounded-lg text-[10px] font-black bg-[#161f2e] text-amber-300 hover:bg-[#202b3d]" data-tier="ULTIMATE">★ ULTIMATE</button>
+            <button onclick="setPilotConfigTierFilter('T4')" class="pilot-tier-btn px-2.5 py-1 rounded-lg text-[10px] font-black bg-[#161f2e] text-yellow-400 hover:bg-[#202b3d]" data-tier="T4">T4 LEGENDARY</button>
+            <button onclick="setPilotConfigTierFilter('T3')" class="pilot-tier-btn px-2.5 py-1 rounded-lg text-[10px] font-black bg-[#161f2e] text-purple-400 hover:bg-[#202b3d]" data-tier="T3">T3 VETERAN</button>
+            <button onclick="setPilotConfigTierFilter('T2')" class="pilot-tier-btn px-2.5 py-1 rounded-lg text-[10px] font-black bg-[#161f2e] text-blue-400 hover:bg-[#202b3d]" data-tier="T2">T2 SPECIALIST</button>
+            <button onclick="setPilotConfigTierFilter('T1')" class="pilot-tier-btn px-2.5 py-1 rounded-lg text-[10px] font-black bg-[#161f2e] text-gray-400 hover:bg-[#202b3d]" data-tier="T1">T1 RECRUIT</button>
+          </div>
+
+          <input type="text" id="pilot-config-search" oninput="filterPilotConfigModal()" placeholder="Search pilot by name, specialty, or perk..." class="w-full bg-[#080c14] border border-[#263040] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-purple-500">
 
           <div id="pilot-config-list" class="space-y-2 max-h-[38vh] overflow-y-auto custom-scroll pr-1">
             <!-- Pilots list rendered dynamically -->

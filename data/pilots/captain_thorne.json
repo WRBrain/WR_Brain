@@ -1,9 +1,9 @@
 {
   "id": "captain_thorne",
   "name": "Captain Thorne",
-  "bot": "Shenlou",
+  "bot": "Harpy",
   "tier": "T4",
-  "skill": "Phase Blitz: Backstab teleport releases an EMP pulse silencing target active abilities for 2.5s.",
+  "skill": "Firestorm Vortex: Harpy's Firestorm vortex deals +25% blast damage to trapped targets.",
   "skills": [
     "Armor Expert",
     "Road Hog",

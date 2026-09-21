@@ -1,0 +1,16 @@
+{
+  "id": "jerry_debois",
+  "name": "Jerry Debois",
+  "bot": "Demeter",
+  "tier": "T4",
+  "skill": "Apparition Buff: Demeter and healed allies gain +20% weapon damage while Absorber is active.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

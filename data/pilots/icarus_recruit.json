@@ -1,0 +1,16 @@
+{
+  "id": "icarus_recruit",
+  "name": "Icarus Recruit",
+  "bot": "Icarus Chassis",
+  "tier": "T1",
+  "skill": "Icarus Telemetry: +5% teleportation and dash cooldown recovery speed.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

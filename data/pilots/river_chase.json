@@ -1,9 +1,9 @@
 {
   "id": "river_chase",
   "name": "River Chase",
-  "bot": "Siren",
+  "bot": "Typhon",
   "tier": "T4",
-  "skill": "Snowstorm Fury: Siren deals +20% weapon damage while flying in Snowstorm.",
+  "skill": "Chase's Fury: Activating Blackout grants +25% weapon damage for 5 seconds.",
   "skills": [
     "Armor Expert",
     "Road Hog",

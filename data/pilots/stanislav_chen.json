@@ -1,0 +1,16 @@
+{
+  "id": "stanislav_chen",
+  "name": "Stanislav Chen",
+  "bot": "Invader",
+  "tier": "T4",
+  "skill": "Incursion Suppression: Invader landing suppression duration extended by 4 seconds.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

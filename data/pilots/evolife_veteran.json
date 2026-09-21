@@ -1,0 +1,16 @@
+{
+  "id": "evolife_veteran",
+  "name": "EvoLife Veteran Commander",
+  "bot": "EvoLife Chassis",
+  "tier": "T3",
+  "skill": "Vital Surge: Active healing abilities restore 15% gray damage (permanent durability).",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

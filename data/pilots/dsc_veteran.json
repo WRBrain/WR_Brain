@@ -1,0 +1,16 @@
+{
+  "id": "dsc_veteran",
+  "name": "DSC Veteran Commander",
+  "bot": "DSC Chassis",
+  "tier": "T3",
+  "skill": "Ironclad Bastion: +15% total robot durability and +15 defense points below 50% HP.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -3,7 +3,7 @@
   "name": "Trixie Hope",
   "bot": "Universal",
   "tier": "T4",
-  "skill": "Hope's Concoction: Active module cooldown reduced by 50% with instant 10% repair on trigger.",
+  "skill": "Active Trigger: Reduces active combat module cooldown by 50% on all equipped chassis.",
   "skills": [
     "Armor Expert",
     "Road Hog",

@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_stanislav_chen",
+  "name": "Ultimate Stanislav Chen",
+  "bot": "Ultimate Rayker",
+  "tier": "ULTIMATE",
+  "skill": "Ultimate Glance: Rayker glance beam applies 90% suppression and +30% vulnerability on targets.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

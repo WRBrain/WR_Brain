@@ -1,16 +1,16 @@
 {
   "id": "nessa_manning_titan",
-  "name": "Nessa Manning (Titan)",
-  "bot": "Aether / Rook",
-  "tier": "Titan",
-  "skill": "Celestial Overdrive: Titan ability recharge accelerated by 20% with +10% titan speed.",
+  "name": "Nessa Manning",
+  "bot": "Rook",
+  "tier": "T4",
+  "skill": "Castling Defense: Rook's Castling flight speed increased by 20% and restores 10% reflector shield upon landing.",
   "skills": [
-    "Armor Expert",
-    "Road Hog",
-    "Mechanic",
-    "Master Gunsmith",
-    "Dodger",
-    "Tough Guy",
-    "Deft Survivor"
+    "Titan Armor Expert",
+    "Titan Accelerator",
+    "Titan Mechanic",
+    "Titan Furious",
+    "Titan Raider",
+    "Titan Tough Guy",
+    "Titan Destroyer"
   ]
 }

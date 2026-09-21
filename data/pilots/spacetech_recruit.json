@@ -1,0 +1,16 @@
+{
+  "id": "spacetech_recruit",
+  "name": "SpaceTech Recruit",
+  "bot": "SpaceTech Chassis",
+  "tier": "T1",
+  "skill": "SpaceTech Avionics: +5% flight speed when operating SpaceTech aerospace robotics.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

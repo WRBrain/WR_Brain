@@ -3,7 +3,7 @@
   "name": "Zoe Kamau",
   "bot": "Curie",
   "tier": "T4",
-  "skill": "Turret Overclock: Increases turret fire rate by 30% and instantly restores 20% Aegis shield on ability activation.",
+  "skill": "Turret Overclock: Deployable turrets gain +20% damage and +15% durability.",
   "skills": [
     "Armor Expert",
     "Road Hog",

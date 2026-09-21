@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_trixie_hope",
+  "name": "Ultimate Trixie Hope",
+  "bot": "Universal",
+  "tier": "ULTIMATE",
+  "skill": "Instant Matrix: Active module cooldown reduced by 65% and module duration increased by 30%.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

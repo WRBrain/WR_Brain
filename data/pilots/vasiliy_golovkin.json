@@ -1,0 +1,16 @@
+{
+  "id": "vasiliy_golovkin",
+  "name": "Vasiliy Golovkin",
+  "bot": "Behemoth",
+  "tier": "T4",
+  "skill": "Siege Mastery: In Siege Mode, Behemoth gains +15% weapon damage and +25 defense points.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "siri_keel_titan",
+  "name": "Siri Keel",
+  "bot": "Newton",
+  "tier": "T4",
+  "skill": "Gravity Grip: Newton's Choke ability holds targets 2 seconds longer and inflicts Lock-down.",
+  "skills": [
+    "Titan Armor Expert",
+    "Titan Accelerator",
+    "Titan Mechanic",
+    "Titan Furious",
+    "Titan Raider",
+    "Titan Tough Guy",
+    "Titan Destroyer"
+  ]
+}

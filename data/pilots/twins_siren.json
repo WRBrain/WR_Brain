@@ -1,0 +1,16 @@
+{
+  "id": "twins_siren",
+  "name": "Siren & Harpy Twins",
+  "bot": "Siren & Harpy",
+  "tier": "T4",
+  "skill": "Dual Flight: Siren and Harpy gain Reflector shield while in flight.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

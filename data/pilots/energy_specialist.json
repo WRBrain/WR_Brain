@@ -1,0 +1,16 @@
+{
+  "id": "energy_specialist",
+  "name": "Energy Weapons Officer",
+  "bot": "Energy Weapons",
+  "tier": "T2",
+  "skill": "Energy Discharge: Energy and laser weapons gain +7.5% continuous fire damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

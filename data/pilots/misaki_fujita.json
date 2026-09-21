@@ -1,0 +1,16 @@
+{
+  "id": "misaki_fujita",
+  "name": "Misaki & Fritz",
+  "bot": "Khepri",
+  "tier": "T4",
+  "skill": "Unbreakable Bond: Khepri and bonded ally are immune to Freeze, Suppression, and Lockdown.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

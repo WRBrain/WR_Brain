@@ -1,0 +1,16 @@
+{
+  "id": "basil_lapatte",
+  "name": "Basil Lapatte",
+  "bot": "Sniper Weapons",
+  "tier": "T4",
+  "skill": "Sniper Precision: Heavy sniper weapons (Gauss, Prisma, Weber) deal +15% damage beyond 400m.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "spacetech_specialist",
+  "name": "SpaceTech Specialist",
+  "bot": "SpaceTech Chassis",
+  "tier": "T2",
+  "skill": "Aero-Dynamic Flight: +8% flight speed and +5% built-in weapon damage during flight.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

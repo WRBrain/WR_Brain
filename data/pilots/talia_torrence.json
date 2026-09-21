@@ -1,0 +1,16 @@
+{
+  "id": "talia_torrence",
+  "name": "Talia Torrence",
+  "bot": "Angler",
+  "tier": "T4",
+  "skill": "Electric Pulse: Angler's Electric Shift ability deals +25% blindness shock damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

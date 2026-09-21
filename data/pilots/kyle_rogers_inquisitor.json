@@ -2,8 +2,8 @@
   "id": "kyle_rogers_inquisitor",
   "name": "Kyle Rogers (Inquisitor)",
   "bot": "Inquisitor",
-  "tier": "T3",
-  "skill": "Stealth Master: Inquisitor repairs 10% durability upon entering Descend stealth.",
+  "tier": "T4",
+  "skill": "Falcon Heart: Inquisitor repairs 0.75% of max durability per second continuously.",
   "skills": [
     "Armor Expert",
     "Road Hog",

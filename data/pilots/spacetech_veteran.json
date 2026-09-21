@@ -1,0 +1,16 @@
+{
+  "id": "spacetech_veteran",
+  "name": "SpaceTech Veteran",
+  "bot": "SpaceTech Chassis",
+  "tier": "T3",
+  "skill": "Ace Aviator: +12% flight speed and +10% damage reduction during flight abilities.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "standard_cadet",
+  "name": "Standard Cadet",
+  "bot": "All Robots",
+  "tier": "T1",
+  "skill": "Standard Operations: Basic tactical training enabling standard combat piloting and skill customization.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

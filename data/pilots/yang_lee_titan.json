@@ -1,16 +1,16 @@
 {
   "id": "yang_lee_titan",
   "name": "Yang Lee (Titan)",
-  "bot": "Any Titan",
-  "tier": "Titan",
-  "skill": "Titan Sensor Lock: Bypasses enemy Stealth (Quantum Radar) & grants +15% Titan weapon damage.",
+  "bot": "Universal Titan",
+  "tier": "T4",
+  "skill": "Dragon Eye: Built-in Quantum Sensor permanently detects stealth targets within 350m for all equipped Titan weapons.",
   "skills": [
-    "Armor Expert",
-    "Road Hog",
-    "Mechanic",
-    "Master Gunsmith",
-    "Dodger",
-    "Tough Guy",
-    "Deft Survivor"
+    "Titan Armor Expert",
+    "Titan Accelerator",
+    "Titan Mechanic",
+    "Titan Furious",
+    "Titan Raider",
+    "Titan Tough Guy",
+    "Titan Destroyer"
   ]
 }

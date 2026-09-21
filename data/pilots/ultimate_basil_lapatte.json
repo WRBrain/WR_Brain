@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_basil_lapatte",
+  "name": "Ultimate Basil Lapatte",
+  "bot": "Ultimate Fujin",
+  "tier": "ULTIMATE",
+  "skill": "Supreme Sentry: Ultimate Fujin gains +30% weapon damage and +100% shield capacity in Sentry Mode.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

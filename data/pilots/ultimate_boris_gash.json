@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_boris_gash",
+  "name": "Ultimate Boris Gash",
+  "bot": "Ultimate Phantom",
+  "tier": "ULTIMATE",
+  "skill": "Quantum Reflexes: Ultimate Phantom gains 70% defense points and instant Phase Shift upon activating Blink.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

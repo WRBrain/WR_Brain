@@ -3,7 +3,7 @@
   "name": "Cormac Briggs",
   "bot": "Falcon",
   "tier": "T4",
-  "skill": "Briggs' Special: Falcon's central Heavy weapon deals +15% increased weapon damage.",
+  "skill": "Falcon Strike: Falcon deals +10% bonus damage on all equipped weapon systems.",
   "skills": [
     "Armor Expert",
     "Road Hog",

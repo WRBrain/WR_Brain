@@ -1,0 +1,16 @@
+{
+  "id": "tobias_mason",
+  "name": "Tobias Mason",
+  "bot": "Weyland",
+  "tier": "T4",
+  "skill": "Repair Matrix: Weyland restores +20% more durability during Repair Mode.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

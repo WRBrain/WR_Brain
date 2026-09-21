@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_chester_coen",
+  "name": "Ultimate Chester Coen",
+  "bot": "Ultimate Destrier",
+  "tier": "ULTIMATE",
+  "skill": "Vanguard Overdrive: Ultimate Destrier gains 50% damage reduction and +35% kinetic weapon damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

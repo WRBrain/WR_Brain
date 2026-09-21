@@ -1,0 +1,16 @@
+{
+  "id": "brawler_veteran",
+  "name": "Brawler Combat Veteran",
+  "bot": "Brawler Robots",
+  "tier": "T3",
+  "skill": "Close Quarters Mastery: +10% weapon damage when within 150m of enemy target.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

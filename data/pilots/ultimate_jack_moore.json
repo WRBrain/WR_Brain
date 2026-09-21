@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_jack_moore",
+  "name": "Ultimate Jack Moore",
+  "bot": "Ultimate Strider",
+  "tier": "ULTIMATE",
+  "skill": "Relentless Dash: Ultimate Strider gains +8% weapon damage per dash and instant shield trigger.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

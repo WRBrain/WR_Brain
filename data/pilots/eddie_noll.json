@@ -1,9 +1,9 @@
 {
   "id": "eddie_noll",
   "name": "Eddie Noll",
-  "bot": "Shotgun Specialist",
+  "bot": "Shotguns",
   "tier": "T4",
-  "skill": "Shotgun Velocity: Kinetic and energy shotguns gain +15% increased rate of fire.",
+  "skill": "CQC Overcharge: Kinetic and Sonic shotguns (Hammer, Mace, Cudgel, Devastator) fire 15% faster and reload 20% faster.",
   "skills": [
     "Armor Expert",
     "Road Hog",

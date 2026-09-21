@@ -1,0 +1,16 @@
+{
+  "id": "raphael_dupont",
+  "name": "Raphael Dupont",
+  "bot": "Flamethrowers",
+  "tier": "T4",
+  "skill": "Inferno Width: Flamethrowers (Ember, Igniter, Blaze) gain +30% wider flame cone and +10% damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "sniper_veteran",
+  "name": "Long-Range Sniper Veteran",
+  "bot": "Sniper Robots",
+  "tier": "T3",
+  "skill": "Marksman Optics: +10% weapon damage when beyond 500m from enemy target.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

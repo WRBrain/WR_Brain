@@ -1,0 +1,16 @@
+{
+  "id": "noah_raptor",
+  "name": "Noah",
+  "bot": "Raptor",
+  "tier": "T4",
+  "skill": "Comet Strike: Raptor's landing blast radius +30% and instantly inflicts Suppression on struck enemies.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

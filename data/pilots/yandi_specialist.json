@@ -1,0 +1,16 @@
+{
+  "id": "yandi_specialist",
+  "name": "Yan-Di Specialist",
+  "bot": "Yan-Di Chassis",
+  "tier": "T2",
+  "skill": "Power Surge: +8% weapon damage for 6s following ability activation.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

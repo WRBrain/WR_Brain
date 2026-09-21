@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_marie_leclair",
+  "name": "Ultimate Marie Leclair",
+  "bot": "Ultimate Mender",
+  "tier": "ULTIMATE",
+  "skill": "Infinite Restoration: Mender restores 100% gray damage and provides 35% speed boost to all nearby allies.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_bernadette_wolff",
+  "name": "Ultimate Bernadette Wolff",
+  "bot": "Ultimate Fenrir",
+  "tier": "ULTIMATE",
+  "skill": "Supreme Will: Ultimate Fenrir gains +85% maximum durability and 25% passive gray damage healing.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

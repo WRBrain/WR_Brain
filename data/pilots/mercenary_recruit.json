@@ -1,0 +1,16 @@
+{
+  "id": "mercenary_recruit",
+  "name": "Mercenary Recruit",
+  "bot": "All Robots",
+  "tier": "T1",
+  "skill": "Bounty Focus: +5% damage against beacon capture targets.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

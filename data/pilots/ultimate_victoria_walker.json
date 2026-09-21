@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_victoria_walker",
+  "name": "Ultimate Victoria Walker",
+  "bot": "Ultimate Griffin",
+  "tier": "ULTIMATE",
+  "skill": "Ultimate Aerobatics: Ultimate Griffin gains 2 jump charges and +25% weapon damage in air.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

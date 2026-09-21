@@ -1,0 +1,16 @@
+{
+  "id": "rocket_specialist",
+  "name": "Missile Artillery Officer",
+  "bot": "Rocket Weapons",
+  "tier": "T2",
+  "skill": "Explosive Saturation: Rocket and missile weapons gain +10% splash blast radius.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

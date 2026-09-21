@@ -1,0 +1,16 @@
+{
+  "id": "icarus_veteran",
+  "name": "Icarus Veteran Commander",
+  "bot": "Icarus Chassis",
+  "tier": "T3",
+  "skill": "Warp Matrix: Teleporting or dashing grants 10% instant durability restoration.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "evolife_specialist",
+  "name": "EvoLife Specialist",
+  "bot": "EvoLife Chassis",
+  "tier": "T2",
+  "skill": "Nanite Field: +10% healing pulse radius and repair potency on EvoLife bots.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

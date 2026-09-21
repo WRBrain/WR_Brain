@@ -1,0 +1,16 @@
+{
+  "id": "frontline_scout",
+  "name": "Frontline Scout",
+  "bot": "Light Robots",
+  "tier": "T1",
+  "skill": "Reconnaissance: +5% baseline movement speed for light combat chassis.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

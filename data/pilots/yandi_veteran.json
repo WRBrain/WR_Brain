@@ -1,0 +1,16 @@
+{
+  "id": "yandi_veteran",
+  "name": "Yan-Di Veteran Commander",
+  "bot": "Yan-Di Chassis",
+  "tier": "T3",
+  "skill": "Overdrive Protocol: When below 30% durability, gains +15% movement speed and +12% weapon damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -3,7 +3,7 @@
   "name": "Marie Leclair",
   "bot": "Mender",
   "tier": "T4",
-  "skill": "Nanite Overhaul: Mender's pulse ability can repair unhealable Grey Damage for itself and allies.",
+  "skill": "True Savior: Mender's healing pulse restores Gray Damage (permanent durability damage) to itself and allies.",
   "skills": [
     "Armor Expert",
     "Road Hog",

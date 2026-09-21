@@ -1,0 +1,16 @@
+{
+  "id": "anna_basarab",
+  "name": "Anna Basarab",
+  "bot": "Mars",
+  "tier": "T4",
+  "skill": "Aegis Overcharge: Mars Aegis shield regenerates 20% faster while remote turret is deployed.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

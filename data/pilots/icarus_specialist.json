@@ -1,0 +1,16 @@
+{
+  "id": "icarus_specialist",
+  "name": "Icarus Specialist",
+  "bot": "Icarus Chassis",
+  "tier": "T2",
+  "skill": "Phase Warp Mastery: +8% movement speed for 5s after teleporting or dashing.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "yandi_recruit",
+  "name": "Yan-Di Recruit",
+  "bot": "Yan-Di Chassis",
+  "tier": "T1",
+  "skill": "Corporate Agility: +5% acceleration and phase-shift duration on Yan-Di units.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

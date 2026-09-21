@@ -3,7 +3,7 @@
   "name": "Thomas Mindread",
   "bot": "Leech",
   "tier": "T4",
-  "skill": "Adrenaline Rush: Leech gains +35% movement speed while Repulse is active.",
+  "skill": "Mind Leech Overdrive: Leech gains +15% movement speed during Repulse ability.",
   "skills": [
     "Armor Expert",
     "Road Hog",

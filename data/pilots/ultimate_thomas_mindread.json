@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_thomas_mindread",
+  "name": "Ultimate Thomas Mindread",
+  "bot": "Ultimate Leech",
+  "tier": "ULTIMATE",
+  "skill": "Ultimate Repulse: Ultimate Leech redirects 50% damage to target and gains +25% speed during link.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,9 +1,9 @@
 {
   "id": "louis_duncan",
   "name": "Louis Duncan",
-  "bot": "Invader",
+  "bot": "Rayker",
   "tier": "T4",
-  "skill": "Duncan's Shield: Invader activates a 50k Aegis shield when durability falls below 50%.",
+  "skill": "Glance Beam: Rayker's built-in beam stores 2 additional charges.",
   "skills": [
     "Armor Expert",
     "Road Hog",

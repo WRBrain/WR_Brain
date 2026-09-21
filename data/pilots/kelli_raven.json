@@ -1,9 +1,9 @@
 {
   "id": "kelli_raven",
-  "name": "Kelli & Raven",
-  "bot": "Lynx",
+  "name": "Kelli Raven",
+  "bot": "Raven",
   "tier": "T4",
-  "skill": "Guillotine Sniper: Lynx execution threshold increased from 25% to 30% enemy HP.",
+  "skill": "Airborne Predator: Raven gains +20% weapon damage for 8s after activating Jump.",
   "skills": [
     "Armor Expert",
     "Road Hog",

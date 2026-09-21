@@ -1,0 +1,16 @@
+{
+  "id": "dsc_officer",
+  "name": "DSC Defense Officer",
+  "bot": "DSC Chassis",
+  "tier": "T2",
+  "skill": "Reinforced Plating: +10% physical and energy shield capacity on DSC defenders.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,9 +1,9 @@
 {
   "id": "chester_coen",
   "name": "Chester Coen",
-  "bot": "Loki",
+  "bot": "Nether",
   "tier": "T4",
-  "skill": "Ghost Runner: Loki receives temporary Stealth for 5 seconds when exiting Recon mode.",
+  "skill": "Shadow Runner: Nether gains Stealth for 5 seconds upon exhausting dash charges and +10% speed.",
   "skills": [
     "Armor Expert",
     "Road Hog",

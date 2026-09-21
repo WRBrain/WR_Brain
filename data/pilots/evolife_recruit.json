@@ -1,0 +1,16 @@
+{
+  "id": "evolife_recruit",
+  "name": "EvoLife Recruit",
+  "bot": "EvoLife Chassis",
+  "tier": "T1",
+  "skill": "Bio-Regen Protocols: +5% repair system output when piloting EvoLife chassis.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

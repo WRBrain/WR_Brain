@@ -1,0 +1,16 @@
+{
+  "id": "eiffel_commander_titan",
+  "name": "Eiffel Commander",
+  "bot": "Eiffel",
+  "tier": "T4",
+  "skill": "Aerospace Superiority: Eiffel flight boost speed increased by 25% and temporary hardpoints gain +15% fire rate.",
+  "skills": [
+    "Titan Armor Expert",
+    "Titan Accelerator",
+    "Titan Mechanic",
+    "Titan Furious",
+    "Titan Raider",
+    "Titan Tough Guy",
+    "Titan Destroyer"
+  ]
+}

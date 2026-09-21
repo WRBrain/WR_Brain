@@ -1,0 +1,16 @@
+{
+  "id": "boris_gash",
+  "name": "Boris Gash",
+  "bot": "Phantom",
+  "tier": "T4",
+  "skill": "Blink Assault: Phantom gains +15% damage and +10% speed during Blink.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

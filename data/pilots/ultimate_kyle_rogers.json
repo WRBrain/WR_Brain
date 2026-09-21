@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_kyle_rogers",
+  "name": "Ultimate Kyle Rogers",
+  "bot": "Ultimate Ao Jun",
+  "tier": "ULTIMATE",
+  "skill": "Ultimate Dragonfire: Ultimate Ao Jun gains permanent Stealth in flight and +30% built-in flamethrower damage.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

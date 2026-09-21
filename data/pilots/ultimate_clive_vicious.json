@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_clive_vicious",
+  "name": "Ultimate Clive Vicious",
+  "bot": "Ultimate Blitz",
+  "tier": "ULTIMATE",
+  "skill": "Apex Blitzkrieg: Blitz receives 90% Defense Points, +25% weapon damage, and immunity to EMP during Break-in.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

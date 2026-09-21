@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_virginia_walker",
+  "name": "Ultimate Virginia Walker",
+  "bot": "Ultimate Spectre",
+  "tier": "ULTIMATE",
+  "skill": "Apex Stalker: Ultimate Spectre gains +35% burst damage and +4s Stealth duration following jump.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

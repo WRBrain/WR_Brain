@@ -1,9 +1,9 @@
 {
   "id": "maya_patel",
   "name": "Maya Patel",
-  "bot": "Raptor",
+  "bot": "Nightingale",
   "tier": "T4",
-  "skill": "Comet Vanguard: Grants +35% Defense Points and reflects +20% additional damage with Reflector on landing.",
+  "skill": "Healing Aura: Nightingale restores +15% more durability during flight.",
   "skills": [
     "Armor Expert",
     "Road Hog",

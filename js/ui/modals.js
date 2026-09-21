@@ -717,15 +717,38 @@ window.openAddCatalogModal = function(type) {
     // 3. PILOT CONFIGURATION SYSTEM
     // =========================================================================
     let activePilotConfigTarget = null;
+    let activePilotConfigTierFilter = 'ALL';
+
+    window.setPilotConfigTierFilter = function(tier) {
+      activePilotConfigTierFilter = tier;
+      document.querySelectorAll('#pilot-config-tier-filters .pilot-tier-btn').forEach(btn => {
+        if (btn.getAttribute('data-tier') === tier) {
+          btn.className = 'pilot-tier-btn active px-2.5 py-1 rounded-lg text-[10px] font-black bg-purple-600 text-white';
+        } else {
+          btn.className = 'pilot-tier-btn px-2.5 py-1 rounded-lg text-[10px] font-black bg-[#161f2e] text-gray-400 hover:bg-[#202b3d]';
+        }
+      });
+      filterPilotConfigModal();
+    };
 
     window.openPilotConfigModal = function(hangarKey, slotIndex) {
       activePilotConfigTarget = { hangarKey, slotIndex };
+      activePilotConfigTierFilter = 'ALL';
       const hangar = AppState.hangars[hangarKey];
       if (!hangar) return;
       const slot = hangar.slots[slotIndex];
 
-      document.getElementById('pilot-config-modal-title').innerHTML = `🧑‍✈️ Bay 0${slotIndex + 1} • <span class="text-purple-400">Legendary Pilot Command</span>`;
-      document.getElementById('pilot-config-modal-subtitle').innerText = `Assign Legendary Pilot, Level Up, and Fine-Tune 7 Combat Synergy Skills`;
+      document.getElementById('pilot-config-modal-title').innerHTML = `🧑‍✈️ Bay 0${slotIndex + 1} • <span class="text-purple-400">Pilot Command & Specialization</span>`;
+      document.getElementById('pilot-config-modal-subtitle').innerText = `Assign Pilots (T1 Recruit to Ultimate ★), Level Up, and Fine-Tune 7 Combat Skills`;
+
+      // Reset filter UI
+      document.querySelectorAll('#pilot-config-tier-filters .pilot-tier-btn').forEach(btn => {
+        if (btn.getAttribute('data-tier') === 'ALL') {
+          btn.className = 'pilot-tier-btn active px-2.5 py-1 rounded-lg text-[10px] font-black bg-purple-600 text-white';
+        } else {
+          btn.className = 'pilot-tier-btn px-2.5 py-1 rounded-lg text-[10px] font-black bg-[#161f2e] text-gray-400 hover:bg-[#202b3d]';
+        }
+      });
 
       renderCurrentPilotCard(slot, hangarKey, slotIndex);
       filterPilotConfigModal();
@@ -739,9 +762,12 @@ window.openAddCatalogModal = function(type) {
 
       if (slot && slot.pilot && slot.pilot.name) {
         const p = slot.pilot;
-        const mp = MASTER_PILOTS.find(item => item.id === p.id) || { name: p.name, skill: p.skill || "Combat Specialist", bot: p.bot || "All Robots" };
+        const mp = MASTER_PILOTS.find(item => item.id === p.id) || { name: p.name, skill: p.skill || "Combat Specialist", bot: p.bot || "All Robots", tier: p.tier || "T4" };
         const curLevel = p.level || 'Lv 1';
         const skillsCount = (p.skills || []).length;
+        const tier = mp.tier || 'T4';
+        const tierBadgeClass = tier === 'ULTIMATE' ? 'badge-ultimate' : `badge-${tier.toLowerCase()}`;
+        const tierTitle = tier === 'ULTIMATE' ? '★ ULTIMATE PILOT' : `${tier} PILOT`;
 
         let levelOptionsHtml = PILOT_LEVELS.map(lvl => `<option value="${lvl}" ${lvl === curLevel ? 'selected' : ''}>${lvl}</option>`).join('');
 
@@ -749,7 +775,7 @@ window.openAddCatalogModal = function(type) {
           <div class="p-4 rounded-2xl bg-gradient-to-br from-[#180f2b] to-[#080c14] border border-purple-500/40 shadow-xl space-y-3">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2">
-                <span class="badge-t4 text-[10px] font-black px-2 py-0.5 rounded uppercase">LEGENDARY PILOT</span>
+                <span class="${tierBadgeClass} text-[10px] font-black px-2 py-0.5 rounded uppercase">${tierTitle}</span>
                 <span class="text-xs font-bold text-gray-400">Assigned to Bay 0${slotIndex + 1}</span>
               </div>
               <div class="flex items-center gap-1.5">
@@ -778,7 +804,7 @@ window.openAddCatalogModal = function(type) {
             </div>
 
             <div class="p-3 rounded-xl bg-[#080c14] border border-purple-500/30 text-xs">
-              <span class="text-[10px] text-purple-400 uppercase font-bold block">Innate Legendary Ability</span>
+              <span class="text-[10px] text-purple-400 uppercase font-bold block">Innate Specialty Ability</span>
               <p class="text-purple-100 text-xs mt-0.5 leading-relaxed font-medium">⚡ ${mp.skill}</p>
             </div>
           </div>
@@ -791,8 +817,8 @@ window.openAddCatalogModal = function(type) {
                 🧑‍✈️
               </div>
               <div>
-                <span class="font-bold text-gray-300 text-sm">No Legendary Pilot Assigned</span>
-                <p class="text-[11px] text-gray-500">Select a Legendary Pilot from the catalog below to unlock specialized combat perks.</p>
+                <span class="font-bold text-gray-300 text-sm">No Pilot Assigned</span>
+                <p class="text-[11px] text-gray-500">Select a Pilot (T1 Recruit to Ultimate ★) from the catalog below to unlock specialized combat perks.</p>
               </div>
             </div>
           </div>
@@ -819,17 +845,28 @@ window.openAddCatalogModal = function(type) {
       if (!container) return;
 
       const search = (document.getElementById('pilot-config-search')?.value || '').toLowerCase();
-      const filtered = MASTER_PILOTS.filter(p => p.name.toLowerCase().includes(search) || p.bot.toLowerCase().includes(search) || p.skill.toLowerCase().includes(search));
+      const filtered = MASTER_PILOTS.filter(p => {
+        const matchesSearch = p.name.toLowerCase().includes(search) || (p.bot || '').toLowerCase().includes(search) || (p.skill || '').toLowerCase().includes(search);
+        const matchesTier = activePilotConfigTierFilter === 'ALL' || (p.tier || 'T4').toUpperCase() === activePilotConfigTierFilter;
+        return matchesSearch && matchesTier;
+      });
 
       if (countBadge) countBadge.innerText = `${filtered.length} Pilots Available`;
       container.innerHTML = "";
 
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="p-4 text-center text-gray-500 text-xs">No pilots found matching criteria.</div>`;
+        return;
+      }
+
       filtered.forEach(p => {
+        const tier = p.tier || 'T4';
+        const tierBadgeClass = tier === 'ULTIMATE' ? 'badge-ultimate' : `badge-${tier.toLowerCase()}`;
         container.innerHTML += `
           <div class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#161426] border border-[#263040] hover:border-purple-500/40 rounded-xl text-xs transition-all">
             <div>
               <div class="flex items-center gap-2">
-                <span class="badge-t4 text-[9px] font-black px-1.5 py-0.2 rounded uppercase">PILOT</span>
+                <span class="${tierBadgeClass} text-[9px] font-black px-1.5 py-0.5 rounded uppercase">${tier}</span>
                 <span class="font-bold text-white text-sm">🧑‍✈️ ${p.name}</span>
                 <span class="text-purple-400 font-mono text-[11px]">(${p.bot})</span>
               </div>
@@ -1355,11 +1392,13 @@ window.openAddCatalogModal = function(type) {
         if (resPilots.length > 0) {
           container.innerHTML += `<div class="text-xs font-bold text-purple-400 uppercase tracking-wider mb-2">From Your Inventory</div>`;
           resPilots.forEach(p => {
+            const pTier = p.tier || 'T4';
+            const badgeClass = pTier === 'ULTIMATE' ? 'badge-ultimate' : `badge-${pTier.toLowerCase()}`;
             container.innerHTML += `
               <div class="flex items-center justify-between p-3 bg-[#080c14] border border-[#263040] rounded-xl text-xs mb-2">
                 <div>
                   <div class="flex items-center gap-2">
-                    <span class="badge-t4 text-[10px] font-bold px-1.5 py-0.5 rounded">PILOT</span>
+                    <span class="${badgeClass} text-[10px] font-bold px-1.5 py-0.5 rounded uppercase">${pTier}</span>
                     <span class="font-bold text-white text-sm">🧑‍✈️ ${p.name}</span>
                     <span class="text-purple-400 font-mono">(${p.level || 'Lv 1'})</span>
                   </div>
@@ -1374,11 +1413,16 @@ window.openAddCatalogModal = function(type) {
         }
         container.innerHTML += `<div class="text-xs font-bold text-gray-400 uppercase tracking-wider mt-3 mb-2">Or Spawn From Master Catalog</div>`;
         MASTER_PILOTS.filter(p => p.name.toLowerCase().includes(search) || (p.bot || '').toLowerCase().includes(search)).forEach(p => {
+          const pTier = p.tier || 'T4';
+          const badgeClass = pTier === 'ULTIMATE' ? 'badge-ultimate' : `badge-${pTier.toLowerCase()}`;
           container.innerHTML += `
             <div class="flex items-center justify-between p-2.5 bg-[#080c14]/60 border border-[#263040] rounded-xl text-xs mb-2">
               <div>
-                <span class="font-bold text-gray-200">🧑‍✈️ ${p.name}</span>
-                <span class="text-purple-400 text-[11px] ml-1">(${p.bot})</span>
+                <div class="flex items-center gap-1.5">
+                  <span class="${badgeClass} text-[9px] font-bold px-1 py-0.2 rounded uppercase">${pTier}</span>
+                  <span class="font-bold text-gray-200">🧑‍✈️ ${p.name}</span>
+                  <span class="text-purple-400 text-[11px] ml-1">(${p.bot})</span>
+                </div>
                 <p class="text-[10px] text-gray-400 mt-0.5">${p.skill}</p>
               </div>
               <button onclick="equipPilotDirect('${p.id}', 'Lv 1', false)" class="px-2.5 py-1 text-xs font-semibold rounded bg-[#161f2e] hover:bg-purple-500 hover:text-white text-gray-300">

@@ -1,9 +1,9 @@
 {
   "id": "sanjay_goyal",
   "name": "Sanjay Goyal",
-  "bot": "Erebus",
+  "bot": "Mars",
   "tier": "T4",
-  "skill": "Overcharge Matrix: Erebus weapon damage increases by +15% while Aegis shield is active.",
+  "skill": "Remote Turret Surge: Mars deployable turret fires 20% faster and gains +15% range.",
   "skills": [
     "Armor Expert",
     "Road Hog",

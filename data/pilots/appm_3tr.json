@@ -3,7 +3,7 @@
   "name": "APPM-3TR",
   "bot": "Demeter",
   "tier": "T4",
-  "skill": "Nanite Overload: Demeter repairs 10% grey damage upon teleporting to an ally.",
+  "skill": "Absorber Surge: When Absorber ends, Demeter restores an additional burst of durability to allies.",
   "skills": [
     "Armor Expert",
     "Road Hog",

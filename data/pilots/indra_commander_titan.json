@@ -1,0 +1,16 @@
+{
+  "id": "indra_commander_titan",
+  "name": "Indra Monk",
+  "bot": "Indra",
+  "tier": "T4",
+  "skill": "Vipassana Trance: Indra Vipassana phase shift duration +1.5s and restores 10% durability upon exit.",
+  "skills": [
+    "Titan Armor Expert",
+    "Titan Accelerator",
+    "Titan Mechanic",
+    "Titan Furious",
+    "Titan Raider",
+    "Titan Tough Guy",
+    "Titan Destroyer"
+  ]
+}

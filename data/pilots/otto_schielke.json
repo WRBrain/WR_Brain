@@ -1,0 +1,16 @@
+{
+  "id": "otto_schielke",
+  "name": "Otto Schielke",
+  "bot": "Radiation & Plasma",
+  "tier": "T4",
+  "skill": "Radiation Accelerator: Increases the firing rate of Plasma and Radiation weapons (Hazard, Decay, Blight, Redeemer) by 35%.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

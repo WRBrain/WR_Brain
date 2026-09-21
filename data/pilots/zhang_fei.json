@@ -1,0 +1,16 @@
+{
+  "id": "zhang_fei",
+  "name": "Zhang Fei",
+  "bot": "Nuo",
+  "tier": "T4",
+  "skill": "Heroic Vitality: Nuo's kinetic pulse ability charges 25% faster and gains +15% movement speed during phase shift.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_otto_schielke",
+  "name": "Ultimate Otto Schielke",
+  "bot": "Ultimate Ares",
+  "tier": "ULTIMATE",
+  "skill": "Ultimate Retribution: Ultimate Ares absorbs 100% incoming damage and doubles built-in cannon projectile count.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

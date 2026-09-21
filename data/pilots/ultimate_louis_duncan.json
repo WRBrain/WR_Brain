@@ -1,0 +1,16 @@
+{
+  "id": "ultimate_louis_duncan",
+  "name": "Ultimate Louis Duncan",
+  "bot": "Ultimate Invader",
+  "tier": "ULTIMATE",
+  "skill": "Supreme Incursion: Ultimate Invader applies 85% suppression and instantly gains 250,000 temporary Aegis shield.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

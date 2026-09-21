@@ -1,0 +1,16 @@
+{
+  "id": "dsc_recruit",
+  "name": "DSC Recruit",
+  "bot": "DSC Chassis",
+  "tier": "T1",
+  "skill": "DSC Defense Systems: +5% physical shield and armor durability on DSC combat chassis.",
+  "skills": [
+    "Armor Expert",
+    "Road Hog",
+    "Mechanic",
+    "Master Gunsmith",
+    "Dodger",
+    "Tough Guy",
+    "Deft Survivor"
+  ]
+}

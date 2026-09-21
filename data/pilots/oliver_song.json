@@ -1,9 +1,9 @@
 {
   "id": "oliver_song",
   "name": "Oliver Song",
-  "bot": "Angler",
+  "bot": "Blitz",
   "tier": "T4",
-  "skill": "Electric Surge: Angler's Electric Shift ability blinds and slows enemies for +2 seconds.",
+  "skill": "Song's Cadence: Blitz Break-in ability cooldown reduced by 3s and duration extended by 2s.",
   "skills": [
     "Armor Expert",
     "Road Hog",
