@@ -134,8 +134,8 @@ function calculateHangarSynergy(slots = [], titanSlot = null) {
       const audit = calculateHangarSynergy(hangar.slots, hangar.titanSlot);
       document.getElementById('audit-score-num').innerText = `${audit.synergyScore}%`;
       document.getElementById('audit-score-label').innerText = audit.synergyScore >= 80 ? "High Competitive Synergy" : "Balanced Squad";
-      document.getElementById('audit-burst-dps').innerText = `${audit.totalBurstDPS.toLocaleString()} DPS`;
-      document.getElementById('audit-cycle-dps').innerText = `${audit.totalCycleDPS.toLocaleString()} DPS`;
+      document.getElementById('audit-burst-dps').innerText = `${audit.totalBurstDPS.toLocaleString('en-US')} DPS`;
+      document.getElementById('audit-cycle-dps').innerText = `${audit.totalCycleDPS.toLocaleString('en-US')} DPS`;
       document.getElementById('audit-active-bots').innerText = `${audit.activeBots} / 5`;
 
       const rolesContainer = document.getElementById('audit-roles-list');
@@ -190,7 +190,7 @@ function calculateHangarSynergy(slots = [], titanSlot = null) {
             <div class="flex items-center gap-4">
               <div class="text-right">
                 <span class="text-gray-400 block text-[10px]">Burst Output</span>
-                <span class="font-bold text-red-400 font-mono">${b.burstDPS.toLocaleString()} DPS</span>
+                <span class="font-bold text-red-400 font-mono">${b.burstDPS.toLocaleString('en-US')} DPS</span>
               </div>
               <div class="text-right">
                 <span class="text-gray-400 block text-[10px]">Range Harmony</span>

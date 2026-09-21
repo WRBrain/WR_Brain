@@ -69,9 +69,9 @@ function initDpsLab() {
         }
       });
 
-      document.getElementById('dps-burst-val').innerText = Math.round(burst * bonusMultiplier).toLocaleString();
-      document.getElementById('dps-sustained-val').innerText = Math.round(sustained * bonusMultiplier).toLocaleString();
-      document.getElementById('dps-clip-val').innerText = Math.round(burst * 4 * bonusMultiplier).toLocaleString();
+      document.getElementById('dps-burst-val').innerText = Math.round(burst * bonusMultiplier).toLocaleString('en-US');
+      document.getElementById('dps-sustained-val').innerText = Math.round(sustained * bonusMultiplier).toLocaleString('en-US');
+      document.getElementById('dps-clip-val').innerText = Math.round(burst * 4 * bonusMultiplier).toLocaleString('en-US');
     };
 
     window.initDpsLab = initDpsLab;

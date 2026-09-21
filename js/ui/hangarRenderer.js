@@ -135,7 +135,7 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
                     <span class="text-[10px] font-mono text-red-400 bg-red-950/60 px-1.5 py-0.2 rounded border border-red-500/30 shrink-0">${equippedW.level || 'Lv 1'}</span>
                   </div>
                   <div class="text-[10px] text-gray-400 flex items-center gap-2 mt-0.5">
-                    <span class="text-red-400 font-mono font-bold">${liveDps.toLocaleString()} DPS</span>
+                    <span class="text-red-400 font-mono font-bold">${liveDps.toLocaleString('en-US')} DPS</span>
                     <span>•</span>
                     <span>${mw ? mw.range : 500}m</span>
                     ${mw && mw.status ? `<span class="text-amber-400 font-semibold">• ${mw.status}</span>` : ''}
@@ -175,7 +175,7 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
               </div>
               <div class="text-right">
                 <span class="text-[10px] text-gray-400 uppercase font-bold block">Hull Durability</span>
-                <span class="text-emerald-400 font-mono font-bold text-sm sm:text-base">${scaledTitanHp.toLocaleString()} HP</span>
+                <span class="text-emerald-400 font-mono font-bold text-sm sm:text-base">${scaledTitanHp.toLocaleString('en-US')} HP</span>
               </div>
             </div>
 
@@ -280,7 +280,7 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
                     <span class="text-[10px] font-mono text-amber-400/90 bg-[#111620] px-1 py-0.2 rounded shrink-0">(${equippedW.level || 'Lv 1'})</span>
                   </div>
                   <div class="text-[10px] text-gray-400 flex items-center gap-2 mt-0.5">
-                    <span class="text-red-400 font-mono font-bold">${liveDps.toLocaleString()} DPS</span>
+                    <span class="text-red-400 font-mono font-bold">${liveDps.toLocaleString('en-US')} DPS</span>
                     <span>•</span>
                     <span>${mw ? mw.range : 500}m</span>
                     ${mw && mw.status ? `<span class="text-amber-400 font-semibold truncate">• ${mw.status}</span>` : ''}
@@ -327,7 +327,7 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
                 </div>
                 <div class="text-right">
                   <span class="text-[10px] text-gray-400 uppercase font-bold block">Durability</span>
-                  <span class="text-emerald-400 font-mono font-bold text-base">${scaledHp.toLocaleString()} HP</span>
+                  <span class="text-emerald-400 font-mono font-bold text-base">${scaledHp.toLocaleString('en-US')} HP</span>
                 </div>
               </div>
             </div>
@@ -381,7 +381,7 @@ function getMothershipCardHtml(hangarKey, mothershipSlot) {
 
             <div class="mt-2 flex items-center justify-between">
               <h3 class="text-base font-black text-white group-hover:text-amber-300 transition-colors">${masterBot.name}</h3>
-              <span class="text-emerald-400 font-mono font-bold text-xs">${scaledHp.toLocaleString()} HP</span>
+              <span class="text-emerald-400 font-mono font-bold text-xs">${scaledHp.toLocaleString('en-US')} HP</span>
             </div>
             <div class="text-[11px] text-gray-400 flex items-center justify-between mt-0.5">
               <span>${masterBot.faction} • ${masterBot.role}</span>

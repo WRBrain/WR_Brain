@@ -12,6 +12,17 @@ const DRONE_LEVELS = Array.from({ length: 12 }, (_, i) => `Lv ${i + 1}`);
 const PILOT_LEVELS = Array.from({ length: 70 }, (_, i) => `Lv ${i + 1}`);
 const MOTHERSHIP_LEVELS = Array.from({ length: 60 }, (_, i) => `Lv ${i + 1}`);
 
+function formatNumber(val) {
+  if (val === null || val === undefined) return '0';
+  const n = Number(val);
+  if (isNaN(n)) return String(val);
+  return n.toLocaleString('en-US');
+}
+if (typeof window !== 'undefined') {
+  window.formatNumber = formatNumber;
+  window.formatNum = formatNumber;
+}
+
 function getLevelMultiplier(levelStr, type = 'bot_or_weapon') {
   if (!levelStr) return 1.0;
   
@@ -75,7 +86,7 @@ window.onHangarSliderDrag = function(hangarKey, itemType, slotIndex, subIndex, s
       const hpEl1 = document.getElementById(`live-hp-${hangarKey}-titan`);
       const hpEl2 = document.getElementById(`live-hp2-${hangarKey}-titan`);
       if (mt) {
-        const str = `${Math.round((mt.hp || 950000) * mult).toLocaleString()} HP`;
+        const str = `${Math.round((mt.hp || 950000) * mult).toLocaleString('en-US')} HP`;
         if (hpEl1) hpEl1.innerText = str;
         if (hpEl2) hpEl2.innerText = str;
       }
@@ -85,20 +96,20 @@ window.onHangarSliderDrag = function(hangarKey, itemType, slotIndex, subIndex, s
       const mw = MASTER_WEAPONS.find(w => w.id === wId);
       const mult = getLevelMultiplier(newLevel, 'titan_weapon');
       const dpsEl = document.getElementById(`live-dps-${hangarKey}-titan-null-${subIndex}`);
-      if (dpsEl && mw) dpsEl.innerText = `${Math.round(mw.burstDps * mult).toLocaleString()} DPS`;
+      if (dpsEl && mw) dpsEl.innerText = `${Math.round(mw.burstDps * mult).toLocaleString('en-US')} DPS`;
     } else if (itemType === 'robot' && hangar.slots && hangar.slots[slotIndex]) {
       hangar.slots[slotIndex].level = newLevel;
       const mb = MASTER_ROBOTS.find(r => r.id === hangar.slots[slotIndex].robotId);
       const mult = getLevelMultiplier(newLevel, 'bot_or_weapon');
       const hpEl = document.getElementById(`live-hp-${hangarKey}-robot-${slotIndex}`);
-      if (hpEl && mb) hpEl.innerText = `${Math.round((mb.hp || 220000) * mult).toLocaleString()} HP`;
+      if (hpEl && mb) hpEl.innerText = `${Math.round((mb.hp || 220000) * mult).toLocaleString('en-US')} HP`;
     } else if (itemType === 'weapon' && hangar.slots && hangar.slots[slotIndex] && hangar.slots[slotIndex].weapons && hangar.slots[slotIndex].weapons[subIndex]) {
       hangar.slots[slotIndex].weapons[subIndex].level = newLevel;
       const wId = hangar.slots[slotIndex].weapons[subIndex].id;
       const mw = MASTER_WEAPONS.find(w => w.id === wId);
       const mult = getLevelMultiplier(newLevel, 'bot_or_weapon');
       const dpsEl = document.getElementById(`live-dps-${hangarKey}-weapon-${slotIndex}-${subIndex}`);
-      if (dpsEl && mw) dpsEl.innerText = `${Math.round(mw.burstDps * mult).toLocaleString()} DPS`;
+      if (dpsEl && mw) dpsEl.innerText = `${Math.round(mw.burstDps * mult).toLocaleString('en-US')} DPS`;
     }
   }
 };

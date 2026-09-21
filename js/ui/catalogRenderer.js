@@ -11,7 +11,7 @@ window.onWeaponDexLevelChange = function(weaponId, levelIdx, isTitan = false) {
   const burstEl = document.getElementById(`dex-w-burst-${weaponId}`);
   const lvlEl = document.getElementById(`dex-w-lvl-${weaponId}`);
   
-  if (burstEl) burstEl.innerText = `${Math.round(mw.burstDps * mult).toLocaleString()} DPS`;
+  if (burstEl) burstEl.innerText = `${Math.round(mw.burstDps * mult).toLocaleString('en-US')} DPS`;
   if (lvlEl) {
     lvlEl.innerText = lvlStr;
     lvlEl.className = `text-[10px] font-mono px-1.5 py-0.5 rounded border ${isTitan ? 'bg-red-500/20 text-red-300 border-red-500/40' : getLevelBadgeStyle(lvlStr)}`;
@@ -28,7 +28,7 @@ window.onRobotDexLevelChange = function(botId, levelIdx) {
   const hpEl = document.getElementById(`dex-bot-hp-${botId}`);
   const lvlEl = document.getElementById(`dex-bot-lvl-${botId}`);
   
-  if (hpEl) hpEl.innerText = `${Math.round((mb.hp || 220000) * mult).toLocaleString()} HP`;
+  if (hpEl) hpEl.innerText = `${Math.round((mb.hp || 220000) * mult).toLocaleString('en-US')} HP`;
   if (lvlEl) {
     lvlEl.innerText = lvlStr;
     lvlEl.className = `text-[10px] font-mono px-1.5 py-0.5 rounded border ${getLevelBadgeStyle(lvlStr)}`;
@@ -45,7 +45,7 @@ window.onTitanDexLevelChange = function(titanId, levelIdx) {
   const hpEl = document.getElementById(`dex-titan-hp-${titanId}`);
   const lvlEl = document.getElementById(`dex-titan-lvl-${titanId}`);
   
-  if (hpEl) hpEl.innerText = `${Math.round((mt.hp || 950000) * mult).toLocaleString()} HP`;
+  if (hpEl) hpEl.innerText = `${Math.round((mt.hp || 950000) * mult).toLocaleString('en-US')} HP`;
   if (lvlEl) {
     lvlEl.innerText = lvlStr;
     lvlEl.className = `text-[10px] font-mono px-1.5 py-0.5 rounded border bg-red-500/20 text-red-300 border-red-500/40`;
@@ -90,7 +90,7 @@ function renderWeaponEncyclopedia() {
             class="${isTitanW ? 'level-slider level-slider-titan' : 'level-slider'} w-full" title="Slide to preview stats per level">
           <div class="flex justify-between text-[11px] text-gray-300 pt-1 border-t border-[#1a2332]">
             <span>Burst Output:</span>
-            <span id="dex-w-burst-${w.id}" class="font-bold text-red-400 font-mono">${w.burstDps.toLocaleString()} DPS</span>
+            <span id="dex-w-burst-${w.id}" class="font-bold text-red-400 font-mono">${w.burstDps.toLocaleString('en-US')} DPS</span>
           </div>
           <div class="flex justify-between text-[11px] text-gray-300">
             <span>Reload Downtime:</span>
@@ -147,7 +147,7 @@ function renderTitanWeaponsEncyclopedia() {
             class="level-slider level-slider-titan w-full" title="Slide to preview stats per level">
           <div class="flex justify-between text-[11px] text-gray-300 pt-1 border-t border-[#1a2332]">
             <span>Burst Output:</span>
-            <span id="dex-w-burst-${w.id}" class="font-bold text-red-400 font-mono">${w.burstDps.toLocaleString()} DPS</span>
+            <span id="dex-w-burst-${w.id}" class="font-bold text-red-400 font-mono">${w.burstDps.toLocaleString('en-US')} DPS</span>
           </div>
           <div class="flex justify-between text-[11px] text-gray-300">
             <span>Reload Downtime:</span>
@@ -203,7 +203,7 @@ function renderRobotEncyclopedia() {
             class="level-slider w-full" title="Slide to preview robot durability per level">
           <div class="flex justify-between text-[11px] text-gray-300 pt-1 border-t border-[#1a2332]">
             <span>Durability:</span>
-            <span id="dex-bot-hp-${r.id}" class="font-bold text-emerald-400 font-mono">${(r.hp || 220000).toLocaleString()} HP</span>
+            <span id="dex-bot-hp-${r.id}" class="font-bold text-emerald-400 font-mono">${(r.hp || 220000).toLocaleString('en-US')} HP</span>
           </div>
           <div class="flex justify-between text-[11px] text-gray-300">
             <span>Hardpoints:</span>
@@ -256,7 +256,7 @@ function renderTitanEncyclopedia() {
           class="level-slider level-slider-titan w-full" title="Slide from Lv 1 to Lv 150">
         <div class="flex justify-between text-[11px] text-gray-300 pt-1 border-t border-[#1a2332]">
           <span>Hull Durability:</span>
-          <span id="dex-titan-hp-${t.id}" class="font-bold text-emerald-400 font-mono">${(t.hp || 950000).toLocaleString()} HP</span>
+          <span id="dex-titan-hp-${t.id}" class="font-bold text-emerald-400 font-mono">${(t.hp || 950000).toLocaleString('en-US')} HP</span>
         </div>
         <div class="flex justify-between text-[11px] text-gray-300">
           <span>Titan Hardpoints:</span>
@@ -642,11 +642,11 @@ function renderPersonalStorage() {
                   <div class="mt-3 p-2 bg-[#111620] rounded-lg border border-[#263040] text-xs space-y-1">
                     <div class="flex justify-between text-gray-300">
                       <span>Burst DPS:</span>
-                      <span class="font-bold text-red-400 font-mono">${wObj.burstDps.toLocaleString()}</span>
+                      <span class="font-bold text-red-400 font-mono">${wObj.burstDps.toLocaleString('en-US')}</span>
                     </div>
                     <div class="flex justify-between text-gray-300">
                       <span>Sustained:</span>
-                      <span class="font-bold text-orange-400 font-mono">${wObj.sustainedDps.toLocaleString()}</span>
+                      <span class="font-bold text-orange-400 font-mono">${wObj.sustainedDps.toLocaleString('en-US')}</span>
                     </div>
                     <div class="flex justify-between text-gray-300">
                       <span>Reload:</span>
@@ -689,7 +689,7 @@ function renderPersonalStorage() {
                   <div class="mt-3 p-2 bg-[#111620] rounded-lg border border-[#263040] text-xs space-y-1">
                     <div class="flex justify-between text-gray-300">
                       <span>Burst DPS:</span>
-                      <span class="font-bold text-red-400 font-mono">${wObj.burstDps.toLocaleString()}</span>
+                      <span class="font-bold text-red-400 font-mono">${wObj.burstDps.toLocaleString('en-US')}</span>
                     </div>
                     <div class="flex justify-between text-gray-300">
                       <span>Reload:</span>
@@ -711,7 +711,7 @@ function renderPersonalStorage() {
               <p class="text-gray-300">${weapon.status}</p>
               <div class="flex justify-between text-gray-400 font-mono">
                 <span>Range: ${weapon.range}m</span>
-                <span>Burst: ${weapon.burstDps.toLocaleString()} DPS</span>
+                <span>Burst: ${weapon.burstDps.toLocaleString('en-US')} DPS</span>
                 <span>Reload: ${weapon.reload}s</span>
               </div>
             </div>

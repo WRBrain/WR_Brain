@@ -171,11 +171,11 @@ window.openAddCatalogModal = function(type) {
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-[#263040]">
               <div class="p-2 rounded-xl bg-[#080c14] border border-[#263040] text-center">
                 <span class="text-[10px] text-gray-400 uppercase font-bold block">Burst Output</span>
-                <span class="text-sm font-black text-red-400 font-mono">${burstDPS.toLocaleString()} DPS</span>
+                <span class="text-sm font-black text-red-400 font-mono">${burstDPS.toLocaleString('en-US')} DPS</span>
               </div>
               <div class="p-2 rounded-xl bg-[#080c14] border border-[#263040] text-center">
                 <span class="text-[10px] text-gray-400 uppercase font-bold block">Cycle Output</span>
-                <span class="text-sm font-black text-amber-400 font-mono">${cycleDPS.toLocaleString()} DPS</span>
+                <span class="text-sm font-black text-amber-400 font-mono">${cycleDPS.toLocaleString('en-US')} DPS</span>
               </div>
               <div class="p-2 rounded-xl bg-[#080c14] border border-[#263040] text-center">
                 <span class="text-[10px] text-gray-400 uppercase font-bold block">Range</span>
@@ -360,7 +360,7 @@ window.openAddCatalogModal = function(type) {
                   <strong class="text-sm font-black text-white">${siblingWeaponRecommendation.name}</strong>
                   <span class="text-blue-400 font-mono text-[11px] font-bold">${siblingWeaponRecommendation.range || 500}m</span>
                 </div>
-                <span class="text-gray-300 text-[11px] block mt-0.5">Burst: <strong class="text-red-400">${burstDps.toLocaleString()} DPS</strong> • Cycle: <strong class="text-amber-400">${cycleDps.toLocaleString()} DPS</strong></span>
+                <span class="text-gray-300 text-[11px] block mt-0.5">Burst: <strong class="text-red-400">${burstDps.toLocaleString('en-US')} DPS</strong> • Cycle: <strong class="text-amber-400">${cycleDps.toLocaleString('en-US')} DPS</strong></span>
               </div>
               <button onclick="event.stopPropagation(); equipWeaponDirect('${siblingWeaponRecommendation.id}', 'Lv 1', false)" class="px-4 py-1.5 text-xs font-black rounded-lg bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-black shadow-lg shadow-amber-500/30 transition-all hover:scale-105 active:scale-95 shrink-0">
                 ⚡ Equip Sibling (${siblingWeaponRecommendation.name})
@@ -410,8 +410,8 @@ window.openAddCatalogModal = function(type) {
                 ${isCrossSizeMatched ? `<span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">🔗 Sibling Match for "${search}"</span>` : ''}
               </div>
               <div class="flex items-center gap-3 text-[11px] text-gray-300">
-                <span>Burst: <strong class="text-red-400 font-mono" id="wp-card-burst-${mw.id}">${burstDps.toLocaleString()} DPS</strong></span>
-                <span>Cycle: <strong class="text-amber-400 font-mono" id="wp-card-cycle-${mw.id}">${cycleDps.toLocaleString()} DPS</strong></span>
+                <span>Burst: <strong class="text-red-400 font-mono" id="wp-card-burst-${mw.id}">${burstDps.toLocaleString('en-US')} DPS</strong></span>
+                <span>Cycle: <strong class="text-amber-400 font-mono" id="wp-card-cycle-${mw.id}">${cycleDps.toLocaleString('en-US')} DPS</strong></span>
                 <span class="text-gray-400">Reload: <strong class="text-emerald-400 font-mono">${mw.reloadTime || (mw.reload ? mw.reload + 's' : '5s')}</strong></span>
               </div>
               ${mw.status ? `<span class="text-[10px] text-amber-300/90 font-medium block">${mw.status}</span>` : ''}
@@ -443,8 +443,8 @@ window.openAddCatalogModal = function(type) {
       const mult = getLevelMultiplier(level, multType);
       const burstEl = document.getElementById(`wp-card-burst-${weaponId}`);
       const cycleEl = document.getElementById(`wp-card-cycle-${weaponId}`);
-      if (burstEl) burstEl.innerText = `${Math.round((mw.burstDps || 0) * mult).toLocaleString()} DPS`;
-      if (cycleEl) cycleEl.innerText = `${Math.round((mw.sustainedDps || 0) * mult).toLocaleString()} DPS`;
+      if (burstEl) burstEl.innerText = `${Math.round((mw.burstDps || 0) * mult).toLocaleString('en-US')} DPS`;
+      if (cycleEl) cycleEl.innerText = `${Math.round((mw.sustainedDps || 0) * mult).toLocaleString('en-US')} DPS`;
     };
 
     // =========================================================================
@@ -521,7 +521,7 @@ window.openAddCatalogModal = function(type) {
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-[#263040]">
               <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
                 <span class="text-[10px] text-gray-400 uppercase font-bold block">Durability HP</span>
-                <span class="text-sm font-black text-emerald-400 font-mono">${scaledHp.toLocaleString()} HP</span>
+                <span class="text-sm font-black text-emerald-400 font-mono">${scaledHp.toLocaleString('en-US')} HP</span>
               </div>
               <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
                 <span class="text-[10px] text-gray-400 uppercase font-bold block">Hardpoint Mounts</span>
@@ -657,7 +657,7 @@ window.openAddCatalogModal = function(type) {
               <div class="flex items-center gap-2">
                 <span class="badge-${r.tier.toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${r.tier}</span>
                 <span class="font-bold text-white text-sm">${r.name}</span>
-                <span class="text-emerald-400 font-mono text-[11px]">${r.hp.toLocaleString()} HP</span>
+                <span class="text-emerald-400 font-mono text-[11px]">${r.hp.toLocaleString('en-US')} HP</span>
               </div>
               <span class="text-gray-400 text-[11px] block mt-0.5">${r.role} • ${r.faction} • ${r.hardpoints.map(h => h.size).join(" + ")}</span>
             </div>
@@ -1051,7 +1051,7 @@ window.openAddCatalogModal = function(type) {
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-[#263040]">
               <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
                 <span class="text-[10px] text-gray-400 uppercase font-bold block">Hull Durability</span>
-                <span class="text-sm font-black text-emerald-400 font-mono">${scaledHp.toLocaleString()} HP</span>
+                <span class="text-sm font-black text-emerald-400 font-mono">${scaledHp.toLocaleString('en-US')} HP</span>
               </div>
               <div class="p-2.5 rounded-xl bg-[#080c14] border border-[#263040]">
                 <span class="text-[10px] text-gray-400 uppercase font-bold block">Heavy Mounts</span>
@@ -1112,7 +1112,7 @@ window.openAddCatalogModal = function(type) {
               <div class="flex items-center gap-2">
                 <span class="badge-titan text-[9px] font-black px-1.5 py-0.2 rounded uppercase">TITAN</span>
                 <span class="font-bold text-white text-sm">${t.name}</span>
-                <span class="text-emerald-400 font-mono text-[11px]">${t.hp.toLocaleString()} HP</span>
+                <span class="text-emerald-400 font-mono text-[11px]">${t.hp.toLocaleString('en-US')} HP</span>
               </div>
               <span class="text-gray-400 text-[11px] block mt-0.5">${t.role} • ${t.hardpoints.map(h => h.size).join(" + ")}</span>
             </div>
@@ -1987,7 +1987,7 @@ window.openAddCatalogModal = function(type) {
       const audit = calculateHangarSynergy(hangar.slots, hangar.titanSlot);
 
       let md = `# ${hangar.name}\n\n`;
-      md += `**Synergy Score:** ${audit.synergyScore}% | **Total Burst DPS:** ${audit.totalBurstDPS.toLocaleString()} DPS | **Cycle DPS:** ${audit.totalCycleDPS.toLocaleString()} DPS\n\n`;
+      md += `**Synergy Score:** ${audit.synergyScore}% | **Total Burst DPS:** ${audit.totalBurstDPS.toLocaleString('en-US')} DPS | **Cycle DPS:** ${audit.totalCycleDPS.toLocaleString('en-US')} DPS\n\n`;
 
       if (hangar.mothership && hangar.mothership.name) {
         md += `### 🚀 Orbital Mothership\n`;
