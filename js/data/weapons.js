@@ -2,10 +2,10 @@
 
 const WEAPON_FAMILIES = {
   "Acoustic / Echo": {
-    name: "Acoustic / Echo (Screamer, Reglar, Howler)",
-    desc: "High-frequency acoustic shockwaves delivering high burst DPS that penetrates defensive systems at 350m.",
+    name: "Acoustic / Echo (Screamer, Growler, Howler)",
+    desc: "High-frequency sonic resonance shockwaves delivering high burst DPS that inflicts unrepairable Grey Damage at 500m.",
     Heavy: "screamer",
-    Medium: "reglar",
+    Medium: "growler",
     Light: "howler"
   },
   "Electricity / Zap": {
@@ -389,6 +389,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Curved Trajectory MG"
   },
   {
+    "id": "growler",
+    "name": "Growler",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 14200,
+    "sustainedDps": 8100,
+    "reload": 7.2,
+    "family": "Acoustic / Echo",
+    "status": "Tier 4 Acoustic Resonance (Grey Damage)"
+  },
+  {
     "id": "ultimate_gendarme",
     "name": "Ultimate Gendarme",
     "size": "Alpha",
@@ -765,12 +777,12 @@ const MASTER_WEAPONS = [
     "name": "Howler",
     "size": "Light",
     "tier": "T4",
-    "range": 350,
+    "range": 500,
     "burstDps": 9600,
     "sustainedDps": 5400,
-    "reload": 6,
+    "reload": 7.2,
     "family": "Acoustic / Echo",
-    "status": "Tier 4 Acoustic Piercing"
+    "status": "Tier 4 Acoustic Resonance (Grey Damage)"
   },
   {
     "id": "hwangje",
@@ -1337,21 +1349,6 @@ const MASTER_WEAPONS = [
     "status": "Titan Beta Cryo Blast Rockets"
   },
   {
-    "id": "reglar",
-    "name": "Reglar",
-    "size": "Medium",
-    "tier": "T4",
-    "range": 350,
-    "burstDps": 14200,
-    "sustainedDps": 8100,
-    "reload": 6,
-    "family": "Acoustic / Echo",
-    "aliases": [
-      "Growler"
-    ],
-    "status": "Tier 4 Acoustic Piercing"
-  },
-  {
     "id": "scorcher",
     "name": "Scorcher",
     "size": "Medium",
@@ -1524,12 +1521,12 @@ const MASTER_WEAPONS = [
     "name": "Screamer",
     "size": "Heavy",
     "tier": "T4",
-    "range": 350,
+    "range": 500,
     "burstDps": 19800,
-    "sustainedDps": 11200,
-    "reload": 6,
+    "sustainedDps": 11300,
+    "reload": 7.2,
     "family": "Acoustic / Echo",
-    "status": "Tier 4 Acoustic Piercing"
+    "status": "Tier 4 Acoustic Resonance (Grey Damage)"
   },
   {
     "id": "gauss",

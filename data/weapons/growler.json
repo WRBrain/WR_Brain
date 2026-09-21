@@ -1,11 +1,11 @@
 {
-  "id": "howler",
-  "name": "Howler",
-  "size": "Light",
+  "id": "growler",
+  "name": "Growler",
+  "size": "Medium",
   "tier": "T4",
   "range": 500,
-  "burstDps": 9600,
-  "sustainedDps": 5400,
+  "burstDps": 14200,
+  "sustainedDps": 8100,
   "reload": 7.2,
   "family": "Acoustic / Echo",
   "status": "Tier 4 Acoustic Resonance (Grey Damage)"
