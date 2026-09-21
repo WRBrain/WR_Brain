@@ -271,12 +271,41 @@ window.openAddCatalogModal = function(type) {
       const countBadge = document.getElementById('picker-weapon-count-badge');
       if (!container) return;
 
-      const search = (document.getElementById('weapon-picker-search')?.value || '').toLowerCase();
+      const search = (document.getElementById('weapon-picker-search')?.value || '').toLowerCase().trim();
       const targetSize = (activeEquipTarget.size || 'Heavy').toLowerCase();
       const isTitan = !!activeEquipTarget.isTitan;
       const levelsArray = isTitan ? TITAN_WEAPON_LEVELS : BOT_LEVELS;
       const multType = isTitan ? 'titan_weapon' : 'bot_or_weapon';
       container.innerHTML = "";
+
+      // Check if robot has another weapon equipped in its other slots to provide smart sibling match
+      const hangar = AppState.hangars[activeEquipTarget.hangarKey];
+      let siblingFamilyHint = null;
+      let siblingWeaponRecommendation = null;
+
+      if (!isTitan && hangar && hangar.slots && hangar.slots[activeEquipTarget.slotIndex]) {
+        const slot = hangar.slots[activeEquipTarget.slotIndex];
+        const otherEquipped = (slot.weapons || []).find((w, idx) => idx !== activeEquipTarget.hardpointIndex && w && w.id);
+        if (otherEquipped) {
+          const otherMw = MASTER_WEAPONS.find(item => item.id === otherEquipped.id);
+          if (otherMw && otherMw.family) {
+            siblingFamilyHint = otherMw.family;
+            // Find this slot's size sibling in that family
+            siblingWeaponRecommendation = MASTER_WEAPONS.find(item => (item.size || '').toLowerCase() === targetSize && item.family === otherMw.family);
+          }
+        }
+      }
+
+      // If user typed a search term (e.g. "screamer"), find if that query matches a weapon in another size and get its family
+      let crossSizeFamilyMatches = [];
+      if (search) {
+        const matchedAnySizeWeapons = MASTER_WEAPONS.filter(w => (w.name || w.id || '').toLowerCase().includes(search));
+        matchedAnySizeWeapons.forEach(w => {
+          if (w.family && !crossSizeFamilyMatches.includes(w.family)) {
+            crossSizeFamilyMatches.push(w.family);
+          }
+        });
+      }
 
       // All matching weapons from Master Catalog for this hardpoint mount size
       const allMatching = (typeof MASTER_WEAPONS !== 'undefined' ? MASTER_WEAPONS : []).filter(w => (w.size || '').toLowerCase() === targetSize);
@@ -284,15 +313,55 @@ window.openAddCatalogModal = function(type) {
         if (!w) return false;
         const name = (w.name || w.id || '').toLowerCase();
         const family = (w.family || '').toLowerCase();
-        const matchesSearch = name.includes(search) || family.includes(search);
+        
+        // Direct match or cross-size family match (e.g. searching 'screamer' on medium mount finds 'Reglar')
+        const matchesDirect = name.includes(search) || family.includes(search);
+        const matchesSiblingFamily = search ? crossSizeFamilyMatches.some(f => f.toLowerCase() === family) : false;
+        const matchesSearch = !search || matchesDirect || matchesSiblingFamily;
+
         const matchesTier = activeWeaponPickerTier === 'ALL' || (w.tier === activeWeaponPickerTier);
         return matchesSearch && matchesTier;
       });
 
       if (countBadge) countBadge.innerText = `${filteredCatalog.length} Compatible Weapons`;
 
+      // 1. Top Smart Sibling Recommendation Banner (if applicable)
+      if (siblingWeaponRecommendation && !search) {
+        const tier = siblingWeaponRecommendation.tier || 'T4';
+        const defaultLevel = 'Lv 1';
+        const mult = getLevelMultiplier(defaultLevel, multType);
+        const burstDps = Math.round((siblingWeaponRecommendation.burstDps || 0) * mult);
+        const cycleDps = Math.round((siblingWeaponRecommendation.sustainedDps || 0) * mult);
+
+        container.innerHTML += `
+          <div class="p-3.5 rounded-xl bg-gradient-to-r from-amber-950/40 via-[#161f2e] to-[#080c14] border border-amber-500/50 space-y-2 mb-2 shadow-lg">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-black text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                🔗 Matching ${activeEquipTarget.size} Sibling for your Loadout
+              </span>
+              <span class="text-[10px] text-amber-400/90 font-mono bg-amber-950/60 px-2 py-0.5 rounded border border-amber-500/30">
+                Family: ${siblingFamilyHint}
+              </span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="badge-${tier.toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${tier}</span>
+                  <strong class="text-sm font-black text-white">${siblingWeaponRecommendation.name}</strong>
+                  <span class="text-blue-400 font-mono text-[11px] font-bold">${siblingWeaponRecommendation.range || 500}m</span>
+                </div>
+                <span class="text-gray-300 text-[11px] block mt-0.5">Burst: <strong class="text-red-400">${burstDps.toLocaleString()} DPS</strong> • Cycle: <strong class="text-amber-400">${cycleDps.toLocaleString()} DPS</strong></span>
+              </div>
+              <button onclick="event.stopPropagation(); equipWeaponDirect('${siblingWeaponRecommendation.id}', 'Lv 1', false)" class="px-4 py-1.5 text-xs font-black rounded-lg bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-black shadow-lg shadow-amber-500/30 transition-all hover:scale-105 active:scale-95 shrink-0">
+                ⚡ Equip Sibling (${siblingWeaponRecommendation.name})
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
       if (filteredCatalog.length === 0) {
-        container.innerHTML = `
+        container.innerHTML += `
           <div class="p-8 text-center text-gray-500 text-xs">
             No compatible ${activeEquipTarget.size} weapons match your search query.
           </div>
@@ -301,7 +370,7 @@ window.openAddCatalogModal = function(type) {
       }
 
       container.innerHTML += `<div class="text-[11px] font-black text-amber-400 uppercase tracking-widest pt-1 flex items-center justify-between">
-        <span>🔫 Select Any Weapon to Equip</span>
+        <span>🔫 Available ${activeEquipTarget.size} Weapons (${filteredCatalog.length})</span>
         <span class="text-[10px] text-gray-400 font-normal">Choose level & test DPS live</span>
       </div>`;
 
@@ -314,14 +383,18 @@ window.openAddCatalogModal = function(type) {
 
         const levelOptionsHtml = levelsArray.map(lvl => `<option value="${lvl}" ${lvl === defaultLevel ? 'selected' : ''}>${lvl}</option>`).join('');
 
+        // Check if this was matched via sibling cross-size
+        const isCrossSizeMatched = search && !((mw.name || '').toLowerCase().includes(search)) && crossSizeFamilyMatches.includes(mw.family);
+
         container.innerHTML += `
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 bg-[#080c14] hover:bg-[#131b29] border border-[#263040] hover:border-amber-500/80 rounded-xl text-xs transition-all gap-3 group">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 bg-[#080c14] hover:bg-[#131b29] border ${isCrossSizeMatched ? 'border-amber-500/60 bg-amber-950/10' : 'border-[#263040]'} hover:border-amber-500/80 rounded-xl text-xs transition-all gap-3 group">
             <div class="space-y-1">
               <div class="flex items-center gap-2 flex-wrap">
                 <span class="badge-${tier.toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${tier}</span>
                 <span class="font-bold text-white text-sm group-hover:text-amber-300 transition-colors">${mw.name}</span>
                 <span class="text-blue-400 font-mono text-[11px] font-bold">${mw.range || 500}m</span>
                 <span class="text-gray-400 text-[11px]">${mw.family || 'Arsenal'}</span>
+                ${isCrossSizeMatched ? `<span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">🔗 Sibling Match for "${search}"</span>` : ''}
               </div>
               <div class="flex items-center gap-3 text-[11px] text-gray-300">
                 <span>Burst: <strong class="text-red-400 font-mono" id="wp-card-burst-${mw.id}">${burstDps.toLocaleString()} DPS</strong></span>
