@@ -303,6 +303,67 @@ assert(parsed.hangars && parsed.hangars.hangar1.slots[0].specialization.activeMo
 
 
 // =============================================================================
+// SUITE 7: UNIVERSAL EXHAUSTIVE ENTITY AUDIT (113 ROBOTS, 194 WEAPONS, 19 TITANS)
+// =============================================================================
+console.log("\n🌐 SUITE 7: Universal Exhaustive Entity Audit & Live Scaling Verification");
+
+// 7.1 Verify all 113 Robots
+let robotsAllValid = true;
+let robotErrorMsg = '';
+MASTER_ROBOTS.forEach(r => {
+  if (!r.id || !r.name || !r.tier || !r.role || !r.hp || !r.speed || !r.hardpoints || r.hardpoints.length === 0) {
+    robotsAllValid = false;
+    robotErrorMsg = `Invalid schema in robot: ${r.id}`;
+  }
+  // Check durability scaling across all tiers
+  const lv1Hp = Math.round(r.hp * getLevelMultiplier('Lv 1', 'bot_or_weapon'));
+  const mk2Hp = Math.round(r.hp * getLevelMultiplier('MK2 Lv 12', 'bot_or_weapon'));
+  const mk3Hp = Math.round(r.hp * getLevelMultiplier('MK3', 'bot_or_weapon'));
+  if (isNaN(lv1Hp) || isNaN(mk2Hp) || isNaN(mk3Hp) || mk3Hp <= lv1Hp || lv1Hp < 40000 || mk3Hp > 850000) {
+    robotsAllValid = false;
+    robotErrorMsg = `Unrealistic or NaN HP scaling in robot: ${r.id} (Lv1: ${lv1Hp}, MK3: ${mk3Hp})`;
+  }
+});
+assert(robotsAllValid, `All ${MASTER_ROBOTS.length} Robots pass strict schema, speed & durability scaling checks`, robotErrorMsg);
+
+// 7.2 Verify all 194 Weapons
+let weaponsAllValid = true;
+let weaponErrorMsg = '';
+MASTER_WEAPONS.forEach(w => {
+  if (!w.id || !w.name || !w.size || !w.tier || w.burstDps === undefined || w.sustainedDps === undefined) {
+    weaponsAllValid = false;
+    weaponErrorMsg = `Invalid schema in weapon: ${w.id}`;
+  }
+  const isTitanW = w.size === 'Alpha' || w.size === 'Beta';
+  const multType = isTitanW ? 'titan_weapon' : 'bot_or_weapon';
+  const lv1Dps = Math.round(w.burstDps * getLevelMultiplier('Lv 1', multType));
+  const maxDps = Math.round(w.burstDps * getLevelMultiplier(isTitanW ? 'Lv 25' : 'MK3', multType));
+  if (isNaN(lv1Dps) || isNaN(maxDps) || (w.burstDps > 0 && maxDps <= lv1Dps)) {
+    weaponsAllValid = false;
+    weaponErrorMsg = `DPS multiplier error in weapon: ${w.id}`;
+  }
+});
+assert(weaponsAllValid, `All ${MASTER_WEAPONS.length} Weapons pass strict schema, mount size & DPS scaling checks`, weaponErrorMsg);
+
+// 7.3 Verify all 19 Titans
+let titansAllValid = true;
+let titanErrorMsg = '';
+MASTER_TITANS.forEach(t => {
+  if (!t.id || !t.name || !t.tier || !t.hp || !t.hardpoints || t.hardpoints.length === 0) {
+    titansAllValid = false;
+    titanErrorMsg = `Invalid schema in titan: ${t.id}`;
+  }
+  const lv1Hp = Math.round(t.hp * getLevelMultiplier('Lv 1', 'titan'));
+  const lv150Hp = Math.round(t.hp * getLevelMultiplier('Lv 150', 'titan'));
+  if (isNaN(lv1Hp) || isNaN(lv150Hp) || lv150Hp <= lv1Hp || lv1Hp < 250000 || lv150Hp > 3500000) {
+    titansAllValid = false;
+    titanErrorMsg = `Unrealistic or NaN Titan HP scaling: ${t.id} (Lv1: ${lv1Hp}, Lv150: ${lv150Hp})`;
+  }
+});
+assert(titansAllValid, `All ${MASTER_TITANS.length} Flagship Titans pass strict schema & Lv1-150 durability scaling`, titanErrorMsg);
+
+
+// =============================================================================
 // SUMMARY REPORT
 // =============================================================================
 console.log("\n========================================================");
