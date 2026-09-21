@@ -5,12 +5,40 @@
   "tier": "T4",
   "skill": "Protasov's Suppression: Increases Suppression debuff strength by +20%.",
   "skills": [
-    "Armor Expert",
-    "Road Hog",
-    "Mechanic",
-    "Master Gunsmith",
-    "Dodger",
-    "Tough Guy",
-    "Deft Survivor"
+    {
+      "id": "armor_expert",
+      "name": "Armor Expert",
+      "tier": "T4"
+    },
+    {
+      "id": "tough_guy",
+      "name": "Tough Guy",
+      "tier": "T4"
+    },
+    {
+      "id": "mechanic",
+      "name": "Mechanic",
+      "tier": "T4"
+    },
+    {
+      "id": "stubborn_warrior",
+      "name": "Stubborn Warrior",
+      "tier": "T4"
+    },
+    {
+      "id": "road_hog",
+      "name": "Road Hog",
+      "tier": "T4"
+    },
+    {
+      "id": "invulnerable_raider",
+      "name": "Invulnerable Raider",
+      "tier": "T4"
+    },
+    {
+      "id": "master_gunsmith",
+      "name": "Master Gunsmith",
+      "tier": "T4"
+    }
   ]
 }

@@ -5,12 +5,40 @@
   "tier": "Titan",
   "skill": "Titan Shockwave: Titan jump/slam blast radius increased by 30% with +15% damage.",
   "skills": [
-    "Armor Expert",
-    "Road Hog",
-    "Mechanic",
-    "Master Gunsmith",
-    "Dodger",
-    "Tough Guy",
-    "Deft Survivor"
+    {
+      "id": "titan_armor_expert",
+      "name": "Titan Armor Expert",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_accelerator",
+      "name": "Titan Accelerator",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_mechanic",
+      "name": "Titan Mechanic",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_furious",
+      "name": "Titan Furious",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_destroyer",
+      "name": "Titan Destroyer",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_tough_guy",
+      "name": "Titan Tough Guy",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_raider",
+      "name": "Titan Raider",
+      "tier": "T4"
+    }
   ]
 }

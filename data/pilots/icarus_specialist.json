@@ -5,12 +5,40 @@
   "tier": "T2",
   "skill": "Phase Warp Mastery: +8% movement speed for 5s after teleporting or dashing.",
   "skills": [
-    "Armor Expert",
-    "Road Hog",
-    "Mechanic",
-    "Master Gunsmith",
-    "Dodger",
-    "Tough Guy",
-    "Deft Survivor"
+    {
+      "id": "armor_expert",
+      "name": "Armor Expert",
+      "tier": "T4"
+    },
+    {
+      "id": "tough_guy",
+      "name": "Tough Guy",
+      "tier": "T4"
+    },
+    {
+      "id": "mechanic",
+      "name": "Mechanic",
+      "tier": "T4"
+    },
+    {
+      "id": "master_gunsmith",
+      "name": "Master Gunsmith",
+      "tier": "T4"
+    },
+    {
+      "id": "road_hog",
+      "name": "Road Hog",
+      "tier": "T4"
+    },
+    {
+      "id": "deft_survivor",
+      "name": "Deft Survivor",
+      "tier": "T4"
+    },
+    {
+      "id": "dodger",
+      "name": "Dodger",
+      "tier": "T4"
+    }
   ]
 }

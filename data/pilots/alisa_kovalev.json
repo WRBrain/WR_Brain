@@ -5,12 +5,40 @@
   "tier": "T4",
   "skill": "Bond Acceleration: Khepri Bond ability gives +15% additional movement speed and shield recharge.",
   "skills": [
-    "Armor Expert",
-    "Road Hog",
-    "Mechanic",
-    "Master Gunsmith",
-    "Dodger",
-    "Tough Guy",
-    "Deft Survivor"
+    {
+      "id": "true_ace",
+      "name": "True Ace",
+      "tier": "T4"
+    },
+    {
+      "id": "wonderworker",
+      "name": "Wonderworker",
+      "tier": "T4"
+    },
+    {
+      "id": "armor_expert",
+      "name": "Armor Expert",
+      "tier": "T4"
+    },
+    {
+      "id": "mechanic",
+      "name": "Mechanic",
+      "tier": "T4"
+    },
+    {
+      "id": "road_hog",
+      "name": "Road Hog",
+      "tier": "T4"
+    },
+    {
+      "id": "dodger",
+      "name": "Dodger",
+      "tier": "T4"
+    },
+    {
+      "id": "deft_survivor",
+      "name": "Deft Survivor",
+      "tier": "T4"
+    }
   ]
 }

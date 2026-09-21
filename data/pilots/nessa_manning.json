@@ -5,12 +5,40 @@
   "tier": "T4",
   "skill": "Quinquennial Dash: Nether gains temporary stealth after using Quinquennial Dash.",
   "skills": [
-    "Armor Expert",
-    "Road Hog",
-    "Mechanic",
-    "Master Gunsmith",
-    "Dodger",
-    "Tough Guy",
-    "Deft Survivor"
+    {
+      "id": "road_hog",
+      "name": "Road Hog",
+      "tier": "T4"
+    },
+    {
+      "id": "master_gunsmith",
+      "name": "Master Gunsmith",
+      "tier": "T4"
+    },
+    {
+      "id": "deft_survivor",
+      "name": "Deft Survivor",
+      "tier": "T4"
+    },
+    {
+      "id": "destroyer",
+      "name": "Destroyer",
+      "tier": "T4"
+    },
+    {
+      "id": "thrill_seeker",
+      "name": "Thrill Seeker",
+      "tier": "T4"
+    },
+    {
+      "id": "armor_expert",
+      "name": "Armor Expert",
+      "tier": "T4"
+    },
+    {
+      "id": "mechanic",
+      "name": "Mechanic",
+      "tier": "T4"
+    }
   ]
 }

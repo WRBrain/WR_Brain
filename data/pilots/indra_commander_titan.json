@@ -5,12 +5,40 @@
   "tier": "T4",
   "skill": "Vipassana Trance: Indra Vipassana phase shift duration +1.5s and restores 10% durability upon exit.",
   "skills": [
-    "Titan Armor Expert",
-    "Titan Accelerator",
-    "Titan Mechanic",
-    "Titan Furious",
-    "Titan Raider",
-    "Titan Tough Guy",
-    "Titan Destroyer"
+    {
+      "id": "titan_armor_expert",
+      "name": "Titan Armor Expert",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_accelerator",
+      "name": "Titan Accelerator",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_mechanic",
+      "name": "Titan Mechanic",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_furious",
+      "name": "Titan Furious",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_destroyer",
+      "name": "Titan Destroyer",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_tough_guy",
+      "name": "Titan Tough Guy",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_raider",
+      "name": "Titan Raider",
+      "tier": "T4"
+    }
   ]
 }

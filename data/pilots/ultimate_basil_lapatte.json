@@ -5,12 +5,40 @@
   "tier": "ULTIMATE",
   "skill": "Supreme Sentry: Ultimate Fujin gains +30% weapon damage and +100% shield capacity in Sentry Mode.",
   "skills": [
-    "Armor Expert",
-    "Road Hog",
-    "Mechanic",
-    "Master Gunsmith",
-    "Dodger",
-    "Tough Guy",
-    "Deft Survivor"
+    {
+      "id": "master_gunsmith",
+      "name": "Master Gunsmith",
+      "tier": "T4"
+    },
+    {
+      "id": "thrill_seeker",
+      "name": "Thrill Seeker",
+      "tier": "T4"
+    },
+    {
+      "id": "sharpshooter",
+      "name": "Sharpshooter",
+      "tier": "T4"
+    },
+    {
+      "id": "speed_shooter",
+      "name": "Speed Shooter",
+      "tier": "T4"
+    },
+    {
+      "id": "guidance_operator",
+      "name": "Guidance Operator",
+      "tier": "T4"
+    },
+    {
+      "id": "armor_expert",
+      "name": "Armor Expert",
+      "tier": "T4"
+    },
+    {
+      "id": "mechanic",
+      "name": "Mechanic",
+      "tier": "T4"
+    }
   ]
 }

@@ -1659,6 +1659,45 @@ window.openAddCatalogModal = function(type) {
     let activePilotSkillsTarget = null;
     let activeWorkingSkills = [];
 
+    const PILOT_SKILL_PRESETS = {
+      brawler: [
+        { id: "armor_expert", tier: "T4" },
+        { id: "tough_guy", tier: "T4" },
+        { id: "mechanic", tier: "T4" },
+        { id: "master_gunsmith", tier: "T4" },
+        { id: "road_hog", tier: "T4" },
+        { id: "deft_survivor", tier: "T4" },
+        { id: "dodger", tier: "T4" }
+      ],
+      damage: [
+        { id: "master_gunsmith", tier: "T4" },
+        { id: "thrill_seeker", tier: "T4" },
+        { id: "destroyer", tier: "T4" },
+        { id: "speed_shooter", tier: "T4" },
+        { id: "sharpshooter", tier: "T4" },
+        { id: "road_hog", tier: "T4" },
+        { id: "mechanic", tier: "T4" }
+      ],
+      speed: [
+        { id: "road_hog", tier: "T4" },
+        { id: "spy", tier: "T4" },
+        { id: "adamant_road_hog", tier: "T4" },
+        { id: "deft_survivor", tier: "T4" },
+        { id: "armor_expert", tier: "T4" },
+        { id: "master_gunsmith", tier: "T4" },
+        { id: "mechanic", tier: "T4" }
+      ],
+      shield: [
+        { id: "energy_shield_expert", tier: "T4" },
+        { id: "crazy_electrician", tier: "T4" },
+        { id: "physical_shield_expert", tier: "T4" },
+        { id: "armor_expert", tier: "T4" },
+        { id: "mechanic", tier: "T4" },
+        { id: "dodger", tier: "T4" },
+        { id: "road_hog", tier: "T4" }
+      ]
+    };
+
     const PILOT_RANK_DATA = [
       { minLevel: 1, rankName: "Private", rankTitle: "Rank 1: Private (Skill Slot 1)", badgeColor: "bg-gray-800 text-gray-300 border border-gray-700" },
       { minLevel: 11, rankName: "Corporal", rankTitle: "Rank 2: Corporal (Skill Slot 2)", badgeColor: "bg-blue-950/80 text-blue-300 border border-blue-700/50" },
@@ -1692,6 +1731,24 @@ window.openAddCatalogModal = function(type) {
       return slot ? slot.pilot : null;
     }
 
+    function normalizeWorkingPilotSkill(item) {
+      if (!item) return { id: "", tier: "T4" };
+      if (typeof item === 'string') {
+        const cleanName = item.trim();
+        const ms = MASTER_PILOT_SKILLS.find(x => x.name.toLowerCase() === cleanName.toLowerCase() || x.id.toLowerCase() === cleanName.toLowerCase().replace(/[^a-z0-9]/g, '_'));
+        return { id: ms ? ms.id : cleanName.toLowerCase().replace(/[^a-z0-9]/g, '_'), tier: "T4" };
+      }
+      if (typeof item === 'object') {
+        let id = item.id || '';
+        if (!id && item.name) {
+          const ms = MASTER_PILOT_SKILLS.find(x => x.name.toLowerCase() === item.name.toLowerCase());
+          if (ms) id = ms.id;
+        }
+        return { id: id, tier: item.tier || "T4" };
+      }
+      return { id: "", tier: "T4" };
+    }
+
     window.openPilotSkillsModal = function(hangarKey, slotIndex) {
       activePilotSkillsTarget = { hangarKey, slotIndex, reserveIndex: null };
       const slot = AppState.hangars[hangarKey]?.slots[slotIndex];
@@ -1701,7 +1758,7 @@ window.openAddCatalogModal = function(type) {
       const masterBot = MASTER_ROBOTS.find(r => r.id === slot.robotId);
 
       if (pilot.skills && Array.isArray(pilot.skills) && pilot.skills.length > 0) {
-        activeWorkingSkills = JSON.parse(JSON.stringify(pilot.skills));
+        activeWorkingSkills = pilot.skills.map(normalizeWorkingPilotSkill);
       } else {
         activeWorkingSkills = getDefaultPilotSkills(masterBot ? masterBot.role : "Brawler");
       }
@@ -1719,7 +1776,7 @@ window.openAddCatalogModal = function(type) {
       if (!pilot) return;
 
       if (pilot.skills && Array.isArray(pilot.skills) && pilot.skills.length > 0) {
-        activeWorkingSkills = JSON.parse(JSON.stringify(pilot.skills));
+        activeWorkingSkills = pilot.skills.map(normalizeWorkingPilotSkill);
       } else {
         activeWorkingSkills = getDefaultPilotSkills("Brawler");
       }
@@ -1786,6 +1843,7 @@ window.openAddCatalogModal = function(type) {
         const slotCard = document.createElement('div');
 
         if (isUnlocked) {
+          const isTitan = pilot.bot === 'Universal Titan' || (pilot.tier === 'T4' && String(pilot.bot).includes('Titan')) || String(pilot.id).includes('titan');
           const categories = {
             defense: "🛡️ Durability & Repair",
             damage: "⚔️ Weapon Damage & Accuracy",
@@ -1793,15 +1851,22 @@ window.openAddCatalogModal = function(type) {
             shield: "🔮 Energy & Physical Shield",
             utility: "⏱️ Modules & Utility"
           };
+          if (isTitan) {
+            categories.titan = "👑 Titan Specialty Skills";
+          }
 
           let optionsHtml = `<option value="">-- [Slot ${i + 1}] Select Pilot Skill --</option>`;
           Object.keys(categories).forEach(catKey => {
-            optionsHtml += `<optgroup label="${categories[catKey]}">`;
-            MASTER_PILOT_SKILLS.filter(s => s.category === catKey).forEach(s => {
-              const isSelected = s.id === current.id ? "selected" : "";
-              optionsHtml += `<option value="${s.id}" ${isSelected}>${s.icon} ${s.name} (${s.desc})</option>`;
-            });
-            optionsHtml += `</optgroup>`;
+            const skillsInCat = MASTER_PILOT_SKILLS.filter(s => s.category === catKey);
+            if (skillsInCat.length > 0) {
+              optionsHtml += `<optgroup label="${categories[catKey]}">`;
+              skillsInCat.forEach(s => {
+                const isSelected = s.id === current.id ? "selected" : "";
+                const tierVal = (s.tiers && s.tiers[currentTier]) ? s.tiers[currentTier].val : "";
+                optionsHtml += `<option value="${s.id}" ${isSelected}>${s.icon || '🔹'} ${s.name} (${tierVal || s.desc})</option>`;
+              });
+              optionsHtml += `</optgroup>`;
+            }
           });
 
           slotCard.className = `p-3.5 rounded-xl border ${current.id ? 'bg-[#080c14] border-purple-500/40' : 'bg-[#080c14]/60 border-dashed border-[#263040]'} space-y-2.5 transition-all`;
@@ -1809,7 +1874,7 @@ window.openAddCatalogModal = function(type) {
             <div class="flex flex-wrap items-center justify-between gap-2">
               <div class="flex items-center gap-2">
                 <span class="text-[9px] font-mono font-black px-2 py-0.5 rounded ${req.badgeColor} uppercase tracking-wider">${req.rankTitle}</span>
-                ${mSkill ? `<span class="text-[11px] text-amber-300 font-bold">${mSkill.icon} ${mSkill.name}</span>` : '<span class="text-[11px] text-gray-500 italic">Empty Slot</span>'}
+                ${mSkill ? `<span class="text-[11px] text-amber-300 font-bold">${mSkill.icon || '🔹'} ${mSkill.name}</span>` : '<span class="text-[11px] text-gray-500 italic">Empty Slot</span>'}
               </div>
 
               <!-- Tier Selectors (T1, T2, T3, T4) -->
@@ -1829,7 +1894,7 @@ window.openAddCatalogModal = function(type) {
             </div>
 
             <div class="flex items-center justify-between text-xs px-1">
-              <span class="text-gray-400 font-mono text-[11px]">${effectText}</span>
+              <span class="text-gray-400 font-mono text-[11px]">${mSkill ? mSkill.desc : "Select a combat skill above to equip into this slot."}</span>
               ${currentTierData ? `<span class="text-amber-400 font-mono font-bold text-[11px]">${currentTierData.val}</span>` : ''}
             </div>
           `;
@@ -1923,12 +1988,12 @@ window.openAddCatalogModal = function(type) {
         const tData = (ms && ms.tiers) ? ms.tiers[tier] : null;
         if (!tData) return;
 
-        if (s.id === 'armor_expert' || s.id === 'tough_guy') durBonus += tData.bonus;
-        if (s.id === 'gunsmith' || s.id === 'master_gunner' || s.id === 'thrill_seeker') dmgBonus += tData.bonus;
-        if (s.id === 'road_hog' || s.id === 'spy') spdBonus += tData.bonus;
-        if (s.id === 'mechanic') repairSec += tData.bonus;
-        if (s.id === 'energy_shield_expert' || s.id === 'physical_shield_expert') shieldBonus += tData.bonus;
-        if (s.id === 'dodger') cooldownRed += tData.bonus;
+        if (s.id === 'armor_expert' || s.id === 'tough_guy' || s.id === 'cautious_pilot' || s.id === 'traditionalist' || s.id === 'titan_armor_expert' || s.id === 'titan_tough_guy') durBonus += tData.bonus;
+        if (s.id === 'master_gunsmith' || s.id === 'thrill_seeker' || s.id === 'daredevil' || s.id === 'survivor' || s.id === 'adamant_gunsmith' || s.id === 'destroyer' || s.id === 'titan_furious' || s.id === 'titan_destroyer') dmgBonus += tData.bonus;
+        if (s.id === 'road_hog' || s.id === 'spy' || s.id === 'adamant_road_hog' || s.id === 'ghost' || s.id === 'scout' || s.id === 'titan_accelerator') spdBonus += tData.bonus;
+        if (s.id === 'mechanic' || s.id === 'adamant_mechanic' || s.id === 'titan_mechanic') repairSec += tData.bonus;
+        if (s.id === 'energy_shield_expert' || s.id === 'physical_shield_expert' || s.id === 'crazy_electrician' || s.id === 'knight_errant') shieldBonus += tData.bonus;
+        if (s.id === 'dodger' || s.id === 'modules_expert') cooldownRed += tData.bonus;
       });
 
       const parts = [];

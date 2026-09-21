@@ -5,12 +5,40 @@
   "tier": "T3",
   "skill": "Titan Command: Increases overall Titan durability by +10% and weapon damage by +7%.",
   "skills": [
-    "Titan Armor Expert",
-    "Titan Accelerator",
-    "Titan Mechanic",
-    "Titan Furious",
-    "Titan Raider",
-    "Titan Tough Guy",
-    "Titan Destroyer"
+    {
+      "id": "titan_armor_expert",
+      "name": "Titan Armor Expert",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_accelerator",
+      "name": "Titan Accelerator",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_mechanic",
+      "name": "Titan Mechanic",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_furious",
+      "name": "Titan Furious",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_destroyer",
+      "name": "Titan Destroyer",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_tough_guy",
+      "name": "Titan Tough Guy",
+      "tier": "T4"
+    },
+    {
+      "id": "titan_raider",
+      "name": "Titan Raider",
+      "tier": "T4"
+    }
   ]
 }

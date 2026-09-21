@@ -5,12 +5,40 @@
   "tier": "ULTIMATE",
   "skill": "Ultimate Retribution: Ultimate Ares absorbs 100% incoming damage and doubles built-in cannon projectile count.",
   "skills": [
-    "Armor Expert",
-    "Road Hog",
-    "Mechanic",
-    "Master Gunsmith",
-    "Dodger",
-    "Tough Guy",
-    "Deft Survivor"
+    {
+      "id": "energy_shield_expert",
+      "name": "Energy Shield Expert",
+      "tier": "T4"
+    },
+    {
+      "id": "crazy_electrician",
+      "name": "Crazy Electrician",
+      "tier": "T4"
+    },
+    {
+      "id": "armor_expert",
+      "name": "Armor Expert",
+      "tier": "T4"
+    },
+    {
+      "id": "road_hog",
+      "name": "Road Hog",
+      "tier": "T4"
+    },
+    {
+      "id": "mechanic",
+      "name": "Mechanic",
+      "tier": "T4"
+    },
+    {
+      "id": "master_gunsmith",
+      "name": "Master Gunsmith",
+      "tier": "T4"
+    },
+    {
+      "id": "dodger",
+      "name": "Dodger",
+      "tier": "T4"
+    }
   ]
 }
