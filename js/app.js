@@ -7,8 +7,9 @@ function renderAll() {
   if (typeof renderHangarDeckSelector === 'function') {
     renderHangarDeckSelector();
   }
-  if (typeof renderHangar === 'function' && typeof currentActiveHangarKey !== 'undefined') {
-    renderHangar(currentActiveHangarKey, 'hangar-active-grid');
+  const activeKey = window.currentActiveHangarKey || (typeof currentActiveHangarKey !== 'undefined' ? currentActiveHangarKey : "hangar1");
+  if (typeof renderHangar === 'function') {
+    renderHangar(activeKey, 'hangar-active-grid');
   }
   if (typeof renderPersonalStorage === 'function') {
     renderPersonalStorage();

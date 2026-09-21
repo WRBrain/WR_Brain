@@ -32,6 +32,7 @@ globalThis.document = {
       innerHTML: '',
       innerText: '',
       className: '',
+      style: {},
       classList: { remove: function() {}, add: function() {} },
       appendChild: function() {},
       querySelectorAll: function() { return []; }
@@ -42,6 +43,7 @@ globalThis.document = {
       innerHTML: '',
       innerText: '',
       value: '',
+      style: {},
       classList: {
         remove: function() {},
         add: function() {}

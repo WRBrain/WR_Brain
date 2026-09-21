@@ -2,7 +2,10 @@
 
 function closeModal(id) {
   const modal = document.getElementById(id);
-  if (modal) modal.classList.add('hidden');
+  if (modal) {
+    modal.classList.add('hidden');
+    if (modal.style) modal.style.display = 'none';
+  }
 }
 window.closeModal = closeModal;
 
@@ -59,7 +62,10 @@ window.openAddCatalogModal = function(type) {
       if (!hangar) return;
 
       const modal = document.getElementById('weapon-picker-modal');
-      if (modal) modal.classList.remove('hidden');
+      if (modal) {
+        modal.classList.remove('hidden');
+        if (modal.style) modal.style.display = 'flex';
+      }
 
       try {
         let size = "Heavy";
@@ -2108,12 +2114,16 @@ window.openAddCatalogModal = function(type) {
         if (fromInventory) {
           const cat = (master.size || 'Alpha').toLowerCase();
           if (AppState.reserveWeapons && AppState.reserveWeapons[cat]) {
-            const idx = AppState.reserveWeapons[cat].findIndex(w => w.id === weaponId && w.level === level);
+            const idx = AppState.reserveWeapons[cat].findIndex(w => w.id === weaponId && (w.level === level || (!w.level && level === 'Lv 1')));
             if (idx !== -1) {
               if (AppState.reserveWeapons[cat][idx].count > 1) AppState.reserveWeapons[cat][idx].count--;
               else AppState.reserveWeapons[cat].splice(idx, 1);
             }
           }
+        }
+
+        while (titanSlot.weapons.length <= hardpointIndex) {
+          titanSlot.weapons.push(null);
         }
 
         titanSlot.weapons[hardpointIndex] = { id: master.id, name: master.name, size: master.size, level: level || 'Lv 1', tier: master.tier };
@@ -2147,7 +2157,7 @@ window.openAddCatalogModal = function(type) {
       if (fromInventory) {
         const cat = (master.size || 'Heavy').toLowerCase();
         if (AppState.reserveWeapons && AppState.reserveWeapons[cat]) {
-          const idx = AppState.reserveWeapons[cat].findIndex(w => w.id === weaponId && w.level === level);
+          const idx = AppState.reserveWeapons[cat].findIndex(w => w.id === weaponId && (w.level === level || (!w.level && level === 'Lv 1')));
           if (idx !== -1) {
             if (AppState.reserveWeapons[cat][idx].count > 1) AppState.reserveWeapons[cat][idx].count--;
             else AppState.reserveWeapons[cat].splice(idx, 1);
@@ -2155,11 +2165,18 @@ window.openAddCatalogModal = function(type) {
         }
       }
 
+      while (slot.weapons.length <= hardpointIndex) {
+        slot.weapons.push(null);
+      }
+
       slot.weapons[hardpointIndex] = { id: master.id, name: master.name, size: master.size, level: level || 'Lv 1', tier: master.tier };
       saveState();
       closeModal('weapon-picker-modal');
       if (typeof renderHangar === 'function') {
         renderHangar(hangarKey, 'hangar-active-grid');
+      }
+      if (typeof renderAll === 'function') {
+        renderAll();
       }
       if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
     };

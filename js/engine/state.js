@@ -367,6 +367,7 @@ let AppState = (function() {
     })();
 
     let currentActiveHangarKey = "hangar1";
+    window.currentActiveHangarKey = "hangar1";
 
     window.createDefaultHangarStructure = function(id, name) {
       return {
