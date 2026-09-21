@@ -58,6 +58,7 @@ window.openAddCatalogModal = function(type) {
 
     window.openWeaponConfigModal = function(hangarKey, slotIndex, hardpointIndex, isTitan = false) {
       if (!hangarKey) hangarKey = window.currentActiveHangarKey || "hangar1";
+      window.currentActiveHangarKey = hangarKey;
       const hangar = (AppState.hangars && AppState.hangars[hangarKey]) ? AppState.hangars[hangarKey] : (AppState.hangars ? AppState.hangars[Object.keys(AppState.hangars)[0]] : null);
       if (!hangar) return;
 
@@ -294,20 +295,20 @@ window.openAddCatalogModal = function(type) {
           const family = mw ? (mw.family || 'Arsenal') : 'Arsenal';
           const burstDps = mw ? Math.round(mw.burstDps || 0) : 20000;
           container.innerHTML += `
-            <div class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#161f2e] border border-[#263040] hover:border-amber-500/40 rounded-xl text-xs transition-all">
+            <div onclick="equipWeaponDirect('${w.id}', '${w.level || 'Lv 1'}', true)" class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#161f2e] border border-[#263040] hover:border-amber-500/80 rounded-xl text-xs transition-all cursor-pointer group">
               <div>
                 <div class="flex items-center gap-2">
                   <span class="badge-${tier.toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${tier}</span>
-                  <span class="font-bold text-white text-sm">${name}</span>
+                  <span class="font-bold text-white text-sm group-hover:text-amber-300 transition-colors">${name}</span>
                   <span class="text-amber-400 font-mono text-[11px]">(${w.level || 'Lv 1'})</span>
                   <span class="text-gray-400 text-[10px]">x${w.count || 1} Available</span>
                 </div>
                 <span class="text-gray-400 text-[11px] block mt-0.5">${range}m • ${family} • ${burstDps.toLocaleString()} Base Burst</span>
               </div>
               <div class="flex items-center gap-1.5">
-                ${mw ? `<button onclick="inspectWeaponVariants('${mw.id}')" class="text-[11px] text-amber-400 hover:underline px-2 py-1">Variants</button>` : ''}
-                <button onclick="equipWeaponDirect('${w.id}', '${w.level || 'Lv 1'}', true)" class="px-3.5 py-1.5 text-xs font-black rounded-lg bg-amber-500 hover:bg-amber-400 text-black shadow transition-all hover:scale-105">
-                  Equip
+                ${mw ? `<button onclick="event.stopPropagation(); inspectWeaponVariants('${mw.id}')" class="text-[11px] text-amber-400 hover:underline px-2 py-1">Variants</button>` : ''}
+                <button onclick="event.stopPropagation(); equipWeaponDirect('${w.id}', '${w.level || 'Lv 1'}', true)" class="px-3.5 py-1.5 text-xs font-black rounded-lg bg-amber-500 hover:bg-amber-400 text-black shadow transition-all hover:scale-105">
+                  ⚡ Equip
                 </button>
               </div>
             </div>
@@ -333,19 +334,19 @@ window.openAddCatalogModal = function(type) {
         const tier = mw.tier || 'T4';
         const burstDps = Math.round(mw.burstDps || 0);
         container.innerHTML += `
-          <div class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#131b29] border border-[#263040] hover:border-amber-500/40 rounded-xl text-xs transition-all">
+          <div onclick="equipWeaponDirect('${mw.id}', 'Lv 1', false)" class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#131b29] border border-[#263040] hover:border-amber-500/80 rounded-xl text-xs transition-all cursor-pointer group">
             <div>
               <div class="flex items-center gap-2">
                 <span class="badge-${tier.toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${tier}</span>
-                <span class="font-bold text-white text-sm">${mw.name}</span>
+                <span class="font-bold text-white text-sm group-hover:text-amber-300 transition-colors">${mw.name}</span>
                 <span class="text-blue-400 font-mono text-[11px]">${mw.range || 500}m</span>
               </div>
               <span class="text-gray-400 text-[11px] block mt-0.5">${mw.family || 'Arsenal'} • <strong class="text-red-400">${burstDps.toLocaleString()} Burst DPS</strong> ${mw.status ? `• <span class="text-amber-300 font-semibold">${mw.status}</span>` : ''}</span>
             </div>
             <div class="flex items-center gap-1.5">
-              <button onclick="inspectWeaponVariants('${mw.id}')" class="text-[11px] text-amber-400 hover:underline px-2 py-1">Variants</button>
-              <button onclick="equipWeaponDirect('${mw.id}', 'Lv 1', false)" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-[#161f2e] hover:bg-amber-500 hover:text-black text-gray-200 border border-[#263040] transition-all hover:scale-105">
-                Equip (Lv 1)
+              <button onclick="event.stopPropagation(); inspectWeaponVariants('${mw.id}')" class="text-[11px] text-amber-400 hover:underline px-2 py-1">Variants</button>
+              <button onclick="event.stopPropagation(); equipWeaponDirect('${mw.id}', 'Lv 1', false)" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-[#161f2e] group-hover:bg-amber-500 group-hover:text-black hover:bg-amber-500 hover:text-black text-gray-200 border border-[#263040] transition-all hover:scale-105">
+                ⚡ Equip (Lv 1)
               </button>
             </div>
           </div>
@@ -2092,6 +2093,7 @@ window.openAddCatalogModal = function(type) {
       if (!master) return;
 
       const hangarKey = activeEquipTarget.hangarKey || window.currentActiveHangarKey || "hangar1";
+      window.currentActiveHangarKey = hangarKey;
       const isTitan = !!activeEquipTarget.isTitan;
       const hardpointIndex = (typeof activeEquipTarget.hardpointIndex === 'number') ? activeEquipTarget.hardpointIndex : (parseInt(activeEquipTarget.hardpointIndex) || 0);
 
@@ -2131,6 +2133,15 @@ window.openAddCatalogModal = function(type) {
         closeModal('weapon-picker-modal');
         if (typeof renderHangar === 'function') {
           renderHangar(hangarKey, 'hangar-active-grid');
+        }
+        if (typeof renderHangarDeckSelector === 'function') {
+          renderHangarDeckSelector();
+        }
+        if (typeof renderAll === 'function') {
+          renderAll();
+        }
+        if (typeof renderHome === 'function') {
+          renderHome();
         }
         if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
         return;
@@ -2175,8 +2186,14 @@ window.openAddCatalogModal = function(type) {
       if (typeof renderHangar === 'function') {
         renderHangar(hangarKey, 'hangar-active-grid');
       }
+      if (typeof renderHangarDeckSelector === 'function') {
+        renderHangarDeckSelector();
+      }
       if (typeof renderAll === 'function') {
         renderAll();
+      }
+      if (typeof renderHome === 'function') {
+        renderHome();
       }
       if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
     };
