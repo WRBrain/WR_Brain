@@ -1,0 +1,12 @@
+{
+  "id": "dazzler",
+  "name": "Dazzler",
+  "size": "Alpha",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 38000,
+  "sustainedDps": 23500,
+  "reload": 5.0,
+  "family": "Titan Blind Laser",
+  "status": "Titan Alpha Optical Blind Laser"
+}

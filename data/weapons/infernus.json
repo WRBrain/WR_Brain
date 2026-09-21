@@ -1,12 +1,12 @@
 {
   "id": "infernus",
-  "name": "Infernus",
+  "name": "Inferno",
   "size": "Alpha",
   "tier": "T4",
   "range": 350,
   "burstDps": 40500,
   "sustainedDps": 25800,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Titan Flame",
   "status": "Titan Alpha Napalm Flamethrower"
 }

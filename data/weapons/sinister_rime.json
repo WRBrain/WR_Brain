@@ -6,7 +6,7 @@
   "range": 300,
   "burstDps": 8700,
   "sustainedDps": 5100,
-  "reload": 6,
+  "reload": 6.0,
   "family": "Freeze Rockets",
   "status": "Special Edition Cryo Rocket"
 }

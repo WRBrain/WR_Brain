@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 12600,
   "sustainedDps": 7900,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Assault Energy",
   "status": "Tier 4 Dual-Mode Assault Blaster"
 }

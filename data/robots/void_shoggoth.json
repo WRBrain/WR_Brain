@@ -2,10 +2,9 @@
   "id": "void_shoggoth",
   "name": "Void Shoggoth",
   "tier": "T4",
-  "faction": "Icarus",
-  "role": "Void Assassin",
-  "speed": 48,
-  "hp": 105000,
+  "role": "Void Anomaly Tank",
+  "hp": 142000,
+  "speed": 46,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -20,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Void Blink: Phase-shifts through reality, emerging behind enemy ranks with EMP field and blast buildup."
+  "ability": "Black Hole Core: Summons localized gravitational anomaly pulling hostiles and siphoning durability."
 }

@@ -1,0 +1,12 @@
+{
+  "id": "marquess",
+  "name": "Marquess",
+  "size": "Light",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 7800,
+  "sustainedDps": 5100,
+  "reload": 5.0,
+  "family": "Plasma Cannons",
+  "status": "Tier 3 Plasma Sniper"
+}

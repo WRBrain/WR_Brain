@@ -6,7 +6,7 @@
   "range": 300,
   "burstDps": 17400,
   "sustainedDps": 11200,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Corrosive Acid",
   "status": "Tier 4 Corrosive Acid Stream"
 }

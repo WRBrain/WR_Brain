@@ -2,10 +2,9 @@
   "id": "seraph",
   "name": "Seraph",
   "tier": "T4",
-  "faction": "SpaceTech",
-  "role": "Aerial Vanguard",
-  "speed": 46,
-  "hp": 108000,
+  "role": "Aerial Lightning Striker",
+  "hp": 112000,
+  "speed": 55,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -14,5 +13,5 @@
       "size": "Heavy"
     }
   ],
-  "ability": "Skyward Strike: Flies at high speed with Forcefield protection, striking up to 3 ground targets simultaneously with hyper-lightning."
+  "ability": "Skyward Arc: Takes flight with directional Forcefield, sweeping targets with auto-targeting bio-electric death beams."
 }

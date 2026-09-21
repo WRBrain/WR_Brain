@@ -6,7 +6,7 @@
   "range": 600,
   "burstDps": 13000,
   "sustainedDps": 8400,
-  "reload": 3,
+  "reload": 3.0,
   "family": "Radiation",
   "status": "Tier 4 Radiation Burst Rifle"
 }

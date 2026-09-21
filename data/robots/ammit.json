@@ -2,10 +2,9 @@
   "id": "ammit",
   "name": "Ammit",
   "tier": "T4",
-  "faction": "Yan-di",
-  "role": "Desert Brawler",
-  "speed": 44,
+  "role": "Desert Siphon Brawler",
   "hp": 130000,
+  "speed": 52,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -20,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Sandstorm Surge: Engages rapid forward rush with sandstorm cloak, reducing enemy accuracy and siphoning durability."
+  "ability": "Sandstorm Siphon: Drains health from nearby hostiles in a 150m aura while blinding lock-on systems."
 }

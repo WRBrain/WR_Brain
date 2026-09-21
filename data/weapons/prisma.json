@@ -6,7 +6,7 @@
   "range": 1100,
   "burstDps": 14500,
   "sustainedDps": 10500,
-  "reload": 0,
+  "reload": 0.0,
   "family": "Continuous Lasers",
   "status": "Tier 4 Distance-Scaled Laser Beam"
 }

@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_squall",
+  "name": "Ultimate Squall",
+  "size": "Beta",
+  "tier": "Ultimate",
+  "range": 500,
+  "burstDps": 46000,
+  "sustainedDps": 29000,
+  "reload": 5.0,
+  "family": "Kinetic Shotguns",
+  "status": "Ultimate Titan Beta Scattergun"
+}

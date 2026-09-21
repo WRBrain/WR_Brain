@@ -1,0 +1,23 @@
+{
+  "id": "ultimate_griffin",
+  "name": "Ultimate Griffin",
+  "tier": "Ultimate",
+  "role": "Ultimate Jump Assault",
+  "hp": 185000,
+  "speed": 46,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Ultimate Jump Drive: Rapid rocket jump with stealth on takeoff and landing."
+}

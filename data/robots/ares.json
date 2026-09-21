@@ -1,12 +1,10 @@
 {
   "id": "ares",
   "name": "Ares",
-  "seriesKey": "ares",
   "tier": "T4",
-  "faction": "DSC",
-  "role": "Absorber Vanguard",
-  "speed": 44,
-  "hp": 80000,
+  "role": "Pantheon Shield Cannon",
+  "hp": 95000,
+  "speed": 54,
   "hardpoints": [
     {
       "size": "Medium"
@@ -21,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Retribution: Projects impenetrable Absorber barrier and unleashes a barrage of built-in Retaliator energy cannons."
+  "ability": "Pantheon Absorber & Cannons: Deploys frontal Absorber barrier and fires 4 rapid built-in energy cannons."
 }

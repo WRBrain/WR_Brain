@@ -2,20 +2,19 @@
   "id": "shenlou",
   "name": "Shenlou",
   "tier": "T4",
-  "faction": "SpaceTech",
-  "role": "Assassin Teleporter",
-  "speed": 52,
+  "role": "Teleport Assassin",
   "hp": 96800,
+  "speed": 60,
   "hardpoints": [
     {
       "size": "Heavy"
     },
     {
-      "size": "Medium"
+      "size": "Light"
     },
     {
       "size": "Light"
     }
   ],
-  "ability": "Multi-Blink Jump: Teleports 3 consecutive times directly behind enemy lines with Aegis shields before returning to initial anchor beacon."
+  "ability": "Translocation Chain: Teleports behind 3 successive targets within 350m, generating Aegis shield domes with each jump."
 }

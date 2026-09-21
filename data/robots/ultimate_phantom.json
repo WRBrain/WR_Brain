@@ -1,12 +1,10 @@
 {
   "id": "ultimate_phantom",
   "name": "Ultimate Phantom",
-  "seriesKey": "phantom",
   "tier": "Ultimate",
-  "faction": "Icarus",
-  "role": "Ultimate Striker",
-  "speed": 58,
-  "hp": 135000,
+  "role": "Ultimate Blink Skirmisher",
+  "hp": 200000,
+  "speed": 65,
   "hardpoints": [
     {
       "size": "Medium"
@@ -18,5 +16,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Ultimate Blink: Hyper speed sprint with +70% defense points and instant status cleanse on recall."
+  "ability": "Ultimate Blink: Extreme speed sprint with 70% defense resistance and instant recall."
 }

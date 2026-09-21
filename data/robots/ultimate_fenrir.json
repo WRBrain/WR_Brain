@@ -1,12 +1,10 @@
 {
   "id": "ultimate_fenrir",
   "name": "Ultimate Fenrir",
-  "seriesKey": "fenrir",
   "tier": "Ultimate",
-  "faction": "EvoLife",
-  "role": "Ultimate Tank",
-  "speed": 48,
-  "hp": 210000,
+  "role": "Ultimate Juggernaut",
+  "hp": 260000,
+  "speed": 54,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -18,5 +16,5 @@
       "size": "Medium"
     }
   ],
-  "ability": "Ultimate Shapeshift: Permanent 65% Defense Point resistance (+185 DP) and continuous unhealable grey damage auto-repair."
+  "ability": "Ultimate Shapeshift: Unstoppable defense resistance (+75%) with full Grey Damage regeneration and heavy fire."
 }

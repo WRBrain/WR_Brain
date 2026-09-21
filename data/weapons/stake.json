@@ -1,0 +1,12 @@
+{
+  "id": "stake",
+  "name": "Stake",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 150,
+  "burstDps": 22000,
+  "sustainedDps": 14000,
+  "reload": 5.0,
+  "family": "Harpoon Kinetic",
+  "status": "Tier 4 Aegis Shield Penetrator"
+}

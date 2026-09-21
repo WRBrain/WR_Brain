@@ -6,7 +6,7 @@
   "range": 800,
   "burstDps": 14000,
   "sustainedDps": 8400,
-  "reload": 10,
+  "reload": 10.0,
   "family": "Kinetic Gatlings",
   "status": "Tier 2 Heavy Ballistic Autocannon"
 }

@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 8400,
   "sustainedDps": 5200,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Homing Bending MG",
   "status": "Special Edition Curved Trajectory MG"
 }

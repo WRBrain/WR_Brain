@@ -2,10 +2,9 @@
   "id": "lynx",
   "name": "Lynx",
   "tier": "T4",
-  "faction": "Yan-di",
   "role": "Stealth Executioner",
-  "speed": 58,
-  "hp": 85000,
+  "hp": 88000,
+  "speed": 68,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -14,5 +13,5 @@
       "size": "Heavy"
     }
   ],
-  "ability": "Executioner Strike: High-speed stealth sprint with Forcefield; executes any enemy robot instantly when dropping below health threshold."
+  "ability": "Ferocity: Enters stealth sprint with built-in Forcefield and Executioner laser instantly eliminating foes below threshold."
 }

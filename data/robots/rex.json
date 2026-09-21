@@ -2,10 +2,9 @@
   "id": "rex",
   "name": "Rex",
   "tier": "T4",
-  "faction": "DSC",
-  "role": "Heavy Juggernaut",
-  "speed": 40,
-  "hp": 148000,
+  "role": "Apex Assault Brawler",
+  "hp": 138000,
+  "speed": 50,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -20,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Predator Leap: Heavy combat jump generating kinetic suppression shockwave and crushing area damage."
+  "ability": "Apex Predator: Enters rage state granting speed surge, defense penetration and direct hull repair per strike."
 }

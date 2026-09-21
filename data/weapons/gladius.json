@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 8700,
   "sustainedDps": 5500,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Roman Kinetic",
   "status": "Tier 4 Kinetic Harpoon"
 }

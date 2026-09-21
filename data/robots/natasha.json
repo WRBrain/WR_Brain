@@ -2,10 +2,9 @@
   "id": "natasha",
   "name": "Natasha",
   "tier": "T1",
-  "faction": "DSC",
-  "role": "Heavy Artillery",
-  "speed": 34,
-  "hp": 105000,
+  "role": "Heavy Long-Range Platform",
+  "hp": 110000,
+  "speed": 36,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -20,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Heavy Firepower: Dual Heavy and dual Light mixed hardpoints."
+  "ability": "Heavy Arsenal: Classic multi-weapon combat walker."
 }

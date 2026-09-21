@@ -2,10 +2,9 @@
   "id": "cerberus",
   "name": "Cerberus",
   "tier": "T4",
-  "faction": "DSC",
-  "role": "Tri-Effect Suppressor",
-  "speed": 42,
+  "role": "Blackout Sniper",
   "hp": 85000,
+  "speed": 54,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -17,5 +16,5 @@
       "size": "Medium"
     }
   ],
-  "ability": "Blackout Ray: Built-in Aegis shield and tri-missile salvo inflicting EMP, Lockdown, and -50% Suppression."
+  "ability": "Blackout Cannon: Tri-beam weapon mount inflicting Lockdown, Suppression, and Corrosive DoT with Aegis shield."
 }

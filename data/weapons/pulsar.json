@@ -6,7 +6,7 @@
   "range": 600,
   "burstDps": 11600,
   "sustainedDps": 7400,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Lockdown Energy",
   "status": "Tier 4 Energy Lockdown Rifle"
 }

@@ -2,10 +2,9 @@
   "id": "lancelot",
   "name": "Lancelot",
   "tier": "T2",
-  "faction": "Camelot",
-  "role": "Shield Brawler",
-  "speed": 30,
-  "hp": 115000,
+  "role": "Heavy Shield Tank",
+  "hp": 135000,
+  "speed": 35,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -17,5 +16,5 @@
       "size": "Medium"
     }
   ],
-  "ability": "Rush: Accelerates movement speed while facing enemies with reinforced physical front shields."
+  "ability": "Rush: Speed boost sprint with 3 reinforced frontal physical shield plates."
 }

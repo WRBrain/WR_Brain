@@ -1,0 +1,12 @@
+{
+  "id": "sinister_glacier",
+  "name": "Sinister Glacier",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 300,
+  "burstDps": 17800,
+  "sustainedDps": 10300,
+  "reload": 6.0,
+  "family": "Freeze Rockets",
+  "status": "Special Edition Cryo Rocket"
+}

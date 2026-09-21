@@ -2,10 +2,9 @@
   "id": "golem",
   "name": "Golem",
   "tier": "T1",
-  "faction": "DSC",
-  "role": "Tri-Weapon Platform",
-  "speed": 34,
+  "role": "Tri-Mount Classic",
   "hp": 88000,
+  "speed": 40,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -17,5 +16,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Tri-Mount Array: Balanced heavy, medium, and light weapon loadout."
+  "ability": "Tri-Size Mount: Houses 1 Heavy, 1 Medium, and 1 Light hardpoint simultaneously."
 }

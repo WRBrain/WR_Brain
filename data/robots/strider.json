@@ -2,10 +2,9 @@
   "id": "strider",
   "name": "Strider",
   "tier": "T3",
-  "faction": "Icarus",
-  "role": "Dash Runner",
-  "speed": 52,
-  "hp": 78000,
+  "role": "Hyper-Dash Runner",
+  "hp": 90000,
+  "speed": 62,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -15,7 +14,13 @@
     },
     {
       "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
     }
   ],
-  "ability": "5x Dash: Five high-speed kinetic dash thruster charges for instant beacon captures."
+  "ability": "Super Dash: 5 rapid consecutive dash charges crossing huge map distances in seconds."
 }

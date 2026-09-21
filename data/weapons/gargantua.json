@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 38000,
   "sustainedDps": 24500,
-  "reload": 0,
+  "reload": 0.0,
   "family": "Titan Void Siphon",
   "status": "Titan Alpha Void Siphon Beam"
 }

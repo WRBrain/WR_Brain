@@ -2,10 +2,9 @@
   "id": "mars",
   "name": "Mars",
   "tier": "T4",
-  "faction": "Yan-di",
-  "role": "Area Denial",
-  "speed": 44,
-  "hp": 95000,
+  "role": "Remote Turret Controller",
+  "hp": 98000,
+  "speed": 56,
   "hardpoints": [
     {
       "size": "Medium"
@@ -17,5 +16,5 @@
       "size": "Medium"
     }
   ],
-  "ability": "Remote Turret Launcher: Launches a deployable remote Gatling turret over cover while projecting a 250k Aegis bubble."
+  "ability": "Remote Remote Turret: Launches autonomous heavy plasma turret over high walls while activating personal Aegis shield."
 }

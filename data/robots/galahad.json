@@ -2,10 +2,9 @@
   "id": "galahad",
   "name": "Galahad",
   "tier": "T2",
-  "faction": "Camelot",
-  "role": "Shield Assault",
-  "speed": 44,
-  "hp": 70000,
+  "role": "Medium Shield Brawler",
+  "hp": 95000,
+  "speed": 48,
   "hardpoints": [
     {
       "size": "Medium"
@@ -17,5 +16,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Phalanx Mode: Positions front physical shield (200k HP) to block incoming ballistic and energy fire."
+  "ability": "Phalanx Mode: Swings physical shield to front or side while maintaining weapon fire."
 }

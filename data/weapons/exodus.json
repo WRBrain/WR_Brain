@@ -6,7 +6,7 @@
   "range": 300,
   "burstDps": 17800,
   "sustainedDps": 9200,
-  "reload": 8,
+  "reload": 8.0,
   "family": "Freeze Rockets",
   "status": "Tier 3 Heavy Burst Rocket Pod"
 }

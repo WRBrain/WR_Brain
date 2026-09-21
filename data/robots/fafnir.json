@@ -2,10 +2,9 @@
   "id": "fafnir",
   "name": "Fafnir",
   "tier": "T4",
-  "faction": "SpaceTech",
-  "role": "Flight Brawler",
-  "speed": 42,
-  "hp": 95000,
+  "role": "Absorber Flight Striker",
+  "hp": 105000,
+  "speed": 54,
   "hardpoints": [
     {
       "size": "Medium"
@@ -20,5 +19,5 @@
       "size": "Medium"
     }
   ],
-  "ability": "Dragon Flight: Ascends into flight, deploying built-in shieldbreaker breath cannon with Absorber shield."
+  "ability": "Dragon Flight: Takes infinite flight with built-in piercing beam whose damage multiplies by absorbing enemy fire."
 }

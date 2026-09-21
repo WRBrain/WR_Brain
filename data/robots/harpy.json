@@ -2,10 +2,9 @@
   "id": "harpy",
   "name": "Harpy",
   "tier": "T4",
-  "faction": "DSC",
-  "role": "Firestorm Artillery",
-  "speed": 42,
-  "hp": 88000,
+  "role": "Firestorm Flier",
+  "hp": 94000,
+  "speed": 52,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -17,5 +16,5 @@
       "size": "Medium"
     }
   ],
-  "ability": "Firestorm Jump: Mid-air flight with Reflector shield, raining incendiary blast rockets that detonate area blastcharge stacks."
+  "ability": "Firestorm: Leaps into air with Reflector shield, firing explosive Firestorm blast charge that bypasses physical shields."
 }

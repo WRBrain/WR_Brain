@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_gendarme",
+  "name": "Ultimate Gendarme",
+  "size": "Alpha",
+  "tier": "Ultimate",
+  "range": 600,
+  "burstDps": 58000,
+  "sustainedDps": 36000,
+  "reload": 5.0,
+  "family": "Plasma Cannons",
+  "status": "Ultimate Titan Alpha Plasma Sniper"
+}

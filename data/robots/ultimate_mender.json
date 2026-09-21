@@ -1,12 +1,10 @@
 {
   "id": "ultimate_mender",
   "name": "Ultimate Mender",
-  "seriesKey": "mender",
   "tier": "Ultimate",
-  "faction": "EvoLife",
-  "role": "Ultimate Medic",
-  "speed": 50,
-  "hp": 120000,
+  "role": "Ultimate Combat Medic",
+  "hp": 190000,
+  "speed": 60,
   "hardpoints": [
     {
       "size": "Medium"
@@ -18,5 +16,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Ultimate Repair: 100% Grey Damage restoration, speed boost (+50%), and 100 bonus Defense Points during pulse."
+  "ability": "Ultimate Emergency Repair: Infinite grey damage restoration and permanent speed aura for team."
 }

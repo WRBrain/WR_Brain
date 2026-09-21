@@ -6,7 +6,7 @@
   "range": 300,
   "burstDps": 40000,
   "sustainedDps": 25000,
-  "reload": 6,
+  "reload": 6.0,
   "family": "Titan Cryo Rockets",
   "status": "Titan Alpha Cryo Blast Rockets"
 }

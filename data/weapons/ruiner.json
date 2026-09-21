@@ -6,7 +6,7 @@
   "range": 350,
   "burstDps": 32000,
   "sustainedDps": 20500,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Titan Rust Harpoon",
   "status": "Titan Beta Rust Harpoon Cannon"
 }

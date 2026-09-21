@@ -2,10 +2,9 @@
   "id": "vector",
   "name": "Vector",
   "tier": "T4",
-  "faction": "Icarus",
-  "role": "Tactical Interceptor",
-  "speed": 50,
-  "hp": 102000,
+  "role": "Thermal Shock Infiltrator",
+  "hp": 116000,
+  "speed": 56,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -20,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Kinetic Vectoring: Multi-angle thruster bursts with Forcefield protection and accelerated weapon fire."
+  "ability": "Cryo Thrusters: Dashes forward releasing a thermal-shock freezing aura that weakens armor by 25%."
 }

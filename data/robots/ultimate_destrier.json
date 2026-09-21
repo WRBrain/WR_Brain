@@ -1,12 +1,10 @@
 {
   "id": "ultimate_destrier",
   "name": "Ultimate Destrier",
-  "seriesKey": "destrier",
   "tier": "Ultimate",
-  "faction": "DSC",
-  "role": "Ultimate Legend",
-  "speed": 50,
-  "hp": 95000,
+  "role": "Ultimate Micro Brawler",
+  "hp": 150000,
+  "speed": 65,
   "hardpoints": [
     {
       "size": "Light"
@@ -15,5 +13,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Overcharged Core: Compact combat platform deploying accelerated weapon fire and high durability multipliers."
+  "ability": "Ultimate Overdrive: Speed sprint with +50% weapon damage and Forcefield shield."
 }

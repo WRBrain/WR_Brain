@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_spark",
+  "name": "Ultimate Spark",
+  "size": "Light",
+  "tier": "Ultimate",
+  "range": 600,
+  "burstDps": 12500,
+  "sustainedDps": 8000,
+  "reload": 5.0,
+  "family": "Tesla Lock-on",
+  "status": "Ultimate Guided Lightning Arc"
+}

@@ -6,7 +6,7 @@
   "range": 200,
   "burstDps": 31500,
   "sustainedDps": 19800,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Titan Particle Shotgun",
   "status": "Titan Beta Particle Blast Shotgun"
 }

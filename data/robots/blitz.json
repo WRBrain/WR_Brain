@@ -1,12 +1,10 @@
 {
   "id": "blitz",
   "name": "Blitz",
-  "seriesKey": "blitz",
   "tier": "T4",
-  "faction": "DSC",
-  "role": "Vanguard Brawler",
-  "speed": 45,
-  "hp": 92000,
+  "role": "Break-in Suppression Brawler",
+  "hp": 105000,
+  "speed": 55,
   "hardpoints": [
     {
       "size": "Light"
@@ -21,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Break-in: Activates front Aegis barrier, gains +60% speed, and fires 3 suppression darts (-75% enemy damage)."
+  "ability": "Break-in: Gains Aegis shield dome, 50% speed boost, and fires suppression darts at up to 3 targets."
 }

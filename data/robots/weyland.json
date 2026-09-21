@@ -2,10 +2,9 @@
   "id": "weyland",
   "name": "Weyland",
   "tier": "T3",
-  "faction": "EvoLife",
-  "role": "Stationary Medic",
+  "role": "Stationary Field Medic",
+  "hp": 170000,
   "speed": 38,
-  "hp": 145000,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -14,5 +13,5 @@
       "size": "Heavy"
     }
   ],
-  "ability": "Repair Station: Deploys stationary anchor projecting a massive 150m continuous repair field for all allies."
+  "ability": "Repair Mode: Anchors to ground, generating massive 100m team repair aura and defense points."
 }

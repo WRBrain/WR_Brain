@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_calamity",
+  "name": "Ultimate Calamity",
+  "size": "Heavy",
+  "tier": "Ultimate",
+  "range": 600,
+  "burstDps": 25500,
+  "sustainedDps": 16200,
+  "reload": 5.0,
+  "family": "Tesla Lock-on",
+  "status": "Ultimate Guided Lightning Arc"
+}

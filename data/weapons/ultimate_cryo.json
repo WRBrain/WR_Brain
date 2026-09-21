@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_cryo",
+  "name": "Ultimate Cryo",
+  "size": "Medium",
+  "tier": "Ultimate",
+  "range": 300,
+  "burstDps": 19500,
+  "sustainedDps": 11500,
+  "reload": 5.0,
+  "family": "Freeze Rockets",
+  "status": "Ultimate Cryo Blast Rocket"
+}

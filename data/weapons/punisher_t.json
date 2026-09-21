@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 11000,
   "sustainedDps": 6600,
-  "reload": 10,
+  "reload": 10.0,
   "family": "Kinetic Gatlings",
   "status": "Tier 1 Accelerating Medium MG"
 }

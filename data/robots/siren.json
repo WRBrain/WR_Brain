@@ -2,10 +2,9 @@
   "id": "siren",
   "name": "Siren",
   "tier": "T4",
-  "faction": "DSC",
-  "role": "Mid-range Area Denial",
-  "speed": 42,
-  "hp": 92000,
+  "role": "Snowstorm Flier",
+  "hp": 96000,
+  "speed": 52,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -17,5 +16,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Snowstorm Jump: Translocates into air generating Reflector shield and dropping an icy blizzard that freezes enemy clusters."
+  "ability": "Snowstorm: Ascends into air with Reflector shield, raining freezing blizzard blast rockets over wide target area."
 }

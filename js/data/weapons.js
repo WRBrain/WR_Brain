@@ -245,6 +245,30 @@ const WEAPON_FAMILIES = {
 
 const MASTER_WEAPONS = [
   {
+    "id": "ultimate_cataclysm",
+    "name": "Ultimate Cataclysm",
+    "size": "Alpha",
+    "tier": "Ultimate",
+    "range": 600,
+    "burstDps": 60000,
+    "sustainedDps": 38000,
+    "reload": 5,
+    "family": "Tesla Lock-on",
+    "status": "Ultimate Titan Alpha Lightning Arc"
+  },
+  {
+    "id": "ultimate_halo",
+    "name": "Ultimate Halo",
+    "size": "Light",
+    "tier": "Ultimate",
+    "range": 500,
+    "burstDps": 14000,
+    "sustainedDps": 8800,
+    "reload": 5,
+    "family": "Lockdown Energy",
+    "status": "Ultimate Lockdown Energy Shotgun"
+  },
+  {
     "id": "pantagruel",
     "name": "Pantagruel",
     "size": "Beta",
@@ -305,6 +329,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Energy Lockdown Rifle"
   },
   {
+    "id": "ultimate_corona",
+    "name": "Ultimate Corona",
+    "size": "Medium",
+    "tier": "Ultimate",
+    "range": 500,
+    "burstDps": 20500,
+    "sustainedDps": 12800,
+    "reload": 5,
+    "family": "Lockdown Energy",
+    "status": "Ultimate Lockdown Energy Shotgun"
+  },
+  {
     "id": "grom",
     "name": "Grom",
     "size": "Alpha",
@@ -329,6 +365,18 @@ const MASTER_WEAPONS = [
     "status": "Titan Beta Rust Harpoon Cannon"
   },
   {
+    "id": "dragoon",
+    "name": "Dragoon",
+    "size": "Heavy",
+    "tier": "T3",
+    "range": 600,
+    "burstDps": 16000,
+    "sustainedDps": 10500,
+    "reload": 5,
+    "family": "Plasma Cannons",
+    "status": "Tier 3 Plasma Sniper"
+  },
+  {
     "id": "razdor",
     "name": "Razdor",
     "size": "Medium",
@@ -339,6 +387,18 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Homing Bending MG",
     "status": "Tier 4 Curved Trajectory MG"
+  },
+  {
+    "id": "ultimate_gendarme",
+    "name": "Ultimate Gendarme",
+    "size": "Alpha",
+    "tier": "Ultimate",
+    "range": 600,
+    "burstDps": 58000,
+    "sustainedDps": 36000,
+    "reload": 5,
+    "family": "Plasma Cannons",
+    "status": "Ultimate Titan Alpha Plasma Sniper"
   },
   {
     "id": "spark",
@@ -365,6 +425,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Dual-Mode Assault Blaster"
   },
   {
+    "id": "ion",
+    "name": "Ion",
+    "size": "Medium",
+    "tier": "T3",
+    "range": 600,
+    "burstDps": 12000,
+    "sustainedDps": 4800,
+    "reload": 5,
+    "family": "Plasma Cannons",
+    "status": "Tier 3 Single Shot Ion Bolt"
+  },
+  {
     "id": "ancile",
     "name": "Ancile",
     "size": "Heavy",
@@ -389,6 +461,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 2 Rapid Plasma Rifle"
   },
   {
+    "id": "ultimate_blaze",
+    "name": "Ultimate Blaze",
+    "size": "Light",
+    "tier": "Ultimate",
+    "range": 350,
+    "burstDps": 13200,
+    "sustainedDps": 8800,
+    "reload": 5,
+    "family": "Flamethrowers",
+    "status": "Ultimate Napalm Flamethrower"
+  },
+  {
     "id": "kelvin",
     "name": "Kelvin",
     "size": "Heavy",
@@ -399,6 +483,18 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Sub-Zero Cryo Energy",
     "status": "Tier 4 Cryo Beam Cannon"
+  },
+  {
+    "id": "lantern",
+    "name": "Lantern",
+    "size": "Beta",
+    "tier": "T4",
+    "range": 600,
+    "burstDps": 27500,
+    "sustainedDps": 17200,
+    "reload": 5,
+    "family": "Titan Blind Laser",
+    "status": "Titan Beta Optical Blind Laser"
   },
   {
     "id": "leana",
@@ -437,6 +533,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 2 Continuous Energy Cannon"
   },
   {
+    "id": "basilisk",
+    "name": "Basilisk",
+    "size": "Alpha",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 39500,
+    "sustainedDps": 24000,
+    "reload": 5,
+    "family": "Titan Acid",
+    "status": "Titan Alpha Corrosive Acid Cannon"
+  },
+  {
     "id": "venom",
     "name": "Venom",
     "size": "Medium",
@@ -447,6 +555,18 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Corrosive Acid",
     "status": "Tier 4 Corrosive Acid Stream"
+  },
+  {
+    "id": "ultimate_ember",
+    "name": "Ultimate Ember",
+    "size": "Heavy",
+    "tier": "Ultimate",
+    "range": 350,
+    "burstDps": 27000,
+    "sustainedDps": 18000,
+    "reload": 5,
+    "family": "Flamethrowers",
+    "status": "Ultimate Napalm Flamethrower"
   },
   {
     "id": "basileus",
@@ -461,6 +581,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Kinetic Flechette"
   },
   {
+    "id": "ultimate_avenger",
+    "name": "Ultimate Avenger",
+    "size": "Heavy",
+    "tier": "Ultimate",
+    "range": 500,
+    "burstDps": 26000,
+    "sustainedDps": 16500,
+    "reload": 8,
+    "family": "Kinetic Gatlings",
+    "status": "Ultimate Accelerating Heavy Gatling"
+  },
+  {
     "id": "decay",
     "name": "Decay",
     "size": "Heavy",
@@ -473,6 +605,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Radiation Burst Rifle"
   },
   {
+    "id": "stake",
+    "name": "Stake",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 150,
+    "burstDps": 22000,
+    "sustainedDps": 14000,
+    "reload": 5,
+    "family": "Harpoon Kinetic",
+    "status": "Tier 4 Aegis Shield Penetrator"
+  },
+  {
     "id": "glacier",
     "name": "Glacier",
     "size": "Heavy",
@@ -483,6 +627,42 @@ const MASTER_WEAPONS = [
     "reload": 6,
     "family": "Freeze Rockets",
     "status": "Tier 4 Cryo Explosive Rocket"
+  },
+  {
+    "id": "bulava",
+    "name": "Bulava",
+    "size": "Alpha",
+    "tier": "T3",
+    "range": 600,
+    "burstDps": 35000,
+    "sustainedDps": 20000,
+    "reload": 10,
+    "family": "Guided Artillery",
+    "status": "Titan Alpha Homing Rocket Mortar"
+  },
+  {
+    "id": "arbitrator",
+    "name": "Arbitrator",
+    "size": "Alpha",
+    "tier": "T4",
+    "range": 800,
+    "burstDps": 45000,
+    "sustainedDps": 26000,
+    "reload": 6,
+    "family": "Kinetic Sniper",
+    "status": "Titan Alpha Armor-Piercing Harpoon"
+  },
+  {
+    "id": "dazzler",
+    "name": "Dazzler",
+    "size": "Alpha",
+    "tier": "T4",
+    "range": 600,
+    "burstDps": 38000,
+    "sustainedDps": 23500,
+    "reload": 5,
+    "family": "Titan Blind Laser",
+    "status": "Titan Alpha Optical Blind Laser"
   },
   {
     "id": "porthos",
@@ -534,7 +714,7 @@ const MASTER_WEAPONS = [
   },
   {
     "id": "cyclops",
-    "name": "Cyclops",
+    "name": "Cyclone",
     "size": "Beta",
     "tier": "T4",
     "range": 600,
@@ -605,6 +785,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Infinite Beam Laser"
   },
   {
+    "id": "ultimate_orkan",
+    "name": "Ultimate Orkan",
+    "size": "Medium",
+    "tier": "Ultimate",
+    "range": 300,
+    "burstDps": 21000,
+    "sustainedDps": 11500,
+    "reload": 6,
+    "family": "Freeze Rockets",
+    "status": "Ultimate Rapid Burst Rocket Pod"
+  },
+  {
     "id": "rime",
     "name": "Rime",
     "size": "Light",
@@ -629,6 +821,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Sonic Grey Damage Shotgun"
   },
   {
+    "id": "ultimate_pulsar",
+    "name": "Ultimate Pulsar",
+    "size": "Medium",
+    "tier": "Ultimate",
+    "range": 600,
+    "burstDps": 18000,
+    "sustainedDps": 11800,
+    "reload": 5,
+    "family": "Lockdown Energy",
+    "status": "Ultimate Energy Lockdown Rifle"
+  },
+  {
     "id": "celsius",
     "name": "Celsius",
     "size": "Medium",
@@ -639,6 +843,18 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Thermal Cryo",
     "status": "Tier 4 Thermal Shock Beam"
+  },
+  {
+    "id": "arbalest",
+    "name": "Arbalest",
+    "size": "Light",
+    "tier": "T2",
+    "range": 1100,
+    "burstDps": 7000,
+    "sustainedDps": 2000,
+    "reload": 10,
+    "family": "Plasma Cannons",
+    "status": "Tier 2 Charged Particle Sniper"
   },
   {
     "id": "scatter",
@@ -665,6 +881,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Void Particle Cannon"
   },
   {
+    "id": "ultimate_squall",
+    "name": "Ultimate Squall",
+    "size": "Beta",
+    "tier": "Ultimate",
+    "range": 500,
+    "burstDps": 46000,
+    "sustainedDps": 29000,
+    "reload": 5,
+    "family": "Kinetic Shotguns",
+    "status": "Ultimate Titan Beta Scattergun"
+  },
+  {
     "id": "pyro",
     "name": "Pyro",
     "size": "Beta",
@@ -689,6 +917,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Indirect Guided Rocket"
   },
   {
+    "id": "ultimate_dragoon",
+    "name": "Ultimate Dragoon",
+    "size": "Heavy",
+    "tier": "Ultimate",
+    "range": 600,
+    "burstDps": 25000,
+    "sustainedDps": 16500,
+    "reload": 5,
+    "family": "Plasma Cannons",
+    "status": "Ultimate Plasma Sniper Cannon"
+  },
+  {
     "id": "fengbao",
     "name": "Fengbao",
     "size": "Heavy",
@@ -699,6 +939,18 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Electricity / Zap",
     "status": "Tier 4 Electric Arc Brawler"
+  },
+  {
+    "id": "ultimate_storm",
+    "name": "Ultimate Storm",
+    "size": "Medium",
+    "tier": "Ultimate",
+    "range": 500,
+    "burstDps": 18000,
+    "sustainedDps": 11200,
+    "reload": 5,
+    "family": "Kinetic Shotguns",
+    "status": "Ultimate Kinetic Scattergun"
   },
   {
     "id": "nanea",
@@ -713,6 +965,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Dual-Mode Assault Blaster"
   },
   {
+    "id": "ballista",
+    "name": "Ballista",
+    "size": "Medium",
+    "tier": "T2",
+    "range": 1100,
+    "burstDps": 11500,
+    "sustainedDps": 3000,
+    "reload": 14,
+    "family": "Plasma Cannons",
+    "status": "Tier 2 Charged Particle Sniper"
+  },
+  {
     "id": "tonans",
     "name": "Tonans",
     "size": "Alpha",
@@ -723,6 +987,18 @@ const MASTER_WEAPONS = [
     "reload": 6,
     "family": "Titan Lightning Railgun",
     "status": "Titan Alpha Lightning Railgun"
+  },
+  {
+    "id": "labrys",
+    "name": "Labrys",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 13200,
+    "sustainedDps": 8400,
+    "reload": 5,
+    "family": "Blast Rockets",
+    "status": "Tier 4 Kinetic Blast Rocket"
   },
   {
     "id": "subduer",
@@ -771,6 +1047,18 @@ const MASTER_WEAPONS = [
     "reload": 10,
     "family": "Kinetic Gatlings",
     "status": "Tier 3 Accelerating Heavy MG"
+  },
+  {
+    "id": "sinister_cryo",
+    "name": "Sinister Cryo",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 300,
+    "burstDps": 13000,
+    "sustainedDps": 7600,
+    "reload": 6,
+    "family": "Freeze Rockets",
+    "status": "Special Edition Cryo Rocket"
   },
   {
     "id": "shifang",
@@ -822,7 +1110,7 @@ const MASTER_WEAPONS = [
   },
   {
     "id": "infernus",
-    "name": "Infernus",
+    "name": "Inferno",
     "size": "Alpha",
     "tier": "T4",
     "range": 350,
@@ -831,6 +1119,30 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Titan Flame",
     "status": "Titan Alpha Napalm Flamethrower"
+  },
+  {
+    "id": "ultimate_cryo",
+    "name": "Ultimate Cryo",
+    "size": "Medium",
+    "tier": "Ultimate",
+    "range": 300,
+    "burstDps": 19500,
+    "sustainedDps": 11500,
+    "reload": 5,
+    "family": "Freeze Rockets",
+    "status": "Ultimate Cryo Blast Rocket"
+  },
+  {
+    "id": "ultimate_gust",
+    "name": "Ultimate Gust",
+    "size": "Light",
+    "tier": "Ultimate",
+    "range": 500,
+    "burstDps": 12000,
+    "sustainedDps": 7500,
+    "reload": 5,
+    "family": "Kinetic Shotguns",
+    "status": "Ultimate Kinetic Scattergun"
   },
   {
     "id": "smuta",
@@ -905,6 +1217,18 @@ const MASTER_WEAPONS = [
     "status": "Titan Alpha Chain Lightning Railgun"
   },
   {
+    "id": "ultimate_hussar",
+    "name": "Ultimate Hussar",
+    "size": "Medium",
+    "tier": "Ultimate",
+    "range": 600,
+    "burstDps": 18000,
+    "sustainedDps": 12000,
+    "reload": 5,
+    "family": "Plasma Cannons",
+    "status": "Ultimate Plasma Sniper Cannon"
+  },
+  {
     "id": "morana",
     "name": "Morana",
     "size": "Medium",
@@ -937,7 +1261,7 @@ const MASTER_WEAPONS = [
     "burstDps": 27500,
     "sustainedDps": 17000,
     "reload": 5,
-    "family": "Corrosive Acid",
+    "family": "Titan Acid",
     "status": "Titan Beta Corrosive Acid Cannon"
   },
   {
@@ -953,6 +1277,18 @@ const MASTER_WEAPONS = [
     "status": "Special Edition Infinite Beam Laser"
   },
   {
+    "id": "ultimate_glacier",
+    "name": "Ultimate Glacier",
+    "size": "Heavy",
+    "tier": "Ultimate",
+    "range": 300,
+    "burstDps": 26500,
+    "sustainedDps": 15500,
+    "reload": 5,
+    "family": "Freeze Rockets",
+    "status": "Ultimate Cryo Blast Rocket"
+  },
+  {
     "id": "hippo",
     "name": "Hippo",
     "size": "Medium",
@@ -963,6 +1299,30 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Desert Siphon",
     "status": "Tier 4 Desert Siphon Cannon"
+  },
+  {
+    "id": "cestus",
+    "name": "Cestus",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 18000,
+    "sustainedDps": 11500,
+    "reload": 5,
+    "family": "Blast Rockets",
+    "status": "Tier 4 Kinetic Blast Rocket"
+  },
+  {
+    "id": "volt",
+    "name": "Volt",
+    "size": "Light",
+    "tier": "T4",
+    "range": 800,
+    "burstDps": 8000,
+    "sustainedDps": 3300,
+    "reload": 8,
+    "family": "Kinetic Sniper",
+    "status": "Tier 4 100% Defense Mitigation Railgun"
   },
   {
     "id": "oxy",
@@ -1011,6 +1371,18 @@ const MASTER_WEAPONS = [
     "reload": 10,
     "family": "Kinetic Gatlings",
     "status": "Tier 1 Accelerating Light MG"
+  },
+  {
+    "id": "glory",
+    "name": "Glory",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 18000,
+    "sustainedDps": 11500,
+    "reload": 5,
+    "family": "Lockdown Energy",
+    "status": "Tier 4 Lockdown Energy Shotgun"
   },
   {
     "id": "damper",
@@ -1073,6 +1445,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Area Blast Rocket"
   },
   {
+    "id": "ultimate_scourge",
+    "name": "Ultimate Scourge",
+    "size": "Medium",
+    "tier": "Ultimate",
+    "range": 600,
+    "burstDps": 18500,
+    "sustainedDps": 11800,
+    "reload": 5,
+    "family": "Tesla Lock-on",
+    "status": "Ultimate Guided Lightning Arc"
+  },
+  {
     "id": "reaper",
     "name": "Reaper",
     "size": "Heavy",
@@ -1083,6 +1467,18 @@ const MASTER_WEAPONS = [
     "reload": 12,
     "family": "Kinetic Sniper",
     "status": "Tier 4 Kinetic Shieldbreaker Sniper"
+  },
+  {
+    "id": "ultimate_glory",
+    "name": "Ultimate Glory",
+    "size": "Heavy",
+    "tier": "Ultimate",
+    "range": 500,
+    "burstDps": 28000,
+    "sustainedDps": 17500,
+    "reload": 5,
+    "family": "Lockdown Energy",
+    "status": "Ultimate Lockdown Energy Shotgun"
   },
   {
     "id": "snaer",
@@ -1109,6 +1505,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Distance-Scaled Laser Beam"
   },
   {
+    "id": "corona",
+    "name": "Corona",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 13000,
+    "sustainedDps": 8300,
+    "reload": 5,
+    "family": "Lockdown Energy",
+    "status": "Tier 4 Lockdown Energy Shotgun"
+  },
+  {
     "id": "screamer",
     "name": "Screamer",
     "size": "Heavy",
@@ -1119,6 +1527,30 @@ const MASTER_WEAPONS = [
     "reload": 6,
     "family": "Acoustic / Echo",
     "status": "Tier 4 Acoustic Piercing"
+  },
+  {
+    "id": "gauss",
+    "name": "Gauss",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 800,
+    "burstDps": 16500,
+    "sustainedDps": 6800,
+    "reload": 8,
+    "family": "Kinetic Sniper",
+    "status": "Tier 4 100% Defense Mitigation Railgun"
+  },
+  {
+    "id": "weber",
+    "name": "Weber",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 800,
+    "burstDps": 12000,
+    "sustainedDps": 5000,
+    "reload": 8,
+    "family": "Kinetic Sniper",
+    "status": "Tier 4 100% Defense Mitigation Railgun"
   },
   {
     "id": "vajra",
@@ -1191,6 +1623,18 @@ const MASTER_WEAPONS = [
     "reload": 9,
     "family": "Kinetic Sniper",
     "status": "Tier 1 Heavy Ballistic Cannon"
+  },
+  {
+    "id": "marquess",
+    "name": "Marquess",
+    "size": "Light",
+    "tier": "T3",
+    "range": 600,
+    "burstDps": 7800,
+    "sustainedDps": 5100,
+    "reload": 5,
+    "family": "Plasma Cannons",
+    "status": "Tier 3 Plasma Sniper"
   },
   {
     "id": "dunamis",
@@ -1313,6 +1757,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 2 Kinetic Light Scattergun"
   },
   {
+    "id": "ultimate_ion",
+    "name": "Ultimate Ion",
+    "size": "Medium",
+    "tier": "Ultimate",
+    "range": 600,
+    "burstDps": 19500,
+    "sustainedDps": 8000,
+    "reload": 4.5,
+    "family": "Plasma Cannons",
+    "status": "Ultimate Single Shot Ion Bolt"
+  },
+  {
     "id": "smite",
     "name": "Smite",
     "size": "Light",
@@ -1383,6 +1839,42 @@ const MASTER_WEAPONS = [
     "reload": 20,
     "family": "Plasma Cannons",
     "status": "Tier 2 Charged Particle Sniper"
+  },
+  {
+    "id": "ultimate_cuirassier",
+    "name": "Ultimate Cuirassier",
+    "size": "Beta",
+    "tier": "Ultimate",
+    "range": 600,
+    "burstDps": 42000,
+    "sustainedDps": 26000,
+    "reload": 5,
+    "family": "Plasma Cannons",
+    "status": "Ultimate Titan Beta Plasma Sniper"
+  },
+  {
+    "id": "needle",
+    "name": "Needle",
+    "size": "Light",
+    "tier": "T4",
+    "range": 150,
+    "burstDps": 10500,
+    "sustainedDps": 6800,
+    "reload": 5,
+    "family": "Harpoon Kinetic",
+    "status": "Tier 4 Aegis Shield Penetrator"
+  },
+  {
+    "id": "cuirassier",
+    "name": "Cuirassier",
+    "size": "Beta",
+    "tier": "T3",
+    "range": 600,
+    "burstDps": 26500,
+    "sustainedDps": 16000,
+    "reload": 5,
+    "family": "Plasma Cannons",
+    "status": "Titan Beta Plasma Sniper"
   },
   {
     "id": "tempest",
@@ -1457,6 +1949,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Radiation Burst Rifle"
   },
   {
+    "id": "dispute",
+    "name": "Dispute",
+    "size": "Beta",
+    "tier": "T4",
+    "range": 800,
+    "burstDps": 33000,
+    "sustainedDps": 19000,
+    "reload": 6,
+    "family": "Kinetic Sniper",
+    "status": "Titan Beta Armor-Piercing Harpoon"
+  },
+  {
     "id": "spiral",
     "name": "Spiral",
     "size": "Light",
@@ -1515,6 +2019,30 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Homing Bending MG",
     "status": "Tier 4 Curved Trajectory MG"
+  },
+  {
+    "id": "ultimate_calamity",
+    "name": "Ultimate Calamity",
+    "size": "Heavy",
+    "tier": "Ultimate",
+    "range": 600,
+    "burstDps": 25500,
+    "sustainedDps": 16200,
+    "reload": 5,
+    "family": "Tesla Lock-on",
+    "status": "Ultimate Guided Lightning Arc"
+  },
+  {
+    "id": "ultimate_shocktrain",
+    "name": "Ultimate Shocktrain",
+    "size": "Medium",
+    "tier": "Ultimate",
+    "range": 500,
+    "burstDps": 20000,
+    "sustainedDps": 8500,
+    "reload": 6,
+    "family": "Plasma Cannons",
+    "status": "Ultimate Chain Energy Cannon"
   },
   {
     "id": "shocktrain",
@@ -1577,6 +2105,18 @@ const MASTER_WEAPONS = [
     "status": "Titan Alpha Void Siphon Beam"
   },
   {
+    "id": "spike",
+    "name": "Spike",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 150,
+    "burstDps": 16000,
+    "sustainedDps": 10200,
+    "reload": 5,
+    "family": "Harpoon Kinetic",
+    "status": "Tier 4 Aegis Shield Penetrator"
+  },
+  {
     "id": "orkan",
     "name": "Orkan",
     "size": "Medium",
@@ -1587,6 +2127,18 @@ const MASTER_WEAPONS = [
     "reload": 8,
     "family": "Freeze Rockets",
     "status": "Tier 2 Rapid Burst Rocket Pod"
+  },
+  {
+    "id": "ultimate_rime",
+    "name": "Ultimate Rime",
+    "size": "Light",
+    "tier": "Ultimate",
+    "range": 300,
+    "burstDps": 13000,
+    "sustainedDps": 7800,
+    "reload": 5,
+    "family": "Freeze Rockets",
+    "status": "Ultimate Cryo Blast Rocket"
   },
   {
     "id": "squall",
@@ -1611,6 +2163,18 @@ const MASTER_WEAPONS = [
     "reload": 6,
     "family": "Titan Lightning Railgun",
     "status": "Titan Beta Lightning Railgun"
+  },
+  {
+    "id": "ultimate_punisher_t",
+    "name": "Ultimate Punisher T",
+    "size": "Medium",
+    "tier": "Ultimate",
+    "range": 500,
+    "burstDps": 18500,
+    "sustainedDps": 11500,
+    "reload": 8,
+    "family": "Kinetic Gatlings",
+    "status": "Ultimate Accelerating Medium Gatling"
   },
   {
     "id": "punisher_t",
@@ -1661,6 +2225,18 @@ const MASTER_WEAPONS = [
     "status": "Special Edition Cryo Rocket"
   },
   {
+    "id": "ultimate_igniter",
+    "name": "Ultimate Igniter",
+    "size": "Medium",
+    "tier": "Ultimate",
+    "range": 350,
+    "burstDps": 19500,
+    "sustainedDps": 13000,
+    "reload": 5,
+    "family": "Flamethrowers",
+    "status": "Ultimate Napalm Flamethrower"
+  },
+  {
     "id": "hammer",
     "name": "Hammer",
     "size": "Heavy",
@@ -1697,6 +2273,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Infinite Beam Laser"
   },
   {
+    "id": "hussar",
+    "name": "Hussar",
+    "size": "Medium",
+    "tier": "T3",
+    "range": 600,
+    "burstDps": 11500,
+    "sustainedDps": 7500,
+    "reload": 5,
+    "family": "Plasma Cannons",
+    "status": "Tier 3 Plasma Sniper"
+  },
+  {
     "id": "blaze",
     "name": "Blaze",
     "size": "Light",
@@ -1731,6 +2319,18 @@ const MASTER_WEAPONS = [
     "reload": 6,
     "family": "Titan Cryo Rockets",
     "status": "Titan Alpha Cryo Blast Rockets"
+  },
+  {
+    "id": "kisten",
+    "name": "Kisten",
+    "size": "Beta",
+    "tier": "T3",
+    "range": 600,
+    "burstDps": 25000,
+    "sustainedDps": 14500,
+    "reload": 10,
+    "family": "Guided Artillery",
+    "status": "Titan Beta Homing Rocket Mortar"
   },
   {
     "id": "gekko",
@@ -1781,6 +2381,42 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Continuous Napalm"
   },
   {
+    "id": "ultimate_cyclone",
+    "name": "Ultimate Cyclone",
+    "size": "Beta",
+    "tier": "Ultimate",
+    "range": 600,
+    "burstDps": 44000,
+    "sustainedDps": 28000,
+    "reload": 5,
+    "family": "Tesla Lock-on",
+    "status": "Ultimate Titan Beta Lightning Arc"
+  },
+  {
+    "id": "ultimate_spark",
+    "name": "Ultimate Spark",
+    "size": "Light",
+    "tier": "Ultimate",
+    "range": 600,
+    "burstDps": 12500,
+    "sustainedDps": 8000,
+    "reload": 5,
+    "family": "Tesla Lock-on",
+    "status": "Ultimate Guided Lightning Arc"
+  },
+  {
+    "id": "ultimate_taran",
+    "name": "Ultimate Taran",
+    "size": "Medium",
+    "tier": "Ultimate",
+    "range": 350,
+    "burstDps": 19000,
+    "sustainedDps": 12800,
+    "reload": 4.5,
+    "family": "Plasma Cannons",
+    "status": "Ultimate Rapid Plasma Rifle"
+  },
+  {
     "id": "pilum",
     "name": "Pilum",
     "size": "Medium",
@@ -1803,6 +2439,30 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Kinetic Shotguns",
     "status": "Tier 1 Kinetic Heavy Scattergun"
+  },
+  {
+    "id": "ultimate_grom",
+    "name": "Ultimate Grom",
+    "size": "Alpha",
+    "tier": "Ultimate",
+    "range": 500,
+    "burstDps": 62000,
+    "sustainedDps": 39000,
+    "reload": 5,
+    "family": "Kinetic Shotguns",
+    "status": "Ultimate Titan Alpha Scattergun"
+  },
+  {
+    "id": "sinister_glacier",
+    "name": "Sinister Glacier",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 300,
+    "burstDps": 17800,
+    "sustainedDps": 10300,
+    "reload": 6,
+    "family": "Freeze Rockets",
+    "status": "Special Edition Cryo Rocket"
   },
   {
     "id": "mace",
@@ -1829,6 +2489,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Blast Sniper"
   },
   {
+    "id": "halo",
+    "name": "Halo",
+    "size": "Light",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 8800,
+    "sustainedDps": 5600,
+    "reload": 5,
+    "family": "Lockdown Energy",
+    "status": "Tier 4 Lockdown Energy Shotgun"
+  },
+  {
     "id": "cudgel",
     "name": "Cudgel",
     "size": "Light",
@@ -1851,6 +2523,18 @@ const MASTER_WEAPONS = [
     "reload": 10,
     "family": "Kinetic Gatlings",
     "status": "Tier 1 Long-Range Ballistic MG"
+  },
+  {
+    "id": "gendarme",
+    "name": "Gendarme",
+    "size": "Alpha",
+    "tier": "T3",
+    "range": 600,
+    "burstDps": 36500,
+    "sustainedDps": 22000,
+    "reload": 5,
+    "family": "Plasma Cannons",
+    "status": "Titan Alpha Plasma Sniper"
   },
   {
     "id": "cataclysm",

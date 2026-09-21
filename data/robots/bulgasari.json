@@ -1,12 +1,10 @@
 {
   "id": "bulgasari",
   "name": "Bulgasari",
-  "seriesKey": "bulgasari",
   "tier": "T3",
-  "faction": "SpaceTech",
-  "role": "Dash Shield Warrior",
-  "speed": 40,
-  "hp": 105000,
+  "role": "Side Shield Brawler",
+  "hp": 130000,
+  "speed": 45,
   "hardpoints": [
     {
       "size": "Medium"
@@ -18,5 +16,5 @@
       "size": "Medium"
     }
   ],
-  "ability": "Dash & Side Shield: Heavy physical side shield (300k HP) and 2 dash thruster charges."
+  "ability": "Dash & Side Shield: 1 dash charge and durable side physical shield blocking incoming projectile fire."
 }

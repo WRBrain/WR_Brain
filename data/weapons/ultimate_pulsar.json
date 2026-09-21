@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_pulsar",
+  "name": "Ultimate Pulsar",
+  "size": "Medium",
+  "tier": "Ultimate",
+  "range": 600,
+  "burstDps": 18000,
+  "sustainedDps": 11800,
+  "reload": 5.0,
+  "family": "Lockdown Energy",
+  "status": "Ultimate Energy Lockdown Rifle"
+}

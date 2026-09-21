@@ -1,12 +1,10 @@
 {
   "id": "phantom",
   "name": "Phantom",
-  "seriesKey": "phantom",
   "tier": "T4",
-  "faction": "Icarus",
-  "role": "Beacon Runner",
-  "speed": 50,
-  "hp": 95000,
+  "role": "Blink Skirmisher",
+  "hp": 118000,
+  "speed": 60,
   "hardpoints": [
     {
       "size": "Medium"
@@ -18,5 +16,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Blink: Drops locator beacon, gains +33% speed and +33% defense points, and teleports back on command."
+  "ability": "Blink & Teleport: Drops return translocator, gaining 33% speed and 50 defense points with instant recall."
 }

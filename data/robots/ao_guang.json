@@ -2,10 +2,9 @@
   "id": "ao_guang",
   "name": "Ao Guang",
   "tier": "T3",
-  "faction": "SpaceTech",
-  "role": "Green Dragon",
-  "speed": 42,
-  "hp": 80000,
+  "role": "Homing Rocket Flier",
+  "hp": 95000,
+  "speed": 52,
   "hardpoints": [
     {
       "size": "Medium"
@@ -17,5 +16,5 @@
       "size": "Medium"
     }
   ],
-  "ability": "Dragon Flight: Takes flight with 80% damage resistance and fires built-in homing missiles."
+  "ability": "Dragon Flight: Takes flight with 80% defense resistance, launching homing missile salvos."
 }

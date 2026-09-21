@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 11600,
   "sustainedDps": 4600,
-  "reload": 8,
+  "reload": 8.0,
   "family": "Plasma Cannons",
   "status": "Tier 3 Chain Energy Cannon"
 }

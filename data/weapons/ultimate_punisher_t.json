@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_punisher_t",
+  "name": "Ultimate Punisher T",
+  "size": "Medium",
+  "tier": "Ultimate",
+  "range": 500,
+  "burstDps": 18500,
+  "sustainedDps": 11500,
+  "reload": 8.0,
+  "family": "Kinetic Gatlings",
+  "status": "Ultimate Accelerating Medium Gatling"
+}

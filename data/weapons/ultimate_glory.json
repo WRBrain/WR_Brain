@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_glory",
+  "name": "Ultimate Glory",
+  "size": "Heavy",
+  "tier": "Ultimate",
+  "range": 500,
+  "burstDps": 28000,
+  "sustainedDps": 17500,
+  "reload": 5.0,
+  "family": "Lockdown Energy",
+  "status": "Ultimate Lockdown Energy Shotgun"
+}

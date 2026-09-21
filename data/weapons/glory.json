@@ -1,0 +1,12 @@
+{
+  "id": "glory",
+  "name": "Glory",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 18000,
+  "sustainedDps": 11500,
+  "reload": 5.0,
+  "family": "Lockdown Energy",
+  "status": "Tier 4 Lockdown Energy Shotgun"
+}

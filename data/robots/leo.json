@@ -2,10 +2,9 @@
   "id": "leo",
   "name": "Leo",
   "tier": "T1",
-  "faction": "DSC",
-  "role": "Brawler Tank",
-  "speed": 35,
-  "hp": 118000,
+  "role": "Heavy Brawler Tank",
+  "hp": 140000,
+  "speed": 38,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -20,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "High Hull Durability: Massive beginner HP pool with versatile weapons mix."
+  "ability": "Durability Hull: High baseline structural armor buffer."
 }

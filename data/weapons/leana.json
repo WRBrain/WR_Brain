@@ -6,7 +6,7 @@
   "range": 100,
   "burstDps": 17500,
   "sustainedDps": 10500,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Electricity / Zap",
   "status": "Tier 4 Electric Arc Brawler"
 }

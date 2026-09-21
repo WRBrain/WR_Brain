@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_dragoon",
+  "name": "Ultimate Dragoon",
+  "size": "Heavy",
+  "tier": "Ultimate",
+  "range": 600,
+  "burstDps": 25000,
+  "sustainedDps": 16500,
+  "reload": 5.0,
+  "family": "Plasma Cannons",
+  "status": "Ultimate Plasma Sniper Cannon"
+}

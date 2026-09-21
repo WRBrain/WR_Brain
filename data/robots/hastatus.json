@@ -2,10 +2,9 @@
   "id": "hastatus",
   "name": "Hastatus",
   "tier": "T4",
-  "faction": "DSC",
-  "role": "Gladiator Bastion",
-  "speed": 45,
+  "role": "Roman Harpoon Skirmisher",
   "hp": 110000,
+  "speed": 57,
   "hardpoints": [
     {
       "size": "Medium"
@@ -17,5 +16,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Phalanx Retribution: Deploys indestructible front shield while boosting kinetic weapon fire and damage mitigation."
+  "ability": "Centurion Glide: Dashes sideways while anchoring target enemies with kinetic harpoon tether."
 }

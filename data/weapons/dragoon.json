@@ -1,0 +1,12 @@
+{
+  "id": "dragoon",
+  "name": "Dragoon",
+  "size": "Heavy",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 16000,
+  "sustainedDps": 10500,
+  "reload": 5.0,
+  "family": "Plasma Cannons",
+  "status": "Tier 3 Plasma Sniper"
+}

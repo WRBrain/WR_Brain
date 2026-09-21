@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_igniter",
+  "name": "Ultimate Igniter",
+  "size": "Medium",
+  "tier": "Ultimate",
+  "range": 350,
+  "burstDps": 19500,
+  "sustainedDps": 13000,
+  "reload": 5.0,
+  "family": "Flamethrowers",
+  "status": "Ultimate Napalm Flamethrower"
+}

@@ -1,12 +1,10 @@
 {
   "id": "ultimate_blitz",
   "name": "Ultimate Blitz",
-  "seriesKey": "blitz",
   "tier": "Ultimate",
-  "faction": "DSC",
-  "role": "Ultimate Brawler",
-  "speed": 52,
-  "hp": 125000,
+  "role": "Ultimate Break-in Striker",
+  "hp": 185000,
+  "speed": 62,
   "hardpoints": [
     {
       "size": "Light"
@@ -21,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Ultimate Break-In: Heavy unbreakable Aegis barrier with EMP discharge and 80% enemy suppression."
+  "ability": "Ultimate Break-in: 100% suppression darts with indestructible Aegis shield and speed boost."
 }

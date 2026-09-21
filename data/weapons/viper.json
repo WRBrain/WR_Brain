@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 15500,
   "sustainedDps": 9200,
-  "reload": 10,
+  "reload": 10.0,
   "family": "Corrosive Acid",
   "status": "Tier 3 Corrosive Kinetic MG"
 }

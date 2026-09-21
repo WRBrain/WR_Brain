@@ -1,0 +1,23 @@
+{
+  "id": "doc",
+  "name": "Doc",
+  "tier": "T2",
+  "role": "Quick-Draw Medium",
+  "hp": 105000,
+  "speed": 48,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Quick Draw: Swaps between 2 active Medium weapons and 2 holstered Medium weapons."
+}

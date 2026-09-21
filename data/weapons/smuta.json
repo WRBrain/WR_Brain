@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 16800,
   "sustainedDps": 10200,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Homing Bending MG",
   "status": "Tier 4 Curved Trajectory MG"
 }

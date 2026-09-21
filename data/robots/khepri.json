@@ -2,10 +2,9 @@
   "id": "khepri",
   "name": "Khepri",
   "tier": "T4",
-  "faction": "EvoLife",
-  "role": "Link Support",
-  "speed": 48,
-  "hp": 108000,
+  "role": "Quad Support Tether",
+  "hp": 128000,
+  "speed": 55,
   "hardpoints": [
     {
       "size": "Light"
@@ -20,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Bond: Links with ally, granting mutual speed (+35%), continuous healing, +50 Defense Points, and +25% damage boost."
+  "ability": "Misaki Link: Bonds with ally or self, granting speed, continuous repair, defense points, and weapon damage boost."
 }

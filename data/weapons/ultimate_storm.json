@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_storm",
+  "name": "Ultimate Storm",
+  "size": "Medium",
+  "tier": "Ultimate",
+  "range": 500,
+  "burstDps": 18000,
+  "sustainedDps": 11200,
+  "reload": 5.0,
+  "family": "Kinetic Shotguns",
+  "status": "Ultimate Kinetic Scattergun"
+}

@@ -6,7 +6,7 @@
   "range": 600,
   "burstDps": 7400,
   "sustainedDps": 4700,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Freeze Lasers",
   "status": "Tier 4 Continuous Freeze Laser"
 }

@@ -1,0 +1,23 @@
+{
+  "id": "butch",
+  "name": "Butch",
+  "tier": "T3",
+  "role": "Quick-Draw Sniper",
+  "hp": 125000,
+  "speed": 40,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Quick Draw: Swaps between 2 active Heavy mounts and 2 holstered Heavy mounts."
+}

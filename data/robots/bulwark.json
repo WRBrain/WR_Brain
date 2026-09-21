@@ -2,10 +2,9 @@
   "id": "bulwark",
   "name": "Bulwark",
   "tier": "T3",
-  "faction": "DSC",
-  "role": "Dual Shield Bastion",
-  "speed": 38,
-  "hp": 110000,
+  "role": "Dual Shield Fortress",
+  "hp": 135000,
+  "speed": 45,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -14,5 +13,5 @@
       "size": "Heavy"
     }
   ],
-  "ability": "Dual Barrier: Dual-layer defense system with front physical shield and rechargeable Aegis energy dome."
+  "ability": "Dual Aegis & Physical Shield: Toggles between regenerable Aegis shield dome and front physical shield."
 }

@@ -1,0 +1,12 @@
+{
+  "id": "bulava",
+  "name": "Bulava",
+  "size": "Alpha",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 35000,
+  "sustainedDps": 20000,
+  "reload": 10.0,
+  "family": "Guided Artillery",
+  "status": "Titan Alpha Homing Rocket Mortar"
+}

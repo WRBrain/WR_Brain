@@ -1,0 +1,20 @@
+{
+  "id": "ultimate_lancelot",
+  "name": "Ultimate Lancelot",
+  "tier": "Ultimate",
+  "role": "Ultimate Phalanx Tank",
+  "hp": 240000,
+  "speed": 44,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Ultimate Rush: Speed sprint with 2.5M HP physical shield and continuous damage aura."
+}

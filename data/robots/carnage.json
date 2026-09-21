@@ -2,10 +2,9 @@
   "id": "carnage",
   "name": "Carnage",
   "tier": "T2",
-  "faction": "SpaceTech",
-  "role": "Ancile Brawler",
-  "speed": 40,
-  "hp": 68000,
+  "role": "Sprint Ancile Brawler",
+  "hp": 90000,
+  "speed": 45,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -14,5 +13,5 @@
       "size": "Heavy"
     }
   ],
-  "ability": "Rush & Ancile: Energy shield generator with high-velocity sprint booster."
+  "ability": "Rush & Ancile: 66% speed sprint with built-in regenerable Ancile energy shield."
 }

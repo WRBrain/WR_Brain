@@ -2,10 +2,9 @@
   "id": "griffin",
   "name": "Griffin",
   "tier": "T1",
-  "faction": "DSC",
-  "role": "Jump Striker",
-  "speed": 35,
-  "hp": 85000,
+  "role": "Jump Assault Walker",
+  "hp": 95000,
+  "speed": 38,
   "hardpoints": [
     {
       "size": "Medium"
@@ -20,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Jump Unit: Heavy kinetic thruster leap for ambushes and obstacle bypass."
+  "ability": "Jump Drive: Powerful rocket jump covering massive horizontal distances."
 }

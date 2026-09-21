@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_halo",
+  "name": "Ultimate Halo",
+  "size": "Light",
+  "tier": "Ultimate",
+  "range": 500,
+  "burstDps": 14000,
+  "sustainedDps": 8800,
+  "reload": 5.0,
+  "family": "Lockdown Energy",
+  "status": "Ultimate Lockdown Energy Shotgun"
+}

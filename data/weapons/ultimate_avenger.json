@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_avenger",
+  "name": "Ultimate Avenger",
+  "size": "Heavy",
+  "tier": "Ultimate",
+  "range": 500,
+  "burstDps": 26000,
+  "sustainedDps": 16500,
+  "reload": 8.0,
+  "family": "Kinetic Gatlings",
+  "status": "Ultimate Accelerating Heavy Gatling"
+}

@@ -2,10 +2,9 @@
   "id": "dagon",
   "name": "Dagon",
   "tier": "T4",
-  "faction": "EvoLife",
-  "role": "Heavy Shield Barrage",
-  "speed": 45,
+  "role": "Shield Fortress",
   "hp": 98000,
+  "speed": 54,
   "hardpoints": [
     {
       "size": "Light"
@@ -26,5 +25,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Overclocked Aegis: Charges a regenerating 350k capacity personal Aegis dome while unleashing a devastating 6x Light weapon volley."
+  "ability": "Hexa-Aegis Core: Continuously recharges an ultra-dense Aegis dome while firing 6 synchronized weapon mounts."
 }

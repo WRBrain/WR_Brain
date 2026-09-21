@@ -1,0 +1,12 @@
+{
+  "id": "volt",
+  "name": "Volt",
+  "size": "Light",
+  "tier": "T4",
+  "range": 800,
+  "burstDps": 8000,
+  "sustainedDps": 3300,
+  "reload": 8.0,
+  "family": "Kinetic Sniper",
+  "status": "Tier 4 100% Defense Mitigation Railgun"
+}

@@ -6,7 +6,7 @@
   "range": 350,
   "burstDps": 18500,
   "sustainedDps": 12000,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Desert Siphon",
   "status": "Tier 4 Desert Siphon Cannon"
 }

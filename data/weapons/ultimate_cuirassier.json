@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_cuirassier",
+  "name": "Ultimate Cuirassier",
+  "size": "Beta",
+  "tier": "Ultimate",
+  "range": 600,
+  "burstDps": 42000,
+  "sustainedDps": 26000,
+  "reload": 5.0,
+  "family": "Plasma Cannons",
+  "status": "Ultimate Titan Beta Plasma Sniper"
+}

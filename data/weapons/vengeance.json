@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 35000,
   "sustainedDps": 21500,
-  "reload": 10,
+  "reload": 10.0,
   "family": "Kinetic Gatlings",
   "status": "Titan Alpha Heavy Kinetic Gatling"
 }

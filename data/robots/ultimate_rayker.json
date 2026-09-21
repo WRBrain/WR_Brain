@@ -1,0 +1,20 @@
+{
+  "id": "ultimate_rayker",
+  "name": "Ultimate Rayker",
+  "tier": "Ultimate",
+  "role": "Ultimate Suppression Sniper",
+  "hp": 165000,
+  "speed": 60,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Ultimate Glance: 95% damage suppression and built-in laser strikes."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ao_jun",
+  "name": "Ao Jun",
+  "tier": "T3",
+  "role": "Stealth Flamethrower Flier",
+  "hp": 105000,
+  "speed": 50,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Dragon Flight: Takes flight with stealth, releasing built-in continuous napalm Dragon breath."
+}

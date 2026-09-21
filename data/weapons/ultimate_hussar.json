@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_hussar",
+  "name": "Ultimate Hussar",
+  "size": "Medium",
+  "tier": "Ultimate",
+  "range": 600,
+  "burstDps": 18000,
+  "sustainedDps": 12000,
+  "reload": 5.0,
+  "family": "Plasma Cannons",
+  "status": "Ultimate Plasma Sniper Cannon"
+}

@@ -2,10 +2,9 @@
   "id": "hades",
   "name": "Hades",
   "tier": "T4",
-  "faction": "DSC",
-  "role": "Kinetic Retribution",
-  "speed": 43,
-  "hp": 88000,
+  "role": "Absorber Kinetic Sniper",
+  "hp": 115000,
+  "speed": 52,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -17,5 +16,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Retribution: Absorber shield with built-in ballistic cannon dealing heavy kinetic impact damage."
+  "ability": "Retribution Cannon: Deploys Absorber barrier, firing an armor-penetrating built-in kinetic railgun at 500m."
 }

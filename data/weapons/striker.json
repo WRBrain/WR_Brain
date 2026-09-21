@@ -6,7 +6,7 @@
   "range": 800,
   "burstDps": 37500,
   "sustainedDps": 22800,
-  "reload": 6,
+  "reload": 6.0,
   "family": "Plasma Cannons",
   "status": "Titan Alpha Chain Lightning Railgun"
 }

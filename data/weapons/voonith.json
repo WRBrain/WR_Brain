@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 8000,
   "sustainedDps": 5100,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Sub-Zero Cryo Energy",
   "status": "Tier 4 Cryo Beam Cannon"
 }

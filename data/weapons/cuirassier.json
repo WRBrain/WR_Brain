@@ -1,0 +1,12 @@
+{
+  "id": "cuirassier",
+  "name": "Cuirassier",
+  "size": "Beta",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 26500,
+  "sustainedDps": 16000,
+  "reload": 5.0,
+  "family": "Plasma Cannons",
+  "status": "Titan Beta Plasma Sniper"
+}

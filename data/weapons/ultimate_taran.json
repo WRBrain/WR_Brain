@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_taran",
+  "name": "Ultimate Taran",
+  "size": "Medium",
+  "tier": "Ultimate",
+  "range": 350,
+  "burstDps": 19000,
+  "sustainedDps": 12800,
+  "reload": 4.5,
+  "family": "Plasma Cannons",
+  "status": "Ultimate Rapid Plasma Rifle"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "sinister_cryo",
+  "name": "Sinister Cryo",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 300,
+  "burstDps": 13000,
+  "sustainedDps": 7600,
+  "reload": 6.0,
+  "family": "Freeze Rockets",
+  "status": "Special Edition Cryo Rocket"
+}

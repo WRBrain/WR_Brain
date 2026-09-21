@@ -6,7 +6,7 @@
   "range": 1100,
   "burstDps": 11400,
   "sustainedDps": 4300,
-  "reload": 9,
+  "reload": 9.0,
   "family": "Kinetic Sniper",
   "status": "Tier 1 Heavy Ballistic Cannon"
 }

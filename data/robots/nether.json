@@ -2,10 +2,9 @@
   "id": "nether",
   "name": "Nether",
   "tier": "T4",
-  "faction": "Icarus",
   "role": "Dash Striker",
-  "speed": 54,
-  "hp": 88000,
+  "hp": 92000,
+  "speed": 62,
   "hardpoints": [
     {
       "size": "Light"
@@ -20,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Quinquuple Dash: 5 rapid multi-directional dash charges with EMP Quake and Forcefield defense shield."
+  "ability": "Quinquuple Dash: 5 consecutive hyper-speed dash charges and EMP projectile with regenerating Forcefield."
 }

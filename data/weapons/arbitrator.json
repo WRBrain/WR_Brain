@@ -1,0 +1,12 @@
+{
+  "id": "arbitrator",
+  "name": "Arbitrator",
+  "size": "Alpha",
+  "tier": "T4",
+  "range": 800,
+  "burstDps": 45000,
+  "sustainedDps": 26000,
+  "reload": 6.0,
+  "family": "Kinetic Sniper",
+  "status": "Titan Alpha Armor-Piercing Harpoon"
+}

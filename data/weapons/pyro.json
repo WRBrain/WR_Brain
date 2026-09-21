@@ -6,7 +6,7 @@
   "range": 350,
   "burstDps": 30000,
   "sustainedDps": 19000,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Titan Flame",
   "status": "Titan Beta Napalm Flamethrower"
 }

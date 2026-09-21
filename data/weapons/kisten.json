@@ -1,0 +1,12 @@
+{
+  "id": "kisten",
+  "name": "Kisten",
+  "size": "Beta",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 25000,
+  "sustainedDps": 14500,
+  "reload": 10.0,
+  "family": "Guided Artillery",
+  "status": "Titan Beta Homing Rocket Mortar"
+}

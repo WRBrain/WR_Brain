@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_grom",
+  "name": "Ultimate Grom",
+  "size": "Alpha",
+  "tier": "Ultimate",
+  "range": 500,
+  "burstDps": 62000,
+  "sustainedDps": 39000,
+  "reload": 5.0,
+  "family": "Kinetic Shotguns",
+  "status": "Ultimate Titan Alpha Scattergun"
+}

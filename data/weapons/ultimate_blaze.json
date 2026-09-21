@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_blaze",
+  "name": "Ultimate Blaze",
+  "size": "Light",
+  "tier": "Ultimate",
+  "range": 350,
+  "burstDps": 13200,
+  "sustainedDps": 8800,
+  "reload": 5.0,
+  "family": "Flamethrowers",
+  "status": "Ultimate Napalm Flamethrower"
+}

@@ -6,7 +6,7 @@
   "range": 1100,
   "burstDps": 10500,
   "sustainedDps": 5100,
-  "reload": 15,
+  "reload": 15.0,
   "family": "Guided Artillery",
   "status": "Tier 1 Heavy Artillery Mortar"
 }

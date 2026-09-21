@@ -1,12 +1,10 @@
 {
   "id": "invader",
   "name": "Invader",
-  "seriesKey": "invader",
   "tier": "T4",
-  "faction": "SpaceTech",
-  "role": "Arachnid Tank",
-  "speed": 38,
-  "hp": 140000,
+  "role": "Suppression Jumper Tank",
+  "hp": 180000,
+  "speed": 44,
   "hardpoints": [
     {
       "size": "Medium"
@@ -18,5 +16,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Incursion: Quad-leg leap onto enemy clusters, triggering an area shockwave reducing enemy damage by 75% for 5s."
+  "ability": "Incursion Jump: Leaps into enemy clusters, suppressing all hostile weapons within 75m by 75%."
 }

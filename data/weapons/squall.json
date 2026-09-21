@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 30500,
   "sustainedDps": 19000,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Kinetic Shotguns",
   "status": "Titan Beta Kinetic Scattershot"
 }

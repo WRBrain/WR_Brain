@@ -6,7 +6,7 @@
   "range": 800,
   "burstDps": 34000,
   "sustainedDps": 19800,
-  "reload": 6,
+  "reload": 6.0,
   "family": "Titan Lightning Railgun",
   "status": "Titan Beta Lightning Railgun"
 }

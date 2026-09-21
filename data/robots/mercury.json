@@ -2,10 +2,9 @@
   "id": "mercury",
   "name": "Mercury",
   "tier": "T3",
-  "faction": "SpaceTech",
   "role": "Stealth Helldive",
-  "speed": 44,
-  "hp": 85000,
+  "hp": 105000,
+  "speed": 52,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -17,5 +16,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Helldive: Stealth jump into combat followed by a devastating ground-slam shockwave."
+  "ability": "Helldive: Leaps in stealth and slams into ground with massive explosive area damage."
 }

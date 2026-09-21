@@ -1,0 +1,23 @@
+{
+  "id": "ravager",
+  "name": "Ravager",
+  "tier": "T4",
+  "role": "Quad Cannon Brawler",
+  "hp": 148000,
+  "speed": 46,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Siege Rampart: Anchors hull to ground, generating 400 defense points and accelerated fire rate."
+}

@@ -1,0 +1,20 @@
+{
+  "id": "samjok",
+  "name": "Samjok",
+  "tier": "T4",
+  "role": "Solar Strike Brawler",
+  "hp": 128000,
+  "speed": 54,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Solar Flare: Blinds and burns all targets in 200m radius while gaining impenetrable Absorber shield."
+}

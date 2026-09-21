@@ -1,0 +1,12 @@
+{
+  "id": "halo",
+  "name": "Halo",
+  "size": "Light",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 8800,
+  "sustainedDps": 5600,
+  "reload": 5.0,
+  "family": "Lockdown Energy",
+  "status": "Tier 4 Lockdown Energy Shotgun"
+}

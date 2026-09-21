@@ -1,12 +1,10 @@
 {
   "id": "ultimate_ares",
   "name": "Ultimate Ares",
-  "seriesKey": "ares",
   "tier": "Ultimate",
-  "faction": "DSC",
-  "role": "Ultimate Vanguard",
-  "speed": 48,
-  "hp": 115000,
+  "role": "Ultimate Pantheon Fortress",
+  "hp": 175000,
+  "speed": 58,
   "hardpoints": [
     {
       "size": "Medium"
@@ -21,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Ultimate Retribution: Penetrates defense resistance and reflects 100% of blocked Absorber damage back to attackers."
+  "ability": "Ultimate Pantheon: Absorber shield with built-in explosive piercing cannons and permanent grey damage immunity."
 }

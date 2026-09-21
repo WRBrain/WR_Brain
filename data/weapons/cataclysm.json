@@ -6,7 +6,7 @@
   "range": 600,
   "burstDps": 38500,
   "sustainedDps": 24000,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Tesla Lock-on",
   "status": "Titan Alpha Tesla Arc Lock-on"
 }

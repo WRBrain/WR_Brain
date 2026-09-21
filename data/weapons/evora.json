@@ -6,7 +6,7 @@
   "range": 200,
   "burstDps": 32500,
   "sustainedDps": 20800,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Titan Acoustic",
   "status": "Titan Beta Sonic Acoustic Shotgun"
 }

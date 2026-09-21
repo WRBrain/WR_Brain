@@ -1,0 +1,20 @@
+{
+  "id": "ceffyl",
+  "name": "Ceffyl",
+  "tier": "T4",
+  "role": "Rapid Recon Scout",
+  "hp": 95000,
+  "speed": 64,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Sonic Dash: 3 rapid directional dashes with 100% Grey Damage restoration."
+}

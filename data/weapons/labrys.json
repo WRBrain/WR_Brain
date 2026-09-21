@@ -1,0 +1,12 @@
+{
+  "id": "labrys",
+  "name": "Labrys",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 13200,
+  "sustainedDps": 8400,
+  "reload": 5.0,
+  "family": "Blast Rockets",
+  "status": "Tier 4 Kinetic Blast Rocket"
+}

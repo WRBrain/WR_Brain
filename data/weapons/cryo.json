@@ -6,7 +6,7 @@
   "range": 300,
   "burstDps": 12500,
   "sustainedDps": 7300,
-  "reload": 6,
+  "reload": 6.0,
   "family": "Freeze Rockets",
   "status": "Tier 4 Cryo Explosive Rocket"
 }

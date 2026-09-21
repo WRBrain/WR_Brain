@@ -1,12 +1,10 @@
 {
   "id": "fenrir",
   "name": "Fenrir",
-  "seriesKey": "fenrir",
   "tier": "T4",
-  "faction": "EvoLife",
-  "role": "Heavy Tank",
-  "speed": 42,
+  "role": "Shield & Resistance Tank",
   "hp": 145000,
+  "speed": 50,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -18,5 +16,5 @@
       "size": "Medium"
     }
   ],
-  "ability": "Shape-Shift: Deploys heavy weapon and trades Aegis shield for permanent 50% defense damage resistance."
+  "ability": "Shapeshift: Toggles between Mobile Mode (Aegis dome) and Defense Mode (+50% Defense Points and active Heavy slot)."
 }

@@ -2,20 +2,19 @@
   "id": "raptor",
   "name": "Raptor",
   "tier": "T4",
-  "faction": "DSC",
-  "role": "Brawler Tank",
-  "speed": 42,
+  "role": "Leap Brawler",
   "hp": 155000,
+  "speed": 48,
   "hardpoints": [
     {
       "size": "Heavy"
     },
     {
-      "size": "Light"
+      "size": "Medium"
     },
     {
-      "size": "Light"
+      "size": "Medium"
     }
   ],
-  "ability": "Comet Crash: Jumps aggressively onto enemy beacons, triggering a massive kinetic blast wave that suppresses and inflicts 150k area damage."
+  "ability": "Comet Slam: High-velocity leap slam triggering a kinetic shockwave and activating a frontal Reflector shield."
 }

@@ -6,7 +6,7 @@
   "range": 600,
   "burstDps": 8400,
   "sustainedDps": 5300,
-  "reload": 7,
+  "reload": 7.0,
   "family": "Void Energy",
   "status": "Tier 4 Void Particle Cannon"
 }

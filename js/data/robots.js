@@ -5,10 +5,9 @@ const MASTER_ROBOTS = [
     "id": "leo",
     "name": "Leo",
     "tier": "T1",
-    "faction": "DSC",
-    "role": "Brawler Tank",
-    "speed": 35,
-    "hp": 118000,
+    "role": "Heavy Brawler Tank",
+    "hp": 140000,
+    "speed": 38,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -23,16 +22,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "High Hull Durability: Massive beginner HP pool with versatile weapons mix."
+    "ability": "Durability Hull: High baseline structural armor buffer."
   },
   {
     "id": "curie",
     "name": "Curie",
     "tier": "T4",
-    "faction": "Yan-di",
-    "role": "Combat Turret Specialist",
-    "speed": 45,
+    "role": "Turret Brawler",
     "hp": 125000,
+    "speed": 55,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -41,7 +39,27 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Automated Turret Deploy: Drops 2 autonomous plasma turrets with 600m range, gaining bonus temporary durability (+150k) and speed acceleration."
+    "ability": "Turret Deployment: Deploys 2 high-RPM autonomous plasma turrets while gaining +50k temporary armor buffer and +40% speed."
+  },
+  {
+    "id": "samjok",
+    "name": "Samjok",
+    "tier": "T4",
+    "role": "Solar Strike Brawler",
+    "hp": 128000,
+    "speed": 54,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Solar Flare: Blinds and burns all targets in 200m radius while gaining impenetrable Absorber shield."
   },
   {
     "id": "skyros",
@@ -67,12 +85,10 @@ const MASTER_ROBOTS = [
   {
     "id": "ares",
     "name": "Ares",
-    "seriesKey": "ares",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Absorber Vanguard",
-    "speed": 44,
-    "hp": 80000,
+    "role": "Pantheon Shield Cannon",
+    "hp": 95000,
+    "speed": 54,
     "hardpoints": [
       {
         "size": "Medium"
@@ -87,16 +103,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Retribution: Projects impenetrable Absorber barrier and unleashes a barrage of built-in Retaliator energy cannons."
+    "ability": "Pantheon Absorber & Cannons: Deploys frontal Absorber barrier and fires 4 rapid built-in energy cannons."
   },
   {
     "id": "raijin",
     "name": "Raijin",
     "tier": "T2",
-    "faction": "SpaceTech",
-    "role": "Bastion Tank",
-    "speed": 28,
-    "hp": 130000,
+    "role": "Bastion Shield Fortress",
+    "hp": 150000,
+    "speed": 35,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -105,16 +120,15 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Bastion Mode: Raises dual physical shields (+300k HP) and grants +30% weapon damage boost in stationary stance."
+    "ability": "Bastion Mode: Raises twin high-HP physical shields and increases weapon damage by +33%."
   },
   {
     "id": "vityaz",
     "name": "Vityaz",
     "tier": "T1",
-    "faction": "SpaceTech",
-    "role": "Support Brawler",
-    "speed": 34,
-    "hp": 82000,
+    "role": "Assault Walker",
+    "hp": 90000,
+    "speed": 42,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -126,16 +140,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Heavy & Dual Light: Classic mixed firing platform."
+    "ability": "Combat Platform: Balanced chassis with Heavy and Light hardpoints."
   },
   {
     "id": "hades",
     "name": "Hades",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Kinetic Retribution",
-    "speed": 43,
-    "hp": 88000,
+    "role": "Absorber Kinetic Sniper",
+    "hp": 115000,
+    "speed": 52,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -147,16 +160,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Retribution: Absorber shield with built-in ballistic cannon dealing heavy kinetic impact damage."
+    "ability": "Retribution Cannon: Deploys Absorber barrier, firing an armor-penetrating built-in kinetic railgun at 500m."
   },
   {
     "id": "ravana",
     "name": "Ravana",
     "tier": "T4",
-    "faction": "Yan-di",
-    "role": "Phase Brawler",
-    "speed": 44,
-    "hp": 132000,
+    "role": "Transcendent Brawler",
+    "hp": 145000,
+    "speed": 50,
     "hardpoints": [
       {
         "size": "Medium"
@@ -168,7 +180,7 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Transcendence: 3 charges of total invulnerability and speed acceleration while purging all negative debuffs."
+    "ability": "Transcendence: 3 charges of complete invulnerability and speed boost, cleansing all negative effects."
   },
   {
     "id": "pursuer",
@@ -218,11 +230,10 @@ const MASTER_ROBOTS = [
   {
     "id": "loki",
     "name": "Loki",
-    "tier": "T3",
-    "faction": "Yan-di",
-    "role": "Infinite Stealth Scout",
-    "speed": 57,
-    "hp": 70000,
+    "tier": "T4",
+    "role": "Infinite Stealth Beacon Runner",
+    "hp": 82000,
+    "speed": 66,
     "hardpoints": [
       {
         "size": "Light"
@@ -234,16 +245,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Recon Stealth: Permanent stealth in reconnaissance mode with high speed, concealing weapon hardpoints until deployed."
+    "ability": "Recon Stealth: Permanent stealth in recon mode with high speed; retracts stealth to fire 3 Light weapons."
   },
   {
     "id": "jaeger",
     "name": "Jaeger",
     "tier": "T4",
-    "faction": "SpaceTech",
-    "role": "Quad Sniper Railgun",
-    "speed": 44,
-    "hp": 92000,
+    "role": "Sniper Scout Walker",
+    "hp": 115000,
+    "speed": 58,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -252,17 +262,15 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Scout Mode & Solid-Cannon: Sentry mode deploying built-in 1100m high-velocity sniper railgun with 100% defense mitigation."
+    "ability": "Scout / Sniper Mode: Toggles high-speed quadruped traversal and stationary sniper cannon with 1100m built-in railgun."
   },
   {
     "id": "blitz",
     "name": "Blitz",
-    "seriesKey": "blitz",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Vanguard Brawler",
-    "speed": 45,
-    "hp": 92000,
+    "role": "Break-in Suppression Brawler",
+    "hp": 105000,
+    "speed": 55,
     "hardpoints": [
       {
         "size": "Light"
@@ -277,16 +285,35 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Break-in: Activates front Aegis barrier, gains +60% speed, and fires 3 suppression darts (-75% enemy damage)."
+    "ability": "Break-in: Gains Aegis shield dome, 50% speed boost, and fires suppression darts at up to 3 targets."
+  },
+  {
+    "id": "ultimate_lancelot",
+    "name": "Ultimate Lancelot",
+    "tier": "Ultimate",
+    "role": "Ultimate Phalanx Tank",
+    "hp": 240000,
+    "speed": 44,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Ultimate Rush: Speed sprint with 2.5M HP physical shield and continuous damage aura."
   },
   {
     "id": "void_shoggoth",
     "name": "Void Shoggoth",
     "tier": "T4",
-    "faction": "Icarus",
-    "role": "Void Assassin",
-    "speed": 48,
-    "hp": 105000,
+    "role": "Void Anomaly Tank",
+    "hp": 142000,
+    "speed": 46,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -301,16 +328,35 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Void Blink: Phase-shifts through reality, emerging behind enemy ranks with EMP field and blast buildup."
+    "ability": "Black Hole Core: Summons localized gravitational anomaly pulling hostiles and siphoning durability."
+  },
+  {
+    "id": "rayker",
+    "name": "Rayker",
+    "tier": "T4",
+    "role": "Suppression Sniper",
+    "hp": 95000,
+    "speed": 56,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Glance Suppression: 5 charges of long-range laser suppression reducing target enemy damage output by 90%."
   },
   {
     "id": "revenant",
     "name": "Revenant",
     "tier": "T4",
-    "faction": "Yan-di",
-    "role": "Teleport Tank",
-    "speed": 40,
-    "hp": 155000,
+    "role": "Teleport Juggernaut",
+    "hp": 160000,
+    "speed": 45,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -322,37 +368,35 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Aggressive Blink: Teleports directly in front of target, gaining total immunity to Grey Damage, Freeze, Lockdown and EMP."
+    "ability": "Aggressive Blink: Teleports directly into target enemy's face, gaining complete immunity to negative status debuffs and grey damage."
   },
   {
     "id": "raptor",
     "name": "Raptor",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Brawler Tank",
-    "speed": 42,
+    "role": "Leap Brawler",
     "hp": 155000,
+    "speed": 48,
     "hardpoints": [
       {
         "size": "Heavy"
       },
       {
-        "size": "Light"
+        "size": "Medium"
       },
       {
-        "size": "Light"
+        "size": "Medium"
       }
     ],
-    "ability": "Comet Crash: Jumps aggressively onto enemy beacons, triggering a massive kinetic blast wave that suppresses and inflicts 150k area damage."
+    "ability": "Comet Slam: High-velocity leap slam triggering a kinetic shockwave and activating a frontal Reflector shield."
   },
   {
     "id": "fafnir",
     "name": "Fafnir",
     "tier": "T4",
-    "faction": "SpaceTech",
-    "role": "Flight Brawler",
-    "speed": 42,
-    "hp": 95000,
+    "role": "Absorber Flight Striker",
+    "hp": 105000,
+    "speed": 54,
     "hardpoints": [
       {
         "size": "Medium"
@@ -367,31 +411,29 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Dragon Flight: Ascends into flight, deploying built-in shieldbreaker breath cannon with Absorber shield."
+    "ability": "Dragon Flight: Takes infinite flight with built-in piercing beam whose damage multiplies by absorbing enemy fire."
   },
   {
     "id": "schutze",
     "name": "Schutze",
     "tier": "T1",
-    "faction": "SpaceTech",
-    "role": "Classic Heavy Platform",
-    "speed": 44,
-    "hp": 38000,
+    "role": "Single Heavy Runner",
+    "hp": 70000,
+    "speed": 52,
     "hardpoints": [
       {
         "size": "Heavy"
       }
     ],
-    "ability": "Single Heavy Mount: Compact light chassis carrying a heavy hardpoint."
+    "ability": "Heavy Mount: High speed walker equipped with a single heavy weapon mount."
   },
   {
     "id": "scorpion",
     "name": "Scorpion",
     "tier": "T4",
-    "faction": "Yan-di",
-    "role": "Ambush Assassin",
-    "speed": 46,
-    "hp": 82000,
+    "role": "Backstab Assassin",
+    "hp": 108000,
+    "speed": 56,
     "hardpoints": [
       {
         "size": "Medium"
@@ -403,17 +445,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Backstab Blink: Teleports behind enemy at 350m range, deploying sting tail with acid DoT and returning safely."
+    "ability": "Backstab Teleport: Teleports behind target within 350m, stinging with corrosive tail sting, with return recall."
   },
   {
     "id": "invader",
     "name": "Invader",
-    "seriesKey": "invader",
     "tier": "T4",
-    "faction": "SpaceTech",
-    "role": "Arachnid Tank",
-    "speed": 38,
-    "hp": 140000,
+    "role": "Suppression Jumper Tank",
+    "hp": 180000,
+    "speed": 44,
     "hardpoints": [
       {
         "size": "Medium"
@@ -425,16 +465,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Incursion: Quad-leg leap onto enemy clusters, triggering an area shockwave reducing enemy damage by 75% for 5s."
+    "ability": "Incursion Jump: Leaps into enemy clusters, suppressing all hostile weapons within 75m by 75%."
   },
   {
     "id": "nether",
     "name": "Nether",
     "tier": "T4",
-    "faction": "Icarus",
     "role": "Dash Striker",
-    "speed": 54,
-    "hp": 88000,
+    "hp": 92000,
+    "speed": 62,
     "hardpoints": [
       {
         "size": "Light"
@@ -449,16 +488,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Quinquuple Dash: 5 rapid multi-directional dash charges with EMP Quake and Forcefield defense shield."
+    "ability": "Quinquuple Dash: 5 consecutive hyper-speed dash charges and EMP projectile with regenerating Forcefield."
   },
   {
     "id": "boa",
     "name": "Boa",
     "tier": "T1",
-    "faction": "DSC",
     "role": "Classic Brawler",
-    "speed": 36,
-    "hp": 95000,
+    "hp": 110000,
+    "speed": 42,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -467,16 +505,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Reinforced Chassis: Sturdy dual-hardpoint classic combat bot."
+    "ability": "Armor Plating: High-durability starter brawler chassis."
   },
   {
     "id": "nemesis",
     "name": "Nemesis",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Rapid Retribution",
-    "speed": 45,
-    "hp": 90000,
+    "role": "Absorber Rocket Brawler",
+    "hp": 110000,
+    "speed": 52,
     "hardpoints": [
       {
         "size": "Medium"
@@ -485,16 +522,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Retribution: Rapid 4-second reload Absorber barrier with heavy homing rocket salvo."
+    "ability": "Retribution Shield: Deploys impenetrable Absorber barrier and fires explosive Retribution rocket salvo."
   },
   {
     "id": "ammit",
     "name": "Ammit",
     "tier": "T4",
-    "faction": "Yan-di",
-    "role": "Desert Brawler",
-    "speed": 44,
+    "role": "Desert Siphon Brawler",
     "hp": 130000,
+    "speed": 52,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -509,16 +545,32 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Sandstorm Surge: Engages rapid forward rush with sandstorm cloak, reducing enemy accuracy and siphoning durability."
+    "ability": "Sandstorm Siphon: Drains health from nearby hostiles in a 150m aura while blinding lock-on systems."
+  },
+  {
+    "id": "ao_jun",
+    "name": "Ao Jun",
+    "tier": "T3",
+    "role": "Stealth Flamethrower Flier",
+    "hp": 105000,
+    "speed": 50,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      }
+    ],
+    "ability": "Dragon Flight: Takes flight with stealth, releasing built-in continuous napalm Dragon breath."
   },
   {
     "id": "natasha",
     "name": "Natasha",
     "tier": "T1",
-    "faction": "DSC",
-    "role": "Heavy Artillery",
-    "speed": 34,
-    "hp": 105000,
+    "role": "Heavy Long-Range Platform",
+    "hp": 110000,
+    "speed": 36,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -533,17 +585,78 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Heavy Firepower: Dual Heavy and dual Light mixed hardpoints."
+    "ability": "Heavy Arsenal: Classic multi-weapon combat walker."
+  },
+  {
+    "id": "ultimate_haechi",
+    "name": "Ultimate Haechi",
+    "tier": "Ultimate",
+    "role": "Ultimate Dash Fortress",
+    "hp": 210000,
+    "speed": 54,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Ultimate Dash & Shield: 3 dash charges with massive Aegis dome shield."
+  },
+  {
+    "id": "ultimate_bulgasari",
+    "name": "Ultimate Bulgasari",
+    "tier": "Ultimate",
+    "role": "Ultimate Shield Brawler",
+    "hp": 220000,
+    "speed": 52,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Ultimate Dash: 2 high-speed dash charges with impenetrable physical shield."
+  },
+  {
+    "id": "ravager",
+    "name": "Ravager",
+    "tier": "T4",
+    "role": "Quad Cannon Brawler",
+    "hp": 148000,
+    "speed": 46,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Siege Rampart: Anchors hull to ground, generating 400 defense points and accelerated fire rate."
   },
   {
     "id": "ultimate_fenrir",
     "name": "Ultimate Fenrir",
-    "seriesKey": "fenrir",
     "tier": "Ultimate",
-    "faction": "EvoLife",
-    "role": "Ultimate Tank",
-    "speed": 48,
-    "hp": 210000,
+    "role": "Ultimate Juggernaut",
+    "hp": 260000,
+    "speed": 54,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -555,17 +668,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Ultimate Shapeshift: Permanent 65% Defense Point resistance (+185 DP) and continuous unhealable grey damage auto-repair."
+    "ability": "Ultimate Shapeshift: Unstoppable defense resistance (+75%) with full Grey Damage regeneration and heavy fire."
   },
   {
     "id": "mender",
     "name": "Mender",
-    "seriesKey": "mender",
-    "tier": "T4",
-    "faction": "EvoLife",
+    "tier": "T3",
     "role": "Combat Medic",
-    "speed": 46,
-    "hp": 88000,
+    "hp": 110000,
+    "speed": 55,
     "hardpoints": [
       {
         "size": "Medium"
@@ -577,16 +688,38 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Support Pulse: Discharges 3 consecutive healing pulses repair up to 70% Grey Damage and granting +50 DP."
+    "ability": "Emergency Repair: Pulses 3 successive heal waves, repairing team durability and restoring Grey Damage."
+  },
+  {
+    "id": "rhino",
+    "name": "Rhino",
+    "tier": "T2",
+    "role": "Assault Shield Tank",
+    "hp": 130000,
+    "speed": 35,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Assault Mode: Closes heavy physical shields and sprints at 60 km/h with 2 active Light weapons."
   },
   {
     "id": "khepri",
     "name": "Khepri",
     "tier": "T4",
-    "faction": "EvoLife",
-    "role": "Link Support",
-    "speed": 48,
-    "hp": 108000,
+    "role": "Quad Support Tether",
+    "hp": 128000,
+    "speed": 55,
     "hardpoints": [
       {
         "size": "Light"
@@ -601,16 +734,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Bond: Links with ally, granting mutual speed (+35%), continuous healing, +50 Defense Points, and +25% damage boost."
+    "ability": "Misaki Link: Bonds with ally or self, granting speed, continuous repair, defense points, and weapon damage boost."
   },
   {
     "id": "pathfinder",
     "name": "Pathfinder",
     "tier": "T4",
-    "faction": "Icarus",
     "role": "Tactical Support",
-    "speed": 46,
     "hp": 115000,
+    "speed": 58,
     "hardpoints": [
       {
         "size": "Medium"
@@ -622,16 +754,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Track & Hunt: Marks target enemies; upon takedown grants cumulative permanent team-wide damage buffs and direct durability regeneration."
+    "ability": "Track & Hunter: Marks targets with permanent damage vulnerability (+25%); kills yield permanent team damage & speed buffs."
   },
   {
     "id": "golem",
     "name": "Golem",
     "tier": "T1",
-    "faction": "DSC",
-    "role": "Tri-Weapon Platform",
-    "speed": 34,
+    "role": "Tri-Mount Classic",
     "hp": 88000,
+    "speed": 40,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -643,16 +774,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Tri-Mount Array: Balanced heavy, medium, and light weapon loadout."
+    "ability": "Tri-Size Mount: Houses 1 Heavy, 1 Medium, and 1 Light hardpoint simultaneously."
   },
   {
     "id": "mercury",
     "name": "Mercury",
     "tier": "T3",
-    "faction": "SpaceTech",
     "role": "Stealth Helldive",
-    "speed": 44,
-    "hp": 85000,
+    "hp": 105000,
+    "speed": 52,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -664,16 +794,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Helldive: Stealth jump into combat followed by a devastating ground-slam shockwave."
+    "ability": "Helldive: Leaps in stealth and slams into ground with massive explosive area damage."
   },
   {
     "id": "condor",
     "name": "Condor",
     "tier": "T4",
-    "faction": "SpaceTech",
-    "role": "Aerial Vanguard",
-    "speed": 48,
+    "role": "Aerial Striker",
     "hp": 120000,
+    "speed": 58,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -682,19 +811,18 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       },
       {
-        "size": "Light"
+        "size": "Medium"
       }
     ],
-    "ability": "Skyborn Aegis: Takes flight with sonic speed, generating a dynamic Reflector shield while projecting a high-impact built-in beam cannon."
+    "ability": "Sky Ward: Flies with directional Absorber shield, firing acoustic wave pulses that bypass Reflector defense."
   },
   {
     "id": "gareth",
     "name": "Gareth",
-    "tier": "T2",
-    "faction": "Camelot",
-    "role": "Agile Scout Shield",
-    "speed": 52,
-    "hp": 55000,
+    "tier": "T1",
+    "role": "Light Shield Scout",
+    "hp": 75000,
+    "speed": 60,
     "hardpoints": [
       {
         "size": "Medium"
@@ -703,7 +831,7 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Phalanx Mode: Deploys physical side shield in front while retaining high mobility."
+    "ability": "Phalanx Mode: Deploys side physical shield to front to deflect ballistic projectiles."
   },
   {
     "id": "demeter",
@@ -729,12 +857,10 @@ const MASTER_ROBOTS = [
   {
     "id": "ultimate_fujin",
     "name": "Ultimate Fujin",
-    "seriesKey": "fujin",
     "tier": "Ultimate",
-    "faction": "SpaceTech",
     "role": "Ultimate Sentry",
-    "speed": 44,
-    "hp": 115000,
+    "hp": 195000,
+    "speed": 52,
     "hardpoints": [
       {
         "size": "Medium"
@@ -746,17 +872,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Ultimate Sentry: 500k Aegis Dome with built-in kinetic railgun cannons while in sentry stance."
+    "ability": "Ultimate Sentry: Unbreakable Aegis shield dome and +40% weapon damage boost."
   },
   {
     "id": "ultimate_destrier",
     "name": "Ultimate Destrier",
-    "seriesKey": "destrier",
     "tier": "Ultimate",
-    "faction": "DSC",
-    "role": "Ultimate Legend",
-    "speed": 50,
-    "hp": 95000,
+    "role": "Ultimate Micro Brawler",
+    "hp": 150000,
+    "speed": 65,
     "hardpoints": [
       {
         "size": "Light"
@@ -765,16 +889,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Overcharged Core: Compact combat platform deploying accelerated weapon fire and high durability multipliers."
+    "ability": "Ultimate Overdrive: Speed sprint with +50% weapon damage and Forcefield shield."
   },
   {
     "id": "hawk",
     "name": "Hawk",
     "tier": "T4",
-    "faction": "SpaceTech",
-    "role": "Titan Hunter",
-    "speed": 42,
-    "hp": 82000,
+    "role": "Titan Hunter Flier",
+    "hp": 90000,
+    "speed": 52,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -789,16 +912,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Transform & Ray: Takes flight with Reflector shield, firing a titan-melting laser beam that penetrates 100% of defense points."
+    "ability": "Transform & Beam: Takes flight with Reflector, firing built-in Titan-slaying laser with 100% defense mitigation."
   },
   {
     "id": "ao_guang",
     "name": "Ao Guang",
     "tier": "T3",
-    "faction": "SpaceTech",
-    "role": "Green Dragon",
-    "speed": 42,
-    "hp": 80000,
+    "role": "Homing Rocket Flier",
+    "hp": 95000,
+    "speed": 52,
     "hardpoints": [
       {
         "size": "Medium"
@@ -810,16 +932,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Dragon Flight: Takes flight with 80% damage resistance and fires built-in homing missiles."
+    "ability": "Dragon Flight: Takes flight with 80% defense resistance, launching homing missile salvos."
   },
   {
     "id": "siren",
     "name": "Siren",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Mid-range Area Denial",
-    "speed": 42,
-    "hp": 92000,
+    "role": "Snowstorm Flier",
+    "hp": 96000,
+    "speed": 52,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -831,17 +952,32 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Snowstorm Jump: Translocates into air generating Reflector shield and dropping an icy blizzard that freezes enemy clusters."
+    "ability": "Snowstorm: Ascends into air with Reflector shield, raining freezing blizzard blast rockets over wide target area."
+  },
+  {
+    "id": "rogatka",
+    "name": "Rogatka",
+    "tier": "T2",
+    "role": "Jump Brawler",
+    "hp": 95000,
+    "speed": 55,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Jump: High-mobility combat jump recharging every 7 seconds."
   },
   {
     "id": "leech",
     "name": "Leech",
-    "seriesKey": "leech",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Damage Redirector",
-    "speed": 48,
-    "hp": 85000,
+    "role": "Damage Link Striker",
+    "hp": 90000,
+    "speed": 58,
     "hardpoints": [
       {
         "size": "Medium"
@@ -856,16 +992,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Repulse: Tethers target, gaining 90% damage resistance while redirecting 35% of incoming damage directly to target."
+    "ability": "Repulse Link: Tethers to enemy, redirecting 35% of all incoming damage directly onto them while gaining 90% defense points."
   },
   {
     "id": "falcon",
     "name": "Falcon",
     "tier": "T3",
-    "faction": "EvoLife",
-    "role": "Traditional Tank",
-    "speed": 42,
-    "hp": 120000,
+    "role": "Fangs Out Tank",
+    "hp": 140000,
+    "speed": 48,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -877,16 +1012,15 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Fangs Out: Unlocks 2 auxiliary Heavy weapon wings or trades them for 66% permanent defense resistance (Traditionalist)."
+    "ability": "Fangs Out: Traditional Damage Resistance mode (-60% dmg taken) or leap into air deploying 2 extra Heavy slots."
   },
   {
     "id": "kumiho",
     "name": "Kumiho",
     "tier": "T2",
-    "faction": "SpaceTech",
-    "role": "Dash Runner",
-    "speed": 50,
-    "hp": 75000,
+    "role": "Double Dash Scout",
+    "hp": 95000,
+    "speed": 60,
     "hardpoints": [
       {
         "size": "Medium"
@@ -895,16 +1029,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Rapid Dash: Quick-recharge dual dash thrusters for swift tactical repositioning."
+    "ability": "Quick Dash: 2 rapid dash charges recharging every 5 seconds."
   },
   {
     "id": "galahad",
     "name": "Galahad",
     "tier": "T2",
-    "faction": "Camelot",
-    "role": "Shield Assault",
-    "speed": 44,
-    "hp": 70000,
+    "role": "Medium Shield Brawler",
+    "hp": 95000,
+    "speed": 48,
     "hardpoints": [
       {
         "size": "Medium"
@@ -916,16 +1049,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Phalanx Mode: Positions front physical shield (200k HP) to block incoming ballistic and energy fire."
+    "ability": "Phalanx Mode: Swings physical shield to front or side while maintaining weapon fire."
   },
   {
     "id": "angler",
     "name": "Angler",
     "tier": "T4",
-    "faction": "Yan-di",
-    "role": "Close-Quarters Brawler",
-    "speed": 44,
+    "role": "Phase Blind Brawler",
     "hp": 135000,
+    "speed": 50,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -940,17 +1072,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Electric Shift: Enters invulnerable phase shift while charging blinding electric tendrils that blind all nearby foes upon exit."
+    "ability": "Electric Shift: Enters invulnerable phase sprint, blinding and damaging all enemies in proximity upon exit."
   },
   {
     "id": "ultimate_invader",
     "name": "Ultimate Invader",
-    "seriesKey": "invader",
     "tier": "Ultimate",
-    "faction": "SpaceTech",
-    "role": "Ultimate Arachnid",
-    "speed": 42,
-    "hp": 210000,
+    "role": "Ultimate Suppression Tank",
+    "hp": 310000,
+    "speed": 48,
     "hardpoints": [
       {
         "size": "Medium"
@@ -962,16 +1092,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Ultimate Incursion: Heavy jump creating a permanent 80% suppression pulse and regenerating 200k durability."
+    "ability": "Ultimate Incursion: 85% area suppression with EMP pulse and massive armor plating."
   },
   {
     "id": "carnage",
     "name": "Carnage",
     "tier": "T2",
-    "faction": "SpaceTech",
-    "role": "Ancile Brawler",
-    "speed": 40,
-    "hp": 68000,
+    "role": "Sprint Ancile Brawler",
+    "hp": 90000,
+    "speed": 45,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -980,16 +1109,15 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Rush & Ancile: Energy shield generator with high-velocity sprint booster."
+    "ability": "Rush & Ancile: 66% speed sprint with built-in regenerable Ancile energy shield."
   },
   {
     "id": "harpy",
     "name": "Harpy",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Firestorm Artillery",
-    "speed": 42,
-    "hp": 88000,
+    "role": "Firestorm Flier",
+    "hp": 94000,
+    "speed": 52,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1001,16 +1129,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Firestorm Jump: Mid-air flight with Reflector shield, raining incendiary blast rockets that detonate area blastcharge stacks."
+    "ability": "Firestorm: Leaps into air with Reflector shield, firing explosive Firestorm blast charge that bypasses physical shields."
   },
   {
     "id": "bulwark",
     "name": "Bulwark",
     "tier": "T3",
-    "faction": "DSC",
-    "role": "Dual Shield Bastion",
-    "speed": 38,
-    "hp": 110000,
+    "role": "Dual Shield Fortress",
+    "hp": 135000,
+    "speed": 45,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1019,16 +1146,15 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Dual Barrier: Dual-layer defense system with front physical shield and rechargeable Aegis energy dome."
+    "ability": "Dual Aegis & Physical Shield: Toggles between regenerable Aegis shield dome and front physical shield."
   },
   {
     "id": "typhon",
     "name": "Typhon",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Mid-range Suppressor",
-    "speed": 45,
-    "hp": 88000,
+    "role": "Blackout Disabler",
+    "hp": 90000,
+    "speed": 55,
     "hardpoints": [
       {
         "size": "Medium"
@@ -1043,17 +1169,35 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Blackout 2.0: Fires 3 homing bio-electronic darts that inflict EMP, Lockdown, and -50% Suppression simultaneously."
+    "ability": "Blackout 2.0: 3 concentrated energy bolts locking down, suppressing (-50% dmg), and EMP-disabling enemy abilities."
+  },
+  {
+    "id": "ceffyl",
+    "name": "Ceffyl",
+    "tier": "T4",
+    "role": "Rapid Recon Scout",
+    "hp": 95000,
+    "speed": 64,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Sonic Dash: 3 rapid directional dashes with 100% Grey Damage restoration."
   },
   {
     "id": "destrier",
     "name": "Destrier",
-    "seriesKey": "destrier",
     "tier": "T1",
-    "faction": "DSC",
     "role": "Starter Scout",
-    "speed": 42,
-    "hp": 42000,
+    "hp": 60000,
+    "speed": 52,
     "hardpoints": [
       {
         "size": "Light"
@@ -1062,16 +1206,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Dual Mount: Foundation combat training unit."
+    "ability": "Dual Light: Dual weapon mount combat starter."
   },
   {
     "id": "rex",
     "name": "Rex",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Heavy Juggernaut",
-    "speed": 40,
-    "hp": 148000,
+    "role": "Apex Assault Brawler",
+    "hp": 138000,
+    "speed": 50,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1086,17 +1229,38 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Predator Leap: Heavy combat jump generating kinetic suppression shockwave and crushing area damage."
+    "ability": "Apex Predator: Enters rage state granting speed surge, defense penetration and direct hull repair per strike."
+  },
+  {
+    "id": "jesse",
+    "name": "Jesse",
+    "tier": "T2",
+    "role": "Quick-Draw Light",
+    "hp": 85000,
+    "speed": 60,
+    "hardpoints": [
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Quick Draw: Swaps between 2 active Light weapons and 2 holstered Light weapons."
   },
   {
     "id": "ultimate_leech",
     "name": "Ultimate Leech",
-    "seriesKey": "leech",
     "tier": "Ultimate",
-    "faction": "DSC",
     "role": "Ultimate Repulse",
-    "speed": 54,
-    "hp": 120000,
+    "hp": 160000,
+    "speed": 62,
     "hardpoints": [
       {
         "size": "Medium"
@@ -1111,31 +1275,29 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Ultimate Repulse: 95% damage resistance while reflecting 50% damage back to target with Grey Damage cleanse."
+    "ability": "Ultimate Repulse: Redirects 50% damage to target while gaining 95% defense points."
   },
   {
     "id": "cossack",
     "name": "Cossack",
     "tier": "T1",
-    "faction": "SpaceTech",
-    "role": "Agile Jumper",
-    "speed": 50,
-    "hp": 34000,
+    "role": "Jump Scout",
+    "hp": 55000,
+    "speed": 58,
     "hardpoints": [
       {
         "size": "Medium"
       }
     ],
-    "ability": "Rapid Jump: 5-second jump cooldown for hyper-agile beacon hunting."
+    "ability": "Jump: Rapid 5-second jump drive for agile beacon running."
   },
   {
     "id": "weyland",
     "name": "Weyland",
     "tier": "T3",
-    "faction": "EvoLife",
-    "role": "Stationary Medic",
+    "role": "Stationary Field Medic",
+    "hp": 170000,
     "speed": 38,
-    "hp": 145000,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1144,16 +1306,15 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Repair Station: Deploys stationary anchor projecting a massive 150m continuous repair field for all allies."
+    "ability": "Repair Mode: Anchors to ground, generating massive 100m team repair aura and defense points."
   },
   {
     "id": "dagon",
     "name": "Dagon",
     "tier": "T4",
-    "faction": "EvoLife",
-    "role": "Heavy Shield Barrage",
-    "speed": 45,
+    "role": "Shield Fortress",
     "hp": 98000,
+    "speed": 54,
     "hardpoints": [
       {
         "size": "Light"
@@ -1174,16 +1335,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Overclocked Aegis: Charges a regenerating 350k capacity personal Aegis dome while unleashing a devastating 6x Light weapon volley."
+    "ability": "Hexa-Aegis Core: Continuously recharges an ultra-dense Aegis dome while firing 6 synchronized weapon mounts."
   },
   {
     "id": "seraph",
     "name": "Seraph",
     "tier": "T4",
-    "faction": "SpaceTech",
-    "role": "Aerial Vanguard",
-    "speed": 46,
-    "hp": 108000,
+    "role": "Aerial Lightning Striker",
+    "hp": 112000,
+    "speed": 55,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1192,16 +1352,15 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Skyward Strike: Flies at high speed with Forcefield protection, striking up to 3 ground targets simultaneously with hyper-lightning."
+    "ability": "Skyward Arc: Takes flight with directional Forcefield, sweeping targets with auto-targeting bio-electric death beams."
   },
   {
     "id": "griffin",
     "name": "Griffin",
     "tier": "T1",
-    "faction": "DSC",
-    "role": "Jump Striker",
-    "speed": 35,
-    "hp": 85000,
+    "role": "Jump Assault Walker",
+    "hp": 95000,
+    "speed": 38,
     "hardpoints": [
       {
         "size": "Medium"
@@ -1216,16 +1375,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Jump Unit: Heavy kinetic thruster leap for ambushes and obstacle bypass."
+    "ability": "Jump Drive: Powerful rocket jump covering massive horizontal distances."
   },
   {
     "id": "shell",
     "name": "Shell",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Explosive Shield Tank",
-    "speed": 45,
-    "hp": 120000,
+    "role": "Shield Blast Juggernaut",
+    "hp": 150000,
+    "speed": 48,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1237,17 +1395,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Dreadnought Blast: Accelerates forward with 8 physical shield plates, detonating an area-of-effect 120k blast wave."
+    "ability": "Dread Blast: Accelerates forward with explosive 360-degree kinetic blast while covered in 8 directional physical shields."
   },
   {
     "id": "ultimate_spectre",
     "name": "Ultimate Spectre",
-    "seriesKey": "spectre",
     "tier": "Ultimate",
-    "faction": "SpaceTech",
-    "role": "Ultimate Assassin",
-    "speed": 52,
-    "hp": 110000,
+    "role": "Ultimate Sniper",
+    "hp": 140000,
+    "speed": 60,
     "hardpoints": [
       {
         "size": "Medium"
@@ -1262,17 +1418,38 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Ultimate Glide: Stealth jump with +40% weapon damage boost and total immunity to lockdown/suppression."
+    "ability": "Ultimate Glide Jump: Stealth leap with +50% weapon burst damage and 100% defense mitigation."
+  },
+  {
+    "id": "doc",
+    "name": "Doc",
+    "tier": "T2",
+    "role": "Quick-Draw Medium",
+    "hp": 105000,
+    "speed": 48,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Quick Draw: Swaps between 2 active Medium weapons and 2 holstered Medium weapons."
   },
   {
     "id": "fujin",
     "name": "Fujin",
-    "seriesKey": "fujin",
     "tier": "T2",
-    "faction": "SpaceTech",
-    "role": "Sentry Ancile",
-    "speed": 38,
-    "hp": 75000,
+    "role": "Sentry Energy Dome",
+    "hp": 105000,
+    "speed": 44,
     "hardpoints": [
       {
         "size": "Medium"
@@ -1284,16 +1461,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Sentry Mode: Deploys stationary tripod stance with regenerating Ancile energy dome."
+    "ability": "Sentry Mode: Raises quadruped chassis, generating regenerable Ancile dome shield."
   },
   {
     "id": "ochokochi",
     "name": "Ochokochi",
     "tier": "T4",
-    "faction": "Yan-di",
-    "role": "Brawler / Rammer",
-    "speed": 46,
+    "role": "Brawler Juggernaut",
     "hp": 140000,
+    "speed": 52,
     "hardpoints": [
       {
         "size": "Medium"
@@ -1308,67 +1484,21 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Stampede & Repulsion: Charges forward with high-velocity repulsion field, knocking enemy robots backwards while converting damage into DoT corrosion."
+    "ability": "Stampede Rush: Charges forward with repulsive magnetic forcefield, turning 70% of incoming damage into damage-over-time."
   },
   {
     "id": "omen_fang",
     "name": "Omen Fang",
     "tier": "T4",
-    "faction": "Yan-di",
-    "role": "Ambush Assassin",
-    "speed": 48,
-    "hp": 110000,
+    "role": "Stealth Skirmisher",
+    "hp": 105000,
+    "speed": 62,
     "hardpoints": [
-      {
-        "size": "Heavy"
-      },
       {
         "size": "Heavy"
       },
       {
         "size": "Medium"
-      },
-      {
-        "size": "Medium"
-      }
-    ],
-    "ability": "Shadow Pounce: Enters stealth sprint, executing heavy ambush salvo with built-in acid rockets."
-  },
-  {
-    "id": "bagliore",
-    "name": "Bagliore",
-    "tier": "T4",
-    "faction": "SpaceTech",
-    "role": "Quad Heavy Sniper",
-    "speed": 40,
-    "hp": 122000,
-    "hardpoints": [
-      {
-        "size": "Heavy"
-      },
-      {
-        "size": "Heavy"
-      },
-      {
-        "size": "Heavy"
-      },
-      {
-        "size": "Heavy"
-      }
-    ],
-    "ability": "Translocation Anchor: Places recall warp beacon, gaining +35% damage mitigation and overcharging quad Heavy weapon mounts."
-  },
-  {
-    "id": "shenlou",
-    "name": "Shenlou",
-    "tier": "T4",
-    "faction": "SpaceTech",
-    "role": "Assassin Teleporter",
-    "speed": 52,
-    "hp": 96800,
-    "hardpoints": [
-      {
-        "size": "Heavy"
       },
       {
         "size": "Medium"
@@ -1377,17 +1507,101 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Multi-Blink Jump: Teleports 3 consecutive times directly behind enemy lines with Aegis shields before returning to initial anchor beacon."
+    "ability": "Ghost Strike: Enters Phase Stealth for 6s, increasing weapon firing speed by +30%."
+  },
+  {
+    "id": "butch",
+    "name": "Butch",
+    "tier": "T3",
+    "role": "Quick-Draw Sniper",
+    "hp": 125000,
+    "speed": 40,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      }
+    ],
+    "ability": "Quick Draw: Swaps between 2 active Heavy mounts and 2 holstered Heavy mounts."
+  },
+  {
+    "id": "ultimate_rayker",
+    "name": "Ultimate Rayker",
+    "tier": "Ultimate",
+    "role": "Ultimate Suppression Sniper",
+    "hp": 165000,
+    "speed": 60,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Ultimate Glance: 95% damage suppression and built-in laser strikes."
+  },
+  {
+    "id": "bagliore",
+    "name": "Bagliore",
+    "tier": "T4",
+    "role": "Heavy Siege Artillery",
+    "hp": 122000,
+    "speed": 45,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      }
+    ],
+    "ability": "Siege Warp: Deploys return beacon and enters fortified Siege Mode with massive Defense Points and firepower boost."
+  },
+  {
+    "id": "shenlou",
+    "name": "Shenlou",
+    "tier": "T4",
+    "role": "Teleport Assassin",
+    "hp": 96800,
+    "speed": 60,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Translocation Chain: Teleports behind 3 successive targets within 350m, generating Aegis shield domes with each jump."
   },
   {
     "id": "ultimate_ao_jun",
     "name": "Ultimate Ao Jun",
-    "seriesKey": "ao_jun",
     "tier": "Ultimate",
-    "faction": "SpaceTech",
-    "role": "Ultimate Dragon",
-    "speed": 48,
-    "hp": 125000,
+    "role": "Ultimate Dragon Flier",
+    "hp": 180000,
+    "speed": 56,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1396,16 +1610,15 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Ultimate Dragon Flight: Stealth flight with titanium-melting flamethrower bypassing all reflectors and shields."
+    "ability": "Ultimate Dragon Flight: Continuous stealth flight with unhealable Grey Damage Dragon breath."
   },
   {
     "id": "erebus",
     "name": "Erebus",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Heavy Sniper",
-    "speed": 38,
+    "role": "Sniper Controller",
     "hp": 92000,
+    "speed": 50,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1417,7 +1630,7 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Homing Blackout: 4 homing rockets applying EMP, Lockdown, Suppression, and Corrosive DoT through a 300k Aegis shield."
+    "ability": "Homing Blackout: Fires 4 homing rockets inflicting EMP, Lockdown, Suppression, and DoT debuffs with massive Aegis dome."
   },
   {
     "id": "ophion",
@@ -1444,10 +1657,9 @@ const MASTER_ROBOTS = [
     "id": "haechi",
     "name": "Haechi",
     "tier": "T3",
-    "faction": "SpaceTech",
-    "role": "Dash Ancile Striker",
-    "speed": 44,
-    "hp": 85000,
+    "role": "Dash Energy Brawler",
+    "hp": 115000,
+    "speed": 48,
     "hardpoints": [
       {
         "size": "Medium"
@@ -1459,16 +1671,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Dash & Ancile: Triple medium mount with built-in rechargeable Ancile energy shield and 2 dash charges."
+    "ability": "Dash & Ancile: 2 dash charges and built-in regenerating Ancile energy shield."
   },
   {
     "id": "gepard",
     "name": "Gepard",
     "tier": "T1",
-    "faction": "DSC",
-    "role": "Triple Light Runner",
+    "role": "Triple Light Scout",
+    "hp": 75000,
     "speed": 58,
-    "hp": 48000,
     "hardpoints": [
       {
         "size": "Light"
@@ -1480,16 +1691,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "High Sprint: Agile triple-light mount platform."
+    "ability": "Speed Engine: High baseline speed across all combat terrain."
   },
   {
     "id": "nuo",
     "name": "Nuo",
     "tier": "T4",
-    "faction": "SpaceTech",
     "role": "Support / Energy Sniper",
-    "speed": 48,
     "hp": 118000,
+    "speed": 56,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1501,17 +1711,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Skyborn Aegis: Takes flight with sonic speed, generating a dynamic Reflector shield while projecting a high-impact built-in beam cannon."
+    "ability": "Siege Link: Indefinite tethered flight granting infinite weapon range extension and shared durability regeneration."
   },
   {
     "id": "fenrir",
     "name": "Fenrir",
-    "seriesKey": "fenrir",
     "tier": "T4",
-    "faction": "EvoLife",
-    "role": "Heavy Tank",
-    "speed": 42,
+    "role": "Shield & Resistance Tank",
     "hp": 145000,
+    "speed": 50,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1523,17 +1731,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Shape-Shift: Deploys heavy weapon and trades Aegis shield for permanent 50% defense damage resistance."
+    "ability": "Shapeshift: Toggles between Mobile Mode (Aegis dome) and Defense Mode (+50% Defense Points and active Heavy slot)."
   },
   {
     "id": "phantom",
     "name": "Phantom",
-    "seriesKey": "phantom",
     "tier": "T4",
-    "faction": "Icarus",
-    "role": "Beacon Runner",
-    "speed": 50,
-    "hp": 95000,
+    "role": "Blink Skirmisher",
+    "hp": 118000,
+    "speed": 60,
     "hardpoints": [
       {
         "size": "Medium"
@@ -1545,16 +1751,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Blink: Drops locator beacon, gains +33% speed and +33% defense points, and teleports back on command."
+    "ability": "Blink & Teleport: Drops return translocator, gaining 33% speed and 50 defense points with instant recall."
   },
   {
     "id": "behemoth",
     "name": "Behemoth",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Quad Heavy Siege",
-    "speed": 36,
-    "hp": 130000,
+    "role": "Quad Heavy Platform",
+    "hp": 150000,
+    "speed": 42,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1569,17 +1774,15 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Siege Mode: Deploys all 4 Heavy hardpoints simultaneously for catastrophic barrage firepower."
+    "ability": "Siege Mode: Deploys 2 additional Heavy weapon hardpoints (4x Heavy active) with high mobile speed."
   },
   {
     "id": "bulgasari",
     "name": "Bulgasari",
-    "seriesKey": "bulgasari",
     "tier": "T3",
-    "faction": "SpaceTech",
-    "role": "Dash Shield Warrior",
-    "speed": 40,
-    "hp": 105000,
+    "role": "Side Shield Brawler",
+    "hp": 130000,
+    "speed": 45,
     "hardpoints": [
       {
         "size": "Medium"
@@ -1591,17 +1794,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Dash & Side Shield: Heavy physical side shield (300k HP) and 2 dash thruster charges."
+    "ability": "Dash & Side Shield: 1 dash charge and durable side physical shield blocking incoming projectile fire."
   },
   {
     "id": "ultimate_mender",
     "name": "Ultimate Mender",
-    "seriesKey": "mender",
     "tier": "Ultimate",
-    "faction": "EvoLife",
-    "role": "Ultimate Medic",
-    "speed": 50,
-    "hp": 120000,
+    "role": "Ultimate Combat Medic",
+    "hp": 190000,
+    "speed": 60,
     "hardpoints": [
       {
         "size": "Medium"
@@ -1613,16 +1814,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Ultimate Repair: 100% Grey Damage restoration, speed boost (+50%), and 100 bonus Defense Points during pulse."
+    "ability": "Ultimate Emergency Repair: Infinite grey damage restoration and permanent speed aura for team."
   },
   {
     "id": "lancelot",
     "name": "Lancelot",
     "tier": "T2",
-    "faction": "Camelot",
-    "role": "Shield Brawler",
-    "speed": 30,
-    "hp": 115000,
+    "role": "Heavy Shield Tank",
+    "hp": 135000,
+    "speed": 35,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1634,16 +1834,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Rush: Accelerates movement speed while facing enemies with reinforced physical front shields."
+    "ability": "Rush: Speed boost sprint with 3 reinforced frontal physical shield plates."
   },
   {
     "id": "strider",
     "name": "Strider",
     "tier": "T3",
-    "faction": "Icarus",
-    "role": "Dash Runner",
-    "speed": 52,
-    "hp": 78000,
+    "role": "Hyper-Dash Runner",
+    "hp": 90000,
+    "speed": 62,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1653,18 +1852,23 @@ const MASTER_ROBOTS = [
       },
       {
         "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
       }
     ],
-    "ability": "5x Dash: Five high-speed kinetic dash thruster charges for instant beacon captures."
+    "ability": "Super Dash: 5 rapid consecutive dash charges crossing huge map distances in seconds."
   },
   {
     "id": "mars",
     "name": "Mars",
     "tier": "T4",
-    "faction": "Yan-di",
-    "role": "Area Denial",
-    "speed": 44,
-    "hp": 95000,
+    "role": "Remote Turret Controller",
+    "hp": 98000,
+    "speed": 56,
     "hardpoints": [
       {
         "size": "Medium"
@@ -1676,16 +1880,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Remote Turret Launcher: Launches a deployable remote Gatling turret over cover while projecting a 250k Aegis bubble."
+    "ability": "Remote Remote Turret: Launches autonomous heavy plasma turret over high walls while activating personal Aegis shield."
   },
   {
     "id": "stalker",
     "name": "Stalker",
     "tier": "T1",
-    "faction": "Icarus",
-    "role": "Stealth Runner",
-    "speed": 56,
-    "hp": 52000,
+    "role": "Stealth Scout",
+    "hp": 70000,
+    "speed": 66,
     "hardpoints": [
       {
         "size": "Light"
@@ -1694,37 +1897,58 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Stealth: 8 seconds of total radar invisibility for rapid beacon captures."
+    "ability": "Stealth: Activates 8 seconds of radar stealth and speed acceleration."
   },
   {
     "id": "nightingale",
     "name": "Nightingale",
     "tier": "T4",
-    "faction": "SpaceTech",
-    "role": "Airborne Medic",
-    "speed": 46,
-    "hp": 90000,
+    "role": "Aerial Healer",
+    "hp": 105000,
+    "speed": 55,
     "hardpoints": [
       {
         "size": "Medium"
       },
       {
-        "size": "Medium"
+        "size": "Light"
       },
       {
         "size": "Light"
       }
     ],
-    "ability": "Air Support: Takes stealth flight, projecting an area healing aura while suppressing ground enemies with air-to-surface darts."
+    "ability": "Airborne Repair & Suppress: Ascends in stealth flight, radiating team repair while firing suppression rounds at enemies."
+  },
+  {
+    "id": "patton",
+    "name": "Patton",
+    "tier": "T1",
+    "role": "Quad Light Platform",
+    "hp": 85000,
+    "speed": 40,
+    "hardpoints": [
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Quad Hardpoints: Versatile light weapon weapons battery."
   },
   {
     "id": "cerberus",
     "name": "Cerberus",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Tri-Effect Suppressor",
-    "speed": 42,
+    "role": "Blackout Sniper",
     "hp": 85000,
+    "speed": 54,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1736,16 +1960,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Blackout Ray: Built-in Aegis shield and tri-missile salvo inflicting EMP, Lockdown, and -50% Suppression."
+    "ability": "Blackout Cannon: Tri-beam weapon mount inflicting Lockdown, Suppression, and Corrosive DoT with Aegis shield."
   },
   {
     "id": "hellburner",
     "name": "Hellburner",
     "tier": "T3",
-    "faction": "Icarus",
-    "role": "Suicide Brawler",
-    "speed": 50,
-    "hp": 110000,
+    "role": "Detonation Rush",
+    "hp": 130000,
+    "speed": 60,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1754,16 +1977,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Overload: Accelerates into high-speed sprint, detonating a 100k kinetic area explosion upon reaching enemies."
+    "ability": "Overload: Accelerates at extreme speed, detonating a massive 75m kinetic blast wave."
   },
   {
     "id": "orochi",
     "name": "Orochi",
     "tier": "T4",
-    "faction": "SpaceTech",
-    "role": "Stealth Viper",
-    "speed": 52,
-    "hp": 88000,
+    "role": "Stealth Wheel Brawler",
+    "hp": 98000,
+    "speed": 65,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1772,16 +1994,15 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Viper Strike: Stealth acceleration with 2 charges, deploying built-in corrosive acid rocket pods."
+    "ability": "Viper Drive: 2 charges of stealth acceleration, firing corrosive bio-acid wheel projectiles."
   },
   {
     "id": "hastatus",
     "name": "Hastatus",
     "tier": "T4",
-    "faction": "DSC",
-    "role": "Gladiator Bastion",
-    "speed": 45,
+    "role": "Roman Harpoon Skirmisher",
     "hp": 110000,
+    "speed": 57,
     "hardpoints": [
       {
         "size": "Medium"
@@ -1793,17 +2014,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Phalanx Retribution: Deploys indestructible front shield while boosting kinetic weapon fire and damage mitigation."
+    "ability": "Centurion Glide: Dashes sideways while anchoring target enemies with kinetic harpoon tether."
   },
   {
     "id": "ultimate_blitz",
     "name": "Ultimate Blitz",
-    "seriesKey": "blitz",
     "tier": "Ultimate",
-    "faction": "DSC",
-    "role": "Ultimate Brawler",
-    "speed": 52,
-    "hp": 125000,
+    "role": "Ultimate Break-in Striker",
+    "hp": 185000,
+    "speed": 62,
     "hardpoints": [
       {
         "size": "Light"
@@ -1818,16 +2037,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Ultimate Break-In: Heavy unbreakable Aegis barrier with EMP discharge and 80% enemy suppression."
+    "ability": "Ultimate Break-in: 100% suppression darts with indestructible Aegis shield and speed boost."
   },
   {
     "id": "lynx",
     "name": "Lynx",
     "tier": "T4",
-    "faction": "Yan-di",
     "role": "Stealth Executioner",
-    "speed": 58,
-    "hp": 85000,
+    "hp": 88000,
+    "speed": 68,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1836,16 +2054,15 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Executioner Strike: High-speed stealth sprint with Forcefield; executes any enemy robot instantly when dropping below health threshold."
+    "ability": "Ferocity: Enters stealth sprint with built-in Forcefield and Executioner laser instantly eliminating foes below threshold."
   },
   {
     "id": "ao_qin",
     "name": "Ao Qin",
     "tier": "T2",
-    "faction": "SpaceTech",
-    "role": "Red Dragon",
-    "speed": 44,
-    "hp": 65000,
+    "role": "Plasma Beam Flier",
+    "hp": 85000,
+    "speed": 55,
     "hardpoints": [
       {
         "size": "Light"
@@ -1860,7 +2077,7 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Dragon Flight: Takes flight unleashing an automatic 350m continuous energy arc."
+    "ability": "Dragon Flight: Takes flight firing a concentrated red plasma laser beam."
   },
   {
     "id": "gl_patton",
@@ -1890,10 +2107,9 @@ const MASTER_ROBOTS = [
     "id": "inquisitor",
     "name": "Inquisitor",
     "tier": "T3",
-    "faction": "SpaceTech",
-    "role": "Stealth Jump Brawler",
-    "speed": 40,
-    "hp": 88000,
+    "role": "Stealth Jump Heavy",
+    "hp": 115000,
+    "speed": 45,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1905,16 +2121,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Descend: Stealth jump thrusters granting stealth during flight and for 5 seconds after landing."
+    "ability": "Descend: Leaps high into air with stealth, maintaining stealth for 5 seconds upon landing."
   },
   {
     "id": "fury",
     "name": "Fury",
     "tier": "T2",
-    "faction": "SpaceTech",
-    "role": "Heavy Sniper",
-    "speed": 33,
-    "hp": 98000,
+    "role": "Triple Heavy Platform",
+    "hp": 115000,
+    "speed": 38,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1926,17 +2141,38 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Triple Heavy Platform: Steady triple-heavy artillery battery."
+    "ability": "Heavy Weapon Platform: High stability platform housing 3 Heavy weapon hardpoints."
+  },
+  {
+    "id": "ultimate_griffin",
+    "name": "Ultimate Griffin",
+    "tier": "Ultimate",
+    "role": "Ultimate Jump Assault",
+    "hp": 185000,
+    "speed": 46,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Ultimate Jump Drive: Rapid rocket jump with stealth on takeoff and landing."
   },
   {
     "id": "spectre",
     "name": "Spectre",
-    "seriesKey": "spectre",
     "tier": "T3",
-    "faction": "SpaceTech",
-    "role": "Glass Cannon",
-    "speed": 45,
-    "hp": 68000,
+    "role": "Stealth Jump Sniper",
+    "hp": 80000,
+    "speed": 55,
     "hardpoints": [
       {
         "size": "Medium"
@@ -1951,16 +2187,15 @@ const MASTER_ROBOTS = [
         "size": "Medium"
       }
     ],
-    "ability": "Glide & Stealth: Mid-air jump with 5 seconds of stealth on landing with quad medium firepower."
+    "ability": "Glide Jump: Leaps into the air with stealth, landing with 4 synchronized Medium weapon mounts."
   },
   {
     "id": "vector",
     "name": "Vector",
     "tier": "T4",
-    "faction": "Icarus",
-    "role": "Tactical Interceptor",
-    "speed": 50,
-    "hp": 102000,
+    "role": "Thermal Shock Infiltrator",
+    "hp": 116000,
+    "speed": 56,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -1975,17 +2210,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Kinetic Vectoring: Multi-angle thruster bursts with Forcefield protection and accelerated weapon fire."
+    "ability": "Cryo Thrusters: Dashes forward releasing a thermal-shock freezing aura that weakens armor by 25%."
   },
   {
     "id": "ultimate_ares",
     "name": "Ultimate Ares",
-    "seriesKey": "ares",
     "tier": "Ultimate",
-    "faction": "DSC",
-    "role": "Ultimate Vanguard",
-    "speed": 48,
-    "hp": 115000,
+    "role": "Ultimate Pantheon Fortress",
+    "hp": 175000,
+    "speed": 58,
     "hardpoints": [
       {
         "size": "Medium"
@@ -2000,17 +2233,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Ultimate Retribution: Penetrates defense resistance and reflects 100% of blocked Absorber damage back to attackers."
+    "ability": "Ultimate Pantheon: Absorber shield with built-in explosive piercing cannons and permanent grey damage immunity."
   },
   {
     "id": "ultimate_phantom",
     "name": "Ultimate Phantom",
-    "seriesKey": "phantom",
     "tier": "Ultimate",
-    "faction": "Icarus",
-    "role": "Ultimate Striker",
-    "speed": 58,
-    "hp": 135000,
+    "role": "Ultimate Blink Skirmisher",
+    "hp": 200000,
+    "speed": 65,
     "hardpoints": [
       {
         "size": "Medium"
@@ -2022,16 +2253,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Ultimate Blink: Hyper speed sprint with +70% defense points and instant status cleanse on recall."
+    "ability": "Ultimate Blink: Extreme speed sprint with 70% defense resistance and instant recall."
   },
   {
     "id": "imugi",
     "name": "Imugi",
     "tier": "T4",
-    "faction": "SpaceTech",
-    "role": "Teleport Vanguard",
-    "speed": 48,
+    "role": "Portal Flier",
     "hp": 102000,
+    "speed": 55,
     "hardpoints": [
       {
         "size": "Medium"
@@ -2043,19 +2273,18 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Dragon Portal: Flies stealthily and establishes a two-way teleportation portal for all allied teammates on landing."
+    "ability": "Dragon Flight & Teleport Portal: Takes flight with stealth, creating entry and exit teleport portals for entire team."
   },
   {
     "id": "hover",
     "name": "Hover",
     "tier": "T3",
-    "faction": "Icarus",
-    "role": "Aerial Glider",
-    "speed": 42,
-    "hp": 88000,
+    "role": "Glide Flier",
+    "hp": 110000,
+    "speed": 50,
     "hardpoints": [
       {
-        "size": "Heavy"
+        "size": "Medium"
       },
       {
         "size": "Medium"
@@ -2064,16 +2293,15 @@ const MASTER_ROBOTS = [
         "size": "Light"
       }
     ],
-    "ability": "Glide: Controlled jet thrusters enabling prolonged aerial gliding and elevated firing positions."
+    "ability": "Glide Flight: Variable-height glide thruster allowing continuous soaring above terrain."
   },
   {
     "id": "crisis",
     "name": "Crisis",
     "tier": "T4",
-    "faction": "Icarus",
     "role": "Sniper Assassin",
-    "speed": 45,
     "hp": 75000,
+    "speed": 60,
     "hardpoints": [
       {
         "size": "Heavy"
@@ -2088,6 +2316,6 @@ const MASTER_ROBOTS = [
         "size": "Heavy"
       }
     ],
-    "ability": "Permanent Stealth & Overpower: Permanent stealth while idle; activating Overpower boosts quad-Heavy damage by +30% with built-in Shieldbreaker."
+    "ability": "Overkill: Infinite stealth until firing; activating ability grants 100% defense penetration and +20% weapon damage."
   }
 ];

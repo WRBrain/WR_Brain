@@ -1,0 +1,20 @@
+{
+  "id": "rayker",
+  "name": "Rayker",
+  "tier": "T4",
+  "role": "Suppression Sniper",
+  "hp": 95000,
+  "speed": 56,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Glance Suppression: 5 charges of long-range laser suppression reducing target enemy damage output by 90%."
+}

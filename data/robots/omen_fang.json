@@ -2,23 +2,22 @@
   "id": "omen_fang",
   "name": "Omen Fang",
   "tier": "T4",
-  "faction": "Yan-di",
-  "role": "Ambush Assassin",
-  "speed": 48,
-  "hp": 110000,
+  "role": "Stealth Skirmisher",
+  "hp": 105000,
+  "speed": 62,
   "hardpoints": [
     {
       "size": "Heavy"
     },
     {
-      "size": "Heavy"
-    },
-    {
       "size": "Medium"
     },
     {
       "size": "Medium"
+    },
+    {
+      "size": "Light"
     }
   ],
-  "ability": "Shadow Pounce: Enters stealth sprint, executing heavy ambush salvo with built-in acid rockets."
+  "ability": "Ghost Strike: Enters Phase Stealth for 6s, increasing weapon firing speed by +30%."
 }

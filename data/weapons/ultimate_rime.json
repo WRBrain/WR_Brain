@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_rime",
+  "name": "Ultimate Rime",
+  "size": "Light",
+  "tier": "Ultimate",
+  "range": 300,
+  "burstDps": 13000,
+  "sustainedDps": 7800,
+  "reload": 5.0,
+  "family": "Freeze Rockets",
+  "status": "Ultimate Cryo Blast Rocket"
+}

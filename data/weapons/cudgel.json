@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 9200,
   "sustainedDps": 6000,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Blast Shotguns",
   "status": "Tier 4 Blast Charge Shotgun"
 }

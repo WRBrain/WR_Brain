@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_gust",
+  "name": "Ultimate Gust",
+  "size": "Light",
+  "tier": "Ultimate",
+  "range": 500,
+  "burstDps": 12000,
+  "sustainedDps": 7500,
+  "reload": 5.0,
+  "family": "Kinetic Shotguns",
+  "status": "Ultimate Kinetic Scattergun"
+}

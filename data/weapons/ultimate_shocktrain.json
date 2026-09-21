@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_shocktrain",
+  "name": "Ultimate Shocktrain",
+  "size": "Medium",
+  "tier": "Ultimate",
+  "range": 500,
+  "burstDps": 20000,
+  "sustainedDps": 8500,
+  "reload": 6.0,
+  "family": "Plasma Cannons",
+  "status": "Ultimate Chain Energy Cannon"
+}

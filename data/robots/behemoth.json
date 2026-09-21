@@ -2,10 +2,9 @@
   "id": "behemoth",
   "name": "Behemoth",
   "tier": "T4",
-  "faction": "DSC",
-  "role": "Quad Heavy Siege",
-  "speed": 36,
-  "hp": 130000,
+  "role": "Quad Heavy Platform",
+  "hp": 150000,
+  "speed": 42,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -20,5 +19,5 @@
       "size": "Heavy"
     }
   ],
-  "ability": "Siege Mode: Deploys all 4 Heavy hardpoints simultaneously for catastrophic barrage firepower."
+  "ability": "Siege Mode: Deploys 2 additional Heavy weapon hardpoints (4x Heavy active) with high mobile speed."
 }

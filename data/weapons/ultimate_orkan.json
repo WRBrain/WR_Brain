@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_orkan",
+  "name": "Ultimate Orkan",
+  "size": "Medium",
+  "tier": "Ultimate",
+  "range": 300,
+  "burstDps": 21000,
+  "sustainedDps": 11500,
+  "reload": 6.0,
+  "family": "Freeze Rockets",
+  "status": "Ultimate Rapid Burst Rocket Pod"
+}

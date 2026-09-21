@@ -2,10 +2,9 @@
   "id": "kumiho",
   "name": "Kumiho",
   "tier": "T2",
-  "faction": "SpaceTech",
-  "role": "Dash Runner",
-  "speed": 50,
-  "hp": 75000,
+  "role": "Double Dash Scout",
+  "hp": 95000,
+  "speed": 60,
   "hardpoints": [
     {
       "size": "Medium"
@@ -14,5 +13,5 @@
       "size": "Medium"
     }
   ],
-  "ability": "Rapid Dash: Quick-recharge dual dash thrusters for swift tactical repositioning."
+  "ability": "Quick Dash: 2 rapid dash charges recharging every 5 seconds."
 }

@@ -1,0 +1,12 @@
+{
+  "id": "basilisk",
+  "name": "Basilisk",
+  "size": "Alpha",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 39500,
+  "sustainedDps": 24000,
+  "reload": 5.0,
+  "family": "Titan Acid",
+  "status": "Titan Alpha Corrosive Acid Cannon"
+}

@@ -2,20 +2,19 @@
   "id": "nightingale",
   "name": "Nightingale",
   "tier": "T4",
-  "faction": "SpaceTech",
-  "role": "Airborne Medic",
-  "speed": 46,
-  "hp": 90000,
+  "role": "Aerial Healer",
+  "hp": 105000,
+  "speed": 55,
   "hardpoints": [
     {
       "size": "Medium"
     },
     {
-      "size": "Medium"
+      "size": "Light"
     },
     {
       "size": "Light"
     }
   ],
-  "ability": "Air Support: Takes stealth flight, projecting an area healing aura while suppressing ground enemies with air-to-surface darts."
+  "ability": "Airborne Repair & Suppress: Ascends in stealth flight, radiating team repair while firing suppression rounds at enemies."
 }

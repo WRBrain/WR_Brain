@@ -6,7 +6,7 @@
   "range": 800,
   "burstDps": 9800,
   "sustainedDps": 5900,
-  "reload": 10,
+  "reload": 10.0,
   "family": "Kinetic Gatlings",
   "status": "Tier 1 Long-Range Ballistic MG"
 }

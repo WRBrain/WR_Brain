@@ -1,0 +1,23 @@
+{
+  "id": "patton",
+  "name": "Patton",
+  "tier": "T1",
+  "role": "Quad Light Platform",
+  "hp": 85000,
+  "speed": 40,
+  "hardpoints": [
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Quad Hardpoints: Versatile light weapon weapons battery."
+}

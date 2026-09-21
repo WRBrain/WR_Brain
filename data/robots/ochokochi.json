@@ -2,10 +2,9 @@
   "id": "ochokochi",
   "name": "Ochokochi",
   "tier": "T4",
-  "faction": "Yan-di",
-  "role": "Brawler / Rammer",
-  "speed": 46,
+  "role": "Brawler Juggernaut",
   "hp": 140000,
+  "speed": 52,
   "hardpoints": [
     {
       "size": "Medium"
@@ -20,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Stampede & Repulsion: Charges forward with high-velocity repulsion field, knocking enemy robots backwards while converting damage into DoT corrosion."
+  "ability": "Stampede Rush: Charges forward with repulsive magnetic forcefield, turning 70% of incoming damage into damage-over-time."
 }

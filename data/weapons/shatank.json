@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 8400,
   "sustainedDps": 5300,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Plasma Blaster",
   "status": "Tier 4 Concentrated Plasma"
 }

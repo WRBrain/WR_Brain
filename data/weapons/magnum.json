@@ -6,7 +6,7 @@
   "range": 350,
   "burstDps": 7800,
   "sustainedDps": 7800,
-  "reload": 0,
+  "reload": 0.0,
   "family": "Plasma Cannons",
   "status": "Tier 2 Continuous Energy Cannon"
 }

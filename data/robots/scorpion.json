@@ -2,10 +2,9 @@
   "id": "scorpion",
   "name": "Scorpion",
   "tier": "T4",
-  "faction": "Yan-di",
-  "role": "Ambush Assassin",
-  "speed": 46,
-  "hp": 82000,
+  "role": "Backstab Assassin",
+  "hp": 108000,
+  "speed": 56,
   "hardpoints": [
     {
       "size": "Medium"
@@ -17,5 +16,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Backstab Blink: Teleports behind enemy at 350m range, deploying sting tail with acid DoT and returning safely."
+  "ability": "Backstab Teleport: Teleports behind target within 350m, stinging with corrosive tail sting, with return recall."
 }

@@ -2,10 +2,9 @@
   "id": "condor",
   "name": "Condor",
   "tier": "T4",
-  "faction": "SpaceTech",
-  "role": "Aerial Vanguard",
-  "speed": 48,
+  "role": "Aerial Striker",
   "hp": 120000,
+  "speed": 58,
   "hardpoints": [
     {
       "size": "Heavy"
@@ -14,8 +13,8 @@
       "size": "Medium"
     },
     {
-      "size": "Light"
+      "size": "Medium"
     }
   ],
-  "ability": "Skyborn Aegis: Takes flight with sonic speed, generating a dynamic Reflector shield while projecting a high-impact built-in beam cannon."
+  "ability": "Sky Ward: Flies with directional Absorber shield, firing acoustic wave pulses that bypass Reflector defense."
 }

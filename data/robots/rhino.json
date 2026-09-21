@@ -1,0 +1,23 @@
+{
+  "id": "rhino",
+  "name": "Rhino",
+  "tier": "T2",
+  "role": "Assault Shield Tank",
+  "hp": 130000,
+  "speed": 35,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Assault Mode: Closes heavy physical shields and sprints at 60 km/h with 2 active Light weapons."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "hussar",
+  "name": "Hussar",
+  "size": "Medium",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 11500,
+  "sustainedDps": 7500,
+  "reload": 5.0,
+  "family": "Plasma Cannons",
+  "status": "Tier 3 Plasma Sniper"
+}

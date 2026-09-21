@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 12000,
   "sustainedDps": 7600,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Thermal Cryo",
   "status": "Tier 4 Thermal Shock Beam"
 }

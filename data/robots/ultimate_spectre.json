@@ -1,12 +1,10 @@
 {
   "id": "ultimate_spectre",
   "name": "Ultimate Spectre",
-  "seriesKey": "spectre",
   "tier": "Ultimate",
-  "faction": "SpaceTech",
-  "role": "Ultimate Assassin",
-  "speed": 52,
-  "hp": 110000,
+  "role": "Ultimate Sniper",
+  "hp": 140000,
+  "speed": 60,
   "hardpoints": [
     {
       "size": "Medium"
@@ -21,5 +19,5 @@
       "size": "Medium"
     }
   ],
-  "ability": "Ultimate Glide: Stealth jump with +40% weapon damage boost and total immunity to lockdown/suppression."
+  "ability": "Ultimate Glide Jump: Stealth leap with +50% weapon burst damage and 100% defense mitigation."
 }

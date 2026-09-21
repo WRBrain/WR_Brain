@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 10200,
   "sustainedDps": 5400,
-  "reload": 18,
+  "reload": 18.0,
   "family": "Blast Rockets",
   "status": "Tier 1 Medium Kinetic Rocket"
 }

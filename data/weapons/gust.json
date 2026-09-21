@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 7000,
   "sustainedDps": 4200,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Kinetic Shotguns",
   "status": "Tier 2 Kinetic Light Scattergun"
 }

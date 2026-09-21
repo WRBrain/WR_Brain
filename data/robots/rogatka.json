@@ -1,0 +1,17 @@
+{
+  "id": "rogatka",
+  "name": "Rogatka",
+  "tier": "T2",
+  "role": "Jump Brawler",
+  "hp": 95000,
+  "speed": 55,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Jump: High-mobility combat jump recharging every 7 seconds."
+}

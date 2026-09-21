@@ -2,10 +2,9 @@
   "id": "gepard",
   "name": "Gepard",
   "tier": "T1",
-  "faction": "DSC",
-  "role": "Triple Light Runner",
+  "role": "Triple Light Scout",
+  "hp": 75000,
   "speed": 58,
-  "hp": 48000,
   "hardpoints": [
     {
       "size": "Light"
@@ -17,5 +16,5 @@
       "size": "Light"
     }
   ],
-  "ability": "High Sprint: Agile triple-light mount platform."
+  "ability": "Speed Engine: High baseline speed across all combat terrain."
 }

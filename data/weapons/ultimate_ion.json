@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_ion",
+  "name": "Ultimate Ion",
+  "size": "Medium",
+  "tier": "Ultimate",
+  "range": 600,
+  "burstDps": 19500,
+  "sustainedDps": 8000,
+  "reload": 4.5,
+  "family": "Plasma Cannons",
+  "status": "Ultimate Single Shot Ion Bolt"
+}

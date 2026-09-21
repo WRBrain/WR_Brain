@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_corona",
+  "name": "Ultimate Corona",
+  "size": "Medium",
+  "tier": "Ultimate",
+  "range": 500,
+  "burstDps": 20500,
+  "sustainedDps": 12800,
+  "reload": 5.0,
+  "family": "Lockdown Energy",
+  "status": "Ultimate Lockdown Energy Shotgun"
+}

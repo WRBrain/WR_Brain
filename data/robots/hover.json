@@ -2,13 +2,12 @@
   "id": "hover",
   "name": "Hover",
   "tier": "T3",
-  "faction": "Icarus",
-  "role": "Aerial Glider",
-  "speed": 42,
-  "hp": 88000,
+  "role": "Glide Flier",
+  "hp": 110000,
+  "speed": 50,
   "hardpoints": [
     {
-      "size": "Heavy"
+      "size": "Medium"
     },
     {
       "size": "Medium"
@@ -17,5 +16,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Glide: Controlled jet thrusters enabling prolonged aerial gliding and elevated firing positions."
+  "ability": "Glide Flight: Variable-height glide thruster allowing continuous soaring above terrain."
 }

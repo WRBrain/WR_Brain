@@ -1,0 +1,20 @@
+{
+  "id": "ultimate_bulgasari",
+  "name": "Ultimate Bulgasari",
+  "tier": "Ultimate",
+  "role": "Ultimate Shield Brawler",
+  "hp": 220000,
+  "speed": 52,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Ultimate Dash: 2 high-speed dash charges with impenetrable physical shield."
+}

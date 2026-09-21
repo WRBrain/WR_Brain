@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_glacier",
+  "name": "Ultimate Glacier",
+  "size": "Heavy",
+  "tier": "Ultimate",
+  "range": 300,
+  "burstDps": 26500,
+  "sustainedDps": 15500,
+  "reload": 5.0,
+  "family": "Freeze Rockets",
+  "status": "Ultimate Cryo Blast Rocket"
+}

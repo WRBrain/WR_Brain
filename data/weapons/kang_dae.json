@@ -6,7 +6,7 @@
   "range": 800,
   "burstDps": 12200,
   "sustainedDps": 4600,
-  "reload": 6,
+  "reload": 6.0,
   "family": "Kinetic Sniper",
   "status": "Tier 1 High-Velocity Kinetic Cannon"
 }

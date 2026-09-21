@@ -1,0 +1,12 @@
+{
+  "id": "gendarme",
+  "name": "Gendarme",
+  "size": "Alpha",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 36500,
+  "sustainedDps": 22000,
+  "reload": 5.0,
+  "family": "Plasma Cannons",
+  "status": "Titan Alpha Plasma Sniper"
+}

@@ -6,7 +6,7 @@
   "range": 800,
   "burstDps": 15200,
   "sustainedDps": 10200,
-  "reload": 0,
+  "reload": 0.0,
   "family": "Continuous Lasers",
   "status": "Special Edition Infinite Beam Laser"
 }

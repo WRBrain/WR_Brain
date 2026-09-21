@@ -1,0 +1,12 @@
+{
+  "id": "needle",
+  "name": "Needle",
+  "size": "Light",
+  "tier": "T4",
+  "range": 150,
+  "burstDps": 10500,
+  "sustainedDps": 6800,
+  "reload": 5.0,
+  "family": "Harpoon Kinetic",
+  "status": "Tier 4 Aegis Shield Penetrator"
+}

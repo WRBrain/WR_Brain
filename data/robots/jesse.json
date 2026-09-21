@@ -1,0 +1,23 @@
+{
+  "id": "jesse",
+  "name": "Jesse",
+  "tier": "T2",
+  "role": "Quick-Draw Light",
+  "hp": 85000,
+  "speed": 60,
+  "hardpoints": [
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Quick Draw: Swaps between 2 active Light weapons and 2 holstered Light weapons."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "corona",
+  "name": "Corona",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 13000,
+  "sustainedDps": 8300,
+  "reload": 5.0,
+  "family": "Lockdown Energy",
+  "status": "Tier 4 Lockdown Energy Shotgun"
+}

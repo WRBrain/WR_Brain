@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 13000,
   "sustainedDps": 8000,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Rust & Anti-Heal",
   "status": "Tier 4 Rust Rotary Gun"
 }

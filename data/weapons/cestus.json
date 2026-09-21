@@ -1,0 +1,12 @@
+{
+  "id": "cestus",
+  "name": "Cestus",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 18000,
+  "sustainedDps": 11500,
+  "reload": 5.0,
+  "family": "Blast Rockets",
+  "status": "Tier 4 Kinetic Blast Rocket"
+}

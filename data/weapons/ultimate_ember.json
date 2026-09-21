@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_ember",
+  "name": "Ultimate Ember",
+  "size": "Heavy",
+  "tier": "Ultimate",
+  "range": 350,
+  "burstDps": 27000,
+  "sustainedDps": 18000,
+  "reload": 5.0,
+  "family": "Flamethrowers",
+  "status": "Ultimate Napalm Flamethrower"
+}

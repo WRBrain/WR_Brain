@@ -1,0 +1,12 @@
+{
+  "id": "weber",
+  "name": "Weber",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 800,
+  "burstDps": 12000,
+  "sustainedDps": 5000,
+  "reload": 8.0,
+  "family": "Kinetic Sniper",
+  "status": "Tier 4 100% Defense Mitigation Railgun"
+}

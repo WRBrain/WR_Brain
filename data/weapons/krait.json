@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 27500,
   "sustainedDps": 17000,
-  "reload": 5,
-  "family": "Corrosive Acid",
+  "reload": 5.0,
+  "family": "Titan Acid",
   "status": "Titan Beta Corrosive Acid Cannon"
 }

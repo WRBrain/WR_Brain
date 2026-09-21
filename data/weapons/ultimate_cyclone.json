@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_cyclone",
+  "name": "Ultimate Cyclone",
+  "size": "Beta",
+  "tier": "Ultimate",
+  "range": 600,
+  "burstDps": 44000,
+  "sustainedDps": 28000,
+  "reload": 5.0,
+  "family": "Tesla Lock-on",
+  "status": "Ultimate Titan Beta Lightning Arc"
+}

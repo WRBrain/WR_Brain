@@ -2,10 +2,9 @@
   "id": "ao_qin",
   "name": "Ao Qin",
   "tier": "T2",
-  "faction": "SpaceTech",
-  "role": "Red Dragon",
-  "speed": 44,
-  "hp": 65000,
+  "role": "Plasma Beam Flier",
+  "hp": 85000,
+  "speed": 55,
   "hardpoints": [
     {
       "size": "Light"
@@ -20,5 +19,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Dragon Flight: Takes flight unleashing an automatic 350m continuous energy arc."
+  "ability": "Dragon Flight: Takes flight firing a concentrated red plasma laser beam."
 }

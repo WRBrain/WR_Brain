@@ -1,0 +1,12 @@
+{
+  "id": "ion",
+  "name": "Ion",
+  "size": "Medium",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 12000,
+  "sustainedDps": 4800,
+  "reload": 5.0,
+  "family": "Plasma Cannons",
+  "status": "Tier 3 Single Shot Ion Bolt"
+}

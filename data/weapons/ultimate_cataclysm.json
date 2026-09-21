@@ -1,0 +1,12 @@
+{
+  "id": "ultimate_cataclysm",
+  "name": "Ultimate Cataclysm",
+  "size": "Alpha",
+  "tier": "Ultimate",
+  "range": 600,
+  "burstDps": 60000,
+  "sustainedDps": 38000,
+  "reload": 5.0,
+  "family": "Tesla Lock-on",
+  "status": "Ultimate Titan Alpha Lightning Arc"
+}

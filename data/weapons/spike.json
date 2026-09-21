@@ -1,0 +1,12 @@
+{
+  "id": "spike",
+  "name": "Spike",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 150,
+  "burstDps": 16000,
+  "sustainedDps": 10200,
+  "reload": 5.0,
+  "family": "Harpoon Kinetic",
+  "status": "Tier 4 Aegis Shield Penetrator"
+}

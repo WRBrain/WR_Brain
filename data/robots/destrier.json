@@ -1,12 +1,10 @@
 {
   "id": "destrier",
   "name": "Destrier",
-  "seriesKey": "destrier",
   "tier": "T1",
-  "faction": "DSC",
   "role": "Starter Scout",
-  "speed": 42,
-  "hp": 42000,
+  "hp": 60000,
+  "speed": 52,
   "hardpoints": [
     {
       "size": "Light"
@@ -15,5 +13,5 @@
       "size": "Light"
     }
   ],
-  "ability": "Dual Mount: Foundation combat training unit."
+  "ability": "Dual Light: Dual weapon mount combat starter."
 }

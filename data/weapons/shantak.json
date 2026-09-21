@@ -6,7 +6,7 @@
   "range": 1100,
   "burstDps": 17000,
   "sustainedDps": 10600,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Plasma Sniper",
   "status": "Tier 4 1100m Plasma Sniper"
 }

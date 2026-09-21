@@ -6,7 +6,7 @@
   "range": 500,
   "burstDps": 36000,
   "sustainedDps": 22000,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Blast Rockets",
   "status": "Titan Alpha Heavy Explosive Rocket"
 }

@@ -2,14 +2,13 @@
   "id": "schutze",
   "name": "Schutze",
   "tier": "T1",
-  "faction": "SpaceTech",
-  "role": "Classic Heavy Platform",
-  "speed": 44,
-  "hp": 38000,
+  "role": "Single Heavy Runner",
+  "hp": 70000,
+  "speed": 52,
   "hardpoints": [
     {
       "size": "Heavy"
     }
   ],
-  "ability": "Single Heavy Mount: Compact light chassis carrying a heavy hardpoint."
+  "ability": "Heavy Mount: High speed walker equipped with a single heavy weapon mount."
 }

@@ -6,7 +6,7 @@
   "range": 250,
   "burstDps": 10300,
   "sustainedDps": 6500,
-  "reload": 5,
+  "reload": 5.0,
   "family": "Kinetic Blade",
   "status": "Special Edition Kinetic Flechette"
 }
