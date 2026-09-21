@@ -1,0 +1,632 @@
+[
+  {
+    "id": "armor_expert",
+    "name": "Armor Expert",
+    "category": "defense",
+    "categoryLabel": "🛡️ Durability & Repair",
+    "icon": "🛡️",
+    "desc": "Increases robot maximum hull durability.",
+    "tiers": {
+      "T1": { "val": "+5% HP", "bonus": 5 },
+      "T2": { "val": "+8% HP", "bonus": 8 },
+      "T3": { "val": "+11.5% HP", "bonus": 11.5 },
+      "T4": { "val": "+15% HP", "bonus": 15 }
+    },
+    "notes": "Essential baseline survivability skill for all front-line brawlers and tanks."
+  },
+  {
+    "id": "tough_guy",
+    "name": "Tough Guy",
+    "category": "defense",
+    "categoryLabel": "🛡️ Durability & Repair",
+    "icon": "🛡️",
+    "desc": "Increases durability with minor weapon damage penalty.",
+    "tiers": {
+      "T1": { "val": "+6.5% HP (-5% Dmg)", "bonus": 6.5 },
+      "T2": { "val": "+10.5% HP (-5% Dmg)", "bonus": 10.5 },
+      "T3": { "val": "+14.5% HP (-5% Dmg)", "bonus": 14.5 },
+      "T4": { "val": "+18.75% HP (-5% Dmg)", "bonus": 18.75 }
+    },
+    "notes": "Optimal for beacon-holding brawlers where durability takes priority over weapon output."
+  },
+  {
+    "id": "mechanic",
+    "name": "Mechanic",
+    "category": "defense",
+    "categoryLabel": "🛡️ Durability & Repair",
+    "icon": "🔧",
+    "desc": "Passively repairs durability over time.",
+    "tiers": {
+      "T1": { "val": "+0.25% HP/s", "bonus": 0.25 },
+      "T2": { "val": "+0.4% HP/s", "bonus": 0.4 },
+      "T3": { "val": "+0.55% HP/s", "bonus": 0.55 },
+      "T4": { "val": "+0.7% HP/s", "bonus": 0.7 }
+    },
+    "notes": "Continuous passive regeneration ensures constant uptime throughout extended engagements."
+  },
+  {
+    "id": "cautious_pilot",
+    "name": "Cautious Pilot",
+    "category": "defense",
+    "categoryLabel": "🛡️ Durability & Repair",
+    "icon": "🛡️",
+    "desc": "Increases durability with minor speed reduction.",
+    "tiers": {
+      "T1": { "val": "+4% HP (-5% Spd)", "bonus": 4 },
+      "T2": { "val": "+7% HP (-5% Spd)", "bonus": 7 },
+      "T3": { "val": "+9.5% HP (-5% Spd)", "bonus": 9.5 },
+      "T4": { "val": "+12.5% HP (-5% Spd)", "bonus": 12.5 }
+    },
+    "notes": "Recommended for high-durability anchor bots that hold choke points."
+  },
+  {
+    "id": "stubborn_warrior",
+    "name": "Stubborn Warrior",
+    "category": "defense",
+    "categoryLabel": "🛡️ Durability & Repair",
+    "icon": "🛡️",
+    "desc": "Grants bonus Defense Points when below 30% HP.",
+    "tiers": {
+      "T1": { "val": "+15 DP @ <30% HP", "bonus": 15 },
+      "T2": { "val": "+22 DP @ <30% HP", "bonus": 22 },
+      "T3": { "val": "+30 DP @ <30% HP", "bonus": 30 },
+      "T4": { "val": "+37.5 DP @ <30% HP", "bonus": 37.5 }
+    },
+    "notes": "Massive damage resistance surge right before critical health threshold."
+  },
+  {
+    "id": "invulnerable_raider",
+    "name": "Invulnerable Raider",
+    "category": "defense",
+    "categoryLabel": "🛡️ Durability & Repair",
+    "icon": "🛡️",
+    "desc": "Grants bonus Defense Points for 30s upon capturing a beacon.",
+    "tiers": {
+      "T1": { "val": "+10 DP for 30s", "bonus": 10 },
+      "T2": { "val": "+15 DP for 30s", "bonus": 15 },
+      "T3": { "val": "+20 DP for 30s", "bonus": 20 },
+      "T4": { "val": "+25 DP for 30s", "bonus": 25 }
+    },
+    "notes": "Key skill for aggressive beacon cappers (Ochokochi, Lynx, Nether)."
+  },
+  {
+    "id": "adamant_guardian",
+    "name": "Adamant Guardian",
+    "category": "defense",
+    "categoryLabel": "🛡️ Durability & Repair",
+    "icon": "🛡️",
+    "desc": "Grants bonus Defense Points when enemy team holds 3+ beacons.",
+    "tiers": {
+      "T1": { "val": "+10 DP (3+ Beacons)", "bonus": 10 },
+      "T2": { "val": "+15 DP (3+ Beacons)", "bonus": 15 },
+      "T3": { "val": "+20 DP (3+ Beacons)", "bonus": 20 },
+      "T4": { "val": "+25 DP (3+ Beacons)", "bonus": 25 }
+    },
+    "notes": "Comeback skill providing sustained damage resistance during losing matches."
+  },
+  {
+    "id": "adamant_mechanic",
+    "name": "Adamant Mechanic",
+    "category": "defense",
+    "categoryLabel": "🛡️ Durability & Repair",
+    "icon": "🔧",
+    "desc": "Increases passive repair rate when enemy holds 3+ beacons.",
+    "tiers": {
+      "T1": { "val": "+0.5% HP/s (3+ Beacons)", "bonus": 0.5 },
+      "T2": { "val": "+0.8% HP/s (3+ Beacons)", "bonus": 0.8 },
+      "T3": { "val": "+1.1% HP/s (3+ Beacons)", "bonus": 1.1 },
+      "T4": { "val": "+1.5% HP/s (3+ Beacons)", "bonus": 1.5 }
+    },
+    "notes": "High-tier regeneration boost enabling rapid recovery when beacon control is lost."
+  },
+  {
+    "id": "true_ace",
+    "name": "True Ace",
+    "category": "defense",
+    "categoryLabel": "🛡️ Durability & Repair",
+    "icon": "💚",
+    "desc": "Increases healing beam and ability repair potency.",
+    "tiers": {
+      "T1": { "val": "+5% Healing", "bonus": 5 },
+      "T2": { "val": "+8% Healing", "bonus": 8 },
+      "T3": { "val": "+11.5% Healing", "bonus": 11.5 },
+      "T4": { "val": "+15% Healing", "bonus": 15 }
+    },
+    "notes": "Mandatory skill for all dedicated medic chassis (Mender, Weyland, Nightingale, Demeter)."
+  },
+  {
+    "id": "wonderworker",
+    "name": "Wonderworker",
+    "category": "defense",
+    "categoryLabel": "🛡️ Durability & Repair",
+    "icon": "💚",
+    "desc": "Restores durability upon activating robot ability.",
+    "tiers": {
+      "T1": { "val": "Repair +2.5% HP", "bonus": 2.5 },
+      "T2": { "val": "Repair +4.0% HP", "bonus": 4.0 },
+      "T3": { "val": "Repair +5.5% HP", "bonus": 5.5 },
+      "T4": { "val": "Repair +7.5% HP", "bonus": 7.5 }
+    },
+    "notes": "Synergizes exceptionally with short-cooldown ability robots."
+  },
+  {
+    "id": "traditionalist",
+    "name": "Traditionalist",
+    "category": "defense",
+    "categoryLabel": "🛡️ Durability & Repair",
+    "icon": "🛡️",
+    "desc": "Massively boosts durability at the expense of active ability.",
+    "tiers": {
+      "T1": { "val": "+20% Durability", "bonus": 20 },
+      "T2": { "val": "+35% Durability", "bonus": 35 },
+      "T3": { "val": "+50% Durability", "bonus": 50 },
+      "T4": { "val": "+62.5% Durability", "bonus": 62.5 }
+    },
+    "notes": "Transforms bots like Falcon and Revenant into virtually unkillable juggernauts."
+  },
+  {
+    "id": "master_gunsmith",
+    "name": "Master Gunsmith",
+    "category": "damage",
+    "categoryLabel": "⚔️ Weapon Damage & Accuracy",
+    "icon": "⚔️",
+    "desc": "Increases weapon damage across all hardpoints.",
+    "tiers": {
+      "T1": { "val": "+1.5% Damage", "bonus": 1.5 },
+      "T2": { "val": "+2.5% Damage", "bonus": 2.5 },
+      "T3": { "val": "+3.75% Damage", "bonus": 3.75 },
+      "T4": { "val": "+5% Damage", "bonus": 5 }
+    },
+    "notes": "Universal offensive multiplier stacking with nuclear amplifiers and module buffs."
+  },
+  {
+    "id": "thrill_seeker",
+    "name": "Thrill Seeker",
+    "category": "damage",
+    "categoryLabel": "⚔️ Weapon Damage & Accuracy",
+    "icon": "⚔️",
+    "desc": "Increases weapon damage with minor durability penalty.",
+    "tiers": {
+      "T1": { "val": "+4% Dmg (-5% HP)", "bonus": 4 },
+      "T2": { "val": "+7% Dmg (-5% HP)", "bonus": 7 },
+      "T3": { "val": "+9.5% Dmg (-5% HP)", "bonus": 9.5 },
+      "T4": { "val": "+12.5% Dmg (-5% HP)", "bonus": 12.5 }
+    },
+    "notes": "High alpha-strike multiplier for snipers and stealth ambushers (Crisis, Shenlou)."
+  },
+  {
+    "id": "destroyer",
+    "name": "Destroyer",
+    "category": "damage",
+    "categoryLabel": "⚔️ Weapon Damage & Accuracy",
+    "icon": "💥",
+    "desc": "Boosts damage of robot's built-in weapon system.",
+    "tiers": {
+      "T1": { "val": "+4% Built-in Dmg", "bonus": 4 },
+      "T2": { "val": "+7% Built-in Dmg", "bonus": 7 },
+      "T3": { "val": "+9.5% Built-in Dmg", "bonus": 9.5 },
+      "T4": { "val": "+12.5% Built-in Dmg", "bonus": 12.5 }
+    },
+    "notes": "Amplifies built-in strikes on Hawk, Seraph, Ares, Hades, and Harpy."
+  },
+  {
+    "id": "speed_shooter",
+    "name": "Speed Shooter",
+    "category": "damage",
+    "categoryLabel": "⚔️ Weapon Damage & Accuracy",
+    "icon": "⚡",
+    "desc": "Reduces acceleration time for kinetic Gatling weapons.",
+    "tiers": {
+      "T1": { "val": "-10% Accel Time", "bonus": 10 },
+      "T2": { "val": "-18% Accel Time", "bonus": 18 },
+      "T3": { "val": "-24% Accel Time", "bonus": 24 },
+      "T4": { "val": "-30% Accel Time", "bonus": 30 }
+    },
+    "notes": "Drastically decreases ramp-up delay on Punisher, Avenger, and Molot weapon lines."
+  },
+  {
+    "id": "sharpshooter",
+    "name": "Sharpshooter",
+    "category": "damage",
+    "categoryLabel": "⚔️ Weapon Damage & Accuracy",
+    "icon": "🎯",
+    "desc": "Tightens shot spread on kinetic and energy weapons.",
+    "tiers": {
+      "T1": { "val": "+10% Grouping", "bonus": 10 },
+      "T2": { "val": "+15% Grouping", "bonus": 15 },
+      "T3": { "val": "+22% Grouping", "bonus": 22 },
+      "T4": { "val": "+30% Grouping", "bonus": 30 }
+    },
+    "notes": "Enables shotguns and rapid-fire kinetics to deal maximum damage at longer engagement ranges."
+  },
+  {
+    "id": "adamant_gunsmith",
+    "name": "Adamant Gunsmith",
+    "category": "damage",
+    "categoryLabel": "⚔️ Weapon Damage & Accuracy",
+    "icon": "⚔️",
+    "desc": "Increases weapon damage when enemy holds 3+ beacons.",
+    "tiers": {
+      "T1": { "val": "+7% Dmg (3+ Beacons)", "bonus": 7 },
+      "T2": { "val": "+11% Dmg (3+ Beacons)", "bonus": 11 },
+      "T3": { "val": "+15% Dmg (3+ Beacons)", "bonus": 15 },
+      "T4": { "val": "+20% Dmg (3+ Beacons)", "bonus": 20 }
+    },
+    "notes": "Potent +20% damage buff for turning the tide in contested matches."
+  },
+  {
+    "id": "guidance_operator",
+    "name": "Guidance Operator",
+    "category": "damage",
+    "categoryLabel": "⚔️ Weapon Damage & Accuracy",
+    "icon": "🎯",
+    "desc": "Drastically reduces target lock-on acquisition time.",
+    "tiers": {
+      "T1": { "val": "-25% Lock Delay", "bonus": 25 },
+      "T2": { "val": "-45% Lock Delay", "bonus": 45 },
+      "T3": { "val": "-60% Lock Delay", "bonus": 60 },
+      "T4": { "val": "-75% Lock Delay", "bonus": 75 }
+    },
+    "notes": "Instant lock-on for Scourge, Calamity, Spark, and homing missile ordnance."
+  },
+  {
+    "id": "daredevil",
+    "name": "Daredevil",
+    "category": "damage",
+    "categoryLabel": "⚔️ Weapon Damage & Accuracy",
+    "icon": "⚔️",
+    "desc": "Significantly increases weapon damage, ability deactivated.",
+    "tiers": {
+      "T1": { "val": "+6% Dmg", "bonus": 6 },
+      "T2": { "val": "+10% Dmg", "bonus": 10 },
+      "T3": { "val": "+14% Dmg", "bonus": 14 },
+      "T4": { "val": "+18.75% Dmg", "bonus": 18.75 }
+    },
+    "notes": "Turns 4-hardpoint platforms into sustained high-DPS artillery."
+  },
+  {
+    "id": "survivor",
+    "name": "Survivor",
+    "category": "damage",
+    "categoryLabel": "⚔️ Weapon Damage & Accuracy",
+    "icon": "⚔️",
+    "desc": "Increases weapon damage when below 50% durability.",
+    "tiers": {
+      "T1": { "val": "+3% Dmg @ <50% HP", "bonus": 3 },
+      "T2": { "val": "+5.5% Dmg @ <50% HP", "bonus": 5.5 },
+      "T3": { "val": "+7.5% Dmg @ <50% HP", "bonus": 7.5 },
+      "T4": { "val": "+10% Dmg @ <50% HP", "bonus": 10 }
+    },
+    "notes": "Clutch damage surge in close-quarters skirmishes."
+  },
+  {
+    "id": "road_hog",
+    "name": "Road Hog",
+    "category": "speed",
+    "categoryLabel": "🏃 Speed & Mobility",
+    "icon": "🏃",
+    "desc": "Increases baseline robot movement speed.",
+    "tiers": {
+      "T1": { "val": "+3.5% Speed", "bonus": 3.5 },
+      "T2": { "val": "+5.5% Speed", "bonus": 5.5 },
+      "T3": { "val": "+7.5% Speed", "bonus": 7.5 },
+      "T4": { "val": "+10% Speed", "bonus": 10 }
+    },
+    "notes": "Essential agility skill for dodging incoming fire and securing beacons."
+  },
+  {
+    "id": "spy",
+    "name": "Spy",
+    "category": "speed",
+    "categoryLabel": "🏃 Speed & Mobility",
+    "icon": "🏃",
+    "desc": "Increases movement speed with minor weapon damage penalty.",
+    "tiers": {
+      "T1": { "val": "+2.5% Spd (-2.5% Dmg)", "bonus": 2.5 },
+      "T2": { "val": "+4.5% Spd (-2.5% Dmg)", "bonus": 4.5 },
+      "T3": { "val": "+6% Spd (-2.5% Dmg)", "bonus": 6 },
+      "T4": { "val": "+7.5% Spd (-2.5% Dmg)", "bonus": 7.5 }
+    },
+    "notes": "Best equipped on dedicated beacon runners (Loki, Nether, Orochi)."
+  },
+  {
+    "id": "adamant_road_hog",
+    "name": "Adamant Road Hog",
+    "category": "speed",
+    "categoryLabel": "🏃 Speed & Mobility",
+    "icon": "🏃",
+    "desc": "Massively boosts speed when enemy holds 3+ beacons.",
+    "tiers": {
+      "T1": { "val": "+7% Spd (3+ Beacons)", "bonus": 7 },
+      "T2": { "val": "+11% Spd (3+ Beacons)", "bonus": 11 },
+      "T3": { "val": "+15% Spd (3+ Beacons)", "bonus": 15 },
+      "T4": { "val": "+20% Spd (3+ Beacons)", "bonus": 20 }
+    },
+    "notes": "Unrivaled +20% speed surge for rapid repositioning across large maps."
+  },
+  {
+    "id": "ghost",
+    "name": "Ghost",
+    "category": "speed",
+    "categoryLabel": "🏃 Speed & Mobility",
+    "icon": "⚡",
+    "desc": "Gives immense continuous speed boost, ability disabled.",
+    "tiers": {
+      "T1": { "val": "+25% Speed", "bonus": 25 },
+      "T2": { "val": "+40% Speed", "bonus": 40 },
+      "T3": { "val": "+55% Speed", "bonus": 55 },
+      "T4": { "val": "+68.75% Speed", "bonus": 68.75 }
+    },
+    "notes": "Converts heavy chassis (Lancelot, Rogatka) into blazing sprinters."
+  },
+  {
+    "id": "scout",
+    "name": "Scout",
+    "category": "speed",
+    "categoryLabel": "🏃 Speed & Mobility",
+    "icon": "🏃",
+    "desc": "Increases speed with minor durability reduction.",
+    "tiers": {
+      "T1": { "val": "+2.5% Spd (-5% HP)", "bonus": 2.5 },
+      "T2": { "val": "+4% Spd (-5% HP)", "bonus": 4 },
+      "T3": { "val": "+5.5% Spd (-5% HP)", "bonus": 5.5 },
+      "T4": { "val": "+7.5% Spd (-5% HP)", "bonus": 7.5 }
+    },
+    "notes": "Useful on stealth chassis where avoiding enemy line-of-sight replaces armor."
+  },
+  {
+    "id": "energy_shield_expert",
+    "name": "Energy Shield Expert",
+    "category": "shield",
+    "categoryLabel": "🔮 Energy & Physical Shield",
+    "icon": "🔮",
+    "desc": "Increases Aegis and Absorber energy shield capacity.",
+    "tiers": {
+      "T1": { "val": "+7% Shield HP", "bonus": 7 },
+      "T2": { "val": "+11% Shield HP", "bonus": 11 },
+      "T3": { "val": "+15% Shield HP", "bonus": 15 },
+      "T4": { "val": "+20% Shield HP", "bonus": 20 }
+    },
+    "notes": "Essential for shield-centric defenders (Dagon, Typhon, Mars, Erebus, Fenrir)."
+  },
+  {
+    "id": "crazy_electrician",
+    "name": "Crazy Electrician",
+    "category": "shield",
+    "categoryLabel": "🔮 Energy & Physical Shield",
+    "icon": "⚡",
+    "desc": "Accelerates shield field regeneration cycle.",
+    "tiers": {
+      "T1": { "val": "+9% Recharge Rate", "bonus": 9 },
+      "T2": { "val": "+14% Recharge Rate", "bonus": 14 },
+      "T3": { "val": "+19% Recharge Rate", "bonus": 19 },
+      "T4": { "val": "+25% Recharge Rate", "bonus": 25 }
+    },
+    "notes": "Shortens downtime between shield collapses, keeping defenses constantly online."
+  },
+  {
+    "id": "physical_shield_expert",
+    "name": "Physical Shield Expert",
+    "category": "shield",
+    "categoryLabel": "🔮 Energy & Physical Shield",
+    "icon": "🛡️",
+    "desc": "Increases durability of physical armor shields.",
+    "tiers": {
+      "T1": { "val": "+8% Shield HP", "bonus": 8 },
+      "T2": { "val": "+13% Shield HP", "bonus": 13 },
+      "T3": { "val": "+18% Shield HP", "bonus": 18 },
+      "T4": { "val": "+25% Shield HP", "bonus": 25 }
+    },
+    "notes": "Strengthens sectional physical shields against explosive and kinetic bombardment."
+  },
+  {
+    "id": "knight_errant",
+    "name": "Knight Errant",
+    "category": "shield",
+    "categoryLabel": "🔮 Energy & Physical Shield",
+    "icon": "🛡️",
+    "desc": "Strengthens built-in knight physical shielding.",
+    "tiers": {
+      "T1": { "val": "+8% Shield HP", "bonus": 8 },
+      "T2": { "val": "+14% Shield HP", "bonus": 14 },
+      "T3": { "val": "+19% Shield HP", "bonus": 19 },
+      "T4": { "val": "+25% Shield HP", "bonus": 25 }
+    },
+    "notes": "Customized for Camelot chassis (Gareth, Galahad, Lancelot)."
+  },
+  {
+    "id": "dodger",
+    "name": "Dodger",
+    "category": "utility",
+    "categoryLabel": "⏱️ Modules & Utility",
+    "icon": "⏱️",
+    "desc": "Reduces reload delay on active combat modules.",
+    "tiers": {
+      "T1": { "val": "-8% Cooldown", "bonus": 8 },
+      "T2": { "val": "-14% Cooldown", "bonus": 14 },
+      "T3": { "val": "-19% Cooldown", "bonus": 19 },
+      "T4": { "val": "-25% Cooldown", "bonus": 25 }
+    },
+    "notes": "Enables rapid triggering of Unstable Conduit, Phase Shift, and Shieldbreaker."
+  },
+  {
+    "id": "modules_expert",
+    "name": "Modules Expert",
+    "category": "utility",
+    "categoryLabel": "⏱️ Modules & Utility",
+    "icon": "⏱️",
+    "desc": "Increases duration of active module effects.",
+    "tiers": {
+      "T1": { "val": "+8% Duration", "bonus": 8 },
+      "T2": { "val": "+14% Duration", "bonus": 14 },
+      "T3": { "val": "+19% Duration", "bonus": 19 },
+      "T4": { "val": "+25% Duration", "bonus": 25 }
+    },
+    "notes": "Extends Phase Shift invulnerability and Quantum Radar detection windows."
+  },
+  {
+    "id": "deft_survivor",
+    "name": "Deft Survivor",
+    "category": "utility",
+    "categoryLabel": "⏱️ Modules & Utility",
+    "icon": "⚡",
+    "desc": "Instantly recharges active ability upon crossing 50% HP.",
+    "tiers": {
+      "T1": { "val": "Reset Ability @ 50% HP", "bonus": 50 },
+      "T2": { "val": "Reset Ability @ 50% HP", "bonus": 50 },
+      "T3": { "val": "Reset Ability @ 50% HP", "bonus": 50 },
+      "T4": { "val": "Reset Ability @ 50% HP", "bonus": 50 }
+    },
+    "notes": "Life-saving reset for phase-shift, dash, jump, and flight abilities."
+  },
+  {
+    "id": "clever_survivor",
+    "name": "Clever Survivor",
+    "category": "utility",
+    "categoryLabel": "⏱️ Modules & Utility",
+    "icon": "⚡",
+    "desc": "Instantly restores 1 dash charge upon crossing 50% HP.",
+    "tiers": {
+      "T1": { "val": "+1 Dash @ 50% HP", "bonus": 50 },
+      "T2": { "val": "+1 Dash @ 50% HP", "bonus": 50 },
+      "T3": { "val": "+1 Dash @ 50% HP", "bonus": 50 },
+      "T4": { "val": "+1 Dash @ 50% HP", "bonus": 50 }
+    },
+    "notes": "Emergency escape charge for dash bots (Nether, Strider, Kumiho, Haechi)."
+  },
+  {
+    "id": "foolhardy_quartermaster",
+    "name": "Foolhardy Quartermaster",
+    "category": "utility",
+    "categoryLabel": "⏱️ Modules & Utility",
+    "icon": "🔋",
+    "desc": "Instantly recharges active module upon crossing 50% HP.",
+    "tiers": {
+      "T1": { "val": "Reset Module @ 50% HP", "bonus": 50 },
+      "T2": { "val": "Reset Module @ 50% HP", "bonus": 50 },
+      "T3": { "val": "Reset Module @ 50% HP", "bonus": 50 },
+      "T4": { "val": "Reset Module @ 50% HP", "bonus": 50 }
+    },
+    "notes": "Double-casts repair or phase shift in high-intensity combat."
+  },
+  {
+    "id": "quartermaster",
+    "name": "Quartermaster",
+    "category": "utility",
+    "categoryLabel": "⏱️ Modules & Utility",
+    "icon": "🔋",
+    "desc": "Reduces power cell consumption for active modules.",
+    "tiers": {
+      "T1": { "val": "-5% PC Cost", "bonus": 5 },
+      "T2": { "val": "-10% PC Cost", "bonus": 10 },
+      "T3": { "val": "-15% PC Cost", "bonus": 15 },
+      "T4": { "val": "-20% PC Cost", "bonus": 20 }
+    },
+    "notes": "Economy skill reducing resource expenditure in champion league matches."
+  },
+  {
+    "id": "titan_armor_expert",
+    "name": "Titan Armor Expert",
+    "category": "titan",
+    "categoryLabel": "👑 Titan Specialty Skills",
+    "icon": "👑",
+    "desc": "Increases Titan maximum structural durability.",
+    "tiers": {
+      "T1": { "val": "+7% Titan HP", "bonus": 7 },
+      "T2": { "val": "+11% Titan HP", "bonus": 11 },
+      "T3": { "val": "+15% Titan HP", "bonus": 15 },
+      "T4": { "val": "+20% Titan HP", "bonus": 20 }
+    },
+    "notes": "Substantially increases multimillion Titan health pools."
+  },
+  {
+    "id": "titan_accelerator",
+    "name": "Titan Accelerator",
+    "category": "titan",
+    "categoryLabel": "👑 Titan Specialty Skills",
+    "icon": "👑",
+    "desc": "Boosts baseline locomotive acceleration on Titans.",
+    "tiers": {
+      "T1": { "val": "+4% Titan Speed", "bonus": 4 },
+      "T2": { "val": "+7% Titan Speed", "bonus": 7 },
+      "T3": { "val": "+9.5% Titan Speed", "bonus": 9.5 },
+      "T4": { "val": "+12% Titan Speed", "bonus": 12 }
+    },
+    "notes": "Improves lumbering Titan movement speed across open battlefield terrain."
+  },
+  {
+    "id": "titan_mechanic",
+    "name": "Titan Mechanic",
+    "category": "titan",
+    "categoryLabel": "👑 Titan Specialty Skills",
+    "icon": "👑",
+    "desc": "Continuous passive nanite hull repair for Titans.",
+    "tiers": {
+      "T1": { "val": "+0.25% Titan HP/s", "bonus": 0.25 },
+      "T2": { "val": "+0.45% Titan HP/s", "bonus": 0.45 },
+      "T3": { "val": "+0.65% Titan HP/s", "bonus": 0.65 },
+      "T4": { "val": "+0.85% Titan HP/s", "bonus": 0.85 }
+    },
+    "notes": "Passive regeneration ensures high Titan sustain without requiring support ships."
+  },
+  {
+    "id": "titan_furious",
+    "name": "Titan Furious",
+    "category": "titan",
+    "categoryLabel": "👑 Titan Specialty Skills",
+    "icon": "👑",
+    "desc": "Increases Titan weapon damage when below 50% durability.",
+    "tiers": {
+      "T1": { "val": "+5% Dmg @ <50% HP", "bonus": 5 },
+      "T2": { "val": "+8% Dmg @ <50% HP", "bonus": 8 },
+      "T3": { "val": "+11.5% Dmg @ <50% HP", "bonus": 11.5 },
+      "T4": { "val": "+15% Dmg @ <50% HP", "bonus": 15 }
+    },
+    "notes": "Massive damage surge in Titan-vs-Titan brawls."
+  },
+  {
+    "id": "titan_raider",
+    "name": "Titan Raider",
+    "category": "titan",
+    "categoryLabel": "👑 Titan Specialty Skills",
+    "icon": "👑",
+    "desc": "Grants Titan defense points after capturing a beacon.",
+    "tiers": {
+      "T1": { "val": "+7 Titan DP", "bonus": 7 },
+      "T2": { "val": "+11 Titan DP", "bonus": 11 },
+      "T3": { "val": "+15 Titan DP", "bonus": 15 },
+      "T4": { "val": "+20 Titan DP", "bonus": 20 }
+    },
+    "notes": "Boosts frontline survivability for aggressive Titan pushes (Luchador, Rook, Minos)."
+  },
+  {
+    "id": "titan_tough_guy",
+    "name": "Titan Tough Guy",
+    "category": "titan",
+    "categoryLabel": "👑 Titan Specialty Skills",
+    "icon": "👑",
+    "desc": "Heavily strengthens Titan hull with minor weapon penalty.",
+    "tiers": {
+      "T1": { "val": "+8% HP (-10% Dmg)", "bonus": 8 },
+      "T2": { "val": "+14% HP (-10% Dmg)", "bonus": 14 },
+      "T3": { "val": "+19% HP (-10% Dmg)", "bonus": 19 },
+      "T4": { "val": "+25% HP (-10% Dmg)", "bonus": 25 }
+    },
+    "notes": "Maximizes Titan tanking capability for Bedwyr, Arthur, and Luchador."
+  },
+  {
+    "id": "titan_destroyer",
+    "name": "Titan Destroyer",
+    "category": "titan",
+    "categoryLabel": "👑 Titan Specialty Skills",
+    "icon": "👑",
+    "desc": "Supercharges built-in Titan ability weapon output.",
+    "tiers": {
+      "T1": { "val": "+5% Titan Ability Dmg", "bonus": 5 },
+      "T2": { "val": "+8% Titan Ability Dmg", "bonus": 8 },
+      "T3": { "val": "+11.5% Titan Ability Dmg", "bonus": 11.5 },
+      "T4": { "val": "+15% Titan Ability Dmg", "bonus": 15 }
+    },
+    "notes": "Enhances damage on Newton Choke, Bersagliere Railgun, and Ao Ming Dragonfire."
+  }
+]
