@@ -297,9 +297,16 @@ window.openAddCatalogModal = function(type) {
       }
 
       // If user typed a search term (e.g. "screamer"), find if that query matches a weapon in another size and get its family
+      // If user typed a search term (e.g. "screamer" or "growler"), find if that query matches a weapon in another size or alias and get its family
       let crossSizeFamilyMatches = [];
       if (search) {
-        const matchedAnySizeWeapons = MASTER_WEAPONS.filter(w => (w.name || w.id || '').toLowerCase().includes(search));
+        const matchedAnySizeWeapons = MASTER_WEAPONS.filter(w => {
+          const name = (w.name || '').toLowerCase();
+          const id = (w.id || '').toLowerCase();
+          const desc = (w.description || '').toLowerCase();
+          const aliases = (w.aliases || []).map(a => a.toLowerCase());
+          return name.includes(search) || id.includes(search) || desc.includes(search) || aliases.some(a => a.includes(search));
+        });
         matchedAnySizeWeapons.forEach(w => {
           if (w.family && !crossSizeFamilyMatches.includes(w.family)) {
             crossSizeFamilyMatches.push(w.family);
@@ -311,11 +318,13 @@ window.openAddCatalogModal = function(type) {
       const allMatching = (typeof MASTER_WEAPONS !== 'undefined' ? MASTER_WEAPONS : []).filter(w => (w.size || '').toLowerCase() === targetSize);
       const filteredCatalog = allMatching.filter(w => {
         if (!w) return false;
-        const name = (w.name || w.id || '').toLowerCase();
+        const name = (w.name || '').toLowerCase();
+        const id = (w.id || '').toLowerCase();
         const family = (w.family || '').toLowerCase();
+        const aliases = (w.aliases || []).map(a => a.toLowerCase());
         
-        // Direct match or cross-size family match (e.g. searching 'screamer' on medium mount finds 'Reglar')
-        const matchesDirect = name.includes(search) || family.includes(search);
+        // Direct match, alias match, or cross-size family match (e.g. searching 'screamer' or 'growler' on medium mount finds 'Reglar')
+        const matchesDirect = name.includes(search) || id.includes(search) || family.includes(search) || aliases.some(a => a.includes(search));
         const matchesSiblingFamily = search ? crossSizeFamilyMatches.some(f => f.toLowerCase() === family) : false;
         const matchesSearch = !search || matchesDirect || matchesSiblingFamily;
 
@@ -347,6 +356,7 @@ window.openAddCatalogModal = function(type) {
               <div>
                 <div class="flex items-center gap-2">
                   <span class="badge-${tier.toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${tier}</span>
+                  <span class="px-1.5 py-0.2 rounded text-[9px] font-black bg-blue-900/60 text-blue-300 border border-blue-500/40 uppercase">${activeEquipTarget.size}</span>
                   <strong class="text-sm font-black text-white">${siblingWeaponRecommendation.name}</strong>
                   <span class="text-blue-400 font-mono text-[11px] font-bold">${siblingWeaponRecommendation.range || 500}m</span>
                 </div>
@@ -383,17 +393,20 @@ window.openAddCatalogModal = function(type) {
 
         const levelOptionsHtml = levelsArray.map(lvl => `<option value="${lvl}" ${lvl === defaultLevel ? 'selected' : ''}>${lvl}</option>`).join('');
 
-        // Check if this was matched via sibling cross-size
-        const isCrossSizeMatched = search && !((mw.name || '').toLowerCase().includes(search)) && crossSizeFamilyMatches.includes(mw.family);
+        // Check if this was matched via sibling cross-size or alias
+        const isAliasMatched = search && (mw.aliases || []).some(a => a.toLowerCase().includes(search));
+        const isCrossSizeMatched = search && !((mw.name || '').toLowerCase().includes(search)) && !isAliasMatched && crossSizeFamilyMatches.includes(mw.family);
 
         container.innerHTML += `
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 bg-[#080c14] hover:bg-[#131b29] border ${isCrossSizeMatched ? 'border-amber-500/60 bg-amber-950/10' : 'border-[#263040]'} hover:border-amber-500/80 rounded-xl text-xs transition-all gap-3 group">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 bg-[#080c14] hover:bg-[#131b29] border ${isCrossSizeMatched || isAliasMatched ? 'border-amber-500/60 bg-amber-950/10' : 'border-[#263040]'} hover:border-amber-500/80 rounded-xl text-xs transition-all gap-3 group">
             <div class="space-y-1">
               <div class="flex items-center gap-2 flex-wrap">
                 <span class="badge-${tier.toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${tier}</span>
+                <span class="px-1.5 py-0.2 rounded text-[9px] font-black bg-blue-900/60 text-blue-300 border border-blue-500/40 uppercase">${mw.size || activeEquipTarget.size}</span>
                 <span class="font-bold text-white text-sm group-hover:text-amber-300 transition-colors">${mw.name}</span>
                 <span class="text-blue-400 font-mono text-[11px] font-bold">${mw.range || 500}m</span>
                 <span class="text-gray-400 text-[11px]">${mw.family || 'Arsenal'}</span>
+                ${isAliasMatched ? `<span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">🏷️ Alias: "${search}"</span>` : ''}
                 ${isCrossSizeMatched ? `<span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">🔗 Sibling Match for "${search}"</span>` : ''}
               </div>
               <div class="flex items-center gap-3 text-[11px] text-gray-300">

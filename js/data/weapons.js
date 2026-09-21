@@ -1346,6 +1346,9 @@ const MASTER_WEAPONS = [
     "sustainedDps": 8100,
     "reload": 6,
     "family": "Acoustic / Echo",
+    "aliases": [
+      "Growler"
+    ],
     "status": "Tier 4 Acoustic Piercing"
   },
   {
