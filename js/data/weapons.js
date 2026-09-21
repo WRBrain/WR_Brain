@@ -283,9 +283,12 @@ const MASTER_WEAPONS = [
   { id: "kelvin", name: "Kelvin", size: "Heavy", tier: "T4", range: 500, burstDps: 26000, sustainedDps: 17500, reload: 5.0, family: "Sub-Zero Cryo Energy", status: "Tier 4 Cryo Beam Cannon" },
   { id: "voonith", name: "Voonith", size: "Light", tier: "T4", range: 500, burstDps: 13000, sustainedDps: 8700, reload: 5.0, family: "Sub-Zero Cryo Energy", status: "Tier 4 Cryo Beam Cannon" },
 
-  // 11. PLASMA BLASTER
+  // 11. PLASMA SNIPER (SHANTAK & URHAG)
+  { id: "shantak", name: "Shantak", size: "Heavy", tier: "T4", range: 1100, burstDps: 28500, sustainedDps: 18500, reload: 5.0, family: "Plasma Sniper", status: "Tier 4 1100m Plasma Sniper" },
+  { id: "urhag", name: "Urhag", size: "Medium", tier: "T4", range: 1100, burstDps: 21500, sustainedDps: 14000, reload: 5.0, family: "Plasma Sniper", status: "Tier 4 1100m Plasma Sniper" },
   { id: "kirin", name: "Kirin", size: "Heavy", tier: "T4", range: 500, burstDps: 27500, sustainedDps: 18500, reload: 5.0, family: "Plasma Blaster", status: "Tier 4 Concentrated Plasma" },
-  { id: "urhag", name: "Urhag", size: "Medium", tier: "T4", range: 500, burstDps: 20500, sustainedDps: 13800, reload: 5.0, family: "Plasma Blaster", status: "Tier 4 Concentrated Plasma" },
+  { id: "leinani", name: "Leinani", size: "Heavy", tier: "T4", range: 500, burstDps: 27500, sustainedDps: 18000, reload: 5.0, family: "Assault Energy", status: "Tier 4 Dual-Mode Assault Blaster" },
+  { id: "nanea", name: "Nanea", size: "Medium", tier: "T4", range: 500, burstDps: 20500, sustainedDps: 13500, reload: 5.0, family: "Assault Energy", status: "Tier 4 Dual-Mode Assault Blaster" },
   { id: "shatank", name: "Shatank", size: "Light", tier: "T4", range: 500, burstDps: 13800, sustainedDps: 9200, reload: 5.0, family: "Plasma Blaster", status: "Tier 4 Concentrated Plasma" },
 
   // 12. GUIDED ARTILLERY

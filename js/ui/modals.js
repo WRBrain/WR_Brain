@@ -2085,6 +2085,9 @@ window.openAddCatalogModal = function(type) {
         titanSlot.weapons[activeEquipTarget.hardpointIndex] = { id: master.id, name: master.name, size: master.size, level: level || 'Lv 1', tier: master.tier };
         saveState();
         closeModal('weapon-picker-modal');
+        if (typeof renderHangar === 'function') {
+          renderHangar(activeEquipTarget.hangarKey, 'hangar-active-grid');
+        }
         if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
         return;
       }
@@ -2120,6 +2123,9 @@ window.openAddCatalogModal = function(type) {
       slot.weapons[activeEquipTarget.hardpointIndex] = { id: master.id, name: master.name, size: master.size, level: level || 'Lv 1', tier: master.tier };
       saveState();
       closeModal('weapon-picker-modal');
+      if (typeof renderHangar === 'function') {
+        renderHangar(activeEquipTarget.hangarKey, 'hangar-active-grid');
+      }
       if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
     };
 
