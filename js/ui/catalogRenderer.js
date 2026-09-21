@@ -364,7 +364,7 @@ function renderPersonalStorage() {
           });
         });
 
-        if (titansGrid.children.length === 0) {
+        if (!titansGrid.children || titansGrid.children.length === 0) {
           titansGrid.innerHTML = `<p class="col-span-full text-center text-gray-500 text-xs py-8">No Titan items found in reserve storage.</p>`;
         }
       }
@@ -465,7 +465,7 @@ function renderPersonalStorage() {
           });
         }
 
-        if (supportGrid.children.length === 0) {
+        if (!supportGrid.children || supportGrid.children.length === 0) {
           supportGrid.innerHTML = `<p class="col-span-full text-center text-gray-500 text-xs py-8">No Drones, Pilots or Motherships in reserve storage.</p>`;
         }
       }
@@ -507,7 +507,7 @@ function renderPersonalStorage() {
           `;
         });
 
-        if (botsGrid.children.length === 0) {
+        if (!botsGrid.children || botsGrid.children.length === 0) {
           botsGrid.innerHTML = `<p class="col-span-full text-center text-gray-500 text-xs py-8">No reserve robots match your filter.</p>`;
         }
       }
@@ -541,7 +541,7 @@ function renderPersonalStorage() {
           });
         });
 
-        if (weapsGrid.children.length === 0) {
+        if (!weapsGrid.children || weapsGrid.children.length === 0) {
           weapsGrid.innerHTML = `<p class="col-span-full text-center text-gray-500 text-xs py-8">No reserve weapons match this subtab.</p>`;
         }
       }

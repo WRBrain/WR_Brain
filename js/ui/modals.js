@@ -2089,8 +2089,17 @@ window.openAddCatalogModal = function(type) {
 
     window.equipWeaponDirect = function(weaponId, level, fromInventory) {
       if (!activeEquipTarget) return;
-      const master = MASTER_WEAPONS.find(w => w.id === weaponId);
-      if (!master) return;
+      let master = (typeof MASTER_WEAPONS !== 'undefined' ? MASTER_WEAPONS.find(w => w.id === weaponId) : null);
+      if (!master && fromInventory) {
+        const cat = (activeEquipTarget?.size || 'Heavy').toLowerCase();
+        const stored = (AppState.reserveWeapons && AppState.reserveWeapons[cat]) ? AppState.reserveWeapons[cat].find(w => w.id === weaponId) : null;
+        if (stored) {
+          master = { id: stored.id, name: stored.name || stored.id, size: activeEquipTarget?.size || 'Heavy', tier: stored.tier || 'T4' };
+        }
+      }
+      if (!master) {
+        master = { id: weaponId, name: String(weaponId).replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), size: activeEquipTarget?.size || 'Heavy', tier: 'T4' };
+      }
 
       const hangarKey = activeEquipTarget.hangarKey || window.currentActiveHangarKey || "hangar1";
       window.currentActiveHangarKey = hangarKey;
@@ -2114,7 +2123,7 @@ window.openAddCatalogModal = function(type) {
         }
 
         if (fromInventory) {
-          const cat = (master.size || 'Alpha').toLowerCase();
+          const cat = (master.size || activeEquipTarget.size || 'Alpha').toLowerCase();
           if (AppState.reserveWeapons && AppState.reserveWeapons[cat]) {
             const idx = AppState.reserveWeapons[cat].findIndex(w => w.id === weaponId && (w.level === level || (!w.level && level === 'Lv 1')));
             if (idx !== -1) {
@@ -2128,7 +2137,7 @@ window.openAddCatalogModal = function(type) {
           titanSlot.weapons.push(null);
         }
 
-        titanSlot.weapons[hardpointIndex] = { id: master.id, name: master.name, size: master.size, level: level || 'Lv 1', tier: master.tier };
+        titanSlot.weapons[hardpointIndex] = { id: master.id, name: master.name, size: master.size || activeEquipTarget.size || 'Alpha', level: level || 'Lv 1', tier: master.tier || 'T4' };
         saveState();
         closeModal('weapon-picker-modal');
         if (typeof renderHangar === 'function') {
@@ -2166,7 +2175,7 @@ window.openAddCatalogModal = function(type) {
       }
 
       if (fromInventory) {
-        const cat = (master.size || 'Heavy').toLowerCase();
+        const cat = (master.size || activeEquipTarget.size || 'Heavy').toLowerCase();
         if (AppState.reserveWeapons && AppState.reserveWeapons[cat]) {
           const idx = AppState.reserveWeapons[cat].findIndex(w => w.id === weaponId && (w.level === level || (!w.level && level === 'Lv 1')));
           if (idx !== -1) {
@@ -2180,7 +2189,7 @@ window.openAddCatalogModal = function(type) {
         slot.weapons.push(null);
       }
 
-      slot.weapons[hardpointIndex] = { id: master.id, name: master.name, size: master.size, level: level || 'Lv 1', tier: master.tier };
+      slot.weapons[hardpointIndex] = { id: master.id, name: master.name, size: master.size || activeEquipTarget.size || 'Heavy', level: level || 'Lv 1', tier: master.tier || 'T4' };
       saveState();
       closeModal('weapon-picker-modal');
       if (typeof renderHangar === 'function') {
