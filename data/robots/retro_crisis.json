@@ -1,0 +1,23 @@
+{
+  "id": "retro_crisis",
+  "name": "Retro Crisis",
+  "tier": "T4",
+  "role": "Quad-Heavy Stealth Sniper",
+  "hp": 82500,
+  "speed": 60,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Special Edition: Overkill: Infinite stealth until firing; activating ability grants 100% defense penetration and +20% weapon damage. (+10% Durability Bonus)"
+}

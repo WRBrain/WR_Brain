@@ -1,0 +1,12 @@
+{
+  "id": "stellar_wasp",
+  "name": "Stellar Wasp",
+  "size": "Medium",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 11600,
+  "sustainedDps": 7400,
+  "reload": 5.0,
+  "family": "Corrosive Acid",
+  "status": "Special Edition Tier 4 Energy Lockdown Rifle (+5% Visual Effect)"
+}

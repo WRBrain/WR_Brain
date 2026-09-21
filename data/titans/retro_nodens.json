@@ -1,0 +1,23 @@
+{
+  "id": "retro_nodens",
+  "name": "Retro Nodens",
+  "tier": "Titan",
+  "role": "Squad Nanite Healer",
+  "hp": 390500,
+  "speed": 45,
+  "hardpoints": [
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Special Edition: Mending Links: Projects 3 simultaneous infinite-range healing tethers to allies while suppressing target enemies by 50%. (+10% Titan Hull Durability)"
+}

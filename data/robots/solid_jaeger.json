@@ -1,0 +1,17 @@
+{
+  "id": "solid_jaeger",
+  "name": "Solid Jaeger",
+  "tier": "T4",
+  "role": "Long-Range Railgun Sniper",
+  "hp": 126500,
+  "speed": 58,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Special Edition: Scout / Sniper Mode: Toggles high-speed quadruped traversal and stationary sniper cannon with 1100m built-in railgun. (+10% Durability Bonus)"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "ardent_behemoth",
+  "name": "Ardent Behemoth",
+  "tier": "T4",
+  "role": "Quad-Heavy Siege Platform",
+  "hp": 165000,
+  "speed": 42,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Special Edition: Siege Mode: Deploys 2 additional Heavy weapon hardpoints (4x Heavy active) with high mobile speed. (+10% Durability Bonus)"
+}

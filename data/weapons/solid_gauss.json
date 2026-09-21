@@ -1,0 +1,12 @@
+{
+  "id": "solid_gauss",
+  "name": "Solid Gauss",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 800,
+  "burstDps": 16500,
+  "sustainedDps": 6800,
+  "reload": 8.0,
+  "family": "Kinetic Sniper",
+  "status": "Special Edition Tier 4 100% Defense Mitigation Railgun (+5% Visual Effect)"
+}

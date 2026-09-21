@@ -1,0 +1,20 @@
+{
+  "id": "experimental_loki",
+  "name": "Experimental Loki",
+  "tier": "T4",
+  "role": "Infinite Stealth Beacon Capper",
+  "hp": 90200,
+  "speed": 66,
+  "hardpoints": [
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Recon Stealth: Permanent stealth in recon mode with high speed; retracts stealth to fire 3 Light weapons. (+10% Durability Bonus)"
+}

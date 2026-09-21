@@ -1,0 +1,12 @@
+{
+  "id": "dread_incinerator",
+  "name": "Dread Incinerator",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 15800,
+  "sustainedDps": 9800,
+  "reload": 5.0,
+  "family": "Blast Rockets",
+  "status": "Special Edition Tier 4 Area Blast Rocket (+5% Visual Effect)"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "stellar_sirius",
+  "name": "Stellar Sirius",
+  "tier": "Titan",
+  "role": "Remote Repair Support",
+  "hp": 418000,
+  "speed": 45,
+  "hardpoints": [
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Special Edition: Remote Repair Core: Deploys autonomous sonic healing and acoustic damage turrets with Aegis shield generators. (+10% Titan Hull Durability)"
+}

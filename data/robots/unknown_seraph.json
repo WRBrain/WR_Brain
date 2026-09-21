@@ -1,0 +1,17 @@
+{
+  "id": "unknown_seraph",
+  "name": "Unknown Seraph",
+  "tier": "T4",
+  "role": "Aerial Striker",
+  "hp": 123200,
+  "speed": 55,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Special Edition: Skyward Arc: Takes flight with directional Forcefield, sweeping targets with auto-targeting bio-electric death beams. (+10% Durability Bonus)"
+}

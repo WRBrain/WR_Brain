@@ -257,6 +257,18 @@ const MASTER_WEAPONS = [
     "status": "Ultimate Titan Alpha Lightning Arc"
   },
   {
+    "id": "solid_gauss",
+    "name": "Solid Gauss",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 800,
+    "burstDps": 16500,
+    "sustainedDps": 6800,
+    "reload": 8,
+    "family": "Kinetic Sniper",
+    "status": "Special Edition Tier 4 100% Defense Mitigation Railgun (+5% Visual Effect)"
+  },
+  {
     "id": "ultimate_halo",
     "name": "Ultimate Halo",
     "size": "Light",
@@ -267,6 +279,18 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Lockdown Energy",
     "status": "Ultimate Lockdown Energy Shotgun"
+  },
+  {
+    "id": "cruel_talon",
+    "name": "Cruel Talon",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 300,
+    "burstDps": 17200,
+    "sustainedDps": 10000,
+    "reload": 6,
+    "family": "Rocket Launchers",
+    "status": "Special Edition Tier 4 Cryo Explosive Rocket (+5% Visual Effect)"
   },
   {
     "id": "pantagruel",
@@ -473,6 +497,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 2 Rapid Plasma Rifle"
   },
   {
+    "id": "freedom_hammer",
+    "name": "Freedom Hammer",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 18800,
+    "sustainedDps": 12200,
+    "reload": 5,
+    "family": "Blast Shotguns",
+    "status": "Special Edition Tier 4 Blast Charge Shotgun (+5% Visual Effect)"
+  },
+  {
     "id": "ultimate_blaze",
     "name": "Ultimate Blaze",
     "size": "Light",
@@ -483,6 +519,18 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Flamethrowers",
     "status": "Ultimate Napalm Flamethrower"
+  },
+  {
+    "id": "stellar_halo",
+    "name": "Stellar Halo",
+    "size": "Light",
+    "tier": "T3",
+    "range": 500,
+    "burstDps": 8800,
+    "sustainedDps": 5600,
+    "reload": 5,
+    "family": "Lockdown Kinetic",
+    "status": "Special Edition Tier 4 Lockdown Energy Shotgun (+5% Visual Effect)"
   },
   {
     "id": "kelvin",
@@ -653,6 +701,18 @@ const MASTER_WEAPONS = [
     "status": "Titan Alpha Homing Rocket Mortar"
   },
   {
+    "id": "stellar_wasp",
+    "name": "Stellar Wasp",
+    "size": "Medium",
+    "tier": "T3",
+    "range": 600,
+    "burstDps": 11600,
+    "sustainedDps": 7400,
+    "reload": 5,
+    "family": "Corrosive Acid",
+    "status": "Special Edition Tier 4 Energy Lockdown Rifle (+5% Visual Effect)"
+  },
+  {
     "id": "arbitrator",
     "name": "Arbitrator",
     "size": "Alpha",
@@ -699,6 +759,18 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Blast Rockets",
     "status": "Tier 4 Area Blast Rocket"
+  },
+  {
+    "id": "ivory_hussar",
+    "name": "Ivory Hussar",
+    "size": "Medium",
+    "tier": "T3",
+    "range": 600,
+    "burstDps": 11500,
+    "sustainedDps": 7500,
+    "reload": 5,
+    "family": "Plasma Cannons",
+    "status": "Special Edition Tier 3 Plasma Sniper (+5% Visual Effect)"
   },
   {
     "id": "flux",
@@ -761,6 +833,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 3 Guided Lightning Arc"
   },
   {
+    "id": "freedom_cudgel",
+    "name": "Freedom Cudgel",
+    "size": "Light",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 9200,
+    "sustainedDps": 6000,
+    "reload": 5,
+    "family": "Blast Shotguns",
+    "status": "Special Edition Tier 4 Blast Charge Shotgun (+5% Visual Effect)"
+  },
+  {
     "id": "urhag",
     "name": "Urhag",
     "size": "Medium",
@@ -795,6 +879,18 @@ const MASTER_WEAPONS = [
     "reload": 0,
     "family": "Continuous Lasers",
     "status": "Tier 4 Infinite Beam Laser"
+  },
+  {
+    "id": "cryptic_redeemer",
+    "name": "Cryptic Redeemer",
+    "size": "Heavy",
+    "tier": "T3",
+    "range": 350,
+    "burstDps": 17500,
+    "sustainedDps": 11400,
+    "reload": 5,
+    "family": "Plasma Cannons",
+    "status": "Special Edition Tier 4 Heavy Plasma Cannon (+5% Visual Effect)"
   },
   {
     "id": "ultimate_orkan",
@@ -903,6 +999,18 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Kinetic Shotguns",
     "status": "Ultimate Titan Beta Scattergun"
+  },
+  {
+    "id": "ardent_growler",
+    "name": "Ardent Growler",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 14200,
+    "sustainedDps": 8100,
+    "reload": 7.2,
+    "family": "Acoustic / Echo",
+    "status": "Special Edition Tier 4 Acoustic Resonance (Grey Damage) (+5% Visual Effect)"
   },
   {
     "id": "pyro",
@@ -1107,6 +1215,18 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Tesla Lock-on",
     "status": "Tier 4 Guided Lightning Arc"
+  },
+  {
+    "id": "stellar_hornet",
+    "name": "Stellar Hornet",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 600,
+    "burstDps": 16000,
+    "sustainedDps": 10500,
+    "reload": 5,
+    "family": "Corrosive Acid",
+    "status": "Special Edition Tier 3 Plasma Sniper (+5% Visual Effect)"
   },
   {
     "id": "velos",
@@ -1337,6 +1457,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 100% Defense Mitigation Railgun"
   },
   {
+    "id": "unknown_leana",
+    "name": "Unknown Leana",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 100,
+    "burstDps": 17500,
+    "sustainedDps": 10500,
+    "reload": 5,
+    "family": "Electricity / Zap",
+    "status": "Special Edition Tier 4 Electric Arc Brawler (+5% Visual Effect)"
+  },
+  {
     "id": "oxy",
     "name": "Oxy",
     "size": "Beta",
@@ -1347,6 +1479,30 @@ const MASTER_WEAPONS = [
     "reload": 6,
     "family": "Titan Cryo Rockets",
     "status": "Titan Beta Cryo Blast Rockets"
+  },
+  {
+    "id": "unknown_decay",
+    "name": "Unknown Decay",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 600,
+    "burstDps": 17800,
+    "sustainedDps": 11500,
+    "reload": 3,
+    "family": "Radiation Burst",
+    "status": "Special Edition Tier 4 Radiation Burst Rifle (+5% Visual Effect)"
+  },
+  {
+    "id": "stellar_corona",
+    "name": "Stellar Corona",
+    "size": "Medium",
+    "tier": "T3",
+    "range": 500,
+    "burstDps": 13000,
+    "sustainedDps": 8300,
+    "reload": 5,
+    "family": "Lockdown Kinetic",
+    "status": "Special Edition Tier 4 Lockdown Energy Shotgun (+5% Visual Effect)"
   },
   {
     "id": "scorcher",
@@ -1443,6 +1599,18 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Blast Rockets",
     "status": "Tier 4 Area Blast Rocket"
+  },
+  {
+    "id": "yan_di_avenger",
+    "name": "Yan-di Avenger",
+    "size": "Heavy",
+    "tier": "T2",
+    "range": 500,
+    "burstDps": 16200,
+    "sustainedDps": 9600,
+    "reload": 10,
+    "family": "Kinetic Gatlings",
+    "status": "Special Edition Tier 3 Accelerating Heavy MG (+5% Visual Effect)"
   },
   {
     "id": "ultimate_scourge",
@@ -1589,6 +1757,18 @@ const MASTER_WEAPONS = [
     "status": "Titan Alpha Heavy Explosive Rocket"
   },
   {
+    "id": "cruel_bane",
+    "name": "Cruel Bane",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 300,
+    "burstDps": 17400,
+    "sustainedDps": 11200,
+    "reload": 5,
+    "family": "Corrosive Acid",
+    "status": "Special Edition Tier 4 Corrosive Acid Stream (+5% Visual Effect)"
+  },
+  {
     "id": "voonith",
     "name": "Voonith",
     "size": "Light",
@@ -1685,6 +1865,30 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Desert Siphon Cannon"
   },
   {
+    "id": "experimental_spark",
+    "name": "Experimental Spark",
+    "size": "Light",
+    "tier": "T3",
+    "range": 600,
+    "burstDps": 7400,
+    "sustainedDps": 4700,
+    "reload": 5,
+    "family": "Tesla Lock-on",
+    "status": "Special Edition Tier 3 Guided Lightning Arc (+5% Visual Effect)"
+  },
+  {
+    "id": "gothic_fainter",
+    "name": "Gothic Fainter",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 600,
+    "burstDps": 11600,
+    "sustainedDps": 7400,
+    "reload": 5,
+    "family": "Lockdown Energy",
+    "status": "Special Edition Tier 4 Energy Lockdown Rifle (+5% Visual Effect)"
+  },
+  {
     "id": "chimera",
     "name": "Chimera",
     "size": "Heavy",
@@ -1707,6 +1911,18 @@ const MASTER_WEAPONS = [
     "reload": 10,
     "family": "Kinetic Gatlings",
     "status": "Tier 1 Long-Range Ballistic MG"
+  },
+  {
+    "id": "dread_incinerator",
+    "name": "Dread Incinerator",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 15800,
+    "sustainedDps": 9800,
+    "reload": 5,
+    "family": "Blast Rockets",
+    "status": "Special Edition Tier 4 Area Blast Rocket (+5% Visual Effect)"
   },
   {
     "id": "cryo",
@@ -1743,6 +1959,30 @@ const MASTER_WEAPONS = [
     "reload": 0,
     "family": "Continuous Lasers",
     "status": "Tier 4 Infinite Beam Laser"
+  },
+  {
+    "id": "freedom_mace",
+    "name": "Freedom Mace",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 13700,
+    "sustainedDps": 8900,
+    "reload": 5,
+    "family": "Blast Shotguns",
+    "status": "Special Edition Tier 4 Blast Charge Shotgun (+5% Visual Effect)"
+  },
+  {
+    "id": "unknown_fengbao",
+    "name": "Unknown Fengbao",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 100,
+    "burstDps": 24000,
+    "sustainedDps": 14500,
+    "reload": 5,
+    "family": "Electricity / Zap",
+    "status": "Special Edition Tier 4 Electric Arc Brawler (+5% Visual Effect)"
   },
   {
     "id": "gust",
@@ -1805,6 +2045,30 @@ const MASTER_WEAPONS = [
     "status": "Tier 1 Light Kinetic Rocket"
   },
   {
+    "id": "ardent_viper",
+    "name": "Ardent Viper",
+    "size": "Heavy",
+    "tier": "T3",
+    "range": 500,
+    "burstDps": 15500,
+    "sustainedDps": 9200,
+    "reload": 10,
+    "family": "Corrosive Acid",
+    "status": "Special Edition Tier 3 Corrosive Kinetic MG (+5% Visual Effect)"
+  },
+  {
+    "id": "dread_scald",
+    "name": "Dread Scald",
+    "size": "Light",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 7700,
+    "sustainedDps": 4800,
+    "reload": 5,
+    "family": "Blast Rockets",
+    "status": "Special Edition Tier 4 Area Blast Rocket (+5% Visual Effect)"
+  },
+  {
     "id": "neon_machaira",
     "name": "Neon Machaira",
     "size": "Light",
@@ -1839,6 +2103,18 @@ const MASTER_WEAPONS = [
     "reload": 20,
     "family": "Plasma Cannons",
     "status": "Tier 2 Charged Particle Sniper"
+  },
+  {
+    "id": "freedom_igniter",
+    "name": "Freedom Igniter",
+    "size": "Medium",
+    "tier": "T3",
+    "range": 350,
+    "burstDps": 13000,
+    "sustainedDps": 8500,
+    "reload": 5,
+    "family": "Flamethrowers",
+    "status": "Special Edition Tier 4 Continuous Napalm (+5% Visual Effect)"
   },
   {
     "id": "ultimate_cuirassier",
@@ -1899,6 +2175,18 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Lockdown Energy",
     "status": "Tier 4 Kinetic Lockdown Gatling"
+  },
+  {
+    "id": "sinister_pulsar",
+    "name": "Sinister Pulsar",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 600,
+    "burstDps": 11600,
+    "sustainedDps": 7400,
+    "reload": 5,
+    "family": "Lockdown Energy",
+    "status": "Special Edition Tier 4 Energy Lockdown Rifle (+5% Visual Effect)"
   },
   {
     "id": "vengeance",
@@ -1973,6 +2261,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 1 Homing Rocket Pod"
   },
   {
+    "id": "unknown_shifang",
+    "name": "Unknown Shifang",
+    "size": "Light",
+    "tier": "T4",
+    "range": 100,
+    "burstDps": 11800,
+    "sustainedDps": 7100,
+    "reload": 5,
+    "family": "Electricity / Zap",
+    "status": "Special Edition Tier 4 Electric Arc Brawler (+5% Visual Effect)"
+  },
+  {
     "id": "kang_dae",
     "name": "Kang Dae",
     "size": "Heavy",
@@ -1983,6 +2283,18 @@ const MASTER_WEAPONS = [
     "reload": 6,
     "family": "Kinetic Sniper",
     "status": "Tier 1 High-Velocity Kinetic Cannon"
+  },
+  {
+    "id": "eldritch_blight",
+    "name": "Eldritch Blight",
+    "size": "Light",
+    "tier": "T4",
+    "range": 600,
+    "burstDps": 8700,
+    "sustainedDps": 5600,
+    "reload": 3,
+    "family": "Radiation Burst",
+    "status": "Special Edition Tier 4 Radiation Burst Rifle (+5% Visual Effect)"
   },
   {
     "id": "exodus",
@@ -2117,6 +2429,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 Aegis Shield Penetrator"
   },
   {
+    "id": "freedom_skadi",
+    "name": "Freedom Skadi",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 600,
+    "burstDps": 11000,
+    "sustainedDps": 7000,
+    "reload": 5,
+    "family": "Freeze Lasers",
+    "status": "Special Edition Tier 4 Continuous Freeze Laser (+5% Visual Effect)"
+  },
+  {
     "id": "orkan",
     "name": "Orkan",
     "size": "Medium",
@@ -2139,6 +2463,18 @@ const MASTER_WEAPONS = [
     "reload": 5,
     "family": "Freeze Rockets",
     "status": "Ultimate Cryo Blast Rocket"
+  },
+  {
+    "id": "ivory_scourge",
+    "name": "Ivory Scourge",
+    "size": "Medium",
+    "tier": "T3",
+    "range": 600,
+    "burstDps": 11200,
+    "sustainedDps": 7100,
+    "reload": 5,
+    "family": "Tesla Lock-on",
+    "status": "Special Edition Tier 3 Guided Lightning Arc (+5% Visual Effect)"
   },
   {
     "id": "squall",
@@ -2237,6 +2573,18 @@ const MASTER_WEAPONS = [
     "status": "Ultimate Napalm Flamethrower"
   },
   {
+    "id": "ardent_howler",
+    "name": "Ardent Howler",
+    "size": "Light",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 9600,
+    "sustainedDps": 5400,
+    "reload": 7.2,
+    "family": "Acoustic / Echo",
+    "status": "Special Edition Tier 4 Acoustic Resonance (Grey Damage) (+5% Visual Effect)"
+  },
+  {
     "id": "hammer",
     "name": "Hammer",
     "size": "Heavy",
@@ -2259,6 +2607,18 @@ const MASTER_WEAPONS = [
     "reload": 18,
     "family": "Blast Rockets",
     "status": "Tier 1 Medium Kinetic Rocket"
+  },
+  {
+    "id": "cryptic_hazard",
+    "name": "Cryptic Hazard",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 600,
+    "burstDps": 13000,
+    "sustainedDps": 8400,
+    "reload": 3,
+    "family": "Radiation Burst",
+    "status": "Special Edition Tier 4 Radiation Burst Rifle (+5% Visual Effect)"
   },
   {
     "id": "taeja",
@@ -2309,6 +2669,18 @@ const MASTER_WEAPONS = [
     "status": "Tier 4 1100m Plasma Sniper"
   },
   {
+    "id": "corrupted_skadi",
+    "name": "Corrupted Skadi",
+    "size": "Medium",
+    "tier": "T4",
+    "range": 600,
+    "burstDps": 11000,
+    "sustainedDps": 7000,
+    "reload": 5,
+    "family": "Freeze Lasers",
+    "status": "Special Edition Tier 4 Continuous Freeze Laser (+5% Visual Effect)"
+  },
+  {
     "id": "argon",
     "name": "Argon",
     "size": "Alpha",
@@ -2343,6 +2715,18 @@ const MASTER_WEAPONS = [
     "reload": 0,
     "family": "Continuous Lasers",
     "status": "Tier 1 Long-Range Sniper Laser"
+  },
+  {
+    "id": "ardent_screamer",
+    "name": "Ardent Screamer",
+    "size": "Heavy",
+    "tier": "T4",
+    "range": 500,
+    "burstDps": 19800,
+    "sustainedDps": 11300,
+    "reload": 7.2,
+    "family": "Acoustic / Echo",
+    "status": "Special Edition Tier 4 Acoustic Resonance (Grey Damage) (+5% Visual Effect)"
   },
   {
     "id": "redeemer",

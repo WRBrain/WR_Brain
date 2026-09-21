@@ -1,0 +1,12 @@
+{
+  "id": "stellar_corona",
+  "name": "Stellar Corona",
+  "size": "Medium",
+  "tier": "T3",
+  "range": 500,
+  "burstDps": 13000,
+  "sustainedDps": 8300,
+  "reload": 5.0,
+  "family": "Lockdown Kinetic",
+  "status": "Special Edition Tier 4 Lockdown Energy Shotgun (+5% Visual Effect)"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "ivory_scourge",
+  "name": "Ivory Scourge",
+  "size": "Medium",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 11200,
+  "sustainedDps": 7100,
+  "reload": 5.0,
+  "family": "Tesla Lock-on",
+  "status": "Special Edition Tier 3 Guided Lightning Arc (+5% Visual Effect)"
+}

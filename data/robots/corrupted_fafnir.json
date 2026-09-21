@@ -1,0 +1,23 @@
+{
+  "id": "corrupted_fafnir",
+  "name": "Corrupted Fafnir",
+  "tier": "T4",
+  "role": "Aerial Shielded Fighter",
+  "hp": 115500,
+  "speed": 54,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Special Edition: Dragon Flight: Takes infinite flight with built-in piercing beam whose damage multiplies by absorbing enemy fire. (+10% Durability Bonus)"
+}

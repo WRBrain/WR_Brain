@@ -1,0 +1,12 @@
+{
+  "id": "unknown_leana",
+  "name": "Unknown Leana",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 100,
+  "burstDps": 17500,
+  "sustainedDps": 10500,
+  "reload": 5.0,
+  "family": "Electricity / Zap",
+  "status": "Special Edition Tier 4 Electric Arc Brawler (+5% Visual Effect)"
+}

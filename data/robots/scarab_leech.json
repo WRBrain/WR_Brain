@@ -1,0 +1,23 @@
+{
+  "id": "scarab_leech",
+  "name": "Scarab Leech",
+  "tier": "T4",
+  "role": "Repulse Tether Attacker",
+  "hp": 99000,
+  "speed": 58,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Special Edition: Repulse Link: Tethers to enemy, redirecting 35% of all incoming damage directly onto them while gaining 90% defense points. (+10% Durability Bonus)"
+}

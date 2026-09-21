@@ -1,0 +1,23 @@
+{
+  "id": "scavenger_heimdall",
+  "name": "Scavenger Heimdall",
+  "tier": "Titan",
+  "role": "Tactical Support",
+  "hp": 412500,
+  "speed": 45,
+  "hardpoints": [
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Special Edition: Golden Horn: Toggles between Repair Mode (team aura + speed) and War Mode (built-in kinetic cannon + +25% team damage). (+10% Titan Hull Durability)"
+}

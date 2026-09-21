@@ -1,0 +1,20 @@
+{
+  "id": "stellar_phantom",
+  "name": "Stellar Phantom",
+  "tier": "T4",
+  "role": "Teleporting Beacon Flanker",
+  "hp": 129800,
+  "speed": 60,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Blink & Teleport: Drops return translocator, gaining 33% speed and 50 defense points with instant recall. (+10% Durability Bonus)"
+}

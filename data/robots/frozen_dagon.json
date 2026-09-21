@@ -1,0 +1,29 @@
+{
+  "id": "frozen_dagon",
+  "name": "Frozen Dagon",
+  "tier": "T4",
+  "role": "Hexa-Shield Battery Skirmisher",
+  "hp": 107800,
+  "speed": 54,
+  "hardpoints": [
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Hexa-Aegis Core: Continuously recharges an ultra-dense Aegis dome while firing 6 synchronized weapon mounts. (+10% Durability Bonus)"
+}

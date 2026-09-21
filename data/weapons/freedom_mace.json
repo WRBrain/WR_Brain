@@ -1,0 +1,12 @@
+{
+  "id": "freedom_mace",
+  "name": "Freedom Mace",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 13700,
+  "sustainedDps": 8900,
+  "reload": 5.0,
+  "family": "Blast Shotguns",
+  "status": "Special Edition Tier 4 Blast Charge Shotgun (+5% Visual Effect)"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "cryptic_redeemer",
+  "name": "Cryptic Redeemer",
+  "size": "Heavy",
+  "tier": "T3",
+  "range": 350,
+  "burstDps": 17500,
+  "sustainedDps": 11400,
+  "reload": 5.0,
+  "family": "Plasma Cannons",
+  "status": "Special Edition Tier 4 Heavy Plasma Cannon (+5% Visual Effect)"
+}

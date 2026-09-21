@@ -1,0 +1,20 @@
+{
+  "id": "cryptic_fenrir",
+  "name": "Cryptic Fenrir",
+  "tier": "T4",
+  "role": "Heavy Brawler",
+  "hp": 159500,
+  "speed": 50,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Special Edition: Shapeshift: Toggles between Mobile Mode (Aegis dome) and Defense Mode (+50% Defense Points and active Heavy slot). (+10% Durability Bonus)"
+}

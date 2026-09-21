@@ -1,0 +1,12 @@
+{
+  "id": "cruel_talon",
+  "name": "Cruel Talon",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 300,
+  "burstDps": 17200,
+  "sustainedDps": 10000,
+  "reload": 6.0,
+  "family": "Rocket Launchers",
+  "status": "Special Edition Tier 4 Cryo Explosive Rocket (+5% Visual Effect)"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "experimental_spark",
+  "name": "Experimental Spark",
+  "size": "Light",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 7400,
+  "sustainedDps": 4700,
+  "reload": 5.0,
+  "family": "Tesla Lock-on",
+  "status": "Special Edition Tier 3 Guided Lightning Arc (+5% Visual Effect)"
+}

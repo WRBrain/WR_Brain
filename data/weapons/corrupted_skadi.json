@@ -1,0 +1,12 @@
+{
+  "id": "corrupted_skadi",
+  "name": "Corrupted Skadi",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 11000,
+  "sustainedDps": 7000,
+  "reload": 5.0,
+  "family": "Freeze Lasers",
+  "status": "Special Edition Tier 4 Continuous Freeze Laser (+5% Visual Effect)"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "ardent_viper",
+  "name": "Ardent Viper",
+  "size": "Heavy",
+  "tier": "T3",
+  "range": 500,
+  "burstDps": 15500,
+  "sustainedDps": 9200,
+  "reload": 10.0,
+  "family": "Corrosive Acid",
+  "status": "Special Edition Tier 3 Corrosive Kinetic MG (+5% Visual Effect)"
+}

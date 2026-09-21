@@ -193,6 +193,29 @@ const MASTER_TITANS = [
     "ability": "Remote Repair Core: Deploys autonomous sonic healing and acoustic damage turrets with Aegis shield generators."
   },
   {
+    "id": "scavenger_heimdall",
+    "name": "Scavenger Heimdall",
+    "tier": "Titan",
+    "role": "Tactical Support",
+    "hp": 412500,
+    "speed": 45,
+    "hardpoints": [
+      {
+        "size": "Beta"
+      },
+      {
+        "size": "Beta"
+      },
+      {
+        "size": "Beta"
+      },
+      {
+        "size": "Beta"
+      }
+    ],
+    "ability": "Special Edition: Golden Horn: Toggles between Repair Mode (team aura + speed) and War Mode (built-in kinetic cannon + +25% team damage). (+10% Titan Hull Durability)"
+  },
+  {
     "id": "indra",
     "name": "Indra",
     "tier": "Titan",
@@ -210,6 +233,26 @@ const MASTER_TITANS = [
       }
     ],
     "ability": "Vipassana: 2 charges of complete invulnerability and speed acceleration, purging all negative status effects with Lasso siphon."
+  },
+  {
+    "id": "aevum_minos",
+    "name": "Aevum Minos",
+    "tier": "Titan",
+    "role": "Rush Brawler",
+    "hp": 407000,
+    "speed": 45,
+    "hardpoints": [
+      {
+        "size": "Beta"
+      },
+      {
+        "size": "Beta"
+      },
+      {
+        "size": "Beta"
+      }
+    ],
+    "ability": "Special Edition: Bull Stampede: 3 consecutive high-velocity dash charges and Reflector shield, knocking enemies across the map. (+10% Titan Hull Durability)"
   },
   {
     "id": "kid",
@@ -270,6 +313,26 @@ const MASTER_TITANS = [
       }
     ],
     "ability": "Frog Splash & Reflector: High-impact jump slam creating a massive 150k kinetic shockwave with 80% Reflector shield."
+  },
+  {
+    "id": "kraken_indra",
+    "name": "Kraken Indra",
+    "tier": "Titan",
+    "role": "Phase Extraction Brawler",
+    "hp": 462000,
+    "speed": 45,
+    "hardpoints": [
+      {
+        "size": "Alpha"
+      },
+      {
+        "size": "Beta"
+      },
+      {
+        "size": "Beta"
+      }
+    ],
+    "ability": "Special Edition: Vipassana: 2 charges of complete invulnerability and speed acceleration, purging all negative status effects with Lasso siphon. (+10% Titan Hull Durability)"
   },
   {
     "id": "newton",
@@ -417,6 +480,49 @@ const MASTER_TITANS = [
     "ability": "Phalanx Mode: Closes 1,000,000 HP physical shield plates in front while unleashing a concussive Blastwave."
   },
   {
+    "id": "stellar_sirius",
+    "name": "Stellar Sirius",
+    "tier": "Titan",
+    "role": "Remote Repair Support",
+    "hp": 418000,
+    "speed": 45,
+    "hardpoints": [
+      {
+        "size": "Beta"
+      },
+      {
+        "size": "Beta"
+      },
+      {
+        "size": "Beta"
+      }
+    ],
+    "ability": "Special Edition: Remote Repair Core: Deploys autonomous sonic healing and acoustic damage turrets with Aegis shield generators. (+10% Titan Hull Durability)"
+  },
+  {
+    "id": "retro_nodens",
+    "name": "Retro Nodens",
+    "tier": "Titan",
+    "role": "Squad Nanite Healer",
+    "hp": 390500,
+    "speed": 45,
+    "hardpoints": [
+      {
+        "size": "Beta"
+      },
+      {
+        "size": "Beta"
+      },
+      {
+        "size": "Beta"
+      },
+      {
+        "size": "Beta"
+      }
+    ],
+    "ability": "Special Edition: Mending Links: Projects 3 simultaneous infinite-range healing tethers to allies while suppressing target enemies by 50%. (+10% Titan Hull Durability)"
+  },
+  {
     "id": "murometz",
     "name": "Murometz",
     "tier": "Titan",
@@ -475,5 +581,25 @@ const MASTER_TITANS = [
       }
     ],
     "ability": "Mending Links: Projects 3 simultaneous infinite-range healing tethers to allies while suppressing target enemies by 50%."
+  },
+  {
+    "id": "baihu_luchador",
+    "name": "Baihu Luchador",
+    "tier": "Titan",
+    "role": "Brawler Juggernaut",
+    "hp": 495000,
+    "speed": 45,
+    "hardpoints": [
+      {
+        "size": "Alpha"
+      },
+      {
+        "size": "Beta"
+      },
+      {
+        "size": "Beta"
+      }
+    ],
+    "ability": "Special Edition: Frog Splash & Reflector: High-impact jump slam creating a massive 150k kinetic shockwave with 80% Reflector shield. (+10% Titan Hull Durability)"
   }
 ];

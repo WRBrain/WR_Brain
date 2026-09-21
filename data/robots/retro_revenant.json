@@ -1,0 +1,20 @@
+{
+  "id": "retro_revenant",
+  "name": "Retro Revenant",
+  "tier": "T4",
+  "role": "Teleporting Tank",
+  "hp": 176000,
+  "speed": 45,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Aggressive Blink: Teleports directly into target enemy's face, gaining complete immunity to negative status debuffs and grey damage. (+10% Durability Bonus)"
+}

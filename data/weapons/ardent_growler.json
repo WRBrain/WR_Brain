@@ -1,0 +1,12 @@
+{
+  "id": "ardent_growler",
+  "name": "Ardent Growler",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 14200,
+  "sustainedDps": 8100,
+  "reload": 7.2,
+  "family": "Acoustic / Echo",
+  "status": "Special Edition Tier 4 Acoustic Resonance (Grey Damage) (+5% Visual Effect)"
+}

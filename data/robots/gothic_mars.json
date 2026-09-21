@@ -1,0 +1,20 @@
+{
+  "id": "gothic_mars",
+  "name": "Gothic Mars",
+  "tier": "T4",
+  "role": "Deployable Turret Striker",
+  "hp": 107800,
+  "speed": 56,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Special Edition: Remote Remote Turret: Launches autonomous heavy plasma turret over high walls while activating personal Aegis shield. (+10% Durability Bonus)"
+}

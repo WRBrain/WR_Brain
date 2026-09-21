@@ -1,0 +1,23 @@
+{
+  "id": "unknown_ochokochi",
+  "name": "Unknown Ochokochi",
+  "tier": "T4",
+  "role": "Stampede Juggernaut",
+  "hp": 154000,
+  "speed": 52,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Stampede Rush: Charges forward with repulsive magnetic forcefield, turning 70% of incoming damage into damage-over-time. (+10% Durability Bonus)"
+}

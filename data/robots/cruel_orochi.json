@@ -1,0 +1,17 @@
+{
+  "id": "cruel_orochi",
+  "name": "Cruel Orochi",
+  "tier": "T4",
+  "role": "Stealth Viper Striker",
+  "hp": 107800,
+  "speed": 65,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Special Edition: Viper Drive: 2 charges of stealth acceleration, firing corrosive bio-acid wheel projectiles. (+10% Durability Bonus)"
+}

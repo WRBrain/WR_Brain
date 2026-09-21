@@ -1,0 +1,23 @@
+{
+  "id": "eldritch_ares",
+  "name": "Eldritch Ares",
+  "tier": "T4",
+  "role": "Energy Support Gunner",
+  "hp": 104500,
+  "speed": 54,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Pantheon Absorber & Cannons: Deploys frontal Absorber barrier and fires 4 rapid built-in energy cannons. (+10% Durability Bonus)"
+}

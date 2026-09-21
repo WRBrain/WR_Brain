@@ -1,0 +1,12 @@
+{
+  "id": "yan_di_avenger",
+  "name": "Yan-di Avenger",
+  "size": "Heavy",
+  "tier": "T2",
+  "range": 500,
+  "burstDps": 16200,
+  "sustainedDps": 9600,
+  "reload": 10.0,
+  "family": "Kinetic Gatlings",
+  "status": "Special Edition Tier 3 Accelerating Heavy MG (+5% Visual Effect)"
+}

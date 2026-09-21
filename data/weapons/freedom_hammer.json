@@ -1,0 +1,12 @@
+{
+  "id": "freedom_hammer",
+  "name": "Freedom Hammer",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 18800,
+  "sustainedDps": 12200,
+  "reload": 5.0,
+  "family": "Blast Shotguns",
+  "status": "Special Edition Tier 4 Blast Charge Shotgun (+5% Visual Effect)"
+}

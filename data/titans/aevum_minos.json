@@ -1,0 +1,20 @@
+{
+  "id": "aevum_minos",
+  "name": "Aevum Minos",
+  "tier": "Titan",
+  "role": "Rush Brawler",
+  "hp": 407000,
+  "speed": 45,
+  "hardpoints": [
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Special Edition: Bull Stampede: 3 consecutive high-velocity dash charges and Reflector shield, knocking enemies across the map. (+10% Titan Hull Durability)"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "eldritch_khepri",
+  "name": "Eldritch Khepri",
+  "tier": "T4",
+  "role": "Combat Support / Buffer",
+  "hp": 140800,
+  "speed": 55,
+  "hardpoints": [
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Misaki Link: Bonds with ally or self, granting speed, continuous repair, defense points, and weapon damage boost. (+10% Durability Bonus)"
+}

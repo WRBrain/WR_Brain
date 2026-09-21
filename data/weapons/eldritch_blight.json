@@ -1,0 +1,12 @@
+{
+  "id": "eldritch_blight",
+  "name": "Eldritch Blight",
+  "size": "Light",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 8700,
+  "sustainedDps": 5600,
+  "reload": 3.0,
+  "family": "Radiation Burst",
+  "status": "Special Edition Tier 4 Radiation Burst Rifle (+5% Visual Effect)"
+}

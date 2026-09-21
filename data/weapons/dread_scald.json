@@ -1,0 +1,12 @@
+{
+  "id": "dread_scald",
+  "name": "Dread Scald",
+  "size": "Light",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 7700,
+  "sustainedDps": 4800,
+  "reload": 5.0,
+  "family": "Blast Rockets",
+  "status": "Special Edition Tier 4 Area Blast Rocket (+5% Visual Effect)"
+}

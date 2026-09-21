@@ -1,0 +1,12 @@
+{
+  "id": "ardent_howler",
+  "name": "Ardent Howler",
+  "size": "Light",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 9600,
+  "sustainedDps": 5400,
+  "reload": 7.2,
+  "family": "Acoustic / Echo",
+  "status": "Special Edition Tier 4 Acoustic Resonance (Grey Damage) (+5% Visual Effect)"
+}

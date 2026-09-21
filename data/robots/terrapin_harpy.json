@@ -1,0 +1,20 @@
+{
+  "id": "terrapin_harpy",
+  "name": "Terrapin Harpy",
+  "tier": "T4",
+  "role": "Firestorm Bombardment",
+  "hp": 103400,
+  "speed": 52,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Special Edition: Firestorm: Leaps into air with Reflector shield, firing explosive Firestorm blast charge that bypasses physical shields. (+10% Durability Bonus)"
+}

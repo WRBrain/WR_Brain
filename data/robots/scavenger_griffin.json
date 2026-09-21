@@ -1,0 +1,23 @@
+{
+  "id": "scavenger_griffin",
+  "name": "Scavenger Griffin",
+  "tier": "T2",
+  "role": "Jump Striker",
+  "hp": 104500,
+  "speed": 38,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Jump Drive: Powerful rocket jump covering massive horizontal distances. (+10% Durability Bonus)"
+}

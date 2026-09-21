@@ -1,0 +1,20 @@
+{
+  "id": "freedom_skyros",
+  "name": "Freedom Skyros",
+  "tier": "T4",
+  "role": "Ballistic Rolling Brawler",
+  "hp": 148500,
+  "speed": 50,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Ball Mode: Rolls at 85 km/h with +500 Defense Points (85% damage resistance) and anti-blast kinetic shielding. (+10% Durability Bonus)"
+}

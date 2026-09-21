@@ -1,0 +1,17 @@
+{
+  "id": "baihu_lynx",
+  "name": "Baihu Lynx",
+  "tier": "T4",
+  "role": "Stealth Executioner",
+  "hp": 96800,
+  "speed": 68,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Special Edition: Ferocity: Enters stealth sprint with built-in Forcefield and Executioner laser instantly eliminating foes below threshold. (+10% Durability Bonus)"
+}

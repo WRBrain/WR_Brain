@@ -1,0 +1,23 @@
+{
+  "id": "ardent_blitz",
+  "name": "Ardent Blitz",
+  "tier": "T4",
+  "role": "Suppression Assassin",
+  "hp": 115500,
+  "speed": 55,
+  "hardpoints": [
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Break-in: Gains Aegis shield dome, 50% speed boost, and fires suppression darts at up to 3 targets. (+10% Durability Bonus)"
+}

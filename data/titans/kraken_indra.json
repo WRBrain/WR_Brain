@@ -1,0 +1,20 @@
+{
+  "id": "kraken_indra",
+  "name": "Kraken Indra",
+  "tier": "Titan",
+  "role": "Phase Extraction Brawler",
+  "hp": 462000,
+  "speed": 45,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Special Edition: Vipassana: 2 charges of complete invulnerability and speed acceleration, purging all negative status effects with Lasso siphon. (+10% Titan Hull Durability)"
+}

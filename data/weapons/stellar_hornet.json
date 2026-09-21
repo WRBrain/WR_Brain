@@ -1,0 +1,12 @@
+{
+  "id": "stellar_hornet",
+  "name": "Stellar Hornet",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 16000,
+  "sustainedDps": 10500,
+  "reload": 5.0,
+  "family": "Corrosive Acid",
+  "status": "Special Edition Tier 3 Plasma Sniper (+5% Visual Effect)"
+}

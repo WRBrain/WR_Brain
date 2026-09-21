@@ -1,0 +1,12 @@
+{
+  "id": "freedom_cudgel",
+  "name": "Freedom Cudgel",
+  "size": "Light",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 9200,
+  "sustainedDps": 6000,
+  "reload": 5.0,
+  "family": "Blast Shotguns",
+  "status": "Special Edition Tier 4 Blast Charge Shotgun (+5% Visual Effect)"
+}

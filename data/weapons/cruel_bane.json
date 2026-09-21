@@ -1,0 +1,12 @@
+{
+  "id": "cruel_bane",
+  "name": "Cruel Bane",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 300,
+  "burstDps": 17400,
+  "sustainedDps": 11200,
+  "reload": 5.0,
+  "family": "Corrosive Acid",
+  "status": "Special Edition Tier 4 Corrosive Acid Stream (+5% Visual Effect)"
+}

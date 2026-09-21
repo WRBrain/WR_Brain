@@ -1,0 +1,23 @@
+{
+  "id": "cruel_angler",
+  "name": "Cruel Angler",
+  "tier": "T4",
+  "role": "Blind Blinding Brawler",
+  "hp": 148500,
+  "speed": 50,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Electric Shift: Enters invulnerable phase sprint, blinding and damaging all enemies in proximity upon exit. (+10% Durability Bonus)"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "unknown_decay",
+  "name": "Unknown Decay",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 17800,
+  "sustainedDps": 11500,
+  "reload": 3.0,
+  "family": "Radiation Burst",
+  "status": "Special Edition Tier 4 Radiation Burst Rifle (+5% Visual Effect)"
+}

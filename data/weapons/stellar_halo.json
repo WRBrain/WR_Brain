@@ -1,0 +1,12 @@
+{
+  "id": "stellar_halo",
+  "name": "Stellar Halo",
+  "size": "Light",
+  "tier": "T3",
+  "range": 500,
+  "burstDps": 8800,
+  "sustainedDps": 5600,
+  "reload": 5.0,
+  "family": "Lockdown Kinetic",
+  "status": "Special Edition Tier 4 Lockdown Energy Shotgun (+5% Visual Effect)"
+}

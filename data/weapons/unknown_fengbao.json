@@ -1,0 +1,12 @@
+{
+  "id": "unknown_fengbao",
+  "name": "Unknown Fengbao",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 100,
+  "burstDps": 24000,
+  "sustainedDps": 14500,
+  "reload": 5.0,
+  "family": "Electricity / Zap",
+  "status": "Special Edition Tier 4 Electric Arc Brawler (+5% Visual Effect)"
+}

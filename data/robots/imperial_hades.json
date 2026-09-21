@@ -1,0 +1,20 @@
+{
+  "id": "imperial_hades",
+  "name": "Imperial Hades",
+  "tier": "T4",
+  "role": "Kinetic Support Gunner",
+  "hp": 126500,
+  "speed": 52,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Retribution Cannon: Deploys Absorber barrier, firing an armor-penetrating built-in kinetic railgun at 500m. (+10% Durability Bonus)"
+}

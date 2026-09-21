@@ -1,0 +1,20 @@
+{
+  "id": "sinister_siren",
+  "name": "Sinister Siren",
+  "tier": "T4",
+  "role": "Snowstorm Skirmisher",
+  "hp": 105600,
+  "speed": 52,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Snowstorm: Ascends into air with Reflector shield, raining freezing blizzard blast rockets over wide target area. (+10% Durability Bonus)"
+}

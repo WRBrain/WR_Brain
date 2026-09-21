@@ -1,0 +1,12 @@
+{
+  "id": "freedom_igniter",
+  "name": "Freedom Igniter",
+  "size": "Medium",
+  "tier": "T3",
+  "range": 350,
+  "burstDps": 13000,
+  "sustainedDps": 8500,
+  "reload": 5.0,
+  "family": "Flamethrowers",
+  "status": "Special Edition Tier 4 Continuous Napalm (+5% Visual Effect)"
+}

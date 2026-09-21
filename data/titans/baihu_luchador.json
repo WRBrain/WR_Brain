@@ -1,0 +1,20 @@
+{
+  "id": "baihu_luchador",
+  "name": "Baihu Luchador",
+  "tier": "Titan",
+  "role": "Brawler Juggernaut",
+  "hp": 495000,
+  "speed": 45,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Special Edition: Frog Splash & Reflector: High-impact jump slam creating a massive 150k kinetic shockwave with 80% Reflector shield. (+10% Titan Hull Durability)"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "ardent_imugi",
+  "name": "Ardent Imugi",
+  "tier": "T4",
+  "role": "Teleporting Skirmisher",
+  "hp": 112200,
+  "speed": 55,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Special Edition: Dragon Flight & Teleport Portal: Takes flight with stealth, creating entry and exit teleport portals for entire team. (+10% Durability Bonus)"
+}

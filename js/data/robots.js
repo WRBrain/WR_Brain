@@ -2,6 +2,63 @@
 
 const MASTER_ROBOTS = [
   {
+    "id": "stellar_phantom",
+    "name": "Stellar Phantom",
+    "tier": "T4",
+    "role": "Teleporting Beacon Flanker",
+    "hp": 129800,
+    "speed": 60,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Blink & Teleport: Drops return translocator, gaining 33% speed and 50 defense points with instant recall. (+10% Durability Bonus)"
+  },
+  {
+    "id": "sinister_siren",
+    "name": "Sinister Siren",
+    "tier": "T4",
+    "role": "Snowstorm Skirmisher",
+    "hp": 105600,
+    "speed": 52,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Snowstorm: Ascends into air with Reflector shield, raining freezing blizzard blast rockets over wide target area. (+10% Durability Bonus)"
+  },
+  {
+    "id": "baihu_lynx",
+    "name": "Baihu Lynx",
+    "tier": "T4",
+    "role": "Stealth Executioner",
+    "hp": 96800,
+    "speed": 68,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      }
+    ],
+    "ability": "Special Edition: Ferocity: Enters stealth sprint with built-in Forcefield and Executioner laser instantly eliminating foes below threshold. (+10% Durability Bonus)"
+  },
+  {
     "id": "leo",
     "name": "Leo",
     "tier": "T1",
@@ -106,6 +163,29 @@ const MASTER_ROBOTS = [
     "ability": "Pantheon Absorber & Cannons: Deploys frontal Absorber barrier and fires 4 rapid built-in energy cannons."
   },
   {
+    "id": "frozen_leech",
+    "name": "Frozen Leech",
+    "tier": "T4",
+    "role": "Repulse Tether Attacker",
+    "hp": 99000,
+    "speed": 58,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Special Edition: Repulse Link: Tethers to enemy, redirecting 35% of all incoming damage directly onto them while gaining 90% defense points. (+10% Durability Bonus)"
+  },
+  {
     "id": "raijin",
     "name": "Raijin",
     "tier": "T2",
@@ -183,6 +263,29 @@ const MASTER_ROBOTS = [
     "ability": "Transcendence: 3 charges of complete invulnerability and speed boost, cleansing all negative effects."
   },
   {
+    "id": "warrior_typhon",
+    "name": "Warrior Typhon",
+    "tier": "T4",
+    "role": "Blackout Disabler",
+    "hp": 99000,
+    "speed": 55,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Special Edition: Blackout 2.0: 3 concentrated energy bolts locking down, suppressing (-50% dmg), and EMP-disabling enemy abilities. (+10% Durability Bonus)"
+  },
+  {
     "id": "pursuer",
     "name": "Pursuer",
     "tier": "T3",
@@ -202,6 +305,26 @@ const MASTER_ROBOTS = [
       }
     ],
     "ability": "Hunt: Activates 10 seconds of stealth and +33% speed acceleration."
+  },
+  {
+    "id": "experimental_loki",
+    "name": "Experimental Loki",
+    "tier": "T4",
+    "role": "Infinite Stealth Beacon Capper",
+    "hp": 90200,
+    "speed": 66,
+    "hardpoints": [
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Recon Stealth: Permanent stealth in recon mode with high speed; retracts stealth to fire 3 Light weapons. (+10% Durability Bonus)"
   },
   {
     "id": "raven",
@@ -565,6 +688,26 @@ const MASTER_ROBOTS = [
     "ability": "Dragon Flight: Takes flight with stealth, releasing built-in continuous napalm Dragon breath."
   },
   {
+    "id": "dread_shell",
+    "name": "Dread Shell",
+    "tier": "T4",
+    "role": "Blast Shockwave Tank",
+    "hp": 165000,
+    "speed": 48,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Dread Blast: Accelerates forward with explosive 360-degree kinetic blast while covered in 8 directional physical shields. (+10% Durability Bonus)"
+  },
+  {
     "id": "natasha",
     "name": "Natasha",
     "tier": "T1",
@@ -586,6 +729,29 @@ const MASTER_ROBOTS = [
       }
     ],
     "ability": "Heavy Arsenal: Classic multi-weapon combat walker."
+  },
+  {
+    "id": "eldritch_ares",
+    "name": "Eldritch Ares",
+    "tier": "T4",
+    "role": "Energy Support Gunner",
+    "hp": 104500,
+    "speed": 54,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Pantheon Absorber & Cannons: Deploys frontal Absorber barrier and fires 4 rapid built-in energy cannons. (+10% Durability Bonus)"
   },
   {
     "id": "ultimate_haechi",
@@ -651,6 +817,26 @@ const MASTER_ROBOTS = [
     "ability": "Siege Rampart: Anchors hull to ground, generating 400 defense points and accelerated fire rate."
   },
   {
+    "id": "imperial_hades",
+    "name": "Imperial Hades",
+    "tier": "T4",
+    "role": "Kinetic Support Gunner",
+    "hp": 126500,
+    "speed": 52,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Retribution Cannon: Deploys Absorber barrier, firing an armor-penetrating built-in kinetic railgun at 500m. (+10% Durability Bonus)"
+  },
+  {
     "id": "ultimate_fenrir",
     "name": "Ultimate Fenrir",
     "tier": "Ultimate",
@@ -671,6 +857,26 @@ const MASTER_ROBOTS = [
     "ability": "Ultimate Shapeshift: Unstoppable defense resistance (+75%) with full Grey Damage regeneration and heavy fire."
   },
   {
+    "id": "techno_scorpion",
+    "name": "Techno Scorpion",
+    "tier": "T4",
+    "role": "Teleport Assassin",
+    "hp": 118800,
+    "speed": 56,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Backstab Teleport: Teleports behind target within 350m, stinging with corrosive tail sting, with return recall. (+10% Durability Bonus)"
+  },
+  {
     "id": "mender",
     "name": "Mender",
     "tier": "T3",
@@ -689,6 +895,52 @@ const MASTER_ROBOTS = [
       }
     ],
     "ability": "Emergency Repair: Pulses 3 successive heal waves, repairing team durability and restoring Grey Damage."
+  },
+  {
+    "id": "scarab_leech",
+    "name": "Scarab Leech",
+    "tier": "T4",
+    "role": "Repulse Tether Attacker",
+    "hp": 99000,
+    "speed": 58,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Special Edition: Repulse Link: Tethers to enemy, redirecting 35% of all incoming damage directly onto them while gaining 90% defense points. (+10% Durability Bonus)"
+  },
+  {
+    "id": "eldritch_khepri",
+    "name": "Eldritch Khepri",
+    "tier": "T4",
+    "role": "Combat Support / Buffer",
+    "hp": 140800,
+    "speed": 55,
+    "hardpoints": [
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Misaki Link: Bonds with ally or self, granting speed, continuous repair, defense points, and weapon damage boost. (+10% Durability Bonus)"
   },
   {
     "id": "rhino",
@@ -855,6 +1107,23 @@ const MASTER_ROBOTS = [
     "ability": "Apparition: Teleports to damaged ally, projecting a massive Absorber dome that converts absorbed damage into direct healing."
   },
   {
+    "id": "solid_jaeger",
+    "name": "Solid Jaeger",
+    "tier": "T4",
+    "role": "Long-Range Railgun Sniper",
+    "hp": 126500,
+    "speed": 58,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      }
+    ],
+    "ability": "Special Edition: Scout / Sniper Mode: Toggles high-speed quadruped traversal and stationary sniper cannon with 1100m built-in railgun. (+10% Durability Bonus)"
+  },
+  {
     "id": "ultimate_fujin",
     "name": "Ultimate Fujin",
     "tier": "Ultimate",
@@ -955,6 +1224,29 @@ const MASTER_ROBOTS = [
     "ability": "Snowstorm: Ascends into air with Reflector shield, raining freezing blizzard blast rockets over wide target area."
   },
   {
+    "id": "corrupted_fafnir",
+    "name": "Corrupted Fafnir",
+    "tier": "T4",
+    "role": "Aerial Shielded Fighter",
+    "hp": 115500,
+    "speed": 54,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Special Edition: Dragon Flight: Takes infinite flight with built-in piercing beam whose damage multiplies by absorbing enemy fire. (+10% Durability Bonus)"
+  },
+  {
     "id": "rogatka",
     "name": "Rogatka",
     "tier": "T2",
@@ -995,6 +1287,66 @@ const MASTER_ROBOTS = [
     "ability": "Repulse Link: Tethers to enemy, redirecting 35% of all incoming damage directly onto them while gaining 90% defense points."
   },
   {
+    "id": "retro_revenant",
+    "name": "Retro Revenant",
+    "tier": "T4",
+    "role": "Teleporting Tank",
+    "hp": 176000,
+    "speed": 45,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Aggressive Blink: Teleports directly into target enemy's face, gaining complete immunity to negative status debuffs and grey damage. (+10% Durability Bonus)"
+  },
+  {
+    "id": "ardent_imugi",
+    "name": "Ardent Imugi",
+    "tier": "T4",
+    "role": "Teleporting Skirmisher",
+    "hp": 112200,
+    "speed": 55,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Dragon Flight & Teleport Portal: Takes flight with stealth, creating entry and exit teleport portals for entire team. (+10% Durability Bonus)"
+  },
+  {
+    "id": "terrapin_harpy",
+    "name": "Terrapin Harpy",
+    "tier": "T4",
+    "role": "Firestorm Bombardment",
+    "hp": 103400,
+    "speed": 52,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Special Edition: Firestorm: Leaps into air with Reflector shield, firing explosive Firestorm blast charge that bypasses physical shields. (+10% Durability Bonus)"
+  },
+  {
     "id": "falcon",
     "name": "Falcon",
     "tier": "T3",
@@ -1030,6 +1382,29 @@ const MASTER_ROBOTS = [
       }
     ],
     "ability": "Quick Dash: 2 rapid dash charges recharging every 5 seconds."
+  },
+  {
+    "id": "cruel_angler",
+    "name": "Cruel Angler",
+    "tier": "T4",
+    "role": "Blind Blinding Brawler",
+    "hp": 148500,
+    "speed": 50,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Electric Shift: Enters invulnerable phase sprint, blinding and damaging all enemies in proximity upon exit. (+10% Durability Bonus)"
   },
   {
     "id": "galahad",
@@ -1093,6 +1468,26 @@ const MASTER_ROBOTS = [
       }
     ],
     "ability": "Ultimate Incursion: 85% area suppression with EMP pulse and massive armor plating."
+  },
+  {
+    "id": "terrapin_siren",
+    "name": "Terrapin Siren",
+    "tier": "T4",
+    "role": "Snowstorm Skirmisher",
+    "hp": 105600,
+    "speed": 52,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Snowstorm: Ascends into air with Reflector shield, raining freezing blizzard blast rockets over wide target area. (+10% Durability Bonus)"
   },
   {
     "id": "carnage",
@@ -1190,6 +1585,26 @@ const MASTER_ROBOTS = [
       }
     ],
     "ability": "Sonic Dash: 3 rapid directional dashes with 100% Grey Damage restoration."
+  },
+  {
+    "id": "gothic_mars",
+    "name": "Gothic Mars",
+    "tier": "T4",
+    "role": "Deployable Turret Striker",
+    "hp": 107800,
+    "speed": 56,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Special Edition: Remote Remote Turret: Launches autonomous heavy plasma turret over high walls while activating personal Aegis shield. (+10% Durability Bonus)"
   },
   {
     "id": "destrier",
@@ -1307,6 +1722,46 @@ const MASTER_ROBOTS = [
       }
     ],
     "ability": "Repair Mode: Anchors to ground, generating massive 100m team repair aura and defense points."
+  },
+  {
+    "id": "unknown_seraph",
+    "name": "Unknown Seraph",
+    "tier": "T4",
+    "role": "Aerial Striker",
+    "hp": 123200,
+    "speed": 55,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      }
+    ],
+    "ability": "Special Edition: Skyward Arc: Takes flight with directional Forcefield, sweeping targets with auto-targeting bio-electric death beams. (+10% Durability Bonus)"
+  },
+  {
+    "id": "scavenger_griffin",
+    "name": "Scavenger Griffin",
+    "tier": "T2",
+    "role": "Jump Striker",
+    "hp": 104500,
+    "speed": 38,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Jump Drive: Powerful rocket jump covering massive horizontal distances. (+10% Durability Bonus)"
   },
   {
     "id": "dagon",
@@ -1510,6 +1965,29 @@ const MASTER_ROBOTS = [
     "ability": "Ghost Strike: Enters Phase Stealth for 6s, increasing weapon firing speed by +30%."
   },
   {
+    "id": "ardent_behemoth",
+    "name": "Ardent Behemoth",
+    "tier": "T4",
+    "role": "Quad-Heavy Siege Platform",
+    "hp": 165000,
+    "speed": 42,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      }
+    ],
+    "ability": "Special Edition: Siege Mode: Deploys 2 additional Heavy weapon hardpoints (4x Heavy active) with high mobile speed. (+10% Durability Bonus)"
+  },
+  {
     "id": "butch",
     "name": "Butch",
     "tier": "T3",
@@ -1596,6 +2074,29 @@ const MASTER_ROBOTS = [
     "ability": "Translocation Chain: Teleports behind 3 successive targets within 350m, generating Aegis shield domes with each jump."
   },
   {
+    "id": "ardent_blitz",
+    "name": "Ardent Blitz",
+    "tier": "T4",
+    "role": "Suppression Assassin",
+    "hp": 115500,
+    "speed": 55,
+    "hardpoints": [
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Break-in: Gains Aegis shield dome, 50% speed boost, and fires suppression darts at up to 3 targets. (+10% Durability Bonus)"
+  },
+  {
     "id": "ultimate_ao_jun",
     "name": "Ultimate Ao Jun",
     "tier": "Ultimate",
@@ -1611,6 +2112,49 @@ const MASTER_ROBOTS = [
       }
     ],
     "ability": "Ultimate Dragon Flight: Continuous stealth flight with unhealable Grey Damage Dragon breath."
+  },
+  {
+    "id": "unknown_ochokochi",
+    "name": "Unknown Ochokochi",
+    "tier": "T4",
+    "role": "Stampede Juggernaut",
+    "hp": 154000,
+    "speed": 52,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Stampede Rush: Charges forward with repulsive magnetic forcefield, turning 70% of incoming damage into damage-over-time. (+10% Durability Bonus)"
+  },
+  {
+    "id": "giftbringer_fenrir",
+    "name": "Giftbringer Fenrir",
+    "tier": "T4",
+    "role": "Heavy Brawler",
+    "hp": 159500,
+    "speed": 50,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Special Edition: Shapeshift: Toggles between Mobile Mode (Aegis dome) and Defense Mode (+50% Defense Points and active Heavy slot). (+10% Durability Bonus)"
   },
   {
     "id": "erebus",
@@ -1754,6 +2298,26 @@ const MASTER_ROBOTS = [
     "ability": "Blink & Teleport: Drops return translocator, gaining 33% speed and 50 defense points with instant recall."
   },
   {
+    "id": "freedom_skyros",
+    "name": "Freedom Skyros",
+    "tier": "T4",
+    "role": "Ballistic Rolling Brawler",
+    "hp": 148500,
+    "speed": 50,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Ball Mode: Rolls at 85 km/h with +500 Defense Points (85% damage resistance) and anti-blast kinetic shielding. (+10% Durability Bonus)"
+  },
+  {
     "id": "behemoth",
     "name": "Behemoth",
     "tier": "T4",
@@ -1863,6 +2427,86 @@ const MASTER_ROBOTS = [
     "ability": "Super Dash: 5 rapid consecutive dash charges crossing huge map distances in seconds."
   },
   {
+    "id": "retro_crisis",
+    "name": "Retro Crisis",
+    "tier": "T4",
+    "role": "Quad-Heavy Stealth Sniper",
+    "hp": 82500,
+    "speed": 60,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      }
+    ],
+    "ability": "Special Edition: Overkill: Infinite stealth until firing; activating ability grants 100% defense penetration and +20% weapon damage. (+10% Durability Bonus)"
+  },
+  {
+    "id": "ivory_ravana",
+    "name": "Ivory Ravana",
+    "tier": "T4",
+    "role": "Phase Brawler",
+    "hp": 159500,
+    "speed": 50,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Special Edition: Transcendence: 3 charges of complete invulnerability and speed boost, cleansing all negative effects. (+10% Durability Bonus)"
+  },
+  {
+    "id": "cruel_orochi",
+    "name": "Cruel Orochi",
+    "tier": "T4",
+    "role": "Stealth Viper Striker",
+    "hp": 107800,
+    "speed": 65,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      }
+    ],
+    "ability": "Special Edition: Viper Drive: 2 charges of stealth acceleration, firing corrosive bio-acid wheel projectiles. (+10% Durability Bonus)"
+  },
+  {
+    "id": "cryptic_fenrir",
+    "name": "Cryptic Fenrir",
+    "tier": "T4",
+    "role": "Heavy Brawler",
+    "hp": 159500,
+    "speed": 50,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Special Edition: Shapeshift: Toggles between Mobile Mode (Aegis dome) and Defense Mode (+50% Defense Points and active Heavy slot). (+10% Durability Bonus)"
+  },
+  {
     "id": "mars",
     "name": "Mars",
     "tier": "T4",
@@ -1881,6 +2525,23 @@ const MASTER_ROBOTS = [
       }
     ],
     "ability": "Remote Remote Turret: Launches autonomous heavy plasma turret over high walls while activating personal Aegis shield."
+  },
+  {
+    "id": "megalodon_orochi",
+    "name": "Megalodon Orochi",
+    "tier": "T4",
+    "role": "Stealth Viper Striker",
+    "hp": 107800,
+    "speed": 65,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      }
+    ],
+    "ability": "Special Edition: Viper Drive: 2 charges of stealth acceleration, firing corrosive bio-acid wheel projectiles. (+10% Durability Bonus)"
   },
   {
     "id": "stalker",
@@ -2124,6 +2785,29 @@ const MASTER_ROBOTS = [
     "ability": "Descend: Leaps high into air with stealth, maintaining stealth for 5 seconds upon landing."
   },
   {
+    "id": "freedom_fafnir",
+    "name": "Freedom Fafnir",
+    "tier": "T4",
+    "role": "Aerial Shielded Fighter",
+    "hp": 115500,
+    "speed": 54,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      }
+    ],
+    "ability": "Special Edition: Dragon Flight: Takes infinite flight with built-in piercing beam whose damage multiplies by absorbing enemy fire. (+10% Durability Bonus)"
+  },
+  {
     "id": "fury",
     "name": "Fury",
     "tier": "T2",
@@ -2142,6 +2826,23 @@ const MASTER_ROBOTS = [
       }
     ],
     "ability": "Heavy Weapon Platform: High stability platform housing 3 Heavy weapon hardpoints."
+  },
+  {
+    "id": "fallen_seraph",
+    "name": "Fallen Seraph",
+    "tier": "T4",
+    "role": "Aerial Striker",
+    "hp": 123200,
+    "speed": 55,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Heavy"
+      }
+    ],
+    "ability": "Special Edition: Skyward Arc: Takes flight with directional Forcefield, sweeping targets with auto-targeting bio-electric death beams. (+10% Durability Bonus)"
   },
   {
     "id": "ultimate_griffin",
@@ -2165,6 +2866,26 @@ const MASTER_ROBOTS = [
       }
     ],
     "ability": "Ultimate Jump Drive: Rapid rocket jump with stealth on takeoff and landing."
+  },
+  {
+    "id": "papillon_imugi",
+    "name": "Papillon Imugi",
+    "tier": "T4",
+    "role": "Teleporting Skirmisher",
+    "hp": 112200,
+    "speed": 55,
+    "hardpoints": [
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Medium"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Dragon Flight & Teleport Portal: Takes flight with stealth, creating entry and exit teleport portals for entire team. (+10% Durability Bonus)"
   },
   {
     "id": "spectre",
@@ -2254,6 +2975,55 @@ const MASTER_ROBOTS = [
       }
     ],
     "ability": "Ultimate Blink: Extreme speed sprint with 70% defense resistance and instant recall."
+  },
+  {
+    "id": "scavenger_shell",
+    "name": "Scavenger Shell",
+    "tier": "T4",
+    "role": "Blast Shockwave Tank",
+    "hp": 165000,
+    "speed": 48,
+    "hardpoints": [
+      {
+        "size": "Heavy"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Dread Blast: Accelerates forward with explosive 360-degree kinetic blast while covered in 8 directional physical shields. (+10% Durability Bonus)"
+  },
+  {
+    "id": "frozen_dagon",
+    "name": "Frozen Dagon",
+    "tier": "T4",
+    "role": "Hexa-Shield Battery Skirmisher",
+    "hp": 107800,
+    "speed": 54,
+    "hardpoints": [
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      },
+      {
+        "size": "Light"
+      }
+    ],
+    "ability": "Special Edition: Hexa-Aegis Core: Continuously recharges an ultra-dense Aegis dome while firing 6 synchronized weapon mounts. (+10% Durability Bonus)"
   },
   {
     "id": "imugi",

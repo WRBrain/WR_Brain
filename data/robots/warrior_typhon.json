@@ -1,0 +1,23 @@
+{
+  "id": "warrior_typhon",
+  "name": "Warrior Typhon",
+  "tier": "T4",
+  "role": "Blackout Disabler",
+  "hp": 99000,
+  "speed": 55,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Special Edition: Blackout 2.0: 3 concentrated energy bolts locking down, suppressing (-50% dmg), and EMP-disabling enemy abilities. (+10% Durability Bonus)"
+}

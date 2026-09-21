@@ -1,0 +1,12 @@
+{
+  "id": "ardent_screamer",
+  "name": "Ardent Screamer",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 19800,
+  "sustainedDps": 11300,
+  "reload": 7.2,
+  "family": "Acoustic / Echo",
+  "status": "Special Edition Tier 4 Acoustic Resonance (Grey Damage) (+5% Visual Effect)"
+}

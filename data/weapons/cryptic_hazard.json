@@ -1,0 +1,12 @@
+{
+  "id": "cryptic_hazard",
+  "name": "Cryptic Hazard",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 13000,
+  "sustainedDps": 8400,
+  "reload": 3.0,
+  "family": "Radiation Burst",
+  "status": "Special Edition Tier 4 Radiation Burst Rifle (+5% Visual Effect)"
+}
