@@ -1,0 +1,12 @@
+{
+  "id": "thunder",
+  "name": "Thunder",
+  "size": "Heavy",
+  "tier": "T1",
+  "range": 500,
+  "burstDps": 15200,
+  "sustainedDps": 9200,
+  "reload": 5,
+  "family": "Kinetic Shotguns",
+  "status": "Tier 1 Kinetic Heavy Scattergun"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "hastatus",
+  "name": "Hastatus",
+  "tier": "T4",
+  "faction": "DSC",
+  "role": "Gladiator Bastion",
+  "speed": 45,
+  "hp": 110000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Phalanx Retribution: Deploys indestructible front shield while boosting kinetic weapon fire and damage mitigation."
+}

@@ -1,0 +1,22 @@
+{
+  "id": "ultimate_fujin",
+  "name": "Ultimate Fujin",
+  "seriesKey": "fujin",
+  "tier": "Ultimate",
+  "faction": "SpaceTech",
+  "role": "Ultimate Sentry",
+  "speed": 44,
+  "hp": 115000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Ultimate Sentry: 500k Aegis Dome with built-in kinetic railgun cannons while in sentry stance."
+}

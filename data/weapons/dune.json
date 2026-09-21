@@ -1,0 +1,12 @@
+{
+  "id": "dune",
+  "name": "Dune",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 800,
+  "burstDps": 16200,
+  "sustainedDps": 9800,
+  "reload": 7,
+  "family": "Guided Artillery",
+  "status": "Tier 4 Indirect Guided Rocket"
+}

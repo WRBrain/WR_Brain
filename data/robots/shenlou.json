@@ -1,0 +1,21 @@
+{
+  "id": "shenlou",
+  "name": "Shenlou",
+  "tier": "T4",
+  "faction": "SpaceTech",
+  "role": "Assassin Teleporter",
+  "speed": 52,
+  "hp": 96800,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Multi-Blink Jump: Teleports 3 consecutive times directly behind enemy lines with Aegis shields before returning to initial anchor beacon."
+}

@@ -1,0 +1,15 @@
+{
+  "id": "cossack",
+  "name": "Cossack",
+  "tier": "T1",
+  "faction": "SpaceTech",
+  "role": "Agile Jumper",
+  "speed": 50,
+  "hp": 34000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Rapid Jump: 5-second jump cooldown for hyper-agile beacon hunting."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "vityaz",
+  "name": "Vityaz",
+  "tier": "T1",
+  "faction": "SpaceTech",
+  "role": "Support Brawler",
+  "speed": 34,
+  "hp": 82000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Heavy & Dual Light: Classic mixed firing platform."
+}

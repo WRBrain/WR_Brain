@@ -1,0 +1,21 @@
+{
+  "id": "haechi",
+  "name": "Haechi",
+  "tier": "T3",
+  "faction": "SpaceTech",
+  "role": "Dash Ancile Striker",
+  "speed": 44,
+  "hp": 85000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Dash & Ancile: Triple medium mount with built-in rechargeable Ancile energy shield and 2 dash charges."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "punisher",
+  "name": "Punisher",
+  "size": "Light",
+  "tier": "T1",
+  "range": 500,
+  "burstDps": 7200,
+  "sustainedDps": 4400,
+  "reload": 10,
+  "family": "Kinetic Gatlings",
+  "status": "Tier 1 Accelerating Light MG"
+}

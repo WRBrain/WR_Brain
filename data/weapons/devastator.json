@@ -1,0 +1,12 @@
+{
+  "id": "devastator",
+  "name": "Devastator",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 200,
+  "burstDps": 19500,
+  "sustainedDps": 12800,
+  "reload": 5,
+  "family": "Sonic Shotguns",
+  "status": "Tier 4 Sonic Grey Damage Shotgun"
+}

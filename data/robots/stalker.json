@@ -1,0 +1,18 @@
+{
+  "id": "stalker",
+  "name": "Stalker",
+  "tier": "T1",
+  "faction": "Icarus",
+  "role": "Stealth Runner",
+  "speed": 56,
+  "hp": 52000,
+  "hardpoints": [
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Stealth: 8 seconds of total radar invisibility for rapid beacon captures."
+}

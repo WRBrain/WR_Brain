@@ -1,0 +1,21 @@
+{
+  "id": "ravana",
+  "name": "Ravana",
+  "tier": "T4",
+  "faction": "Yan-di",
+  "role": "Phase Brawler",
+  "speed": 44,
+  "hp": 132000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Transcendence: 3 charges of total invulnerability and speed acceleration while purging all negative debuffs."
+}

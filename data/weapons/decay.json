@@ -1,0 +1,12 @@
+{
+  "id": "decay",
+  "name": "Decay",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 17800,
+  "sustainedDps": 11500,
+  "reload": 3,
+  "family": "Radiation",
+  "status": "Tier 4 Radiation Burst Rifle"
+}

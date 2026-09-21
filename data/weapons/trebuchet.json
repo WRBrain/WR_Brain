@@ -1,0 +1,12 @@
+{
+  "id": "trebuchet",
+  "name": "Trebuchet",
+  "size": "Heavy",
+  "tier": "T2",
+  "range": 1100,
+  "burstDps": 16000,
+  "sustainedDps": 4000,
+  "reload": 20,
+  "family": "Plasma Cannons",
+  "status": "Tier 2 Charged Particle Sniper"
+}

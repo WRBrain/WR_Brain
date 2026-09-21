@@ -1,0 +1,12 @@
+{
+  "id": "hydra",
+  "name": "Hydra",
+  "size": "Medium",
+  "tier": "T2",
+  "range": 600,
+  "burstDps": 9600,
+  "sustainedDps": 5300,
+  "reload": 12,
+  "family": "Guided Artillery",
+  "status": "Tier 2 Homing Rocket Pod"
+}

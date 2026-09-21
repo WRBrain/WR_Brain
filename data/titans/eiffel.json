@@ -1,0 +1,25 @@
+{
+  "id": "eiffel",
+  "name": "Eiffel",
+  "tier": "Titan",
+  "role": "Aerial Dominance Titan",
+  "hp": 440000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Debut Flight: Takes flight, deploying 2 additional Beta weapon hardpoints (total 5 weapons) while gaining dash boosts."
+}

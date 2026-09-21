@@ -1,0 +1,12 @@
+{
+  "id": "anguisher",
+  "name": "Anguisher",
+  "size": "Alpha",
+  "tier": "T4",
+  "range": 350,
+  "burstDps": 43500,
+  "sustainedDps": 27500,
+  "reload": 5,
+  "family": "Titan Rust Harpoon",
+  "status": "Titan Alpha Rust Harpoon Cannon"
+}

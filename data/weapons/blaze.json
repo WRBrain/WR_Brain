@@ -1,0 +1,12 @@
+{
+  "id": "blaze",
+  "name": "Blaze",
+  "size": "Light",
+  "tier": "T4",
+  "range": 350,
+  "burstDps": 8700,
+  "sustainedDps": 5700,
+  "reload": 5,
+  "family": "Flamethrowers",
+  "status": "Tier 4 Continuous Napalm"
+}

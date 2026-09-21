@@ -1,0 +1,21 @@
+{
+  "id": "erebus",
+  "name": "Erebus",
+  "tier": "T4",
+  "faction": "DSC",
+  "role": "Heavy Sniper",
+  "speed": 38,
+  "hp": 92000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Homing Blackout: 4 homing rockets applying EMP, Lockdown, Suppression, and Corrosive DoT through a 300k Aegis shield."
+}

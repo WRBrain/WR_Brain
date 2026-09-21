@@ -1,0 +1,22 @@
+{
+  "id": "fenrir",
+  "name": "Fenrir",
+  "seriesKey": "fenrir",
+  "tier": "T4",
+  "faction": "EvoLife",
+  "role": "Heavy Tank",
+  "speed": 42,
+  "hp": 145000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Shape-Shift: Deploys heavy weapon and trades Aegis shield for permanent 50% defense damage resistance."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "murometz",
+  "name": "Murometz",
+  "tier": "Titan",
+  "role": "Stealth Missile Titan",
+  "hp": 340000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Shadow Flight & EMP: Ascends into stealth flight, launching EMP strike that disables enemy abilities and modules within 600m."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "shocktrain",
+  "name": "Shocktrain",
+  "size": "Medium",
+  "tier": "T3",
+  "range": 500,
+  "burstDps": 11600,
+  "sustainedDps": 4600,
+  "reload": 8,
+  "family": "Plasma Cannons",
+  "status": "Tier 3 Chain Energy Cannon"
+}

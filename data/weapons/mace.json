@@ -1,0 +1,12 @@
+{
+  "id": "mace",
+  "name": "Mace",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 13700,
+  "sustainedDps": 8900,
+  "reload": 5,
+  "family": "Blast Shotguns",
+  "status": "Tier 4 Blast Charge Shotgun"
+}

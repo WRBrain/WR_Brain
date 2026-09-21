@@ -1,0 +1,22 @@
+{
+  "id": "ao_ming",
+  "name": "Ao Ming",
+  "tier": "Titan",
+  "role": "Dual Flight Titan",
+  "hp": 310000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Dragon Flight: Flies indefinitely above battlefield with 4 active weapon mounts and self-repair."
+}

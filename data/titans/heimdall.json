@@ -1,0 +1,22 @@
+{
+  "id": "heimdall",
+  "name": "Heimdall",
+  "tier": "Titan",
+  "role": "Squad Commander Titan",
+  "hp": 375000,
+  "hardpoints": [
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Golden Horn: Toggles between Repair Mode (team aura + speed) and War Mode (built-in kinetic cannon + +25% team damage)."
+}

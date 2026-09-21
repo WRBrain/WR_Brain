@@ -1,0 +1,18 @@
+{
+  "id": "boa",
+  "name": "Boa",
+  "tier": "T1",
+  "faction": "DSC",
+  "role": "Classic Brawler",
+  "speed": 36,
+  "hp": 95000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Reinforced Chassis: Sturdy dual-hardpoint classic combat bot."
+}

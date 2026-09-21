@@ -1,0 +1,12 @@
+{
+  "id": "magnetar",
+  "name": "Magnetar",
+  "size": "Light",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 7800,
+  "sustainedDps": 5000,
+  "reload": 5,
+  "family": "Lockdown Energy",
+  "status": "Tier 4 Energy Lockdown Rifle"
+}

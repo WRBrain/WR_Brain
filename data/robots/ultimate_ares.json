@@ -1,0 +1,25 @@
+{
+  "id": "ultimate_ares",
+  "name": "Ultimate Ares",
+  "seriesKey": "ares",
+  "tier": "Ultimate",
+  "faction": "DSC",
+  "role": "Ultimate Vanguard",
+  "speed": 48,
+  "hp": 115000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Ultimate Retribution: Penetrates defense resistance and reflects 100% of blocked Absorber damage back to attackers."
+}

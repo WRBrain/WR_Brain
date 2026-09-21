@@ -1,0 +1,12 @@
+{
+  "id": "steel_hedjet",
+  "name": "Steel Hedjet",
+  "size": "Light",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 8400,
+  "sustainedDps": 5300,
+  "reload": 5,
+  "family": "Thermal Cryo",
+  "status": "Special Edition Thermal Beam"
+}

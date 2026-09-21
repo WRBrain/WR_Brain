@@ -1,0 +1,12 @@
+{
+  "id": "squall",
+  "name": "Squall",
+  "size": "Beta",
+  "tier": "T3",
+  "range": 500,
+  "burstDps": 30500,
+  "sustainedDps": 19000,
+  "reload": 5,
+  "family": "Kinetic Shotguns",
+  "status": "Titan Beta Kinetic Scattershot"
+}

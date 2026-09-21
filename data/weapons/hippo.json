@@ -1,0 +1,12 @@
+{
+  "id": "hippo",
+  "name": "Hippo",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 350,
+  "burstDps": 13500,
+  "sustainedDps": 8800,
+  "reload": 5,
+  "family": "Desert Siphon",
+  "status": "Tier 4 Desert Siphon Cannon"
+}

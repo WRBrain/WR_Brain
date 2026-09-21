@@ -1,0 +1,12 @@
+{
+  "id": "rupture",
+  "name": "Rupture",
+  "size": "Beta",
+  "tier": "T3",
+  "range": 500,
+  "burstDps": 27000,
+  "sustainedDps": 16500,
+  "reload": 5,
+  "family": "Blast Rockets",
+  "status": "Titan Beta Heavy Explosive Rocket"
+}

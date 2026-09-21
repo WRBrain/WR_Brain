@@ -1,0 +1,12 @@
+{
+  "id": "elox",
+  "name": "Elox",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 12500,
+  "sustainedDps": 7900,
+  "reload": 7,
+  "family": "Void Energy",
+  "status": "Tier 4 Void Particle Cannon"
+}

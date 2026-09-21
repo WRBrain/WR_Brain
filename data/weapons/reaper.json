@@ -1,0 +1,12 @@
+{
+  "id": "reaper",
+  "name": "Reaper",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 1100,
+  "burstDps": 20500,
+  "sustainedDps": 7200,
+  "reload": 12,
+  "family": "Kinetic Sniper",
+  "status": "Tier 4 Kinetic Shieldbreaker Sniper"
+}

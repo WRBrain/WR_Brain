@@ -1,0 +1,12 @@
+{
+  "id": "taran",
+  "name": "Taran",
+  "size": "Medium",
+  "tier": "T2",
+  "range": 350,
+  "burstDps": 12200,
+  "sustainedDps": 8000,
+  "reload": 5,
+  "family": "Plasma Cannons",
+  "status": "Tier 2 Rapid Plasma Rifle"
+}

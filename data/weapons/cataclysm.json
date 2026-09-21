@@ -1,0 +1,12 @@
+{
+  "id": "cataclysm",
+  "name": "Cataclysm",
+  "size": "Alpha",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 38500,
+  "sustainedDps": 24000,
+  "reload": 5,
+  "family": "Tesla Lock-on",
+  "status": "Titan Alpha Tesla Arc Lock-on"
+}

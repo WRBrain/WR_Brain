@@ -1,0 +1,12 @@
+{
+  "id": "cyclops",
+  "name": "Cyclops",
+  "size": "Beta",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 28500,
+  "sustainedDps": 17800,
+  "reload": 5,
+  "family": "Tesla Lock-on",
+  "status": "Titan Beta Tesla Arc Lock-on"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "arthur",
+  "name": "Arthur",
+  "tier": "Titan",
+  "role": "Physical Shield Tank",
+  "hp": 380000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Phalanx Mode: Closes 1,000,000 HP physical shield plates in front while unleashing a concussive Blastwave."
+}

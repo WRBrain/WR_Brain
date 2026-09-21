@@ -1,0 +1,12 @@
+{
+  "id": "exodus",
+  "name": "Exodus",
+  "size": "Heavy",
+  "tier": "T3",
+  "range": 300,
+  "burstDps": 17800,
+  "sustainedDps": 9200,
+  "reload": 8,
+  "family": "Freeze Rockets",
+  "status": "Tier 3 Heavy Burst Rocket Pod"
+}

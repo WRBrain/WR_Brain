@@ -1,0 +1,21 @@
+{
+  "id": "revenant",
+  "name": "Revenant",
+  "tier": "T4",
+  "faction": "Yan-di",
+  "role": "Teleport Tank",
+  "speed": 40,
+  "hp": 155000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Aggressive Blink: Teleports directly in front of target, gaining total immunity to Grey Damage, Freeze, Lockdown and EMP."
+}

@@ -1,0 +1,24 @@
+{
+  "id": "ochokochi",
+  "name": "Ochokochi",
+  "tier": "T4",
+  "faction": "Yan-di",
+  "role": "Brawler / Rammer",
+  "speed": 46,
+  "hp": 140000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Stampede & Repulsion: Charges forward with high-velocity repulsion field, knocking enemy robots backwards while converting damage into DoT corrosion."
+}

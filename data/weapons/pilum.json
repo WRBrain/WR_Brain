@@ -1,0 +1,12 @@
+{
+  "id": "pilum",
+  "name": "Pilum",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 13000,
+  "sustainedDps": 8200,
+  "reload": 5,
+  "family": "Roman Kinetic",
+  "status": "Tier 4 Kinetic Harpoon"
+}

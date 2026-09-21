@@ -1,0 +1,21 @@
+{
+  "id": "ophion",
+  "name": "Ophion",
+  "tier": "T4",
+  "faction": "SpaceTech",
+  "role": "Aerial Brawler",
+  "speed": 46,
+  "hp": 92000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Absorber Dragon Flight: Launches into air with impenetrable Absorber shield, firing high-explosive built-in blastcharge projectile salvo."
+}

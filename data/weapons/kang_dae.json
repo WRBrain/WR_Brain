@@ -1,0 +1,12 @@
+{
+  "id": "kang_dae",
+  "name": "Kang Dae",
+  "size": "Heavy",
+  "tier": "T1",
+  "range": 800,
+  "burstDps": 12200,
+  "sustainedDps": 4600,
+  "reload": 6,
+  "family": "Kinetic Sniper",
+  "status": "Tier 1 High-Velocity Kinetic Cannon"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "imugi",
+  "name": "Imugi",
+  "tier": "T4",
+  "faction": "SpaceTech",
+  "role": "Teleport Vanguard",
+  "speed": 48,
+  "hp": 102000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Dragon Portal: Flies stealthily and establishes a two-way teleportation portal for all allied teammates on landing."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "nemesis",
+  "name": "Nemesis",
+  "tier": "T4",
+  "faction": "DSC",
+  "role": "Rapid Retribution",
+  "speed": 45,
+  "hp": 90000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Retribution: Rapid 4-second reload Absorber barrier with heavy homing rocket salvo."
+}

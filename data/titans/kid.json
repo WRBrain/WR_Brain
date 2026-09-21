@@ -1,0 +1,19 @@
+{
+  "id": "kid",
+  "name": "Kid",
+  "tier": "Titan",
+  "role": "Starter Titan",
+  "hp": 330000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Full Action & Stove: Activates heavy Alpha weapon and radiates continuous 360-degree thermal Stove area damage."
+}

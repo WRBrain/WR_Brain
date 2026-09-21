@@ -1,0 +1,12 @@
+{
+  "id": "scourge",
+  "name": "Scourge",
+  "size": "Medium",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 11200,
+  "sustainedDps": 7100,
+  "reload": 5,
+  "family": "Tesla Lock-on",
+  "status": "Tier 3 Guided Lightning Arc"
+}

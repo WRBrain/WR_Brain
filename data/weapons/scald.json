@@ -1,0 +1,12 @@
+{
+  "id": "scald",
+  "name": "Scald",
+  "size": "Light",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 7700,
+  "sustainedDps": 4800,
+  "reload": 5,
+  "family": "Blast Rockets",
+  "status": "Tier 4 Area Blast Rocket"
+}

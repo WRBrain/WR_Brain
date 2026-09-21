@@ -1,0 +1,22 @@
+{
+  "id": "ultimate_ao_ming",
+  "name": "Ultimate Ao Ming",
+  "tier": "Ultimate",
+  "role": "Ultimate Flight Titan",
+  "hp": 540000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Ultimate Dragon Ascendance: Permanent 60% defense resistance during flight, immunity to blind/lockdown, and 100% grey damage restoration."
+}

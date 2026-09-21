@@ -1,0 +1,12 @@
+{
+  "id": "vajra",
+  "name": "Vajra",
+  "size": "Beta",
+  "tier": "T4",
+  "range": 200,
+  "burstDps": 31500,
+  "sustainedDps": 19800,
+  "reload": 5,
+  "family": "Titan Particle Shotgun",
+  "status": "Titan Beta Particle Blast Shotgun"
+}

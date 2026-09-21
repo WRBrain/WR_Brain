@@ -1,0 +1,12 @@
+{
+  "id": "kroko",
+  "name": "Kroko",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 350,
+  "burstDps": 18500,
+  "sustainedDps": 12000,
+  "reload": 5,
+  "family": "Desert Siphon",
+  "status": "Tier 4 Desert Siphon Cannon"
+}

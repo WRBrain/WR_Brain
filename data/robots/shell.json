@@ -1,0 +1,21 @@
+{
+  "id": "shell",
+  "name": "Shell",
+  "tier": "T4",
+  "faction": "DSC",
+  "role": "Explosive Shield Tank",
+  "speed": 45,
+  "hp": 120000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Dreadnought Blast: Accelerates forward with 8 physical shield plates, detonating an area-of-effect 120k blast wave."
+}

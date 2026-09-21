@@ -1,0 +1,12 @@
+{
+  "id": "molot",
+  "name": "Molot",
+  "size": "Light",
+  "tier": "T1",
+  "range": 800,
+  "burstDps": 6400,
+  "sustainedDps": 3900,
+  "reload": 10,
+  "family": "Kinetic Gatlings",
+  "status": "Tier 1 Long-Range Ballistic MG"
+}

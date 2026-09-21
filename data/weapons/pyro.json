@@ -1,0 +1,12 @@
+{
+  "id": "pyro",
+  "name": "Pyro",
+  "size": "Beta",
+  "tier": "T4",
+  "range": 350,
+  "burstDps": 30000,
+  "sustainedDps": 19000,
+  "reload": 5,
+  "family": "Titan Flame",
+  "status": "Titan Beta Napalm Flamethrower"
+}

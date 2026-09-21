@@ -1,0 +1,12 @@
+{
+  "id": "hel",
+  "name": "Hel",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 15000,
+  "sustainedDps": 9500,
+  "reload": 5,
+  "family": "Freeze Lasers",
+  "status": "Tier 4 Continuous Freeze Laser"
+}

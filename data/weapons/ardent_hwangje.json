@@ -1,0 +1,12 @@
+{
+  "id": "ardent_hwangje",
+  "name": "Ardent Hwangje",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 800,
+  "burstDps": 15200,
+  "sustainedDps": 10200,
+  "reload": 0,
+  "family": "Continuous Lasers",
+  "status": "Special Edition Infinite Beam Laser"
+}

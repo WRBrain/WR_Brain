@@ -1,0 +1,12 @@
+{
+  "id": "veyron",
+  "name": "Veyron",
+  "size": "Alpha",
+  "tier": "T4",
+  "range": 200,
+  "burstDps": 44000,
+  "sustainedDps": 28000,
+  "reload": 5,
+  "family": "Titan Acoustic",
+  "status": "Titan Alpha Sonic Acoustic Shotgun"
+}

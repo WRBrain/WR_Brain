@@ -1,0 +1,12 @@
+{
+  "id": "flux",
+  "name": "Flux",
+  "size": "Heavy",
+  "tier": "T3",
+  "range": 1100,
+  "burstDps": 13800,
+  "sustainedDps": 9900,
+  "reload": 0,
+  "family": "Continuous Lasers",
+  "status": "Tier 3 Long-Range Sniper Laser"
+}

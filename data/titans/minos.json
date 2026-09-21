@@ -1,0 +1,19 @@
+{
+  "id": "minos",
+  "name": "Minos",
+  "tier": "Titan",
+  "role": "Charge Brawler",
+  "hp": 370000,
+  "hardpoints": [
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Bull Stampede: 3 consecutive high-velocity dash charges and Reflector shield, knocking enemies across the map."
+}

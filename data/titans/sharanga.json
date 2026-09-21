@@ -1,0 +1,19 @@
+{
+  "id": "sharanga",
+  "name": "Sharanga",
+  "tier": "Titan",
+  "role": "Triple Alpha Sniper",
+  "hp": 350000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Alpha"
+    }
+  ],
+  "ability": "Full Power: Boosts triple Alpha weapon damage by +33% with Phase Exile banishment."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "hellburner",
+  "name": "Hellburner",
+  "tier": "T3",
+  "faction": "Icarus",
+  "role": "Suicide Brawler",
+  "speed": 50,
+  "hp": 110000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Overload: Accelerates into high-speed sprint, detonating a 100k kinetic area explosion upon reaching enemies."
+}

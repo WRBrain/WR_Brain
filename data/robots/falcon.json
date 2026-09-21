@@ -1,0 +1,21 @@
+{
+  "id": "falcon",
+  "name": "Falcon",
+  "tier": "T3",
+  "faction": "EvoLife",
+  "role": "Traditional Tank",
+  "speed": 42,
+  "hp": 120000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Fangs Out: Unlocks 2 auxiliary Heavy weapon wings or trades them for 66% permanent defense resistance (Traditionalist)."
+}

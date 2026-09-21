@@ -1,0 +1,12 @@
+{
+  "id": "pin",
+  "name": "Pin",
+  "size": "Light",
+  "tier": "T1",
+  "range": 500,
+  "burstDps": 6800,
+  "sustainedDps": 3600,
+  "reload": 18,
+  "family": "Blast Rockets",
+  "status": "Tier 1 Light Kinetic Rocket"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "maha_vajra",
+  "name": "Maha-Vajra",
+  "size": "Alpha",
+  "tier": "T4",
+  "range": 200,
+  "burstDps": 42000,
+  "sustainedDps": 26500,
+  "reload": 5,
+  "family": "Titan Particle Shotgun",
+  "status": "Titan Alpha Particle Blast Shotgun"
+}

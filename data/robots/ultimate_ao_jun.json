@@ -1,0 +1,19 @@
+{
+  "id": "ultimate_ao_jun",
+  "name": "Ultimate Ao Jun",
+  "seriesKey": "ao_jun",
+  "tier": "Ultimate",
+  "faction": "SpaceTech",
+  "role": "Ultimate Dragon",
+  "speed": 48,
+  "hp": 125000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Ultimate Dragon Flight: Stealth flight with titanium-melting flamethrower bypassing all reflectors and shields."
+}

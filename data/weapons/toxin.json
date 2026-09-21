@@ -1,0 +1,12 @@
+{
+  "id": "toxin",
+  "name": "Toxin",
+  "size": "Light",
+  "tier": "T4",
+  "range": 300,
+  "burstDps": 8400,
+  "sustainedDps": 5400,
+  "reload": 5,
+  "family": "Corrosive Acid",
+  "status": "Tier 4 Corrosive Acid Stream"
+}

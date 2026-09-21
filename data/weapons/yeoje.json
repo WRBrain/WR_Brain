@@ -1,0 +1,12 @@
+{
+  "id": "yeoje",
+  "name": "Yeoje",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 800,
+  "burstDps": 10500,
+  "sustainedDps": 7100,
+  "reload": 0,
+  "family": "Continuous Lasers",
+  "status": "Tier 4 Infinite Beam Laser"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "ultimate_invader",
+  "name": "Ultimate Invader",
+  "seriesKey": "invader",
+  "tier": "Ultimate",
+  "faction": "SpaceTech",
+  "role": "Ultimate Arachnid",
+  "speed": 42,
+  "hp": 210000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Ultimate Incursion: Heavy jump creating a permanent 80% suppression pulse and regenerating 200k durability."
+}

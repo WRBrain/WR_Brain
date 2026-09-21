@@ -1,0 +1,12 @@
+{
+  "id": "brisant",
+  "name": "Brisant",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 250,
+  "burstDps": 18600,
+  "sustainedDps": 12000,
+  "reload": 5,
+  "family": "Blast Flechette",
+  "status": "Tier 4 Blast Flechette Shotgun"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "luchador",
+  "name": "Luchador",
+  "tier": "Titan",
+  "role": "Brawler Juggernaut",
+  "hp": 450000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Frog Splash & Reflector: High-impact jump slam creating a massive 150k kinetic shockwave with 80% Reflector shield."
+}

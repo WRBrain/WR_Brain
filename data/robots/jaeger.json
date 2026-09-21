@@ -1,0 +1,18 @@
+{
+  "id": "jaeger",
+  "name": "Jaeger",
+  "tier": "T4",
+  "faction": "SpaceTech",
+  "role": "Quad Sniper Railgun",
+  "speed": 44,
+  "hp": 92000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Scout Mode & Solid-Cannon: Sentry mode deploying built-in 1100m high-velocity sniper railgun with 100% defense mitigation."
+}

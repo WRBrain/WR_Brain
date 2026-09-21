@@ -1,0 +1,12 @@
+{
+  "id": "oxy",
+  "name": "Oxy",
+  "size": "Beta",
+  "tier": "T4",
+  "range": 300,
+  "burstDps": 29000,
+  "sustainedDps": 18200,
+  "reload": 6,
+  "family": "Titan Cryo Rockets",
+  "status": "Titan Beta Cryo Blast Rockets"
+}

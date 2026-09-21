@@ -1,0 +1,12 @@
+{
+  "id": "cudgel",
+  "name": "Cudgel",
+  "size": "Light",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 9200,
+  "sustainedDps": 6000,
+  "reload": 5,
+  "family": "Blast Shotguns",
+  "status": "Tier 4 Blast Charge Shotgun"
+}

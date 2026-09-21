@@ -1,0 +1,24 @@
+{
+  "id": "ao_qin",
+  "name": "Ao Qin",
+  "tier": "T2",
+  "faction": "SpaceTech",
+  "role": "Red Dragon",
+  "speed": 44,
+  "hp": 65000,
+  "hardpoints": [
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Dragon Flight: Takes flight unleashing an automatic 350m continuous energy arc."
+}

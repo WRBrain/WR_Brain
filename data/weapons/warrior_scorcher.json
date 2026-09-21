@@ -1,0 +1,12 @@
+{
+  "id": "warrior_scorcher",
+  "name": "Warrior Scorcher",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 12000,
+  "sustainedDps": 7500,
+  "reload": 5,
+  "family": "Blast Rockets",
+  "status": "Special Edition Area Blast Rocket"
+}

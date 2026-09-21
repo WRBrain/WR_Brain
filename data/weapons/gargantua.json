@@ -1,0 +1,12 @@
+{
+  "id": "gargantua",
+  "name": "Gargantua",
+  "size": "Alpha",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 38000,
+  "sustainedDps": 24500,
+  "reload": 0,
+  "family": "Titan Void Siphon",
+  "status": "Titan Alpha Void Siphon Beam"
+}

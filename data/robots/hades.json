@@ -1,0 +1,21 @@
+{
+  "id": "hades",
+  "name": "Hades",
+  "tier": "T4",
+  "faction": "DSC",
+  "role": "Kinetic Retribution",
+  "speed": 43,
+  "hp": 88000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Retribution: Absorber shield with built-in ballistic cannon dealing heavy kinetic impact damage."
+}

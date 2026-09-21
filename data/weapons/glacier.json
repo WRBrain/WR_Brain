@@ -1,0 +1,12 @@
+{
+  "id": "glacier",
+  "name": "Glacier",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 300,
+  "burstDps": 17200,
+  "sustainedDps": 10000,
+  "reload": 6,
+  "family": "Freeze Rockets",
+  "status": "Tier 4 Cryo Explosive Rocket"
+}

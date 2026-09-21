@@ -1,0 +1,12 @@
+{
+  "id": "nashorn",
+  "name": "Nashorn",
+  "size": "Heavy",
+  "tier": "T1",
+  "range": 1100,
+  "burstDps": 11400,
+  "sustainedDps": 4300,
+  "reload": 9,
+  "family": "Kinetic Sniper",
+  "status": "Tier 1 Heavy Ballistic Cannon"
+}

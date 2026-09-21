@@ -1,0 +1,24 @@
+{
+  "id": "hawk",
+  "name": "Hawk",
+  "tier": "T4",
+  "faction": "SpaceTech",
+  "role": "Titan Hunter",
+  "speed": 42,
+  "hp": 82000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Transform & Ray: Takes flight with Reflector shield, firing a titan-melting laser beam that penetrates 100% of defense points."
+}

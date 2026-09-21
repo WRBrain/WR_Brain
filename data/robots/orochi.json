@@ -1,0 +1,18 @@
+{
+  "id": "orochi",
+  "name": "Orochi",
+  "tier": "T4",
+  "faction": "SpaceTech",
+  "role": "Stealth Viper",
+  "speed": 52,
+  "hp": 88000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Viper Strike: Stealth acceleration with 2 charges, deploying built-in corrosive acid rocket pods."
+}

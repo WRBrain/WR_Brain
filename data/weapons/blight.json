@@ -1,0 +1,12 @@
+{
+  "id": "blight",
+  "name": "Blight",
+  "size": "Light",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 8700,
+  "sustainedDps": 5600,
+  "reload": 3,
+  "family": "Radiation",
+  "status": "Tier 4 Radiation Burst Rifle"
+}

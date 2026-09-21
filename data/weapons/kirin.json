@@ -1,0 +1,12 @@
+{
+  "id": "kirin",
+  "name": "Kirin",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 16800,
+  "sustainedDps": 10500,
+  "reload": 5,
+  "family": "Plasma Blaster",
+  "status": "Tier 4 Concentrated Plasma"
+}

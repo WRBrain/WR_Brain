@@ -1,0 +1,12 @@
+{
+  "id": "venom",
+  "name": "Venom",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 300,
+  "burstDps": 12600,
+  "sustainedDps": 8100,
+  "reload": 5,
+  "family": "Corrosive Acid",
+  "status": "Tier 4 Corrosive Acid Stream"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "phantom",
+  "name": "Phantom",
+  "seriesKey": "phantom",
+  "tier": "T4",
+  "faction": "Icarus",
+  "role": "Beacon Runner",
+  "speed": 50,
+  "hp": 95000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Blink: Drops locator beacon, gains +33% speed and +33% defense points, and teleports back on command."
+}

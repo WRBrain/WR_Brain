@@ -1,0 +1,12 @@
+{
+  "id": "tsar",
+  "name": "Tsar",
+  "size": "Alpha",
+  "tier": "T3",
+  "range": 500,
+  "burstDps": 36000,
+  "sustainedDps": 22000,
+  "reload": 5,
+  "family": "Blast Rockets",
+  "status": "Titan Alpha Heavy Explosive Rocket"
+}

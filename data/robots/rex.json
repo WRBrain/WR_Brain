@@ -1,0 +1,24 @@
+{
+  "id": "rex",
+  "name": "Rex",
+  "tier": "T4",
+  "faction": "DSC",
+  "role": "Heavy Juggernaut",
+  "speed": 40,
+  "hp": 148000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Predator Leap: Heavy combat jump generating kinetic suppression shockwave and crushing area damage."
+}

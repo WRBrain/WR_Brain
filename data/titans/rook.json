@@ -1,0 +1,19 @@
+{
+  "id": "rook",
+  "name": "Rook",
+  "tier": "Titan",
+  "role": "Castling Heavy Brawler",
+  "hp": 480000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Castling: Flies across battlefield, slamming into enemy beacons with physical shield regeneration and suppression wave."
+}

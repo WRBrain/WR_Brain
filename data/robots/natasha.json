@@ -1,0 +1,24 @@
+{
+  "id": "natasha",
+  "name": "Natasha",
+  "tier": "T1",
+  "faction": "DSC",
+  "role": "Heavy Artillery",
+  "speed": 34,
+  "hp": 105000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Heavy Firepower: Dual Heavy and dual Light mixed hardpoints."
+}

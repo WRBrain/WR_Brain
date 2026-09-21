@@ -1,0 +1,24 @@
+{
+  "id": "ammit",
+  "name": "Ammit",
+  "tier": "T4",
+  "faction": "Yan-di",
+  "role": "Desert Brawler",
+  "speed": 44,
+  "hp": 130000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Sandstorm Surge: Engages rapid forward rush with sandstorm cloak, reducing enemy accuracy and siphoning durability."
+}

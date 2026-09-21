@@ -1,0 +1,12 @@
+{
+  "id": "gladius",
+  "name": "Gladius",
+  "size": "Light",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 8700,
+  "sustainedDps": 5500,
+  "reload": 5,
+  "family": "Roman Kinetic",
+  "status": "Tier 4 Kinetic Harpoon"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "newton",
+  "name": "Newton",
+  "tier": "Titan",
+  "role": "Telekinesis Sniper Titan",
+  "hp": 370000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Chokehold: Telekinetically lifts enemy robots 100m into the sky, immobilizing them for concentrated allied sniper volleys."
+}

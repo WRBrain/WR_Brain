@@ -1,0 +1,12 @@
+{
+  "id": "puncher",
+  "name": "Puncher",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 18200,
+  "sustainedDps": 10800,
+  "reload": 5,
+  "family": "Lockdown Energy",
+  "status": "Tier 4 Kinetic Lockdown Gatling"
+}

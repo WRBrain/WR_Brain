@@ -1,0 +1,24 @@
+{
+  "id": "bagliore",
+  "name": "Bagliore",
+  "tier": "T4",
+  "faction": "SpaceTech",
+  "role": "Quad Heavy Sniper",
+  "speed": 40,
+  "hp": 122000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Translocation Anchor: Places recall warp beacon, gaining +35% damage mitigation and overcharging quad Heavy weapon mounts."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "skadi",
+  "name": "Skadi",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 11000,
+  "sustainedDps": 7000,
+  "reload": 5,
+  "family": "Freeze Lasers",
+  "status": "Tier 4 Continuous Freeze Laser"
+}

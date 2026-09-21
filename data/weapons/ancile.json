@@ -1,0 +1,12 @@
+{
+  "id": "ancile",
+  "name": "Ancile",
+  "size": "Heavy",
+  "tier": "T2",
+  "range": 0,
+  "burstDps": 0,
+  "sustainedDps": 0,
+  "reload": 0,
+  "family": "Kinetic Shotguns",
+  "status": "Tier 2 Energy Shield Dome Generator"
+}

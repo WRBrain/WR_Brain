@@ -1,0 +1,24 @@
+{
+  "id": "crisis",
+  "name": "Crisis",
+  "tier": "T4",
+  "faction": "Icarus",
+  "role": "Sniper Assassin",
+  "speed": 45,
+  "hp": 75000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Permanent Stealth & Overpower: Permanent stealth while idle; activating Overpower boosts quad-Heavy damage by +30% with built-in Shieldbreaker."
+}

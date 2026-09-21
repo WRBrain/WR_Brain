@@ -1,0 +1,12 @@
+{
+  "id": "murix",
+  "name": "Murix",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 17200,
+  "sustainedDps": 10800,
+  "reload": 7,
+  "family": "Void Energy",
+  "status": "Tier 4 Void Particle Cannon"
+}

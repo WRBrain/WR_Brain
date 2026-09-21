@@ -1,0 +1,21 @@
+{
+  "id": "fury",
+  "name": "Fury",
+  "tier": "T2",
+  "faction": "SpaceTech",
+  "role": "Heavy Sniper",
+  "speed": 33,
+  "hp": 98000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Triple Heavy Platform: Steady triple-heavy artillery battery."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "nuo",
+  "name": "Nuo",
+  "tier": "T4",
+  "faction": "SpaceTech",
+  "role": "Support / Energy Sniper",
+  "speed": 48,
+  "hp": 118000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Skyborn Aegis: Takes flight with sonic speed, generating a dynamic Reflector shield while projecting a high-impact built-in beam cannon."
+}

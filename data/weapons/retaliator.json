@@ -1,0 +1,12 @@
+{
+  "id": "retaliator",
+  "name": "Retaliator",
+  "size": "Beta",
+  "tier": "T1",
+  "range": 500,
+  "burstDps": 26000,
+  "sustainedDps": 16000,
+  "reload": 10,
+  "family": "Kinetic Gatlings",
+  "status": "Titan Beta Medium Kinetic Gatling"
+}

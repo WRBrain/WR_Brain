@@ -1,0 +1,12 @@
+{
+  "id": "subduer",
+  "name": "Subduer",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 18000,
+  "sustainedDps": 11000,
+  "reload": 5,
+  "family": "Rust & Anti-Heal",
+  "status": "Tier 4 Rust Rotary Gun"
+}

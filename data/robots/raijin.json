@@ -1,0 +1,18 @@
+{
+  "id": "raijin",
+  "name": "Raijin",
+  "tier": "T2",
+  "faction": "SpaceTech",
+  "role": "Bastion Tank",
+  "speed": 28,
+  "hp": 130000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Bastion Mode: Raises dual physical shields (+300k HP) and grants +30% weapon damage boost in stationary stance."
+}

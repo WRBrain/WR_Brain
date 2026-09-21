@@ -1,0 +1,12 @@
+{
+  "id": "nanea",
+  "name": "Nanea",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 12600,
+  "sustainedDps": 7900,
+  "reload": 5,
+  "family": "Assault Energy",
+  "status": "Tier 4 Dual-Mode Assault Blaster"
+}

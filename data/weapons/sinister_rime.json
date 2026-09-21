@@ -1,0 +1,12 @@
+{
+  "id": "sinister_rime",
+  "name": "Sinister Rime",
+  "size": "Light",
+  "tier": "T4",
+  "range": 300,
+  "burstDps": 8700,
+  "sustainedDps": 5100,
+  "reload": 6,
+  "family": "Freeze Rockets",
+  "status": "Special Edition Cryo Rocket"
+}

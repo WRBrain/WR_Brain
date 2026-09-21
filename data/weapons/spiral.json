@@ -1,0 +1,12 @@
+{
+  "id": "spiral",
+  "name": "Spiral",
+  "size": "Light",
+  "tier": "T1",
+  "range": 600,
+  "burstDps": 6400,
+  "sustainedDps": 3500,
+  "reload": 12,
+  "family": "Guided Artillery",
+  "status": "Tier 1 Homing Rocket Pod"
+}

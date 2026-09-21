@@ -1,0 +1,12 @@
+{
+  "id": "pantagruel",
+  "name": "Pantagruel",
+  "size": "Beta",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 28000,
+  "sustainedDps": 18000,
+  "reload": 0,
+  "family": "Titan Void Siphon",
+  "status": "Titan Beta Void Siphon Beam"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "uragan",
+  "name": "Uragan",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 800,
+  "burstDps": 11800,
+  "sustainedDps": 7200,
+  "reload": 7,
+  "family": "Guided Artillery",
+  "status": "Tier 4 Indirect Guided Rocket"
+}

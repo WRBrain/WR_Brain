@@ -1,0 +1,12 @@
+{
+  "id": "storm",
+  "name": "Storm",
+  "size": "Medium",
+  "tier": "T2",
+  "range": 500,
+  "burstDps": 10800,
+  "sustainedDps": 6400,
+  "reload": 5,
+  "family": "Kinetic Shotguns",
+  "status": "Tier 2 Kinetic Medium Scattergun"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "pursuer",
+  "name": "Pursuer",
+  "tier": "T3",
+  "faction": "Icarus",
+  "role": "Stealth Hunter",
+  "speed": 56,
+  "hp": 72000,
+  "hardpoints": [
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Hunt: Activates 10 seconds of stealth and +33% speed acceleration."
+}

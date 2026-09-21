@@ -1,0 +1,18 @@
+{
+  "id": "gareth",
+  "name": "Gareth",
+  "tier": "T2",
+  "faction": "Camelot",
+  "role": "Agile Scout Shield",
+  "speed": 52,
+  "hp": 55000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Phalanx Mode: Deploys physical side shield in front while retaining high mobility."
+}

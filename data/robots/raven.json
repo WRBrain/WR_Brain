@@ -1,0 +1,24 @@
+{
+  "id": "raven",
+  "name": "Raven",
+  "tier": "T3",
+  "faction": "SpaceTech",
+  "role": "Double Jump Striker",
+  "speed": 44,
+  "hp": 88000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Double Jump: Performs two consecutive mid-air kinetic leaps, gaining +20% damage buff."
+}

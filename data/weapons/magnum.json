@@ -1,0 +1,12 @@
+{
+  "id": "magnum",
+  "name": "Magnum",
+  "size": "Light",
+  "tier": "T2",
+  "range": 350,
+  "burstDps": 7800,
+  "sustainedDps": 7800,
+  "reload": 0,
+  "family": "Plasma Cannons",
+  "status": "Tier 2 Continuous Energy Cannon"
+}

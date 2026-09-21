@@ -1,0 +1,19 @@
+{
+  "id": "indra",
+  "name": "Indra",
+  "tier": "Titan",
+  "role": "Phase Striker Titan",
+  "hp": 420000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Vipassana: 2 charges of complete invulnerability and speed acceleration, purging all negative status effects with Lasso siphon."
+}

@@ -1,0 +1,22 @@
+{
+  "id": "mender",
+  "name": "Mender",
+  "seriesKey": "mender",
+  "tier": "T4",
+  "faction": "EvoLife",
+  "role": "Combat Medic",
+  "speed": 46,
+  "hp": 88000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Support Pulse: Discharges 3 consecutive healing pulses repair up to 70% Grey Damage and granting +50 DP."
+}

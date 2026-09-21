@@ -1,0 +1,12 @@
+{
+  "id": "hammer",
+  "name": "Hammer",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 18800,
+  "sustainedDps": 12200,
+  "reload": 5,
+  "family": "Blast Shotguns",
+  "status": "Tier 4 Blast Charge Shotgun"
+}

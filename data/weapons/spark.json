@@ -1,0 +1,12 @@
+{
+  "id": "spark",
+  "name": "Spark",
+  "size": "Light",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 7400,
+  "sustainedDps": 4700,
+  "reload": 5,
+  "family": "Tesla Lock-on",
+  "status": "Tier 3 Guided Lightning Arc"
+}

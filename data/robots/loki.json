@@ -1,0 +1,21 @@
+{
+  "id": "loki",
+  "name": "Loki",
+  "tier": "T3",
+  "faction": "Yan-di",
+  "role": "Infinite Stealth Scout",
+  "speed": 57,
+  "hp": 70000,
+  "hardpoints": [
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Recon Stealth: Permanent stealth in reconnaissance mode with high speed, concealing weapon hardpoints until deployed."
+}

@@ -1,0 +1,24 @@
+{
+  "id": "angler",
+  "name": "Angler",
+  "tier": "T4",
+  "faction": "Yan-di",
+  "role": "Close-Quarters Brawler",
+  "speed": 44,
+  "hp": 135000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Electric Shift: Enters invulnerable phase shift while charging blinding electric tendrils that blind all nearby foes upon exit."
+}

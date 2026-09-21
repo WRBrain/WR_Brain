@@ -1,0 +1,12 @@
+{
+  "id": "vengeance",
+  "name": "Vengeance",
+  "size": "Alpha",
+  "tier": "T1",
+  "range": 500,
+  "burstDps": 35000,
+  "sustainedDps": 21500,
+  "reload": 10,
+  "family": "Kinetic Gatlings",
+  "status": "Titan Alpha Heavy Kinetic Gatling"
+}

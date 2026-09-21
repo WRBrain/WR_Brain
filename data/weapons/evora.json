@@ -1,0 +1,12 @@
+{
+  "id": "evora",
+  "name": "Evora",
+  "size": "Beta",
+  "tier": "T4",
+  "range": 200,
+  "burstDps": 32500,
+  "sustainedDps": 20800,
+  "reload": 5,
+  "family": "Titan Acoustic",
+  "status": "Titan Beta Sonic Acoustic Shotgun"
+}

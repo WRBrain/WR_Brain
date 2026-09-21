@@ -1,0 +1,21 @@
+{
+  "id": "demeter",
+  "name": "Demeter",
+  "tier": "T4",
+  "faction": "EvoLife",
+  "role": "Teleport Medic",
+  "speed": 44,
+  "hp": 98000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Apparition: Teleports to damaged ally, projecting a massive Absorber dome that converts absorbed damage into direct healing."
+}

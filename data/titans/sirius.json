@@ -1,0 +1,19 @@
+{
+  "id": "sirius",
+  "name": "Sirius",
+  "tier": "Titan",
+  "role": "Stationary Support Titan",
+  "hp": 380000,
+  "hardpoints": [
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Remote Repair Core: Deploys autonomous sonic healing and acoustic damage turrets with Aegis shield generators."
+}

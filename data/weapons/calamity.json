@@ -1,0 +1,12 @@
+{
+  "id": "calamity",
+  "name": "Calamity",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 15600,
+  "sustainedDps": 9800,
+  "reload": 5,
+  "family": "Tesla Lock-on",
+  "status": "Tier 4 Guided Lightning Arc"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "chimera",
+  "name": "Chimera",
+  "size": "Heavy",
+  "tier": "T3",
+  "range": 600,
+  "burstDps": 13500,
+  "sustainedDps": 7500,
+  "reload": 12,
+  "family": "Guided Artillery",
+  "status": "Tier 3 Homing Rocket Pod"
+}

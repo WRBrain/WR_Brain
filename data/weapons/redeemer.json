@@ -1,0 +1,12 @@
+{
+  "id": "redeemer",
+  "name": "Redeemer",
+  "size": "Heavy",
+  "tier": "T4",
+  "range": 350,
+  "burstDps": 17500,
+  "sustainedDps": 11400,
+  "reload": 5,
+  "family": "Plasma Cannons",
+  "status": "Tier 4 Heavy Plasma Cannon"
+}

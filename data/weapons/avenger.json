@@ -1,0 +1,12 @@
+{
+  "id": "avenger",
+  "name": "Avenger",
+  "size": "Heavy",
+  "tier": "T3",
+  "range": 500,
+  "burstDps": 16200,
+  "sustainedDps": 9600,
+  "reload": 10,
+  "family": "Kinetic Gatlings",
+  "status": "Tier 3 Accelerating Heavy MG"
+}

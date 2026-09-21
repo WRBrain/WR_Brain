@@ -1,0 +1,12 @@
+{
+  "id": "smite",
+  "name": "Smite",
+  "size": "Light",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 8400,
+  "sustainedDps": 5200,
+  "reload": 5,
+  "family": "Homing Bending MG",
+  "status": "Special Edition Curved Trajectory MG"
+}

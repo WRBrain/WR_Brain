@@ -1,0 +1,24 @@
+{
+  "id": "typhon",
+  "name": "Typhon",
+  "tier": "T4",
+  "faction": "DSC",
+  "role": "Mid-range Suppressor",
+  "speed": 45,
+  "hp": 88000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Blackout 2.0: Fires 3 homing bio-electronic darts that inflict EMP, Lockdown, and -50% Suppression simultaneously."
+}

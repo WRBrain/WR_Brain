@@ -1,0 +1,12 @@
+{
+  "id": "viper",
+  "name": "Viper",
+  "size": "Heavy",
+  "tier": "T3",
+  "range": 500,
+  "burstDps": 15500,
+  "sustainedDps": 9200,
+  "reload": 10,
+  "family": "Corrosive Acid",
+  "status": "Tier 3 Corrosive Kinetic MG"
+}

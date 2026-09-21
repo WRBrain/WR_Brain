@@ -1,0 +1,21 @@
+{
+  "id": "pathfinder",
+  "name": "Pathfinder",
+  "tier": "T4",
+  "faction": "Icarus",
+  "role": "Tactical Support",
+  "speed": 46,
+  "hp": 115000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Track & Hunt: Marks target enemies; upon takedown grants cumulative permanent team-wide damage buffs and direct durability regeneration."
+}

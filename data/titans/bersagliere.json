@@ -1,0 +1,19 @@
+{
+  "id": "bersagliere",
+  "name": "Bersagliere",
+  "tier": "Titan",
+  "role": "Sniper Siege Titan",
+  "hp": 360000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Hyper-Velocity Rail: Activates built-in railgun delivering 450k kinetic damage with 100% defense mitigation and 1100m range."
+}

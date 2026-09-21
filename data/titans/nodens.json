@@ -1,0 +1,22 @@
+{
+  "id": "nodens",
+  "name": "Nodens",
+  "tier": "Titan",
+  "role": "Quad Support Medic",
+  "hp": 355000,
+  "hardpoints": [
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Mending Links: Projects 3 simultaneous infinite-range healing tethers to allies while suppressing target enemies by 50%."
+}

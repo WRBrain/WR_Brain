@@ -1,0 +1,25 @@
+{
+  "id": "ultimate_leech",
+  "name": "Ultimate Leech",
+  "seriesKey": "leech",
+  "tier": "Ultimate",
+  "faction": "DSC",
+  "role": "Ultimate Repulse",
+  "speed": 54,
+  "hp": 120000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Ultimate Repulse: 95% damage resistance while reflecting 50% damage back to target with Grey Damage cleanse."
+}

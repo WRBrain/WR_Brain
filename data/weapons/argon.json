@@ -1,0 +1,12 @@
+{
+  "id": "argon",
+  "name": "Argon",
+  "size": "Alpha",
+  "tier": "T4",
+  "range": 300,
+  "burstDps": 40000,
+  "sustainedDps": 25000,
+  "reload": 6,
+  "family": "Titan Cryo Rockets",
+  "status": "Titan Alpha Cryo Blast Rockets"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "ares",
+  "name": "Ares",
+  "seriesKey": "ares",
+  "tier": "T4",
+  "faction": "DSC",
+  "role": "Absorber Vanguard",
+  "speed": 44,
+  "hp": 80000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Retribution: Projects impenetrable Absorber barrier and unleashes a barrage of built-in Retaliator energy cannons."
+}

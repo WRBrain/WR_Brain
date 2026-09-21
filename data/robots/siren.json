@@ -1,0 +1,21 @@
+{
+  "id": "siren",
+  "name": "Siren",
+  "tier": "T4",
+  "faction": "DSC",
+  "role": "Mid-range Area Denial",
+  "speed": 42,
+  "hp": 92000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Snowstorm Jump: Translocates into air generating Reflector shield and dropping an icy blizzard that freezes enemy clusters."
+}

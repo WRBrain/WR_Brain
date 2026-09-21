@@ -1,0 +1,22 @@
+{
+  "id": "fujin",
+  "name": "Fujin",
+  "seriesKey": "fujin",
+  "tier": "T2",
+  "faction": "SpaceTech",
+  "role": "Sentry Ancile",
+  "speed": 38,
+  "hp": 75000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Sentry Mode: Deploys stationary tripod stance with regenerating Ancile energy dome."
+}

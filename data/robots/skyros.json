@@ -1,0 +1,21 @@
+{
+  "id": "skyros",
+  "name": "Skyros",
+  "tier": "T4",
+  "faction": "Icarus",
+  "role": "Rolling Juggernaut",
+  "speed": 50,
+  "hp": 135000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Light"
+    }
+  ],
+  "ability": "Ball Mode: Rolls at 85 km/h with +500 Defense Points (85% damage resistance) and anti-blast kinetic shielding."
+}

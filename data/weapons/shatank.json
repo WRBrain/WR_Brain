@@ -1,0 +1,12 @@
+{
+  "id": "shatank",
+  "name": "Shatank",
+  "size": "Light",
+  "tier": "T4",
+  "range": 500,
+  "burstDps": 8400,
+  "sustainedDps": 5300,
+  "reload": 5,
+  "family": "Plasma Blaster",
+  "status": "Tier 4 Concentrated Plasma"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "leech",
+  "name": "Leech",
+  "seriesKey": "leech",
+  "tier": "T4",
+  "faction": "DSC",
+  "role": "Damage Redirector",
+  "speed": 48,
+  "hp": 85000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Repulse: Tethers target, gaining 90% damage resistance while redirecting 35% of incoming damage directly to target."
+}

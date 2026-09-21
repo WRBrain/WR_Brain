@@ -1,0 +1,22 @@
+{
+  "id": "ultimate_fenrir",
+  "name": "Ultimate Fenrir",
+  "seriesKey": "fenrir",
+  "tier": "Ultimate",
+  "faction": "EvoLife",
+  "role": "Ultimate Tank",
+  "speed": 48,
+  "hp": 210000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Ultimate Shapeshift: Permanent 65% Defense Point resistance (+185 DP) and continuous unhealable grey damage auto-repair."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "tonans",
+  "name": "Tonans",
+  "size": "Alpha",
+  "tier": "T4",
+  "range": 800,
+  "burstDps": 46000,
+  "sustainedDps": 26500,
+  "reload": 6,
+  "family": "Titan Lightning Railgun",
+  "status": "Titan Alpha Lightning Railgun"
+}

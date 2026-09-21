@@ -1,0 +1,19 @@
+{
+  "id": "bedwyr",
+  "name": "Bedwyr",
+  "tier": "Titan",
+  "role": "Bastion Tank Titan",
+  "hp": 520000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Unbreakable Barrier: Deploys indestructible Absorber barrier, taunting enemy lock-ons while charging a retaliatory kinetic shockwave."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "curie",
+  "name": "Curie",
+  "tier": "T4",
+  "faction": "Yan-di",
+  "role": "Combat Turret Specialist",
+  "speed": 45,
+  "hp": 125000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Heavy"
+    }
+  ],
+  "ability": "Automated Turret Deploy: Drops 2 autonomous plasma turrets with 600m range, gaining bonus temporary durability (+150k) and speed acceleration."
+}

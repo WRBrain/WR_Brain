@@ -1,0 +1,21 @@
+{
+  "id": "inquisitor",
+  "name": "Inquisitor",
+  "tier": "T3",
+  "faction": "SpaceTech",
+  "role": "Stealth Jump Brawler",
+  "speed": 40,
+  "hp": 88000,
+  "hardpoints": [
+    {
+      "size": "Heavy"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Descend: Stealth jump thrusters granting stealth during flight and for 5 seconds after landing."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "urhag",
+  "name": "Urhag",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 1100,
+  "burstDps": 12400,
+  "sustainedDps": 7800,
+  "reload": 5,
+  "family": "Plasma Sniper",
+  "status": "Tier 4 1100m Plasma Sniper"
+}

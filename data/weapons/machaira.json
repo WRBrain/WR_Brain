@@ -1,0 +1,12 @@
+{
+  "id": "machaira",
+  "name": "Machaira",
+  "size": "Light",
+  "tier": "T4",
+  "range": 250,
+  "burstDps": 9800,
+  "sustainedDps": 6200,
+  "reload": 5,
+  "family": "Kinetic Blade",
+  "status": "Tier 4 Kinetic Flechette"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "chione",
+  "name": "Chione",
+  "size": "Light",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 7600,
+  "sustainedDps": 5000,
+  "reload": 7,
+  "family": "Blast Sniper",
+  "status": "Tier 4 Blast Sniper"
+}

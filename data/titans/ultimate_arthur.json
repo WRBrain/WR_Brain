@@ -1,0 +1,19 @@
+{
+  "id": "ultimate_arthur",
+  "name": "Ultimate Arthur",
+  "tier": "Ultimate",
+  "role": "Ultimate Shield Titan",
+  "hp": 620000,
+  "hardpoints": [
+    {
+      "size": "Alpha"
+    },
+    {
+      "size": "Beta"
+    },
+    {
+      "size": "Beta"
+    }
+  ],
+  "ability": "Ultimate Phalanx: 2,500,000 HP physical shield with continuous 360-degree EMP discharge and +40% weapon damage."
+}

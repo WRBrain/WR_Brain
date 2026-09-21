@@ -1,0 +1,12 @@
+{
+  "id": "krait",
+  "name": "Krait",
+  "size": "Beta",
+  "tier": "T3",
+  "range": 500,
+  "burstDps": 27500,
+  "sustainedDps": 17000,
+  "reload": 5,
+  "family": "Corrosive Acid",
+  "status": "Titan Beta Corrosive Acid Cannon"
+}

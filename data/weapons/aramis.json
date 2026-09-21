@@ -1,0 +1,12 @@
+{
+  "id": "aramis",
+  "name": "Aramis",
+  "size": "Light",
+  "tier": "T4",
+  "range": 350,
+  "burstDps": 8900,
+  "sustainedDps": 5800,
+  "reload": 5,
+  "family": "Life-Drain Musketeer",
+  "status": "Tier 4 Kinetic Siphon Brawler"
+}

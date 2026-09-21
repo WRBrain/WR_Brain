@@ -1,0 +1,24 @@
+{
+  "id": "fafnir",
+  "name": "Fafnir",
+  "tier": "T4",
+  "faction": "SpaceTech",
+  "role": "Flight Brawler",
+  "speed": 42,
+  "hp": 95000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Dragon Flight: Ascends into flight, deploying built-in shieldbreaker breath cannon with Absorber shield."
+}

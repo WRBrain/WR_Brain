@@ -1,0 +1,12 @@
+{
+  "id": "morana",
+  "name": "Morana",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 600,
+  "burstDps": 11200,
+  "sustainedDps": 7400,
+  "reload": 7,
+  "family": "Blast Sniper",
+  "status": "Tier 4 Blast Sniper"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "igniter",
+  "name": "Igniter",
+  "size": "Medium",
+  "tier": "T4",
+  "range": 350,
+  "burstDps": 13000,
+  "sustainedDps": 8500,
+  "reload": 5,
+  "family": "Flamethrowers",
+  "status": "Tier 4 Continuous Napalm"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "spectre",
+  "name": "Spectre",
+  "seriesKey": "spectre",
+  "tier": "T3",
+  "faction": "SpaceTech",
+  "role": "Glass Cannon",
+  "speed": 45,
+  "hp": 68000,
+  "hardpoints": [
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    },
+    {
+      "size": "Medium"
+    }
+  ],
+  "ability": "Glide & Stealth: Mid-air jump with 5 seconds of stealth on landing with quad medium firepower."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "dunamis",
+  "name": "Dunamis",
+  "size": "Light",
+  "tier": "T4",
+  "range": 800,
+  "burstDps": 7900,
+  "sustainedDps": 4800,
+  "reload": 7,
+  "family": "Guided Artillery",
+  "status": "Tier 4 Indirect Guided Rocket"
+}

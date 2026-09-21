@@ -1,0 +1,12 @@
+{
+  "id": "neon_machaira",
+  "name": "Neon Machaira",
+  "size": "Light",
+  "tier": "T4",
+  "range": 250,
+  "burstDps": 10300,
+  "sustainedDps": 6500,
+  "reload": 5,
+  "family": "Kinetic Blade",
+  "status": "Special Edition Kinetic Flechette"
+}

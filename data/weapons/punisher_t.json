@@ -1,0 +1,12 @@
+{
+  "id": "punisher_t",
+  "name": "Punisher T",
+  "size": "Medium",
+  "tier": "T1",
+  "range": 500,
+  "burstDps": 11000,
+  "sustainedDps": 6600,
+  "reload": 10,
+  "family": "Kinetic Gatlings",
+  "status": "Tier 1 Accelerating Medium MG"
+}
