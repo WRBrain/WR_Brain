@@ -1387,7 +1387,7 @@ window.openAddCatalogModal = function(type) {
       else AppState.reserveMotherships.push({ id: m.id, name: m.name, level: m.level || 'Lv 60', tier: m.tier || 'T4', effect: m.effect, count: 1 });
       hangar.mothership = null;
       saveState();
-      renderHangar(hangarKey, `${hangarKey}-grid`);
+      renderHangar(hangarKey);
     };
 
     window.equipMothershipDirect = function(shipId, level, fromInventory) {
@@ -1415,7 +1415,7 @@ window.openAddCatalogModal = function(type) {
       hangar.mothership = { id: mm.id, name: mm.name, level: level || "Lv 60", tier: mm.tier || "T4", effect: mm.effect };
       saveState();
       closeModal('catalog-modal');
-      renderHangar(activeEquipTarget.hangarKey, `${activeEquipTarget.hangarKey}-grid`);
+      renderHangar(activeEquipTarget.hangarKey);
     };
 
     window.openEquipPilotModal = function(hangarKey, slotIndex) {
@@ -1437,7 +1437,7 @@ window.openAddCatalogModal = function(type) {
       else AppState.reservePilots.push({ id: p.id, name: p.name, bot: p.bot, level: p.level, tier: p.tier, skill: p.skill, skills: p.skills || [], count: 1 });
       delete slot.pilot;
       saveState();
-      renderHangar(hangarKey, `${hangarKey}-grid`);
+      renderHangar(hangarKey);
     };
 
     window.equipPilotDirect = function(pilotId, level, fromInventory) {
@@ -1478,7 +1478,7 @@ window.openAddCatalogModal = function(type) {
       };
       saveState();
       closeModal('catalog-modal');
-      renderHangar(activeEquipTarget.hangarKey, `${activeEquipTarget.hangarKey}-grid`);
+      renderHangar(activeEquipTarget.hangarKey);
     };
 
     // --- PILOT SKILLS MANAGER SYSTEM ---
@@ -1713,7 +1713,7 @@ window.openAddCatalogModal = function(type) {
       closeModal('pilot-skills-modal');
 
       if (activePilotSkillsTarget.hangarKey) {
-        renderHangar(activePilotSkillsTarget.hangarKey, `${activePilotSkillsTarget.hangarKey}-grid`);
+        renderHangar(activePilotSkillsTarget.hangarKey);
         if (currentAuditHangar === activePilotSkillsTarget.hangarKey) runAudit(activePilotSkillsTarget.hangarKey);
       } else {
         renderStorage();
@@ -1753,7 +1753,7 @@ window.openAddCatalogModal = function(type) {
       }
 
       saveState();
-      renderHangar(hangarKey, `${hangarKey}-grid`);
+      renderHangar(hangarKey);
       if (currentAuditHangar === hangarKey) runAudit(hangarKey);
     };
 

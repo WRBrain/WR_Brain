@@ -397,6 +397,7 @@ let AppState = (function() {
     };
 
     window.renameActiveHangar = function(hangarKey) {
+      if (!hangarKey) hangarKey = currentActiveHangarKey;
       const h = AppState.hangars[hangarKey];
       if (!h) return;
       const newName = prompt("Enter new name for this Hangar Deck:", h.name);
