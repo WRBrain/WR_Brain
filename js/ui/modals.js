@@ -273,50 +273,12 @@ window.openAddCatalogModal = function(type) {
 
       const search = (document.getElementById('weapon-picker-search')?.value || '').toLowerCase();
       const targetSize = (activeEquipTarget.size || 'Heavy').toLowerCase();
+      const isTitan = !!activeEquipTarget.isTitan;
+      const levelsArray = isTitan ? TITAN_WEAPON_LEVELS : BOT_LEVELS;
+      const multType = isTitan ? 'titan_weapon' : 'bot_or_weapon';
       container.innerHTML = "";
 
-      // 1. From Storage
-      const storageWeapons = (AppState.reserveWeapons && AppState.reserveWeapons[targetSize]) ? AppState.reserveWeapons[targetSize] : [];
-      const filteredStorage = storageWeapons.filter(w => {
-        if (!w) return false;
-        const name = (w.name || w.id || '').toLowerCase();
-        const matchesSearch = name.includes(search);
-        const matchesTier = activeWeaponPickerTier === 'ALL' || (w.tier === activeWeaponPickerTier);
-        return matchesSearch && matchesTier;
-      });
-
-      if (filteredStorage.length > 0) {
-        container.innerHTML += `<div class="text-[11px] font-black text-amber-400 uppercase tracking-widest pt-1">📦 From Your Storage Inventory</div>`;
-        filteredStorage.forEach(w => {
-          const mw = MASTER_WEAPONS.find(item => item.id === w.id);
-          const name = w.name || mw?.name || w.id;
-          const tier = w.tier || mw?.tier || 'T4';
-          const range = mw ? (mw.range || 500) : 500;
-          const family = mw ? (mw.family || 'Arsenal') : 'Arsenal';
-          const burstDps = mw ? Math.round(mw.burstDps || 0) : 20000;
-          container.innerHTML += `
-            <div onclick="equipWeaponDirect('${w.id}', '${w.level || 'Lv 1'}', true)" class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#161f2e] border border-[#263040] hover:border-amber-500/80 rounded-xl text-xs transition-all cursor-pointer group">
-              <div>
-                <div class="flex items-center gap-2">
-                  <span class="badge-${tier.toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${tier}</span>
-                  <span class="font-bold text-white text-sm group-hover:text-amber-300 transition-colors">${name}</span>
-                  <span class="text-amber-400 font-mono text-[11px]">(${w.level || 'Lv 1'})</span>
-                  <span class="text-gray-400 text-[10px]">x${w.count || 1} Available</span>
-                </div>
-                <span class="text-gray-400 text-[11px] block mt-0.5">${range}m • ${family} • ${burstDps.toLocaleString()} Base Burst</span>
-              </div>
-              <div class="flex items-center gap-1.5">
-                ${mw ? `<button onclick="event.stopPropagation(); inspectWeaponVariants('${mw.id}')" class="text-[11px] text-amber-400 hover:underline px-2 py-1">Variants</button>` : ''}
-                <button onclick="event.stopPropagation(); equipWeaponDirect('${w.id}', '${w.level || 'Lv 1'}', true)" class="px-3.5 py-1.5 text-xs font-black rounded-lg bg-amber-500 hover:bg-amber-400 text-black shadow transition-all hover:scale-105">
-                  ⚡ Equip
-                </button>
-              </div>
-            </div>
-          `;
-        });
-      }
-
-      // 2. From Master Catalog
+      // All matching weapons from Master Catalog for this hardpoint mount size
       const allMatching = (typeof MASTER_WEAPONS !== 'undefined' ? MASTER_WEAPONS : []).filter(w => (w.size || '').toLowerCase() === targetSize);
       const filteredCatalog = allMatching.filter(w => {
         if (!w) return false;
@@ -329,29 +291,74 @@ window.openAddCatalogModal = function(type) {
 
       if (countBadge) countBadge.innerText = `${filteredCatalog.length} Compatible Weapons`;
 
-      container.innerHTML += `<div class="text-[11px] font-black text-gray-400 uppercase tracking-widest pt-2">🔫 Complete WR Armory Codex</div>`;
+      if (filteredCatalog.length === 0) {
+        container.innerHTML = `
+          <div class="p-8 text-center text-gray-500 text-xs">
+            No compatible ${activeEquipTarget.size} weapons match your search query.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML += `<div class="text-[11px] font-black text-amber-400 uppercase tracking-widest pt-1 flex items-center justify-between">
+        <span>🔫 Select Any Weapon to Equip</span>
+        <span class="text-[10px] text-gray-400 font-normal">Choose level & test DPS live</span>
+      </div>`;
+
       filteredCatalog.forEach(mw => {
         const tier = mw.tier || 'T4';
-        const burstDps = Math.round(mw.burstDps || 0);
+        const defaultLevel = 'Lv 1';
+        const mult = getLevelMultiplier(defaultLevel, multType);
+        const burstDps = Math.round((mw.burstDps || 0) * mult);
+        const cycleDps = Math.round((mw.sustainedDps || 0) * mult);
+
+        const levelOptionsHtml = levelsArray.map(lvl => `<option value="${lvl}" ${lvl === defaultLevel ? 'selected' : ''}>${lvl}</option>`).join('');
+
         container.innerHTML += `
-          <div onclick="equipWeaponDirect('${mw.id}', 'Lv 1', false)" class="flex items-center justify-between p-3 bg-[#080c14] hover:bg-[#131b29] border border-[#263040] hover:border-amber-500/80 rounded-xl text-xs transition-all cursor-pointer group">
-            <div>
-              <div class="flex items-center gap-2">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 bg-[#080c14] hover:bg-[#131b29] border border-[#263040] hover:border-amber-500/80 rounded-xl text-xs transition-all gap-3 group">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2 flex-wrap">
                 <span class="badge-${tier.toLowerCase()} text-[9px] font-black px-1.5 py-0.2 rounded uppercase">${tier}</span>
                 <span class="font-bold text-white text-sm group-hover:text-amber-300 transition-colors">${mw.name}</span>
-                <span class="text-blue-400 font-mono text-[11px]">${mw.range || 500}m</span>
+                <span class="text-blue-400 font-mono text-[11px] font-bold">${mw.range || 500}m</span>
+                <span class="text-gray-400 text-[11px]">${mw.family || 'Arsenal'}</span>
               </div>
-              <span class="text-gray-400 text-[11px] block mt-0.5">${mw.family || 'Arsenal'} • <strong class="text-red-400">${burstDps.toLocaleString()} Burst DPS</strong> ${mw.status ? `• <span class="text-amber-300 font-semibold">${mw.status}</span>` : ''}</span>
+              <div class="flex items-center gap-3 text-[11px] text-gray-300">
+                <span>Burst: <strong class="text-red-400 font-mono" id="wp-card-burst-${mw.id}">${burstDps.toLocaleString()} DPS</strong></span>
+                <span>Cycle: <strong class="text-amber-400 font-mono" id="wp-card-cycle-${mw.id}">${cycleDps.toLocaleString()} DPS</strong></span>
+                <span class="text-gray-400">Reload: <strong class="text-emerald-400 font-mono">${mw.reloadTime || (mw.reload ? mw.reload + 's' : '5s')}</strong></span>
+              </div>
+              ${mw.status ? `<span class="text-[10px] text-amber-300/90 font-medium block">${mw.status}</span>` : ''}
             </div>
-            <div class="flex items-center gap-1.5">
-              <button onclick="event.stopPropagation(); inspectWeaponVariants('${mw.id}')" class="text-[11px] text-amber-400 hover:underline px-2 py-1">Variants</button>
-              <button onclick="event.stopPropagation(); equipWeaponDirect('${mw.id}', 'Lv 1', false)" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-[#161f2e] group-hover:bg-amber-500 group-hover:text-black hover:bg-amber-500 hover:text-black text-gray-200 border border-[#263040] transition-all hover:scale-105">
-                ⚡ Equip (Lv 1)
+
+            <div class="flex items-center gap-2 shrink-0 justify-end">
+              <!-- Inline Level Selector -->
+              <select id="wp-select-lvl-${mw.id}" onchange="updateWeaponCardDpsPreview('${mw.id}', this.value, ${isTitan})" class="bg-[#111620] text-amber-400 font-bold font-mono text-xs rounded-lg px-2.5 py-1.5 border border-[#263040] focus:border-amber-500 focus:outline-none cursor-pointer">
+                ${levelOptionsHtml}
+              </select>
+
+              <button onclick="event.stopPropagation(); inspectWeaponVariants('${mw.id}')" class="text-xs text-amber-400/80 hover:text-amber-300 px-2 py-1 hover:underline">
+                Variants
+              </button>
+
+              <button onclick="event.stopPropagation(); equipWeaponDirect('${mw.id}', document.getElementById('wp-select-lvl-${mw.id}')?.value || 'Lv 1', false)" class="px-4 py-1.5 text-xs font-black rounded-lg bg-amber-500 hover:bg-amber-400 text-black shadow-lg shadow-amber-500/20 transition-all hover:scale-105 active:scale-95 flex items-center gap-1.5">
+                ⚡ Equip
               </button>
             </div>
           </div>
         `;
       });
+    };
+
+    window.updateWeaponCardDpsPreview = function(weaponId, level, isTitan) {
+      const mw = MASTER_WEAPONS.find(w => w.id === weaponId);
+      if (!mw) return;
+      const multType = isTitan ? 'titan_weapon' : 'bot_or_weapon';
+      const mult = getLevelMultiplier(level, multType);
+      const burstEl = document.getElementById(`wp-card-burst-${weaponId}`);
+      const cycleEl = document.getElementById(`wp-card-cycle-${weaponId}`);
+      if (burstEl) burstEl.innerText = `${Math.round((mw.burstDps || 0) * mult).toLocaleString()} DPS`;
+      if (cycleEl) cycleEl.innerText = `${Math.round((mw.sustainedDps || 0) * mult).toLocaleString()} DPS`;
     };
 
     // =========================================================================
@@ -2087,16 +2094,9 @@ window.openAddCatalogModal = function(type) {
       }
     };
 
-    window.equipWeaponDirect = function(weaponId, level, fromInventory) {
+    window.equipWeaponDirect = function(weaponId, level) {
       if (!activeEquipTarget) return;
       let master = (typeof MASTER_WEAPONS !== 'undefined' ? MASTER_WEAPONS.find(w => w.id === weaponId) : null);
-      if (!master && fromInventory) {
-        const cat = (activeEquipTarget?.size || 'Heavy').toLowerCase();
-        const stored = (AppState.reserveWeapons && AppState.reserveWeapons[cat]) ? AppState.reserveWeapons[cat].find(w => w.id === weaponId) : null;
-        if (stored) {
-          master = { id: stored.id, name: stored.name || stored.id, size: activeEquipTarget?.size || 'Heavy', tier: stored.tier || 'T4' };
-        }
-      }
       if (!master) {
         master = { id: weaponId, name: String(weaponId).replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), size: activeEquipTarget?.size || 'Heavy', tier: 'T4' };
       }
@@ -2110,49 +2110,24 @@ window.openAddCatalogModal = function(type) {
         const titanSlot = AppState.hangars[hangarKey]?.titanSlot;
         if (!titanSlot) return;
         if (!titanSlot.weapons) titanSlot.weapons = [];
-        const current = titanSlot.weapons[hardpointIndex];
-
-        if (current && current.id) {
-          const curMaster = MASTER_WEAPONS.find(w => w.id === current.id);
-          const cat = ((current.size || curMaster?.size || activeEquipTarget.size || 'Alpha')).toLowerCase();
-          if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
-          if (!AppState.reserveWeapons[cat]) AppState.reserveWeapons[cat] = [];
-          const ex = AppState.reserveWeapons[cat].find(w => w.id === current.id && w.level === current.level);
-          if (ex) ex.count++;
-          else AppState.reserveWeapons[cat].push({ id: current.id, name: current.name || curMaster?.name, tier: current.tier || curMaster?.tier || 'T4', level: current.level || 'Lv 1', count: 1 });
-        }
-
-        if (fromInventory) {
-          const cat = (master.size || activeEquipTarget.size || 'Alpha').toLowerCase();
-          if (AppState.reserveWeapons && AppState.reserveWeapons[cat]) {
-            const idx = AppState.reserveWeapons[cat].findIndex(w => w.id === weaponId && (w.level === level || (!w.level && level === 'Lv 1')));
-            if (idx !== -1) {
-              if (AppState.reserveWeapons[cat][idx].count > 1) AppState.reserveWeapons[cat][idx].count--;
-              else AppState.reserveWeapons[cat].splice(idx, 1);
-            }
-          }
-        }
 
         while (titanSlot.weapons.length <= hardpointIndex) {
           titanSlot.weapons.push(null);
         }
 
-        titanSlot.weapons[hardpointIndex] = { id: master.id, name: master.name, size: master.size || activeEquipTarget.size || 'Alpha', level: level || 'Lv 1', tier: master.tier || 'T4' };
+        titanSlot.weapons[hardpointIndex] = { 
+          id: master.id, 
+          name: master.name, 
+          size: master.size || activeEquipTarget.size || 'Alpha', 
+          level: level || 'Lv 1', 
+          tier: master.tier || 'T4' 
+        };
         saveState();
         closeModal('weapon-picker-modal');
-        if (typeof renderHangar === 'function') {
-          renderHangar(hangarKey, 'hangar-active-grid');
-        }
-        if (typeof renderHangarDeckSelector === 'function') {
-          renderHangarDeckSelector();
-        }
-        if (typeof renderAll === 'function') {
-          renderAll();
-        }
-        if (typeof renderHome === 'function') {
-          renderHome();
-        }
-        if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
+        if (typeof renderHangar === 'function') renderHangar(hangarKey, 'hangar-active-grid');
+        if (typeof renderHangarDeckSelector === 'function') renderHangarDeckSelector();
+        if (typeof renderAll === 'function') renderAll();
+        if (typeof renderHome === 'function') renderHome();
         return;
       }
 
@@ -2163,66 +2138,32 @@ window.openAddCatalogModal = function(type) {
       if (!slot) return;
       if (!slot.weapons) slot.weapons = [];
 
-      const current = slot.weapons[hardpointIndex];
-      if (current && current.id) {
-        const curMaster = MASTER_WEAPONS.find(w => w.id === current.id);
-        const cat = ((current.size || curMaster?.size || activeEquipTarget.size || 'Heavy')).toLowerCase();
-        if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
-        if (!AppState.reserveWeapons[cat]) AppState.reserveWeapons[cat] = [];
-        const ex = AppState.reserveWeapons[cat].find(w => w.id === current.id && w.level === current.level);
-        if (ex) ex.count++;
-        else AppState.reserveWeapons[cat].push({ id: current.id, name: current.name || curMaster?.name, tier: current.tier || curMaster?.tier || 'T4', level: current.level || 'Lv 1', count: 1 });
-      }
-
-      if (fromInventory) {
-        const cat = (master.size || activeEquipTarget.size || 'Heavy').toLowerCase();
-        if (AppState.reserveWeapons && AppState.reserveWeapons[cat]) {
-          const idx = AppState.reserveWeapons[cat].findIndex(w => w.id === weaponId && (w.level === level || (!w.level && level === 'Lv 1')));
-          if (idx !== -1) {
-            if (AppState.reserveWeapons[cat][idx].count > 1) AppState.reserveWeapons[cat][idx].count--;
-            else AppState.reserveWeapons[cat].splice(idx, 1);
-          }
-        }
-      }
-
       while (slot.weapons.length <= hardpointIndex) {
         slot.weapons.push(null);
       }
 
-      slot.weapons[hardpointIndex] = { id: master.id, name: master.name, size: master.size || activeEquipTarget.size || 'Heavy', level: level || 'Lv 1', tier: master.tier || 'T4' };
+      slot.weapons[hardpointIndex] = { 
+        id: master.id, 
+        name: master.name, 
+        size: master.size || activeEquipTarget.size || 'Heavy', 
+        level: level || 'Lv 1', 
+        tier: master.tier || 'T4' 
+      };
       saveState();
       closeModal('weapon-picker-modal');
-      if (typeof renderHangar === 'function') {
-        renderHangar(hangarKey, 'hangar-active-grid');
-      }
-      if (typeof renderHangarDeckSelector === 'function') {
-        renderHangarDeckSelector();
-      }
-      if (typeof renderAll === 'function') {
-        renderAll();
-      }
-      if (typeof renderHome === 'function') {
-        renderHome();
-      }
-      if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
+      if (typeof renderHangar === 'function') renderHangar(hangarKey, 'hangar-active-grid');
+      if (typeof renderHangarDeckSelector === 'function') renderHangarDeckSelector();
+      if (typeof renderAll === 'function') renderAll();
+      if (typeof renderHome === 'function') renderHome();
     };
 
     window.unequipWeapon = function(hangarKey, slotIndex, hardpointIndex) {
       const slot = AppState.hangars[hangarKey]?.slots[slotIndex];
       if (!slot || !slot.weapons) return;
-      const w = slot.weapons[hardpointIndex];
-      if (w && w.id) {
-        const mw = MASTER_WEAPONS.find(item => item.id === w.id);
-        const cat = ((w.size || mw?.size || 'Heavy')).toLowerCase();
-        if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
-        if (!AppState.reserveWeapons[cat]) AppState.reserveWeapons[cat] = [];
-        const ex = AppState.reserveWeapons[cat].find(item => item.id === w.id && item.level === w.level);
-        if (ex) ex.count++;
-        else AppState.reserveWeapons[cat].push({ id: w.id, name: w.name || mw?.name, tier: w.tier || mw?.tier || 'T4', level: w.level || 'Lv 1', count: 1 });
-        slot.weapons[hardpointIndex] = null;
-        saveState();
-        if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
-      }
+      slot.weapons[hardpointIndex] = null;
+      saveState();
+      if (typeof renderHangar === 'function') renderHangar(hangarKey, 'hangar-active-grid');
+      if (typeof renderAll === 'function') renderAll();
     };
 
     window.unequipRobot = function(hangarKey, slotIndex) {
@@ -2293,18 +2234,10 @@ window.openAddCatalogModal = function(type) {
     window.unequipTitanWeapon = function(hangarKey, hardpointIndex) {
       const h = AppState.hangars[hangarKey];
       if (!h || !h.titanSlot || !h.titanSlot.weapons) return;
-      const w = h.titanSlot.weapons[hardpointIndex];
-      if (w && w.id) {
-        const cat = w.size.toLowerCase();
-        if (!AppState.reserveWeapons) AppState.reserveWeapons = { heavy: [], medium: [], light: [], alpha: [], beta: [] };
-        if (!AppState.reserveWeapons[cat]) AppState.reserveWeapons[cat] = [];
-        const ex = AppState.reserveWeapons[cat].find(item => item.id === w.id && item.level === w.level);
-        if (ex) ex.count++;
-        else AppState.reserveWeapons[cat].push({ id: w.id, name: w.name, tier: w.tier, level: w.level, count: 1 });
-        h.titanSlot.weapons[hardpointIndex] = null;
-        saveState();
-        if (typeof renderPersonalStorage === 'function') renderPersonalStorage();
-      }
+      h.titanSlot.weapons[hardpointIndex] = null;
+      saveState();
+      if (typeof renderHangar === 'function') renderHangar(hangarKey, 'hangar-active-grid');
+      if (typeof renderAll === 'function') renderAll();
     };
 
     window.deployRobotDirectly = function(storageIndex) {

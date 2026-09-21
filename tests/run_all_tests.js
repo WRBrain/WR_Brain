@@ -188,39 +188,37 @@ assert(allSpecsInitialized, "Every robot across all 5 hangars has valid WR 10.5.
 // =============================================================================
 // SUITE 3: WEAPON EQUIPPING & ARMORY WORKFLOWS
 // =============================================================================
-console.log("\n🔫 SUITE 3: Weapon Equipping, Storage Transfers & Level Multipliers");
+console.log("\n🔫 SUITE 3: Weapon Equipping, Armory Direct Selection & DPS Multipliers");
 
 const testSlot = AppState.hangars.hangar1.slots[0]; // Nuo
 const initialHeavy = testSlot.weapons[0].id;
 
 // Test 3.1: Equip directly from Armory Catalog
 window.openWeaponConfigModal('hangar1', 0, 0, false);
-window.equipWeaponDirect('subduer', 'MK2 Lv1', false);
+window.equipWeaponDirect('subduer', 'MK2 Lv1');
 assert(testSlot.weapons[0].id === 'subduer' && testSlot.weapons[0].level === 'MK2 Lv1',
   "Equipped Subduer (Heavy) directly from Armory Catalog to Nuo heavy mount");
 
 // Test 3.2: Equip to Medium Hardpoint
 window.openWeaponConfigModal('hangar1', 0, 1, false);
-window.equipWeaponDirect('hazard', 'MK3', false);
+window.equipWeaponDirect('hazard', 'MK3');
 assert(testSlot.weapons[1].id === 'hazard' && testSlot.weapons[1].level === 'MK3',
   "Equipped Hazard (Medium) to Nuo medium mount #1");
 
-// Test 3.3: Storage inventory roundtrip
-AppState.reserveWeapons.heavy.push({ id: 'reaper', name: 'Reaper', tier: 'T4', level: 'Lv 1', count: 1 });
-const prevCount = AppState.reserveWeapons.heavy.length;
+// Test 3.3: Direct Weapon Selection & DPS Calculation
 window.openWeaponConfigModal('hangar1', 0, 0, false);
-window.equipWeaponDirect('reaper', 'Lv 1', true);
-assert(testSlot.weapons[0].id === 'reaper', "Equipped Reaper from reserve storage to Nuo");
+window.equipWeaponDirect('reaper', 'Lv 1');
+assert(testSlot.weapons[0].id === 'reaper' && testSlot.weapons[0].level === 'Lv 1', 
+  "Equipped Reaper directly to test sniper DPS loadout on Nuo");
 
-// Test 3.4: Unequip weapon
+// Test 3.4: Unequip weapon directly
 window.unequipWeapon('hangar1', 0, 0);
-assert(testSlot.weapons[0] === null, "Unequipped Reaper from Nuo slot (slot is now null/empty)");
-const returnedToStorage = AppState.reserveWeapons.heavy.find(w => w.id === 'reaper');
-assert(returnedToStorage && returnedToStorage.count >= 1, "Unequipped Reaper safely returned to Reserve Inventory");
+assert(testSlot.weapons[0] === null, "Unequipped weapon directly from Nuo slot (hardpoint is now null/empty)");
 
-// Restore Nuo original Heavy weapon
+// Test 3.5: Re-equip from empty hardpoint
 window.openWeaponConfigModal('hangar1', 0, 0, false);
-window.equipWeaponDirect('ardent_hwangje', 'Lv 1', false);
+window.equipWeaponDirect('ardent_hwangje', 'Lv 1');
+assert(testSlot.weapons[0].id === 'ardent_hwangje', "Re-equipped Ardent Hwangje directly to empty Nuo mount");
 
 
 // =============================================================================
