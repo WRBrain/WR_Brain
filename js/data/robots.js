@@ -1698,8 +1698,8 @@ const MASTER_ROBOTS = [
     "name": "Nuo",
     "tier": "T4",
     "role": "Support / Energy Sniper",
-    "hp": 118000,
-    "speed": 56,
+    "hp": 95000,
+    "speed": 58,
     "hardpoints": [
       {
         "size": "Heavy"

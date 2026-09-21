@@ -16,18 +16,18 @@ function getLevelMultiplier(levelStr, type = 'bot_or_weapon') {
   if (!levelStr) return 1.0;
   
   if (type === 'bot_or_weapon') {
-    if (levelStr === 'MK3' || levelStr === 'MK3 Lv 1') return 3.90;
+    if (levelStr === 'MK3' || levelStr === 'MK3 Lv 1') return 2.48;
     
     if (levelStr.startsWith('MK2')) {
       const parts = levelStr.replace('MK2', '').trim().replace('Lv', '').trim();
       const mk2Lvl = Math.max(1, Math.min(12, parseInt(parts) || 1));
-      const mk1Max = 2.62;
-      const mk2Bonus = 0.20 + ((mk2Lvl - 1) * 0.02);
+      const mk1Max = 1.968;
+      const mk2Bonus = ((mk2Lvl - 1) / 11) * 0.20;
       return mk1Max * (1 + mk2Bonus);
     }
     
     const lvlNum = Math.max(1, Math.min(12, parseInt(levelStr.replace('Lv', '').trim()) || 1));
-    return Math.pow(1.092, lvlNum - 1);
+    return 1.0 + (lvlNum - 1) * 0.088;
   }
   
   if (type === 'titan') {
